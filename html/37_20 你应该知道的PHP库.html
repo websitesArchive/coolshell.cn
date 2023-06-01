@@ -1,0 +1,659 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/200.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="20 你应该知道的PHP库 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/200.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2009/03/021151lephpant-e_png.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2009/03/021151lephpant-e_png.jpg" property="og:image:secure_url"/>
+   <meta content="200" property="og:image:width"/>
+   <meta content="128" property="og:image:height"/>
+   <meta content="2009-03-18T13:01:08+00:00" property="article:published_time"/>
+   <meta content="2009-03-18T13:01:08+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="20 你应该知道的PHP库 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2009/03/021151lephpant-e_png.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/200.html#article","name":"20 \u4f60\u5e94\u8be5\u77e5\u9053\u7684PHP\u5e93 | \u9177 \u58f3 - CoolShell","headline":"20 \u4f60\u5e94\u8be5\u77e5\u9053\u7684PHP\u5e93","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2009\/03\/021151lephpant-e_png.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":200,"height":128},"datePublished":"2009-03-18T13:01:08+08:00","dateModified":"2009-03-18T13:01:08+08:00","inLanguage":"zh-CN","commentCount":59,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/200.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/200.html#webpage"},"articleSection":"PHP\u811a\u672c, Web\u5f00\u53d1, \u6742\u9879\u8d44\u6e90, \u7f16\u7a0b\u8bed\u8a00, PHP"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/200.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/200.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/200.html#webpage","url":"https:\/\/coolshell.cn\/articles\/200.html","name":"20 \u4f60\u5e94\u8be5\u77e5\u9053\u7684PHP\u5e93 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/200.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2009-03-18T13:01:08+08:00","dateModified":"2009-03-18T13:01:08+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '200';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '20+%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84PHP%E5%BA%93';
+	window._wp_rp_post_tags = ['php', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', 'php%E8%84%9A%E6%9C%AC', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'web%E5%BC%80%E5%8F%91', 'php', 'payment', '20', 'mailer', 'abstract', 'a', 'librari', 'databas', 'excel', 'paypal', 'reader', 'layer', 'flash', 'chart', 'relat'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/200.html/feed" rel="alternate" title="酷 壳 - CoolShell » 20 你应该知道的PHP库评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/200" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=200" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F200.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F200.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-200 post type-post status-publish format-standard hentry category-phpdev category-webdev category-misc category-proglanguage tag-php" id="post-200">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     20 你应该知道的PHP库
+    </span>
+    <h1 class="entry-title">
+     20 你应该知道的PHP库
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/200.html" rel="bookmark" title="21:01">
+       <time class="entry-date" datetime="2009-03-18T21:01:08+08:00" pubdate="">
+        2009年03月18日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/200.html#comments">
+       59 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      21,363 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+    </p>
+    <p class="entry">
+     下面是一些非常有用的PHP类库，相信一定可以为你的WEB开发提供更好和更为快速的方法。
+    </p>
+    <h3 class="entry">
+     图表库
+     <a href="https://coolshell.cn/wp-content/uploads/2009/03/021151lephpant-e_png.jpg">
+      <img alt="021151lephpant-e_png" class="alignright size-full wp-image-201" decoding="async" height="128" src="https://coolshell.cn/wp-content/uploads/2009/03/021151lephpant-e_png.jpg" title="021151lephpant-e_png" width="200"/>
+     </a>
+    </h3>
+    <p class="entry">
+     下面的类库可以让你很简的创建复杂的图表和图片。当然，它们需要GD库的支持。
+    </p>
+    <div class="entry">
+     <ol>
+      <li>
+       <a href="http://pchart.sourceforge.net/" target="_blank" title="pChart">
+        pChart
+       </a>
+       – 一个可以创建统计图的库。
+      </li>
+      <li>
+       <a href="http://naku.dohcrew.com/libchart/pages/introduction/" target="_blank" title="Libchart">
+        Libchart
+       </a>
+       – 这也是一个简单的统计图库。
+      </li>
+      <li>
+       <a href="http://www.aditus.nu/jpgraph/" target="_blank" title="JpGraph">
+        JpGraph
+       </a>
+       – 一个面向对象的图片创建类。
+      </li>
+      <li>
+       <a href="http://teethgrinder.co.uk/open-flash-chart/" target="_blank" title="Open Flash Chart">
+        Open Flash Chart
+       </a>
+       – 这是一个基于Flash的统计图。
+      </li>
+     </ol>
+    </div>
+    <p>
+     <span id="more-200">
+     </span>
+    </p>
+    <h3>
+     RSS 解析
+    </h3>
+    <p>
+     解释RSS并是一件很单调的事情，不过幸好你有下面的类库可以帮助你方便地读取RSS的Feed。
+    </p>
+    <ol>
+     <li>
+      <a href="http://magpierss.sourceforge.net/" target="_blank" title="MagpieRSS">
+       MagpieRSS
+      </a>
+      – 开源的PHP版RSS解析器，据说功能强大，未验证。
+     </li>
+     <li>
+      <a href="http://simplepie.org/" target="_blank" title="SimplePie">
+       SimplePie
+      </a>
+      – 这是一个非常快速，而且易用的RSS和Atom 解析库。
+     </li>
+    </ol>
+    <h3>
+     缩略图生成
+    </h3>
+    <ol>
+     <li>
+      <a href="http://phpthumb.sourceforge.net/" target="_blank" title=" phpThumb">
+       phpThumb
+      </a>
+      – 功能很强大，如何强大还是自己去体会吧。
+     </li>
+    </ol>
+    <h3>
+     支付
+    </h3>
+    <p>
+     你的网站需要处理支付方面的事情？需要一个和支付网关的程序？下面这个程序可以帮到你。
+    </p>
+    <ol>
+     <li>
+      <a href="http://www.phpfour.com/blog/2009/02/php-payment-gateway-library-for-paypal-authorizenet-and-2checkout/" target="_blank" title="PHP Payment Library">
+       PHP Payment Library
+      </a>
+      – 支持Paypal, Authorize.net 和2Checkout (2CO)
+     </li>
+    </ol>
+    <h3>
+     OpenID
+    </h3>
+    <ol>
+     <li>
+      <a href="http://www.openidenabled.com/php-openid/" target="_blank" title="PHP-OpenID">
+       PHP-OpenID
+      </a>
+      – 支持OpenID的一个PHP库。OpenID是帮助你使用相同的用户名和口令登录不同的网站的一种解决方案。如果你对OpenID不熟悉的话，你可以到这里看看：
+      <a href="http://openid.net.cn/">
+       http://openid.net.cn/
+      </a>
+     </li>
+    </ol>
+    <h3>
+     数据为抽象/对象关系映射ORM
+    </h3>
+    <ol>
+     <li>
+      <a href="http://adodb.sourceforge.net/" target="_blank" title="ADOdb">
+       ADOdb
+      </a>
+      – 数据库抽象
+     </li>
+     <li>
+      <a href="http://www.doctrine-project.org/" target="_blank" title="Doctrine">
+       Doctrine
+      </a>
+      – 对象关系映射Object relational mapper (ORM) ，需要 PHP 5.2.3+ 版本，一个非常强大的database abstraction layer (DBAL).
+     </li>
+     <li>
+      <a href="http://propel.phpdb.org/trac/" target="_blank" title="Propel">
+       Propel
+      </a>
+      – 对象关系映射框架- PHP5
+     </li>
+     <li>
+      <a href="http://www.outlet-orm.org/site/" target="_blank" title="Outlet">
+       Outlet
+      </a>
+      – 也是关于对象关系映射的一个工具。
+     </li>
+    </ol>
+    <p>
+     注：对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将程序中的对象自动持久化到关系数据库中。本质上就是将数据从一种形式转换到另外一种形式。 这也同时暗示者额外的执行开销；然而，如果ORM作为一种中间件实现，则会有很多机会做优化，而这些在手写的持久层并不存在。 更重要的是用于控制转换的元数据需要提供和管理；但是同样，这些花费要比维护手写的方案要少；而且就算是遵守ODMG规范的对象数据库依然需要类级别的元数据。
+    </p>
+    <h3>
+     PDF 生成器
+    </h3>
+    <ol>
+     <li>
+      <a href="http://www.fpdf.org/" target="_blank" title="FPDF">
+       FPDF
+      </a>
+      – 这量一个可以让你生成PDF的纯PHP类库。
+     </li>
+    </ol>
+    <h3>
+     Excel 相关
+    </h3>
+    <p>
+     你的站点需要生成Excel？没有问题，下面这两个类库可以让你轻松做到这一点。
+    </p>
+    <div id="psum">
+     <ol>
+      <li>
+       <a href="https://code.google.com/p/php-excel/" target="_blank" title="php-excel">
+        php-excel
+       </a>
+       – 这是一个非常简单的Excel文件生成类。
+      </li>
+      <li>
+       <a href="https://code.google.com/p/php-excel-reader/" target="_blank" title="PHP Excel Reader">
+        PHP Excel Reader
+       </a>
+       – 可以解析并读取XLS文件中的数据。
+      </li>
+     </ol>
+    </div>
+    <h3 id="psum">
+     E-Mail 相关
+    </h3>
+    <p>
+     不喜欢PHP的mail函数？觉得不够强大？下面的PHP邮件相关的库绝对不会让你失望。
+    </p>
+    <div>
+     <ol>
+      <li>
+       <a href="http://swiftmailer.org/" target="_blank" title="Swift Mailer">
+        Swift Mailer
+       </a>
+       – 免费的超多功能的PHP邮件库。
+      </li>
+      <li>
+       <a href="http://phpmailer.codeworxtech.com/" target="_blank" title="PHPMailer">
+        PHPMailer
+       </a>
+       – 超强大的邮件发送类。
+      </li>
+     </ol>
+     <h3>
+      单元测试
+     </h3>
+     <p>
+      如果你在使用测试驱动的方法开发你的程序，下面的类库和框架绝你能帮助你的开发。
+     </p>
+    </div>
+    <ol>
+     <li>
+      <a href="http://www.simpletest.org/" target="_blank" title="SimpleTest">
+       SimpleTest
+      </a>
+      – 一个PHP的单元测试和网页测试的框架。
+     </li>
+     <li>
+      <a href="https://www.phpunit.de/" target="_blank" title="PHPUnit">
+       PHPUnit
+      </a>
+      – 来自xUnit 家族，提供一个框架可以让你方便地进行单元测试的案例开发。并可非常容易地分析其测试结果。
+     </li>
+    </ol>
+    <p>
+     文章：
+     <a href="http://komunitasweb.com/2009/03/20-great-php-library-you-need-to-know/" target="_blank">
+      来源
+     </a>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7886.html">
+         <img alt="代码执行的效率" height="150" src="https://coolshell.cn/wp-content/uploads/2012/07/muxnt-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7886.html">
+         代码执行的效率
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5224.html">
+         <img alt="一些文章和各种资源" height="150" src="https://coolshell.cn/wp-content/uploads/2011/09/image008-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5224.html">
+         一些文章和各种资源
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5160.html">
+         <img alt="PHP分页技术的代码和示例" height="150" src="https://coolshell.cn/wp-content/uploads/2011/08/Pagination-e1312791884744-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5160.html">
+         PHP分页技术的代码和示例
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4795.html">
+         <img alt="开源中最好的Web开发的资源" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/7.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4795.html">
+         开源中最好的Web开发的资源
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3684.html">
+         <img alt="Web开发人员速查卡" height="150" src="https://coolshell.cn/wp-content/uploads/2011/02/1128-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3684.html">
+         Web开发人员速查卡
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2394.html">
+         <img alt="九个PHP很有用的功能" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/1.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2394.html">
+         九个PHP很有用的功能
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="bc7ac6b0ae" id="post-ratings-200" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_200_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(200, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_200_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(200, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_200_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(200, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_200_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(200, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_200_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(200, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      9
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.33
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_200_text">
+     </span>
+     <meta content="20 你应该知道的PHP库" itemprop="name"/>
+     <meta content="20 你应该知道的PHP库" itemprop="headline"/>
+     <meta content="下面是一些非常有用的PHP类库，相信一定可以为你的WEB开发提供更好和更为快速的方法。
+
+图表库
+下面的类库可以让你很简的创建复杂的图表和图片。当然，它们需要GD库的支持。
+
+
+
+	pChart - 一个可以创建统计图的库。
+	Libchart - 这也是一个简单的统计图库。
+	JpGraph - 一个面向对象的图片创建类。
+	Open Flash Chart - 这是一个基于..." itemprop="description"/>
+     <meta content="2009-03-18T21:01:08+08:00" itemprop="datePublished"/>
+     <meta content="2009-03-18T21:01:08+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/200.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/200.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.33" itemprop="ratingValue"/>
+      <meta content="9" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-200-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/phpdev" rel="category tag">
+        PHP脚本
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage/webdev" rel="category tag">
+        Web开发
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/php" rel="tag">
+        PHP
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

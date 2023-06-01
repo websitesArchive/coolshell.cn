@@ -1,0 +1,1445 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/21615.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="Go编程模式 ： 泛型编程 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/21615.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2021/09/go-generics.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2021/09/go-generics.png" property="og:image:secure_url"/>
+   <meta content="1200" property="og:image:width"/>
+   <meta content="600" property="og:image:height"/>
+   <meta content="2021-09-04T05:44:02+00:00" property="article:published_time"/>
+   <meta content="2021-09-04T05:44:02+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Go编程模式 ： 泛型编程 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2021/09/go-generics.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/21615.html#article","name":"Go\u7f16\u7a0b\u6a21\u5f0f \uff1a \u6cdb\u578b\u7f16\u7a0b | \u9177 \u58f3 - CoolShell","headline":"Go\u7f16\u7a0b\u6a21\u5f0f \uff1a \u6cdb\u578b\u7f16\u7a0b","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2021\/09\/go-generics.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":1200,"height":600},"datePublished":"2021-09-04T05:44:02+08:00","dateModified":"2021-09-04T05:44:02+08:00","inLanguage":"zh-CN","commentCount":14,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/21615.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/21615.html#webpage"},"articleSection":"Go \u8bed\u8a00, \u7f16\u7a0b\u8bed\u8a00, generics, Go, golang, MapReduce, \u6cdb\u578b, Go\u7f16\u7a0b\u6a21\u5f0f"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/21615.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/21615.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/21615.html#webpage","url":"https:\/\/coolshell.cn\/articles\/21615.html","name":"Go\u7f16\u7a0b\u6a21\u5f0f \uff1a \u6cdb\u578b\u7f16\u7a0b | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/21615.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2021-09-04T05:44:02+08:00","dateModified":"2021-09-04T05:44:02+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '21615';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Go%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F+%EF%BC%9A+%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B';
+	window._wp_rp_post_tags = ['go', 'mapreduce', 'generics', 'golang', '%E6%B3%9B%E5%9E%8B', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'go+%E8%AF%AD%E8%A8%80', 'rang', 'li', 'compar', 'int', 'gener', 'return', 'main', '114', 'stack', 'world', 'dec', 'run', 'alt'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/21615.html/feed" rel="alternate" title="酷 壳 - CoolShell » Go编程模式 ： 泛型编程评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/21615" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=21615" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21615.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21615.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-21615 post type-post status-publish format-standard hentry category-go- category-proglanguage tag-generics tag-go tag-golang tag-mapreduce tag-870 series-go" id="post-21615">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Go编程模式 ： 泛型编程
+    </span>
+    <h1 class="entry-title">
+     Go编程模式 ： 泛型编程
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/21615.html" rel="bookmark" title="13:44">
+       <time class="entry-date" datetime="2021-09-04T13:44:02+08:00" pubdate="">
+        2021年09月04日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/21615.html#comments">
+       14 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      60,630 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright wp-image-21627" decoding="async" height="203" sizes="(max-width: 406px) 100vw, 406px" src="https://coolshell.cn/wp-content/uploads/2021/09/go-generics-1024x512.png" srcset="https://coolshell.cn/wp-content/uploads/2021/09/go-generics-1024x512.png 1024w, https://coolshell.cn/wp-content/uploads/2021/09/go-generics-300x150.png 300w, https://coolshell.cn/wp-content/uploads/2021/09/go-generics-768x384.png 768w, https://coolshell.cn/wp-content/uploads/2021/09/go-generics-540x270.png 540w, https://coolshell.cn/wp-content/uploads/2021/09/go-generics.png 1200w" width="406"/>
+     Go语言的1.17版本发布了，其中开始正式支持泛型了。虽然还有一些限制（比如，不能把泛型函数export），但是，可以体验了。我的这个《Go编程模式》的系列终于有了真正的泛型编程了，再也不需要使用反射或是go generation这些难用的技术了。周末的时候，我把Go 1.17下载下来，然后，体验了一下泛型编程，还是很不错的。下面，就让我们来看一下Go的泛型编程。（注：不过，如果你对泛型编程的重要性还不是很了解的话，你可以先看一下之前的这篇文章《
+     <a href="https://coolshell.cn/articles/21179.html" rel="noopener" target="_blank" title="Go 编程模式：Go Generation">
+      Go编程模式：Go Generation
+     </a>
+     》，然后再读一下《
+     <a href="https://coolshell.cn/articles/21164.html" rel="noopener" target="_blank" title="Go编程模式：Map-Reduce">
+      Go编程模式：MapReduce
+     </a>
+     》）
+    </p>
+    <section class="post-series">
+     <h3 class="post-series-title">
+      本文是全系列中第10 / 10篇：
+      <a href="https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f">
+       Go编程模式
+      </a>
+     </h3>
+     <ul class="post-series-list">
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21128.html">
+         Go编程模式：切片，接口，时间和性能
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21140.html">
+         Go 编程模式：错误处理
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21146.html">
+         Go 编程模式：Functional Options
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21214.html">
+         Go编程模式：委托和反转控制
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21164.html">
+         Go编程模式：Map-Reduce
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21179.html">
+         Go 编程模式：Go Generation
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/17929.html">
+         Go编程模式：修饰器
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21228.html">
+         Go编程模式：Pipeline
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21263.html">
+         Go 编程模式：k8s Visitor 模式
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item-current post-series-item">
+       <span class="post-series-item-title">
+        Go编程模式 ： 泛型编程
+       </span>
+      </li>
+     </ul>
+     <nav class="post-series-nav">
+      <span class="post-series-nav-prev">
+       «
+       <a href="https://coolshell.cn/articles/21263.html" rel="prev" title="Go 编程模式：k8s Visitor 模式">
+        上一篇文章
+       </a>
+      </span>
+     </nav>
+    </section>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E5%88%9D%E6%8E%A2" title="初探">
+         初探
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构">
+         数据结构
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-3" href="#Stack_%E6%A0%88" title="Stack 栈">
+           Stack 栈
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-4" href="#LinkList_%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8" title="LinkList 双向链表">
+           LinkList 双向链表
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E8%8C%83%E5%9E%8B" title="函数式范型">
+         函数式范型
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-6" href="#%E6%B3%9B%E5%9E%8BMap" title="泛型Map">
+           泛型Map
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#%E6%B3%9B%E5%9E%8B_Reduce" title="泛型 Reduce">
+           泛型 Reduce
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-8" href="#%E6%B3%9B%E5%9E%8B_filter" title="泛型 filter">
+           泛型 filter
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-9" href="#%E4%B8%9A%E5%8A%A1%E7%A4%BA%E4%BE%8B" title="业务示例">
+         业务示例
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E5%88%9D%E6%8E%A2">
+     </span>
+     初探
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我们先来看一个简单的示例：
+    </p>
+    <p>
+     <span id="more-21615">
+     </span>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">package main
+
+import "fmt"
+
+func print[T any] (arr []T) {
+  for _, v := range arr {
+    fmt.Print(v)
+    fmt.Print(" ")
+  }
+  fmt.Println("")
+}
+
+func main() {
+  strs := []string{"Hello", "World",  "Generics"}
+  decs := []float64{3.14, 1.14, 1.618, 2.718 }
+  nums := []int{2,4,6,8}
+
+  print(strs)
+  print(decs)
+  print(nums)
+}</pre>
+    <p>
+     上面这个例子中，有一个
+     <code>
+      print()
+     </code>
+     函数，这个函数就是想输出数组的值，如果没有泛型的话，这个函数需要写出
+     <code>
+      int
+     </code>
+     版，
+     <code>
+      float
+     </code>
+     版，
+     <code>
+      string
+     </code>
+     版，以及我们的自定义类型（
+     <code>
+      struct
+     </code>
+     ）的版本。现在好了，有了泛型的支持后，我们可以使用
+     <code>
+      [T any]
+     </code>
+     这样的方式来声明一个泛型类型（有点像C++的
+     <code>
+      typename T
+     </code>
+     ），然后面都使用
+     <code>
+      T
+     </code>
+     来声明变量就好。
+    </p>
+    <p>
+     上面这个示例中，我们泛型的
+     <code>
+      print()
+     </code>
+     支持了三种类型的适配——
+     <code>
+      int
+     </code>
+     型，
+     <code>
+      float64
+     </code>
+     型，和
+     <code>
+      string
+     </code>
+     型。要让这段程序跑起来需要在编译行上加上
+     <code>
+      -gcflags=-G=3
+     </code>
+     编译参数（这个编译参数会在1.18版上成为默认参数），如下所示：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ go run -gcflags=-G=3 ./main.go</pre>
+    <p>
+     有了个操作以后，我们就可以写一些标准的算法了，比如，一个查找的算法
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func find[T comparable] (arr []T, elem T) int {
+  for i, v := range arr {
+    if  v == elem {
+      return i
+    }
+  }
+  return -1
+}</pre>
+    <p>
+     我们注意到，我们没有使用
+     <code>
+      [T any]
+     </code>
+     的形式，而是使用
+     <code>
+      [T comparable]
+     </code>
+     的形式，
+     <code>
+      comparable
+     </code>
+     是一个接口类型，其约束了我们的类型需要支持
+     <code>
+      ==
+     </code>
+     的操作， 不然就会有类型不对的编译错误。上面的这个
+     <code>
+      find()
+     </code>
+     函数同样可以使用于
+     <code>
+      int
+     </code>
+     ,
+     <code>
+      float64
+     </code>
+     或是
+     <code>
+      string
+     </code>
+     类型。
+    </p>
+    <p>
+     从上面的这两个小程序来看，Go语言的泛型已基本可用了，只不过，还有三个问题：
+    </p>
+    <ul>
+     <li>
+      一个是
+      <code>
+       fmt.Printf()
+      </code>
+      中的泛型类型是
+      <code>
+       %v
+      </code>
+      还不够好，不能像c++
+      <code>
+       iostream
+      </code>
+      重载
+      <code>
+       &gt;&gt;
+      </code>
+      来获得程序自定义的输出。
+     </li>
+     <li>
+      另外一个是，go不支持操作符重载，所以，你也很难在泛型算法中使用“泛型操作符”如：
+      <code>
+       ==
+      </code>
+      等
+     </li>
+     <li>
+      最后一个是，上面的
+      <code>
+       find()
+      </code>
+      算法依赖于“数组”，对于hash-table、tree、graph、link等数据结构还要重写。也就是说，没有一个像C++ STL那样的一个泛型迭代器（这其中的一部分工作当然也需要通过重载操作符（如：
+      <code>
+       ++
+      </code>
+      来实现）
+     </li>
+    </ul>
+    <p>
+     不过，这个已经很好了，让我们来看一下，可以干哪些事了。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
+     </span>
+     数据结构
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <h5>
+     <span class="ez-toc-section" id="Stack_%E6%A0%88">
+     </span>
+     Stack 栈
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     编程支持泛型最大的优势就是可以实现类型无关的数据结构了。下面，我们用Slices这个结构体来实现一个Stack的数结构。
+    </p>
+    <p>
+     首先，我们可以定义一个泛型的Stack
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type stack [T any] []T</pre>
+    <p>
+     看上去很简单，还是
+     <code>
+      [T any]
+     </code>
+     ，然后
+     <code>
+      []T
+     </code>
+     就是一个数组，接下来就是实现这个数据结构的各种方法了。下面的代码实现了
+     <code>
+      push()
+     </code>
+     ，
+     <code>
+      pop()
+     </code>
+     ，
+     <code>
+      top()
+     </code>
+     ，
+     <code>
+      len()
+     </code>
+     ，
+     <code>
+      print()
+     </code>
+     这几个方法，这几个方法和 C++的STL中的 Stack很类似。（注：目前Go的泛型函数不支持 export，所以只能使用第一个字符是小写的函数名）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func (s *stack[T]) push(elem T) {
+  *s = append(*s, elem)
+}
+
+func (s *stack[T]) pop() {
+  if len(*s) &gt; 0 {
+    *s = (*s)[:len(*s)-1]
+  } 
+}
+func (s *stack[T]) top() *T{
+  if len(*s) &gt; 0 {
+    return &amp;(*s)[len(*s)-1]
+  } 
+  return nil
+}
+
+func (s *stack[T]) len() int{
+  return len(*s)
+}
+
+func (s *stack[T]) print() {
+  for _, elem := range *s {
+    fmt.Print(elem)
+    fmt.Print(" ")
+  }
+  fmt.Println("")
+}</pre>
+    <p>
+     上面的这个例子还是比较简单的，不过在实现的过程中，对于一个如果栈为空，那么
+     <code>
+      top()
+     </code>
+     要么返回
+     <code>
+      error
+     </code>
+     要么返回空值，在这个地方卡了一下。因为，之前，我们返回的“空”值，要么是 int 的
+     <code>
+      0
+     </code>
+     ，要么是 string 的
+     <code>
+      “”
+     </code>
+     ，然而在泛型的
+     <code>
+      T
+     </code>
+     下，这个值就不容易搞了。也就是说，除了类型泛型后，还需要有一些“值的泛型”（注：在C++中，如果你要用一个空栈进行
+     <code>
+      top()
+     </code>
+     操作，你会得到一个 segmentation fault），所以，这里我们返回的是一个指针，这样可以判断一下指针是否为空。
+    </p>
+    <p>
+     下面是如何使用这个stack的代码。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func main() {
+
+  ss := stack[string]{}
+  ss.push("Hello")
+  ss.push("Hao")
+  ss.push("Chen")
+  ss.print()
+  fmt.Printf("stack top is - %v\n", *(ss.top()))
+  ss.pop()
+  ss.pop()
+  ss.print()
+
+  
+  ns := stack[int]{}
+  ns.push(10)
+  ns.push(20)
+  ns.print()
+  ns.pop()
+  ns.print()
+  *ns.top() += 1
+  ns.print()
+  ns.pop()
+  fmt.Printf("stack top is - %v\n", ns.top())
+
+}</pre>
+    <p>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="LinkList_%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8">
+     </span>
+     LinkList 双向链表
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     下面我们再来看一个双向链表的实现。下面这个实现中实现了 这几个方法：
+    </p>
+    <ul>
+     <li>
+      <code>
+       add()
+      </code>
+      – 从头插入一个数据结点
+     </li>
+     <li>
+      <code>
+       push()
+      </code>
+      – 从尾插入一个数据结点
+     </li>
+     <li>
+      <code>
+       del()
+      </code>
+      – 删除一个结点（因为需要比较，所以使用了
+      <code>
+       compareable
+      </code>
+      的泛型）
+     </li>
+     <li>
+      <code>
+       print()
+      </code>
+      – 从头遍历一个链表，并输出值。
+     </li>
+    </ul>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type node[T comparable] struct {
+  data T
+  prev *node[T]
+  next *node[T]
+}
+
+type list[T comparable] struct {
+  head, tail *node[T]
+  len int
+}
+
+func (l *list[T]) isEmpty() bool {
+  return l.head == nil &amp;&amp; l.tail == nil
+}
+
+func (l *list[T]) add(data T) {
+  n := &amp;node[T] {
+    data : data,
+    prev : nil,
+    next : l.head,
+  }
+  if l.isEmpty() {
+    l.head = n
+    l.tail = n
+  }
+  l.head.prev = n
+  l.head = n
+}
+
+func (l *list[T]) push(data T) { 
+  n := &amp;node[T] {
+    data : data,
+    prev : l.tail,
+    next : nil,
+  }
+  if l.isEmpty() {
+    l.head = n
+    l.tail = n
+  }
+  l.tail.next = n
+  l.tail = n
+}
+
+func (l *list[T]) del(data T) { 
+  for p := l.head; p != nil; p = p.next {
+    if data == p.data {
+      
+      if p == l.head {
+        l.head = p.next
+      }
+      if p == l.tail {
+        l.tail = p.prev
+      }
+      if p.prev != nil {
+        p.prev.next = p.next
+      }
+      if p.next != nil {
+        p.next.prev = p.prev
+      }
+      return 
+    }
+  } 
+}
+
+func (l *list[T]) print() {
+  if l.isEmpty() {
+    fmt.Println("the link list is empty.")
+    return 
+  }
+  for p := l.head; p != nil; p = p.next {
+    fmt.Printf("[%v] -&gt; ", p.data)
+  }
+  fmt.Println("nil")
+}</pre>
+    <p>
+     上面这个代码都是一些比较常规的链表操作，学过链表数据结构的同学应该都不陌生，使用的代码也不难，如下所示，都很简单，看代码就好了。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func main(){
+  var l = list[int]{}
+  l.add(1)
+  l.add(2)
+  l.push(3)
+  l.push(4)
+  l.add(5)
+  l.print() //[5] -&gt; [2] -&gt; [1] -&gt; [3] -&gt; [4] -&gt; nil
+  l.del(5)
+  l.del(1)
+  l.del(4)
+  l.print() //[2] -&gt; [3] -&gt; nil
+  
+}</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%87%BD%E6%95%B0%E5%BC%8F%E8%8C%83%E5%9E%8B">
+     </span>
+     函数式范型
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     接下来，我们就要来看一下我们函数式编程的三大件
+     <code>
+      map()
+     </code>
+     、
+     <code>
+      reduce()
+     </code>
+     和
+     <code>
+      filter()
+     </code>
+     在之前的《
+     <a href="https://coolshell.cn/articles/21164.html" rel="noopener" target="_blank" title="Go编程模式：Map-Reduce">
+      Go编程模式：Map-Reduce
+     </a>
+     》文章中，我们可以看到要实现这样的泛型，需要用到反射，代码复杂到完全读不懂。下面来看一下真正的泛型版本。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E6%B3%9B%E5%9E%8BMap">
+     </span>
+     泛型Map
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func gMap[T1 any, T2 any] (arr []T1, f func(T1) T2) []T2 {
+  result := make([]T2, len(arr))
+  for i, elem := range arr {
+    result[i] = f(elem)
+  }
+  return result
+}</pre>
+    <p>
+     在上面的这个 map函数中我使用了两个类型 –
+     <code>
+      T1
+     </code>
+     和
+     <code>
+      T2
+     </code>
+     ，
+    </p>
+    <ul>
+     <li>
+      <code>
+       T1
+      </code>
+      – 是需要处理数据的类型
+     </li>
+     <li>
+      <code>
+       T2
+      </code>
+      – 是处理后的数据类型
+     </li>
+    </ul>
+    <p>
+     <code>
+      T1
+     </code>
+     和
+     <code>
+      T2
+     </code>
+     可以一样，也可以不一样。
+    </p>
+    <p>
+     我们还有一个函数参数 –
+     <code>
+      func(T1) T2
+     </code>
+     意味着，进入的是
+     <code>
+      T1
+     </code>
+     类型的，出来的是
+     <code>
+      T2
+     </code>
+     类型的。
+    </p>
+    <p>
+     然后，整个函数返回的是一个
+     <code>
+      []T2
+     </code>
+    </p>
+    <p>
+     好的，我们来看一下怎么使用这个map函数：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">nums := []int {0,1,2,3,4,5,6,7,8,9}
+squares := gMap(nums, func (elem int) int {
+  return elem * elem
+})
+print(squares)  //0 1 4 9 16 25 36 49 64 81 
+
+strs := []string{"Hao", "Chen", "MegaEase"}
+upstrs := gMap(strs, func(s string) string  {
+  return strings.ToUpper(s)
+})
+print(upstrs) // HAO CHEN MEGAEASE 
+
+
+dict := []string{"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"}
+strs =  gMap(nums, func (elem int) string  {
+  return  dict[elem]
+})
+print(strs) // 零 壹 贰 叁 肆 伍 陆 柒 捌 玖</pre>
+    <h5>
+     <span class="ez-toc-section" id="%E6%B3%9B%E5%9E%8B_Reduce">
+     </span>
+     泛型 Reduce
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     接下来，我们再来看一下我们的Reduce函数，reduce函数是把一堆数据合成一个。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func gReduce[T1 any, T2 any] (arr []T1, init T2, f func(T2, T1) T2) T2 {
+  result := init
+  for _, elem := range arr {
+    result = f(result, elem)
+  }
+  return result
+}</pre>
+    <p>
+     函数实现起来很简单，但是感觉不是很优雅。
+    </p>
+    <ul>
+     <li>
+      也是有两个类型
+      <code>
+       T1
+      </code>
+      和
+      <code>
+       T2
+      </code>
+      ，前者是输出数据的类型，后者是佃出数据的类型。
+     </li>
+     <li>
+      因为要合成一个数据，所以需要有这个数据的初始值
+      <code>
+       init
+      </code>
+      ，是
+      <code>
+       T2
+      </code>
+      类型
+     </li>
+     <li>
+      而自定义函数
+      <code>
+       func(T2, T1) T2
+      </code>
+      ，会把这个init值传给用户，然后用户处理完后再返回出来。
+     </li>
+    </ul>
+    <p>
+     下面是一个使用上的示例——求一个数组的和
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">nums := []int {0,1,2,3,4,5,6,7,8,9}
+sum := gReduce(nums, 0, func (result, elem int) int  {
+    return result + elem
+})
+fmt.Printf("Sum = %d \n", sum)</pre>
+    <h5>
+     <span class="ez-toc-section" id="%E6%B3%9B%E5%9E%8B_filter">
+     </span>
+     泛型 filter
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     filter函数主要是用来做过滤的，把数据中一些符合条件（filter in）或是不符合条件（filter out）的数据过滤出来，下面是相关的代码示例
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func gFilter[T any] (arr []T, in bool, f func(T) bool) []T {
+  result := []T{}
+  for _, elem := range arr {
+    choose := f(elem)
+    if (in &amp;&amp; choose) || (!in &amp;&amp; !choose) {
+      result = append(result, elem)
+    }
+  }
+  return result
+}
+
+func gFilterIn[T any] (arr []T, f func(T) bool) []T {
+  return gFilter(arr, true, f)
+}
+
+func gFilterOut[T any] (arr []T, f func(T) bool) []T {
+  return gFilter(arr, false, f)
+}</pre>
+    <p>
+     其中，用户需要提从一个
+     <code>
+      bool
+     </code>
+     的函数，我们会把数据传给用户，然后用户只需要告诉我行还是不行，于是我们就会返回一个过滤好的数组给用户。
+    </p>
+    <p>
+     比如，我们想把数组中所有的奇数过滤出来
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">nums := []int {0,1,2,3,4,5,6,7,8,9}
+odds := gFilterIn(nums, func (elem int) bool  {
+    return elem % 2 == 1
+})
+print(odds)</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%9A%E5%8A%A1%E7%A4%BA%E4%BE%8B">
+     </span>
+     业务示例
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     正如《
+     <a href="https://coolshell.cn/articles/21164.html" rel="noopener" target="_blank" title="Go编程模式：Map-Reduce">
+      Go编程模式：Map-Reduce
+     </a>
+     》中的那个业务示例，我们在这里再做一遍。
+    </p>
+    <p>
+     首先，我们先声明一个员工对象和相关的数据
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type Employee struct {
+  Name     string
+  Age      int
+  Vacation int
+  Salary   float32
+}
+
+var employees = []Employee{
+  {"Hao", 44, 0, 8000.5},
+  {"Bob", 34, 10, 5000.5},
+  {"Alice", 23, 5, 9000.0},
+  {"Jack", 26, 0, 4000.0},
+  {"Tom", 48, 9, 7500.75},
+  {"Marry", 29, 0, 6000.0},
+  {"Mike", 32, 8, 4000.3},
+}</pre>
+    <p>
+     然后，我们想统一下所有员工的薪水，我们就可以使用前面的reduce函数
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">total_pay := gReduce(employees, 0.0, func(result float32, e Employee) float32 {
+  return result + e.Salary
+})
+fmt.Printf("Total Salary: %0.2f\n", total_pay) // Total Salary: 43502.05</pre>
+    <p>
+     我们函数这个
+     <code>
+      gReduce
+     </code>
+     函数有点啰嗦，还需要传一个初始值，在用户自己的函数中，还要关心
+     <code>
+      result
+     </code>
+     我们还是来定义一个更好的版本。
+    </p>
+    <p>
+     一般来说，我们用 reduce 函数大多时候基本上是统计求和或是数个数，所以，是不是我们可以定义的更为直接一些？比如下面的这个
+     <code>
+      CountIf()
+     </code>
+     ，就比上面的 Reduce 干净了很多。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func gCountIf[T any](arr []T, f func(T) bool) int {
+  cnt := 0
+  for _, elem := range arr {
+    if f(elem) {
+      cnt += 1
+    }
+  }
+  return cnt;
+}</pre>
+    <p>
+     我们做求和，我们也可以写一个Sum的泛型。
+    </p>
+    <ul>
+     <li>
+      处理
+      <code>
+       T
+      </code>
+      类型的数据，返回
+      <code>
+       U
+      </code>
+      类型的结果
+     </li>
+     <li>
+      然后，用户只需要给我一个需要统计的
+      <code>
+       T
+      </code>
+      的
+      <code>
+       U
+      </code>
+      类型的数据就可以了。
+     </li>
+    </ul>
+    <p>
+     代码如下所示：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type Sumable interface {
+  type int, int8, int16, int32, int64,
+        uint, uint8, uint16, uint32, uint64,
+        float32, float64
+}
+
+func gSum[T any, U Sumable](arr []T, f func(T) U) U {
+  var sum U
+  for _, elem := range arr {
+    sum += f(elem)
+  }
+  return sum
+}</pre>
+    <p>
+     上面的代码我们动用了一个叫 Sumable 的接口，其限定了 U 类型，只能是 Sumable里的那些类型，也就是整型或浮点型，这个支持可以让我们的泛型代码更健壮一些。
+    </p>
+    <p>
+     于是，我们就可以完成下面的事了。
+    </p>
+    <p>
+     <strong>
+      1）统计年龄大于40岁的员工数
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">old := gCountIf(employees, func (e Employee) bool  {
+    return e.Age &gt; 40
+})
+fmt.Printf("old people(&gt;40): %d\n", old) 
+// ld people(&gt;40): 2</pre>
+    <p>
+     <strong>
+      2）统计薪水超过 6000元的员工数
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">high_pay := gCountIf(employees, func(e Employee) bool {
+  return e.Salary &gt;= 6000
+})
+fmt.Printf("High Salary people(&gt;6k): %d\n", high_pay) 
+//High Salary people(&gt;6k): 4</pre>
+    <p>
+     <strong>
+      3）统计年龄小于30岁的员工的薪水
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">younger_pay := gSum(employees, func(e Employee) float32 {
+  if e.Age &lt; 30 {
+      return e.Salary
+  } 
+  return 0
+})
+fmt.Printf("Total Salary of Young People: %0.2f\n", younger_pay)
+//Total Salary of Young People: 19000.00</pre>
+    <p>
+     <strong>
+      4）统计全员的休假天数
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">total_vacation := gSum(employees, func(e Employee) int {
+  return e.Vacation
+})
+fmt.Printf("Total Vacation: %d day(s)\n", total_vacation)
+//Total Vacation: 32 day(s)</pre>
+    <p>
+     <strong>
+      5）把没有休假的员工过滤出来
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">no_vacation := gFilterIn(employees, func(e Employee) bool {
+  return e.Vacation == 0
+})
+print(no_vacation)
+//{Hao 44 0 8000.5} {Jack 26 0 4000} {Marry 29 0 6000}</pre>
+    <p>
+     怎么样，你大概了解了泛型编程的意义了吧。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21164.html">
+         <img alt="Go编程模式：Map-Reduce" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.map_.reduce-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21164.html">
+         Go编程模式：Map-Reduce
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21263.html">
+         <img alt="Go 编程模式：k8s Visitor 模式" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21263.html">
+         Go 编程模式：k8s Visitor 模式
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21228.html">
+         <img alt="Go编程模式：Pipeline" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.line_.-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21228.html">
+         Go编程模式：Pipeline
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21214.html">
+         <img alt="Go编程模式：委托和反转控制" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.pair_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21214.html">
+         Go编程模式：委托和反转控制
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21179.html">
+         <img alt="Go 编程模式：Go Generation" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.generate-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21179.html">
+         Go 编程模式：Go Generation
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21146.html">
+         <img alt="Go 编程模式：Functional Options" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.options-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21146.html">
+         Go 编程模式：Functional Options
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="05d22daf31" id="post-ratings-21615" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_21615_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21615, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_21615_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21615, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_21615_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21615, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_21615_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21615, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_21615_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21615, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      42
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.26
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_21615_text">
+     </span>
+     <meta content="Go编程模式 ： 泛型编程" itemprop="name"/>
+     <meta content="Go编程模式 ： 泛型编程" itemprop="headline"/>
+     <meta content="Go语言的1.17版本发布了，其中开始正式支持泛型了。虽然还有一些限制（比如，不能把泛型函数export），但是，可以体验了。我的这个《Go编程模式》的系列终于有了真正的泛型编程了，再也不需要使用反射或是go generation这些难用的技术了。周末的时候，我把Go 1.17下载下来，然后，体验了一下泛型编程，还是很不错的。下面，就让我们来看一下Go的泛型编程。（注：不过，如果你对泛型编程的重要..." itemprop="description"/>
+     <meta content="2021-09-04T13:44:02+08:00" itemprop="datePublished"/>
+     <meta content="2021-09-04T13:44:02+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/21615.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/21615.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.26" itemprop="ratingValue"/>
+      <meta content="42" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-21615-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/go-%e8%af%ad%e8%a8%80" rel="category tag">
+        Go 语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/generics" rel="tag">
+        generics
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/go" rel="tag">
+        Go
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/golang" rel="tag">
+        golang
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/mapreduce" rel="tag">
+        MapReduce
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e6%b3%9b%e5%9e%8b" rel="tag">
+        泛型
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

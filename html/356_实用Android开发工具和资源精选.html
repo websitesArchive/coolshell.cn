@@ -1,0 +1,877 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/2853.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="实用Android开发工具和资源精选 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/2853.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_01.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_01.jpg" property="og:image:secure_url"/>
+   <meta content="640" property="og:image:width"/>
+   <meta content="182" property="og:image:height"/>
+   <meta content="2010-08-26T00:43:01+00:00" property="article:published_time"/>
+   <meta content="2010-08-27T03:32:22+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="实用Android开发工具和资源精选 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_01.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/2853.html#article","name":"\u5b9e\u7528Android\u5f00\u53d1\u5de5\u5177\u548c\u8d44\u6e90\u7cbe\u9009 | \u9177 \u58f3 - CoolShell","headline":"\u5b9e\u7528Android\u5f00\u53d1\u5de5\u5177\u548c\u8d44\u6e90\u7cbe\u9009","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/neo#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2010\/08\/android_dev_01.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":640,"height":182},"datePublished":"2010-08-26T00:43:01+08:00","dateModified":"2010-08-27T03:32:22+08:00","inLanguage":"zh-CN","commentCount":36,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/2853.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/2853.html#webpage"},"articleSection":"\u6280\u672f\u8bfb\u7269, \u6742\u9879\u8d44\u6e90, Android, App Inventor, ebook"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/2853.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/neo#author","url":"https:\/\/coolshell.cn\/articles\/author\/neo","name":"Neo","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/2853.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/adbd7d1f9ec55c6accf6e2a41b5a919a?s=96&d=mm&r=g","width":96,"height":96,"caption":"Neo"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/2853.html#webpage","url":"https:\/\/coolshell.cn\/articles\/2853.html","name":"\u5b9e\u7528Android\u5f00\u53d1\u5de5\u5177\u548c\u8d44\u6e90\u7cbe\u9009 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/2853.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/neo#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/neo#author"},"datePublished":"2010-08-26T00:43:01+08:00","dateModified":"2010-08-27T03:32:22+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '2853';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E5%AE%9E%E7%94%A8Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90%E7%B2%BE%E9%80%89';
+	window._wp_rp_post_tags = ['app+inventor', 'ebook', 'android', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E6%8A%80%E6%9C%AF%E8%AF%BB%E7%89%A9', 'free', 'app', 'alt', 'design', 'cookbook', 'develop', 'code', 'ebook', 'stencil', 'tool', 'android', 'ipad', 'window', 'kit', 'mobil'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/2853.html/feed" rel="alternate" title="酷 壳 - CoolShell » 实用Android开发工具和资源精选评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/2853" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=2853" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F2853.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F2853.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-2853 post type-post status-publish format-standard hentry category-techarticle category-misc tag-android tag-app-inventor tag-ebook" id="post-2853">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     实用Android开发工具和资源精选
+    </span>
+    <h1 class="entry-title">
+     实用Android开发工具和资源精选
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/2853.html" rel="bookmark" title="08:43">
+       <time class="entry-date" datetime="2010-08-26T08:43:01+08:00" pubdate="">
+        2010年08月26日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/neo" rel="author" title="View all posts by Neo">
+         Neo
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/2853.html#comments">
+       36 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      30,510 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      出处
+     </strong>
+     ：
+     <a href="http://speckyboy.com/2010/08/04/a-useful-selection-of-android-developer-tools-and-resources/">
+      A Useful Selection of Android Developer Tools and Resources
+     </a>
+    </p>
+    <p>
+     在google、开源平台，和来自移动电话制造商HTC,Samsung和Sony Ericsson的支持下，Android平台在市场占有率上相比去年取得的886%增长！如果我只看增长率，IPhone据统计才有61%的增长。这些数据可以给你关于两个平台流行度的印像，但是事实上，这些数据告诉了智能机开发员的谁才是真正的赢家。在时下，智能机越来越流行，因此成为一个快速增长的Android平台的智能机开发人员将会是一个不错的选择。
+    </p>
+    <p>
+     相比较其他的平台，Android不依赖于任何约束第三方应用程序的私有的操作系统（题外话：美国最近
+     <a href="http://www.bbc.co.uk/news/technology-10836692">
+      宣布
+     </a>
+     对于IPhone的破解和越狱是合法行为），Android本身就是开源的。由于开源，Android有巨大的开发社区支持。各种个样的例子和教程，GUI素材，和开发工具下载。几乎所有的都是免费提供的。我们选出接近20个可以免费或开源的，工具，资源，开发指南。希望这些资源能给你的Android应用带来帮助。
+     <br/>
+     <strong>
+      相关文章参看:
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <a href="http://speckyboy.com/2010/05/10/android-app-developers-gui-kits-icons-fonts-and-tools/">
+       Android App Developers GUI Kits, Icons, Fonts and Tools →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2010/04/30/iphone-and-ipad-development-gui-kits-stencils-and-icons/">
+       iPhone and iPad Development GUI Kits, Stencils and Icons →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2010/04/12/mobile-web-and-app-development-testing-and-emulation-tools/">
+       Mobile Web and App Development Testing and Emulation Tools →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2010/03/08/14-free-mobile-app-development-icon-sets/">
+       14 Free Mobile Application Development Icon Sets →
+      </a>
+     </li>
+    </ul>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_01.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     <span id="more-2853">
+     </span>
+    </p>
+    <h3>
+     <a href="http://andbook.anddev.org/">
+      免费的Android开发人员电子书:andbook
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_02.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     如果你刚步入Android的开发，那么对于第一次开发Android应用程序的你来说，这本书是非常适合的。这本只有62页的PDF电子书里，有简单易懂的入门教程，帮助你在没有任何Android开发知识的背景下，教你开发Android应用程序。
+     <br/>
+     <a href="http://andbook.anddev.org/">
+      Free Android Developer Ebook: andbook! →
+     </a>
+    </p>
+    <h3>
+     <a href="http://kronox.org/documentacion/Professional_Android_Application_Development.pdf">
+      免费的Android开发人员电子书:专业Android应用程序开发
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_03.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     专业Android应用程序开发PDF电子书，是一本创建移动手机应用程序的上手指南，这本书特点简洁，还有着能帮助你快速构建真实Android移动电话应用程序的典型的例子。本书覆盖了Android手机所有本质特性，并同时展示了Android手机的高级特性。
+     <br/>
+     <a href="http://kronox.org/documentacion/Professional_Android_Application_Development.pdf">
+      Free Android Developer Ebook: Professional Android Application Development →
+     </a>
+    </p>
+    <h3>
+     免费和开源的应用程序
+    </h3>
+    <ul>
+     <li>
+      <a href="https://code.google.com/p/apps-for-android/">
+       apps-for-android (Open Source Applications) →
+       <br/>
+      </a>
+      这个链接中包含了许多实用的开源的Android应用程序。这些应用程序展示了Android的许多特性。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="https://developer.android.com/resources/samples/index.html">
+       List of Sample Android Apps →
+      </a>
+      （
+      <strong>
+       译者注：
+      </strong>
+      我勒个擦！墙掉了，中国Android开发人员杯具了，看来官方不给力啊，这次元还真是不毛之地啊）
+      <br/>
+      这个Web页面是一个Android开发包中的实例程序列表。使用这个页面上的链接，你可以通过你的浏览器来阅读这些例子程序的源代码。你也可以把这些实例程序下载下来，当你需要的时候，你可以修改并使用他们。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="https://code.google.com/p/android-cookbook/">
+       Android Cookbook (Examples in Cookbook Form) →
+       <br/>
+      </a>
+      这个站点有很多实用的Android示例程序，你完全可以重用这些例子。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="http://www.openintents.org/en/">
+       OpenIntents →
+       <br/>
+      </a>
+      OpenIntends 设计和实现了开放式 intents和接口，其使得Android移动应用程序能更紧密的结合在一起。同时OpenIntends免费的提供了更专业和复杂的实例应用程序来演示他们的用法。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="http://www.androidsnippets.org/">
+       Android Snippets (Share Useful Snippets of Source Code) →
+       <br/>
+      </a>
+      Android Snippets 是一个Android的实用代码段库，这个库是用来分享实用和优秀的Android应用程序代码；如果没有特别的需求，我们可以大量的重用这些代码库。
+     </li>
+    </ul>
+    <h3>
+     <a href="http://www.addictivetips.com/windows-tips/download-google-android-emulator/">
+      Windows上的Android
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_10.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     对于那些想测试驱动Android的开发者，可以使用这个Android模拟器，这个模拟器以单独的应用程序的形式独立运行在Windows PC之上，使用这个模拟器不用下载和完全安装复杂的Android开发包。你甚至可以在这个模拟器上安装和测试Android系统兼容的应用程序。
+     <br/>
+     <a href="https://developer.android.com/guide/developing/tools/emulator.html">
+      Android Emulator on Windows →
+     </a>
+    </p>
+    <h3>
+     <a href="https://developer.android.com/guide/developing/tools/emulator.html">
+      来自应用程序开发入门的Android模拟器
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_11.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     Android的开发包中包含了一个移动设备模拟器。这个模拟器模仿了典型移动设备的硬件和软件特性(当然，不包含打电话)。这个模拟器提供各种个样的导航和控制按键，可以使用你的鼠标和键盘来“按”下这些按键为你的应用程序生成事件。这个模拟器也提供一个屏幕为你显示应用程序。同时，SDK中提供了很多能在模拟器上运行的应用程序。
+     <br/>
+     <a href="https://developer.android.com/guide/developing/tools/emulator.html">
+      Android Emulator from The Developer’s Guide →
+     </a>
+    </p>
+    <h3>
+     <a href="http://www.openintents.org/en/node/23">
+      感应模拟器
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_12.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     感应模拟器是一个JAVA独立应用程序，感应模拟器模拟感应数据并把数据传给Android模拟器。这个感应模拟器可以让你模拟加速度仪器，指南针，和方向感应，这些数据可以用于Android应用程序，并通过感应器进行控制。
+     <br/>
+     <a href="http://www.openintents.org/en/node/23">
+      SensorSimulator →
+     </a>
+    </p>
+    <h3>
+     <a href="https://github.com/commonsguy/droidex">
+      DroidEx:大（巨）屏上的Android项目
+     </a>
+    </h3>
+    <p>
+     DroidEx 可以让你附加的Android设备的显示屏内容复制一份到你的开发机屏幕。使用DroidEx来做演示是非常有用的。因为你可以把你的Android设备连接到你的笔记本电脑上或投影仪上，你的客户就可以通过这些设备来看你Android设备上的内容。DroidEx还可以用来演示那些用模拟器不方便演示的内容，比如说GPS或加速度仪器等内容。
+     <br/>
+     <a href="https://github.com/commonsguy/droidex">
+      DroidEx: Projecting Android on the Big(ger) Screen →
+     </a>
+    </p>
+    <h3>
+     <a href="http://appinventor.googlelabs.com/about/">
+      Android的App Inventor
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_13.jpg" title="android_dev_01"/>
+     <br/>
+     Android 的App Inventor是来自Google为非开发人员准备的新工具，通过这个工具，非开发人员可以非常容易地在里面创建应用程序。可以通过网站的视屏来预览这个工具的功能特性。(你可以参看酷壳的
+     <a href="https://coolshell.cn/articles/2608.html" target="_blank">
+      这篇文章
+     </a>
+     )
+    </p>
+    <p>
+     (
+     <strong>
+      译者注：
+     </strong>
+     这里还有一个youtube视屏，可惜也墙掉了）
+     <br/>
+     <a href="https://developer.android.com/guide/appendix/faq/commontasks.html">
+     </a>
+    </p>
+    <h3>
+     <a href="https://developer.android.com/guide/appendix/faq/commontasks.html">
+      如何开发Android中的常用任务
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_04.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     这是一个关于Android开发可能遇到的常用任务列表集合，并提供了一个快速、 how-to方式的帮助，来帮助你完成这些任务。
+    </p>
+    <p>
+     <a href="https://developer.android.com/guide/appendix/faq/commontasks.html">
+      Common Tasks and How to Do Them in Android→
+     </a>
+    </p>
+    <h3>
+     <a href="http://andblogs.net/fastboot/">
+      快速启动小抄
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_14.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     快速启动小抄是一个非常实用和快速的列表，这个列表中罗列一些关于快速启动的相关任务。
+     <br/>
+     <a href="http://andblogs.net/fastboot/">
+      Fastboot Cheat Sheet →
+     </a>
+    </p>
+    <h3>
+     <a href="https://developer.android.com/guide/practices/ui_guidelines/index.html">
+      UI指导原则
+     </a>
+    </h3>
+    <p>
+     在这里你可以找一些到官方文章的连接，这些连接来自于“The Developer’s Guide”。这些文章的内容描述了关于Android可视交互应用程序的UI设计开发的指导原则。
+    </p>
+    <ul>
+     <li>
+      <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design.html">
+       Icon Design Guidelines →
+      </a>
+     </li>
+     <li>
+      图标指导原则描述每类图标的细节，并做关于尺寸，颜色，阴影其他的细节的规范，根据这些规范你的设计的图标可以适用于Android系统。你也可以下载Android图标模板包，这个包里面是一些Photoshop和Illustrator模板和滤镜文件，通过这个模板包你可以更简单的创建满足规范的图标。
+     </li>
+     <li>
+      <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design.html#templatespack">
+       Download the Android Icon Templates Pack
+      </a>
+     </li>
+     <li>
+      控件设计指导描述了如何设计适合其他主页屏的控件。这个连接会连接到一些图形文件和模板，通过这些模板和文件可以使你设计更简单。
+     </li>
+     <li>
+      <a href="https://developer.android.com/guide/practices/ui_guidelines/widget_design.html">
+       Widget Design Guidelines →
+      </a>
+     </li>
+     <li>
+      Activity和Task设计指导描述了活动的工作方式，并用图解示例演示了Activity，并描述了其重要的底层机制和原理，如多任务系统，Activity重用，intents，Activity栈，和Task。以设计层面的角度覆盖了活动的所有内容。
+     </li>
+     <li>
+      <a href="https://developer.android.com/guide/practices/ui_guidelines/activity_task_design.html">
+       Activity and Task Design Guidelines →
+      </a>
+     </li>
+     <li>
+      菜单设计指导描述了上下文菜单和选项菜单的不同。如何放置菜单项，何时放置屏幕命令，和其他的一些菜单细节。
+     </li>
+     <li>
+      <a href="https://developer.android.com/guide/practices/ui_guidelines/widget_design.html">
+       Menu Design Guidelines →
+      </a>
+     </li>
+    </ul>
+    <p>
+     <strong>
+      <a href="http://mobiforge.com/designing/story/understanding-user-interface-android-part-1-layouts">
+       理解Android中的用户接口 来自于
+      </a>
+      <a href="http://mobiforge.com/">
+       mobiforge.com
+      </a>
+     </strong>
+    </p>
+    <p>
+     这4部分的文档来自于
+     <a href="http://mobiforge.com/">
+      mobiforge.com
+     </a>
+     ,文档中包含了组成Android UI的各种要素。文档的第一部分讨论Android中各种各样的有效的的布局。
+    </p>
+    <ol>
+     <li>
+      <ol>
+       <li>
+        <a href="http://mobiforge.com/designing/story/understanding-user-interface-android-part-1-layouts">
+         Understanding User Interface in Android – Part 1 →
+        </a>
+       </li>
+       <li>
+        <a href="http://mobiforge.com/designing/story/understanding-user-interface-android-part-2-views">
+         Understanding User Interface in Android – Part 2 →
+        </a>
+       </li>
+       <li>
+        <a href="http://mobiforge.com/designing/story/understanding-user-interface-android-part-3-more-views">
+         Understanding User Interface in Android – Part 3 →
+        </a>
+       </li>
+       <li>
+        <a href="http://mobiforge.com/designing/story/understanding-user-interface-android-part-4-even-more-views">
+         Understanding User Interface in Android – Part 4 →
+        </a>
+       </li>
+      </ol>
+     </li>
+    </ol>
+    <h3>
+     <a href="http://www.androidpatterns.com/">
+      Android UI模式
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_16.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     <a href="http://www.androidpatterns.com/">
+      Android UI Patterns →
+     </a>
+    </p>
+    <h3>
+     <a href="http://www.droiddraw.org/" target="_blank">
+      DroidDraw:Android用户接口图形编辑器
+     </a>
+    </h3>
+    <p style="text-align: left;">
+     <a href="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_19.jpg">
+      <img alt="" class="size-full wp-image-2868 alignnone" decoding="async" height="223" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_19.jpg" title="android_dev_19" width="300"/>
+     </a>
+    </p>
+    <p>
+     DroidDraw是一个为Android创建图形用户界面的UI设计器。它是一个独立的可执行程序，可以运行在Mac OS X，Windows和Linux上。
+    </p>
+    <p>
+     <a href="http://www.droiddraw.org/">
+      DroidDraw : Graphical User Interface Editor for Android →
+     </a>
+    </p>
+    <h3>
+     <a href="http://www.smashingmagazine.com/2009/08/18/android-gui-psd-vector-kit/">
+      Android GUI PSD 向量包
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_20.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     Android GUI Starter Kit包里面包含了多个按钮元素和不同接口选项的AndroidGUI内容。这些元素是基于Android1.5 GUI的，并且这些包里面的被提供给开源社区的Android应用程序模型。大部分的GUI元素和手机图例都是使用向量路径制成，所以他们非常地容易被缩放。对于文本AndroidSans包被使用。
+     <br/>
+     <a href="http://www.smashingmagazine.com/2009/08/18/android-gui-psd-vector-kit/">
+      Android GUI PSD Vector Kit →
+     </a>
+    </p>
+    <h3>
+     <a href="http://unitid.nl/2009/11/fireworks-template-for-android/">
+      Android的Firworks Template
+     </a>
+    </h3>
+    <p>
+     <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2010/08/android_dev_22.jpg" title="android_dev_01"/>
+    </p>
+    <p>
+     在Fireworks模板中，Android的各种元素被以向量图形的方式被重绘。在目录中，这些元素的名称大多根据Android词汇表被命名。
+     <br/>
+     <a href="http://unitid.nl/2009/11/fireworks-template-for-android/">
+      Fireworks Template for Android →
+     </a>
+    </p>
+    <h3>
+     <a href="http://www.tomhume.org/2010/01/android-wireframe-templates.html">
+      Android线框模板
+     </a>
+    </h3>
+    <p>
+     线框PDF是信纸大小（8.5英寸 * 11英寸）并且各部件都被拉伸。因此你可以非常容易的以纸张原型或拉伸为真实尺寸的方式来使用。如果你没有信纸，你可以用A4纸来打印。
+     <br/>
+     <a href="http://www.tomhume.org/2010/01/android-wireframe-templates.html">
+      Android Wireframe Templates →
+     </a>
+     <br/>
+     你也可以参考：
+    </p>
+    <ul>
+     <li>
+      <a href="http://speckyboy.com/2010/05/10/android-app-developers-gui-kits-icons-fonts-and-tools/">
+       Android App Developers GUI Kits, Icons, Fonts and Tools →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2010/04/30/iphone-and-ipad-development-gui-kits-stencils-and-icons/">
+       iPhone and iPad Development GUI Kits, Stencils and Icons →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2010/04/12/mobile-web-and-app-development-testing-and-emulation-tools/">
+       Mobile Web and App Development Testing and Emulation Tools →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2010/03/08/14-free-mobile-app-development-icon-sets/">
+       14 Free Mobile Application Development Icon Sets →
+      </a>
+     </li>
+     <li>
+      <a href="http://speckyboy.com/2009/09/15/45-cool-google-android-apps-the-perfect-iphone-replacement/">
+       45+ Cool Google Android Apps – The Perfect iPhone Replacement →
+      </a>
+     </li>
+    </ul>
+    <p>
+     <strong>
+      （全文完）
+     </strong>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4220.html">
+         <img alt="一些有意思的文章和资源" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/0.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4220.html">
+         一些有意思的文章和资源
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2608.html">
+         <img alt="Google App Inventor " height="150" src="https://coolshell.cn/wp-content/uploads/2010/07/androidappinventor-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2608.html">
+         Google App Inventor
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17066.html">
+         <img alt="关于移动端的钓鱼式攻击" height="150" src="https://coolshell.cn/wp-content/uploads/2015/04/phishing-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17066.html">
+         关于移动端的钓鱼式攻击
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12225.html">
+         <img alt="DHH 谈混合移动应用开发" height="150" src="https://coolshell.cn/wp-content/uploads/2014/12/1053-DHH-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12225.html">
+         DHH 谈混合移动应用开发
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12136.html">
+         <img alt="Google Inbox如何跨平台重用代码？" height="150" src="https://coolshell.cn/wp-content/uploads/2014/11/inbox2-640x264-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12136.html">
+         Google Inbox如何跨平台重用代码？
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4710.html">
+         <img alt="Python 和 PyGame 的一些示例" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/17.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4710.html">
+         Python 和 PyGame 的一些示例
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="41f8b2ab36" id="post-ratings-2853" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_2853_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(2853, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_2853_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(2853, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_2853_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(2853, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_2853_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(2853, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_2853_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(2853, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      15
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.93
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_2853_text">
+     </span>
+     <meta content="实用Android开发工具和资源精选" itemprop="name"/>
+     <meta content="实用Android开发工具和资源精选" itemprop="headline"/>
+     <meta content="出处：A Useful Selection of Android Developer Tools and Resources
+
+在google、开源平台，和来自移动电话制造商HTC,Samsung和Sony Ericsson的支持下，Android平台在市场占有率上相比去年取得的886%增长！如果我只看增长率，IPhone据统计才有61%的增长。这些数据可以给你关于两个平台流行度的印像，但是事..." itemprop="description"/>
+     <meta content="2010-08-26T08:43:01+08:00" itemprop="datePublished"/>
+     <meta content="2010-08-27T11:32:22+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/2853.html" itemprop="url"/>
+     <meta content="Neo" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/2853.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.93" itemprop="ratingValue"/>
+      <meta content="15" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-2853-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/techarticle" rel="category tag">
+        技术读物
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/android" rel="tag">
+        Android
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/app-inventor" rel="tag">
+        App Inventor
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/ebook" rel="tag">
+        ebook
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

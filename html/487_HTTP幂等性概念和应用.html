@@ -1,0 +1,615 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4787.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="HTTP幂等性概念和应用 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4787.html" property="og:url"/>
+   <meta content="https://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051039636.png" property="og:image"/>
+   <meta content="https://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051039636.png" property="og:image:secure_url"/>
+   <meta content="2011-06-07T00:49:01+00:00" property="article:published_time"/>
+   <meta content="2011-06-04T14:58:46+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="HTTP幂等性概念和应用 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051039636.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4787.html#article","name":"HTTP\u5e42\u7b49\u6027\u6982\u5ff5\u548c\u5e94\u7528 | \u9177 \u58f3 - CoolShell","headline":"HTTP\u5e42\u7b49\u6027\u6982\u5ff5\u548c\u5e94\u7528","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/images.cnblogs.com\/cnblogs_com\/weidagang2046\/201106\/201106042051039636.png","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2011-06-07T00:49:01+08:00","dateModified":"2011-06-04T14:58:46+08:00","inLanguage":"zh-CN","commentCount":37,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4787.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4787.html#webpage"},"articleSection":"Web\u5f00\u53d1, Windows, \u7a0b\u5e8f\u8bbe\u8ba1, HTTP"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4787.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author","url":"https:\/\/coolshell.cn\/articles\/author\/todd","name":"Todd","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4787.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/6ff3f136c340de6931974e710bf30f89?s=96&d=mm&r=g","width":96,"height":96,"caption":"Todd"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4787.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4787.html","name":"HTTP\u5e42\u7b49\u6027\u6982\u5ff5\u548c\u5e94\u7528 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4787.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author"},"datePublished":"2011-06-07T00:49:01+08:00","dateModified":"2011-06-04T14:58:46+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4787';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'HTTP%E5%B9%82%E7%AD%89%E6%80%A7%E6%A6%82%E5%BF%B5%E5%92%8C%E5%BA%94%E7%94%A8';
+	window._wp_rp_post_tags = ['http', 'windows', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'web%E5%BC%80%E5%8F%91', 'post', 'app', 'a', 'enclos', 'api', 'store', 'suppli', 'server', 'singl', 'ident', 'resourc', 'http', 'ap', 'gt', 'properti'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4787.html/feed" rel="alternate" title="酷 壳 - CoolShell » HTTP幂等性概念和应用评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4787" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4787" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4787.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4787.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4787 post type-post status-publish format-standard hentry category-webdev category-mswindows category-progdesign tag-http" id="post-4787">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     HTTP幂等性概念和应用
+    </span>
+    <h1 class="entry-title">
+     HTTP幂等性概念和应用
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4787.html" rel="bookmark" title="08:49">
+       <time class="entry-date" datetime="2011-06-07T08:49:01+08:00" pubdate="">
+        2011年06月07日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/todd" rel="author" title="View all posts by Todd">
+         Todd
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4787.html#comments">
+       37 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      40,943 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      [ 感谢
+      <a href="http://www.cnblogs.com/weidagang2046/" target="_blank">
+       Todd 同学
+      </a>
+      投递本文 ]
+     </strong>
+    </p>
+    <p>
+     基于HTTP协议的Web API是时下最为流行的一种分布式服务提供方式。无论是在大型互联网应用还是企业级架构中，我们都见到了越来越多的SOA或RESTful的Web API。为什么Web API如此流行呢？我认为很大程度上应归功于简单有效的HTTP协议。HTTP协议是一种分布式的面向资源的网络应用层协议，无论是服务器端提供Web服务，还是客户端消费Web服务都非常简单。再加上浏览器、Javascript、AJAX、JSON以及HTML5等技术和工具的发展，互联网应用架构设计表现出了从传统的PHP、JSP、ASP.NET等服务器端动态网页向Web API + RIA（富互联网应用）过渡的趋势。Web API专注于提供业务服务，RIA专注于用户界面和交互设计，从此两个领域的分工更加明晰。在这种趋势下，Web API设计将成为服务器端程序员的必修课。然而，正如简单的Java语言并不意味着高质量的Java程序，简单的HTTP协议也不意味着高质量的Web API。要想设计出高质量的Web API，还需要深入理解分布式系统及HTTP协议的特性。
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     <strong>
+      幂等性定义
+     </strong>
+    </p>
+    <p>
+     本文所要探讨的正是HTTP协议涉及到的一种重要性质：幂等性(Idempotence)。在HTTP/1.1规范中幂等性的定义是：
+    </p>
+    <blockquote>
+     <p>
+      <em>
+       <span style="color: #800040;">
+        Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request.
+       </span>
+      </em>
+     </p>
+    </blockquote>
+    <p>
+     从定义上看，HTTP方法的幂等性是指一次和多次请求某一个资源应该具有同样的副作用。幂等性属于语义范畴，正如编译器只能帮助检查语法错误一样，HTTP规范也没有办法通过消息格式等语法手段来定义它，这可能是它不太受到重视的原因之一。但实际上，幂等性是分布式系统设计中十分重要的概念，而HTTP的分布式本质也决定了它在HTTP中具有重要地位。
+    </p>
+    <p>
+     <span id="more-4787">
+     </span>
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     <strong>
+      分布式事务 vs 幂等设计
+     </strong>
+    </p>
+    <p>
+     为什么需要幂等性呢？我们先从一个例子说起，假设有一个从账户取钱的远程API（可以是HTTP的，也可以不是），我们暂时用类函数的方式记为
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="c">
+      bool withdraw(account_id, amount);
+     </code>
+    </p>
+    <p>
+     withdraw的语义是从account_id对应的账户中扣除amount数额的钱；如果扣除成功则返回true，账户余额减少amount；如果扣除失败则返回false，账户余额不变。值得注意的是：和本地环境相比，我们不能轻易假设分布式环境的可靠性。一种典型的情况是withdraw请求已经被服务器端正确处理，但服务器端的返回结果由于网络等原因被掉丢了，导致客户端无法得知处理结果。如果是在网页上，一些不恰当的设计可能会使用户认为上一次操作失败了，然后刷新页面，这就导致了withdraw被调用两次，账户也被多扣了一次钱。如图1所示：
+    </p>
+    <p style="text-align: center;">
+     <a href="http://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051027575.png">
+      <img alt="image" border="0" decoding="async" height="394" src="http://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051039636.png" width="458"/>
+     </a>
+    </p>
+    <p style="text-align: center;">
+     <a href="http://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051027575.png">
+     </a>
+     图1
+    </p>
+    <p>
+     这个问题的解决方案一是采用分布式事务，通过引入支持分布式事务的中间件来保证withdraw功能的事务性。分布式事务的优点是对于调用者很简单，复杂性都交给了中间件来管理。缺点则是一方面架构太重量级，容易被绑在特定的中间件上，不利于异构系统的集成；另一方面分布式事务虽然能保证事务的ACID性质，而但却无法提供性能和可用性的保证。
+    </p>
+    <p>
+     另一种更轻量级的解决方案是幂等设计。上面的withdraw显然不满足幂等性，但我们可以一些技巧将它变成幂等的，比如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">int create_ticket();
+
+bool idempotent_withdraw(ticket_id, account_id, amount);</pre>
+    <p>
+     create_ticket的语义是获取一个服务器端生成的唯一的处理号ticket_id，它将用于标识后续的操作。idempotent_withdraw和withdraw的区别在于关联了一个ticket_id，一个ticket_id表示的操作至多只会被处理一次，每次调用都将返回第一次调用时的处理结果。这样，idempotent_withdraw就符合幂等性了，客户端就可以放心地多次调用。
+    </p>
+    <p>
+     基于幂等性的解决方案中一个完整的取钱流程被分解成了两个步骤：1.调用create_ticket()获取ticket_id；2.调用idempotent_withdraw(ticket_id, account_id, amount)。虽然create_ticket不是幂等的，但在这种设计下，它对系统状态的影响可以忽略，加上idempotent_withdraw是幂等的，所以任何一步由于网络等原因失败或超时，客户端都可以重试，直到获得结果。如图2所示：
+    </p>
+    <p>
+     <a href="http://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051059820.png">
+      <img alt="image" border="0" class="aligncenter" decoding="async" height="578" loading="lazy" src="http://images.cnblogs.com/cnblogs_com/weidagang2046/201106/201106042051069339.png" width="610"/>
+     </a>
+    </p>
+    <p style="text-align: center;">
+     图2
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     和分布式事务相比，幂等设计的优势在于它的轻量级，容易适应异构环境，以及性能和可用性方面。在某些性能要求比较高的应用，幂等设计往往是唯一的选择。
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     <strong>
+      HTTP的幂等性
+     </strong>
+    </p>
+    <p>
+     HTTP协议本身是一种面向资源的应用层协议，但对HTTP协议的使用实际上存在着两种不同的方式：一种是RESTful的，它把HTTP当成应用层协议，比较忠实地遵守了HTTP协议的各种规定；另一种是SOA的，它并没有完全把HTTP当成应用层协议，而是把HTTP协议作为了传输层协议，然后在HTTP之上建立了自己的应用层协议。本文所讨论的HTTP幂等性主要针对RESTful风格的，不过正如上一节所看到的那样，幂等性并不属于特点的协议，它是分布式系统的一种特性；所以，不论是SOA还是RESTful的Web API设计都应该考虑幂等性。下面将介绍HTTP GET、DELETE、PUT、POST四种主要方法的语义和幂等性。
+    </p>
+    <p>
+     HTTP GET方法用于获取资源，不应有副作用，所以是幂等的。比如：GET http://www.bank.com/account/123456，不会改变资源的状态，不论调用一次还是N次都没有副作用。请注意，这里强调的是一次和N次具有相同的副作用，而不是每次GET的结果相同。GET http://www.news.com/latest-news这个HTTP请求可能会每次得到不同的结果，但它本身并没有产生任何副作用，因而是满足幂等性的。
+    </p>
+    <p>
+     HTTP DELETE方法用于删除资源，有副作用，但它应该满足幂等性。比如：DELETE http://www.forum.com/article/4231，调用一次和N次对系统产生的副作用是相同的，即删掉id为4231的帖子；因此，调用者可以多次调用或刷新页面而不必担心引入错误。
+    </p>
+    <p>
+     比较容易混淆的是HTTP POST和PUT。POST和PUT的区别容易被简单地误认为“POST表示创建资源，PUT表示更新资源”；而实际上，二者均可用于创建资源，更为本质的差别是在幂等性方面。在HTTP规范中对POST和PUT是这样定义的：
+    </p>
+    <blockquote>
+     <p>
+      <span style="color: #800040;">
+       <em>
+        The POST method is used to request that the origin server accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line. ……
+       </em>
+       <em>
+        If a resource has been created on the origin server, the response SHOULD be 201 (Created) and contain an entity which describes the status of the request and refers to the new resource, and a Location header.
+       </em>
+      </span>
+     </p>
+     <p>
+      <em>
+       <span style="color: #800040;">
+        The PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the Request-URI refers to an already existing resource, the enclosed entity SHOULD be considered as a modified version of the one residing on the origin server. If the Request-URI does not point to an existing resource, and that URI is capable of being defined as a new resource by the requesting user agent, the origin server can create the resource with that URI.
+       </span>
+      </em>
+     </p>
+    </blockquote>
+    <p>
+     POST所对应的URI并非创建的资源本身，而是资源的接收者。比如：POST http://www.forum.com/articles的语义是在http://www.forum.com/articles下创建一篇帖子，HTTP响应中应包含帖子的创建状态以及帖子的URI。两次相同的POST请求会在服务器端创建两份资源，它们具有不同的URI；所以，POST方法不具备幂等性。
+    </p>
+    <p>
+     而PUT所对应的URI是要创建或更新的资源本身。比如：PUT http://www.forum/articles/4231的语义是创建或更新ID为4231的帖子。对同一URI进行多次PUT的副作用和一次PUT是相同的；因此，PUT方法具有幂等性。
+    </p>
+    <p>
+     在介绍了几种操作的语义和幂等性之后，我们来看看如何通过Web API的形式实现前面所提到的取款功能。很简单，用POST /tickets来实现create_ticket；用PUT /accounts/account_id/ticket_id&amp;amount=xxx来实现idempotent_withdraw。值得注意的是严格来讲amount参数不应该作为URI的一部分，真正的URI应该是/accounts/account_id/ticket_id，而amount应该放在请求的body中。这种模式可以应用于很多场合，比如：论坛网站中防止意外的重复发帖。
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     <strong>
+      总结
+     </strong>
+    </p>
+    <p>
+     上面简单介绍了幂等性的概念，用幂等设计取代分布式事务的方法，以及HTTP主要方法的语义和幂等性特征。其实，如果要追根溯源，幂等性是数学中的一个概念，表达的是N次变换与1次变换的结果相同，有兴趣的读者可以从
+     <a href="https://en.wikipedia.org/wiki/Idempotence">
+      Wikipedia
+     </a>
+     上进一步了解。
+    </p>
+    <p>
+     <strong>
+     </strong>
+    </p>
+    <p>
+     <strong>
+      参考
+     </strong>
+    </p>
+    <p>
+     <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">
+      RFC 2616, Hypertext Transfer Protocol — HTTP/1.1, Method Definitions
+     </a>
+    </p>
+    <p>
+     <a href="http://devhawk.net/2007/11/09/the-importance-of-idempotence/">
+      The Importance of Idempotence
+     </a>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/22173.html">
+         <img alt="“一把梭：REST API 全用 POST”" height="150" src="https://coolshell.cn/wp-content/uploads/2022/02/http_method-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/22173.html">
+         “一把梭：REST API 全用 POST”
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19840.html">
+         <img alt="HTTP的前世今生" height="150" src="https://coolshell.cn/wp-content/uploads/2019/10/HTTP-770x513-300x200-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19840.html">
+         HTTP的前世今生
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18094.html">
+         <img alt="如何免费的让网站启用HTTPS" height="150" src="https://coolshell.cn/wp-content/uploads/2017/08/enable-https-banner-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18094.html">
+         如何免费的让网站启用HTTPS
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8767.html">
+         <img alt="Web工程师的工具箱" height="150" src="https://coolshell.cn/wp-content/uploads/2012/12/webtoolbox-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8767.html">
+         Web工程师的工具箱
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2367.html">
+         <img alt="谷歌Chrome取消”http://”" height="150" src="https://coolshell.cn/wp-content/uploads/2010/04/URL-BAR-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2367.html">
+         谷歌Chrome取消”http://”
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1480.html">
+         <img alt="非常简单的Python HTTP服务" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/27.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1480.html">
+         非常简单的Python HTTP服务
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="6974fe46f2" id="post-ratings-4787" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4787_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(4787, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4787_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(4787, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4787_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(4787, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4787_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(4787, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4787_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(4787, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      21
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.38
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4787_text">
+     </span>
+     <meta content="HTTP幂等性概念和应用" itemprop="name"/>
+     <meta content="HTTP幂等性概念和应用" itemprop="headline"/>
+     <meta content="[ 感谢 Todd 同学投递本文 ]
+
+基于HTTP协议的Web API是时下最为流行的一种分布式服务提供方式。无论是在大型互联网应用还是企业级架构中，我们都见到了越来越多的SOA或RESTful的Web API。为什么Web API如此流行呢？我认为很大程度上应归功于简单有效的HTTP协议。HTTP协议是一种分布式的面向资源的网络应用层协议，无论是服务器端提供Web服务，还是客户端消费Web..." itemprop="description"/>
+     <meta content="2011-06-07T08:49:01+08:00" itemprop="datePublished"/>
+     <meta content="2011-06-04T22:58:46+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4787.html" itemprop="url"/>
+     <meta content="Todd" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4787.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.38" itemprop="ratingValue"/>
+      <meta content="21" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4787-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/webdev" rel="category tag">
+        Web开发
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem/mswindows" rel="category tag">
+        Windows
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/http" rel="tag">
+        HTTP
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

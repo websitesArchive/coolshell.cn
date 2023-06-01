@@ -1,0 +1,1304 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/57.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="80个优秀的AJAX方案 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/57.html" property="og:url"/>
+   <meta content="https://delimitdesign.com/wp-content/uploads/2009/02/ajax-autosuggest1.png" property="og:image"/>
+   <meta content="https://delimitdesign.com/wp-content/uploads/2009/02/ajax-autosuggest1.png" property="og:image:secure_url"/>
+   <meta content="2009-03-07T01:20:20+00:00" property="article:published_time"/>
+   <meta content="2009-03-07T01:20:20+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="80个优秀的AJAX方案 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-autosuggest1.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/57.html#article","name":"80\u4e2a\u4f18\u79c0\u7684AJAX\u65b9\u6848 | \u9177 \u58f3 - CoolShell","headline":"80\u4e2a\u4f18\u79c0\u7684AJAX\u65b9\u6848","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/delimitdesign.com\/wp-content\/uploads\/2009\/02\/ajax-autosuggest1.png","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2009-03-07T01:20:20+08:00","dateModified":"2009-03-07T01:20:20+08:00","inLanguage":"zh-CN","commentCount":2,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/57.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/57.html#webpage"},"articleSection":"Ajax\u5f00\u53d1, \u7f16\u7a0b\u8bed\u8a00, AJAX"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/57.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/57.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/57.html#webpage","url":"https:\/\/coolshell.cn\/articles\/57.html","name":"80\u4e2a\u4f18\u79c0\u7684AJAX\u65b9\u6848 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/57.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2009-03-07T01:20:20+08:00","dateModified":"2009-03-07T01:20:20+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '57';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '80%E4%B8%AA%E4%BC%98%E7%A7%80%E7%9A%84AJAX%E6%96%B9%E6%A1%88';
+	window._wp_rp_post_tags = ['ajax', 'ajax%E5%BC%80%E5%8F%91', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'a3', 'a', 'instant', 'css', 'tree', 'inlin', 'grid', 'edit', 'a4', 'amp', 'autocomplet', 'modul', 'alt', 'aa', 'menu'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/57.html/feed" rel="alternate" title="酷 壳 - CoolShell » 80个优秀的AJAX方案评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/57" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=57" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F57.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F57.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-57 post type-post status-publish format-standard hentry category-ajaxdev category-proglanguage tag-ajax" id="post-57">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     80个优秀的AJAX方案
+    </span>
+    <h1 class="entry-title">
+     80个优秀的AJAX方案
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/57.html" rel="bookmark" title="09:20">
+       <time class="entry-date" datetime="2009-03-07T09:20:20+08:00" pubdate="">
+        2009年03月07日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/57.html#comments">
+       2 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      7,315 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     Ajax作为一种WEB上的技术，已经广被开发人员接受，在过去的两三年内，互联网上涌现出了很多很多的很有创意的Ajax的解决方案，令人赞叹。这里，介绍了80以上的AJAX用法以及其脚本资源，希望对你的开发有帮助。
+    </p>
+    <h1>
+     <strong>
+      Auto Complete Scripts
+     </strong>
+    </h1>
+    <p>
+     1.
+     <a href="http://www.brandspankingnew.net/archive/2006/08/ajax_auto-suggest_auto-complete.html" target="_blank">
+      AJAX AutoSuggest
+     </a>
+     <br/>
+     <a href="http://www.brandspankingnew.net/archive/2006/08/ajax_auto-suggest_auto-complete.html">
+      <img alt="" class="alignnone size-full wp-image-38" decoding="async" height="260" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-autosuggest1.png" title="ajax-autosuggest1" width="400"/>
+     </a>
+    </p>
+    <p>
+     <span id="more-57">
+     </span>
+    </p>
+    <p>
+     2.
+     <a href="http://demo.script.aculo.us/ajax/autocompleter_customized" target="_blank">
+      AJAX Autocompleter / script.aculo.us library
+     </a>
+     <br/>
+     <a href="http://demo.script.aculo.us/ajax/autocompleter_customized">
+      <img alt="" class="size-full wp-image-37 alignnone" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-autocompleter-scriptaculous-library.png" title="ajax-autocompleter-scriptaculous-library" width="400"/>
+     </a>
+    </p>
+    <p>
+     3.
+     <a href="http://digitarald.de/playground/auto2.html" target="_blank">
+      AJAX AutoCompleter
+     </a>
+     <br/>
+     <a href="http://digitarald.de/playground/auto2.html">
+      <img alt="" class="size-full wp-image-39 alignnone" decoding="async" height="140" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-autocompleter.png" title="ajax-autocompleter" width="400"/>
+     </a>
+    </p>
+    <p>
+     4.
+     <a href="http://www.roscripts.com/Ajax_autosuggest_autocomplete_from_database-154.html" target="_blank">
+      Ajax autosuggest/autocomplete from database
+     </a>
+     <br/>
+     <a href="http://www.roscripts.com/Ajax_autosuggest_autocomplete_from_database-154.html">
+      <img alt="" class="size-full wp-image-40 alignnone" decoding="async" height="140" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-autosuggest-autocomplete-from-database.png" title="ajax-autosuggest-autocomplete-from-database" width="400"/>
+     </a>
+    </p>
+    <p>
+     5.
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax-dynamic-list" target="_blank">
+      Ajax dynamic list
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax-dynamic-list">
+      <img alt="" class="size-full wp-image-41 alignnone" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-dynamic-list.png" title="ajax-dynamic-list" width="401"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Instant Editor Scripts
+     </strong>
+    </h3>
+    <p>
+     6.
+     <a href="http://www.yvoschaap.com/index.php/weblog/ajax_inline_instant_update_text_20/" target="_blank">
+      AJAX inline text edit 2.0
+     </a>
+     <br/>
+     <a href="http://www.yvoschaap.com/index.php/weblog/ajax_inline_instant_update_text_20/">
+      <img alt="" class="size-full wp-image-42 alignnone" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-inline-text-edit-20.png" title="ajax-inline-text-edit-20" width="400"/>
+     </a>
+    </p>
+    <p>
+     7.
+     <a href="http://dbachrach.com/blog/2007/01/07/create-flickr-like-editing-fields-using-ajax-css/" target="_blank">
+      AJAX &amp; CSS Flickr-like Editing Fields
+     </a>
+     <br/>
+     <a href="http://dbachrach.com/blog/2007/01/07/create-flickr-like-editing-fields-using-ajax-css/">
+      <img alt="" class="alignnone size-full wp-image-139" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-css-flickr-like-editing-fields1.png" title="ajax-css-flickr-like-editing-fields1" width="400"/>
+     </a>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-css-flickr-like-editing-fields.png">
+      <br/>
+     </a>
+    </p>
+    <p>
+     8.
+     <a href="http://www.ideasfreelance.com/lab/instant_edit/" target="_blank">
+      AJAX Instant Edit
+     </a>
+     <br/>
+     <a href="http://www.ideasfreelance.com/lab/instant_edit/">
+      <img alt="" class="size-full wp-image-44 alignnone" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-instant-edit.png" title="ajax-instant-edit" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Tab and Menu Scripts
+     </strong>
+    </h3>
+    <p>
+     9.
+     <a href="http://www.smashingmagazine.com/2007/04/18/14-tab-based-inferface-techniques/" target="_blank">
+      14 Tab-Based Interface Techniques
+     </a>
+     <br/>
+     <a href="http://www.smashingmagazine.com/2007/04/18/14-tab-based-inferface-techniques/">
+      <img alt="" class="size-full wp-image-45 alignnone" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/14-tab-based-interface-techniques.png" title="14-tab-based-interface-techniques" width="400"/>
+     </a>
+    </p>
+    <p>
+     10.
+     <a href="http://demos.mootools.net/Accordion" target="_blank">
+      AJAX Accordion Navigation
+     </a>
+     <br/>
+     <a href="http://demos.mootools.net/Accordion">
+      <img alt="" class="size-full wp-image-47 alignnone" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-accordion-navigation1.png" title="ajax-accordion-navigation1" width="400"/>
+     </a>
+    </p>
+    <p>
+     11.
+     <a href="http://extjs.com/deploy/ext/docs/" target="_blank">
+      AJAX Dialogs, Menus, Grids, Trees and Views
+     </a>
+     <br/>
+     <a href="http://extjs.com/deploy/ext/docs/">
+      <img alt="" class="alignnone size-full wp-image-54" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-dialogs-menus-grids-trees-and-views.png" title="ajax-dialogs-menus-grids-trees-and-views" width="400"/>
+     </a>
+    </p>
+    <p>
+     12.
+     <a href="http://www.nodetraveller.com/sandbox/moduleTabs/closeable.php" target="_blank">
+      AJAX Tab Module – Closeable Implementation
+     </a>
+     <br/>
+     <a href="http://www.nodetraveller.com/sandbox/moduleTabs/closeable.php">
+      <img alt="" class="alignnone size-full wp-image-55" decoding="async" height="197" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-tab-module-closeable-implementation.png" title="ajax-tab-module-closeable-implementation" width="400"/>
+     </a>
+    </p>
+    <p>
+     13.
+     <a href="http://www.dynamicdrive.com/dynamicindex17/ajaxtabscontent/" target="_blank">
+      Ajax Tabs Content
+     </a>
+     <br/>
+     <a href="http://www.dynamicdrive.com/dynamicindex17/ajaxtabscontent/">
+      <img alt="" class="alignnone size-full wp-image-56" decoding="async" height="206" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-tabs-content.png" title="ajax-tabs-content" width="400"/>
+     </a>
+    </p>
+    <p>
+     14.
+     <a href="http://www.silverscripting.com/mootabs/" target="_blank">
+      MooTabs – Tiny tab class for MooTools
+     </a>
+     <br/>
+     <a href="http://www.silverscripting.com/mootabs/">
+      <img alt="" class="alignnone size-full wp-image-57" decoding="async" height="237" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/mootabs-tiny-tab-class-for-mootools.png" title="mootabs-tiny-tab-class-for-mootools" width="400"/>
+     </a>
+    </p>
+    <p>
+     15.
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax_dynamicArticles" target="_blank">
+      Dynamically loaded articles
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax_dynamicArticles">
+      <img alt="" class="alignnone size-full wp-image-58" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/dynamically-loaded-articles.png" title="dynamically-loaded-articles" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Calendar/Datetime Scripts
+     </strong>
+    </h3>
+    <p>
+     16.
+     <a href="http://datetime.toolbocks.com/" target="_blank">
+      AJAX Datetime Toolbocks – Intuitive Date Input Selection
+     </a>
+     <br/>
+     <a href="http://datetime.toolbocks.com/">
+      <img alt="" class="alignnone size-full wp-image-59" decoding="async" height="140" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-datetime-toolbocks-intuitive-date-input-selection.jpg" title="ajax-datetime-toolbocks-intuitive-date-input-selection" width="400"/>
+     </a>
+    </p>
+    <p>
+     17.
+     <a href="http://www.ribosomatic.com/articulos/10-calendarios-con-php-css-y-javascript/" target="_blank">
+      AJAX Calendars
+     </a>
+     <br/>
+     <a href="http://www.ribosomatic.com/articulos/10-calendarios-con-php-css-y-javascript/">
+      <img alt="" class="alignnone size-full wp-image-60" decoding="async" height="261" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-calendars.jpg" title="ajax-calendars" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Interactive Elements Scripts
+     </strong>
+    </h3>
+    <p>
+     18.
+     <a href="http://prototype-window.xilinus.com/" target="_blank">
+      AJAX Floating Windows
+     </a>
+     <br/>
+     <a href="http://prototype-window.xilinus.com/">
+      <img alt="" class="alignnone size-full wp-image-61" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-floating-windows.png" title="ajax-floating-windows" width="400"/>
+     </a>
+    </p>
+    <p>
+     19.
+     <a href="http://prototype-window.xilinus.com/" target="_blank">
+      AJAX Star Rating Bar
+     </a>
+     <br/>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-star-rating-bar.png">
+      <img alt="" class="alignnone size-full wp-image-62" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-star-rating-bar.png" title="ajax-star-rating-bar" width="400"/>
+     </a>
+    </p>
+    <p>
+     20.
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax-poller" target="_blank">
+      Ajax poller
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax-poller">
+      <img alt="" class="alignnone size-full wp-image-140" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-poller1.png" title="ajax-poller1" width="400"/>
+     </a>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-poller.png">
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Developer’s Suite Scripts
+     </strong>
+    </h3>
+    <p>
+     21.
+     <a href="http://digitarald.de/project/historymanager/" target="_blank">
+      AJAX HistoryManager, Pagination
+     </a>
+     <br/>
+     <a href="http://digitarald.de/project/historymanager/">
+      <img alt="" class="alignnone size-full wp-image-64" decoding="async" height="204" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-historymanager-pagination.png" title="ajax-historymanager-pagination" width="400"/>
+     </a>
+    </p>
+    <p>
+     22.
+     <a href="http://www.jamesdam.com/ajax_login/login.html" target="_blank">
+      AJAX Login System Demo
+     </a>
+     <br/>
+     <a href="http://www.jamesdam.com/ajax_login/login.html">
+      <img alt="" class="alignnone size-full wp-image-65" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-login-system-demo.png" title="ajax-login-system-demo" width="400"/>
+     </a>
+    </p>
+    <p>
+     23.
+     <a href="http://www.roscripts.com/Javascript_image_preloader-111.html" target="_blank">
+      AJAX image preloader
+     </a>
+     <br/>
+     <a href="http://www.roscripts.com/Javascript_image_preloader-111.html">
+      <img alt="" class="alignnone size-full wp-image-141" decoding="async" height="130" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-image-preloader1.png" title="ajax-image-preloader" width="400"/>
+     </a>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-image-preloader.png">
+      <br/>
+     </a>
+    </p>
+    <p>
+     24.
+     <a href="http://www.1976design.com/blog/archive/2003/11/21/nice-titles/" target="_blank">
+      AJAX Tooltips: Nice Titles revised | Blog | 1976design.com
+     </a>
+     <br/>
+     <a href="http://www.1976design.com/blog/archive/2003/11/21/nice-titles/">
+      <img alt="" class="alignnone size-full wp-image-142" decoding="async" height="157" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-tooltips-nice-titles-revised-blog-1976design1.gif" title="ajax-tooltips-nice-titles-revised-blog-1976design" width="400"/>
+     </a>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-tooltips-nice-titles-revised-blog-1976design.gif">
+     </a>
+    </p>
+    <p>
+     25.
+     <a href="http://www.1976design.com/blog/archive/2003/11/21/nice-titles/" target="_blank">
+      40+ Tooltips Scripts With AJAX, JavaScript &amp; CSS | Smashing Magazine
+     </a>
+     <br/>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/40-tooltips-scripts-with-ajax-javascript-css-smashing-magazine.png">
+      <img alt="" class="alignnone size-full wp-image-70" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/40-tooltips-scripts-with-ajax-javascript-css-smashing-magazine.png" title="40-tooltips-scripts-with-ajax-javascript-css-smashing-magazine" width="400"/>
+     </a>
+    </p>
+    <p>
+     26.
+     <a href="http://www.mathertel.de/AJAXEngine/S03_AJAXControls/ConnectionsTestPage.aspx" target="_blank">
+      AJAX Web Controls
+     </a>
+     <br/>
+     <a href="http://www.mathertel.de/AJAXEngine/S03_AJAXControls/ConnectionsTestPage.aspx">
+      <img alt="" class="alignnone size-full wp-image-71" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-web-controls.png" title="ajax-web-controls" width="400"/>
+     </a>
+    </p>
+    <p>
+     27.
+     <a href="https://code.google.com/p/syntaxhighlighter/" target="_blank">
+      AJAX syntaxhighlighter
+     </a>
+     <br/>
+     <a href="https://code.google.com/p/syntaxhighlighter/">
+      <img alt="" class="alignnone size-full wp-image-72" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-syntaxhighlighter.png" title="ajax-syntaxhighlighter" width="400"/>
+     </a>
+    </p>
+    <p>
+     28.
+     <a href="http://transparent-message.xilinus.com/" target="_blank">
+      Transparent Message
+     </a>
+     <br/>
+     <a href="http://transparent-message.xilinus.com/">
+      <img alt="" class="alignnone size-full wp-image-74" decoding="async" height="222" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/transparent-message.png" title="transparent-message" width="400"/>
+     </a>
+    </p>
+    <p>
+     29.
+     <a href="http://wildbit.com/demos/modalbox/" target="_blank">
+      ModalBox — An easy way to create popups and wizards
+     </a>
+     <br/>
+     <a href="http://wildbit.com/demos/modalbox/">
+      <img alt="" class="alignnone size-full wp-image-75" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/modalbox-e28094-an-easy-way-to-create-popups-and-wizards.png" title="modalbox-e28094-an-easy-way-to-create-popups-and-wizards" width="399"/>
+     </a>
+    </p>
+    <p>
+     30.
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax_chained_select" target="_blank">
+      Chained select boxes
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=ajax_chained_select">
+      <img alt="" class="alignnone size-full wp-image-76" decoding="async" height="194" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/chained-select-boxes.png" title="chained-select-boxes" width="400"/>
+     </a>
+    </p>
+    <p>
+     31.
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=fly-to-basket" target="_blank">
+      Fly to basket
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=fly-to-basket">
+      <img alt="" class="alignnone size-full wp-image-77" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/fly-to-basket.png" title="fly-to-basket" width="400"/>
+     </a>
+    </p>
+    <p>
+     32.
+     <a href="http://www.mochikit.com/examples/key_events/index.html" target="_blank">
+      AJAX Key Events Signal
+     </a>
+     <br/>
+     <a href="http://www.mochikit.com/examples/key_events/index.html">
+      <img alt="" class="alignnone size-full wp-image-81" decoding="async" height="217" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-key-events-signal.png" title="ajax-key-events-signal" width="400"/>
+     </a>
+    </p>
+    <p>
+     33.
+     <a href="http://www.arraystudio.com/as-workshop/disable-form-submit-on-enter-keypress.html" target="_blank">
+      Disable form submit on enter keypress
+     </a>
+     <br/>
+     <a href="http://www.arraystudio.com/as-workshop/disable-form-submit-on-enter-keypress.html">
+      <img alt="" class="alignnone size-full wp-image-82" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/disable-form-submit-on-enter-keypress.png" title="disable-form-submit-on-enter-keypress" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Enhanced Solutions
+     </strong>
+    </h3>
+    <p>
+     34.
+     <a href="http://www.openrico.org/demos/complex_ajax" target="_blank">
+      AJAX Instant Completion
+     </a>
+     <br/>
+     <a href="http://www.openrico.org/demos/complex_ajax">
+      <img alt="" class="alignnone size-full wp-image-83" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-instant-completion.png" title="ajax-instant-completion" width="400"/>
+     </a>
+    </p>
+    <p>
+     35.
+     <a href="http://novemberborn.net/javascript/event-cache" target="_blank">
+      Novemberborn: Event Cache
+     </a>
+     <br/>
+     <a href="http://novemberborn.net/javascript/event-cache">
+      <img alt="" class="alignnone size-full wp-image-84" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/novemberborn-event-cache.png" title="novemberborn-event-cache" width="400"/>
+     </a>
+    </p>
+    <p>
+     36.
+     <a href="http://www.shawnolson.net/a/503/altering-css-class-attributes-with-javascript.html" target="_blank">
+      Altering CSS Class Attributes with JavaScript
+     </a>
+     <br/>
+     <a href="http://www.shawnolson.net/a/503/altering-css-class-attributes-with-javascript.htm">
+      <img alt="" class="alignnone size-full wp-image-85" decoding="async" height="136" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/altering-css-class-attributes-with-javascript.png" title="altering-css-class-attributes-with-javascript" width="400"/>
+     </a>
+    </p>
+    <p>
+     37.
+     <a href="http://www.shawnolson.net/a/1302/select-some-checkboxes-javascript-function.html" target="_blank">
+      Select Some Checkboxes JavaScript Function
+     </a>
+     <br/>
+     <a href="http://www.shawnolson.net/a/1302/select-some-checkboxes-javascript-function.html">
+      <img alt="" class="alignnone size-full wp-image-86" decoding="async" height="214" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/select-some-checkboxes-javascript-function.png" title="select-some-checkboxes-javascript-function" width="400"/>
+     </a>
+    </p>
+    <p>
+     38.
+     <a href="http://www.ejschart.com/index.php" target="_blank">
+      AJAX Emprise Charts
+     </a>
+     <br/>
+     <a href="http://www.ejschart.com/index.php">
+      <img alt="" class="alignnone size-full wp-image-87" decoding="async" height="262" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-emprise-charts.png" title="ajax-emprise-charts" width="401"/>
+     </a>
+    </p>
+    <p>
+     39.
+     <a href="http://www.amcharts.com/pie/" target="_blank">
+      amCharts: customizable flash Pie &amp; Donut chart
+     </a>
+     <br/>
+     <a href="http://www.amcharts.com/pie/">
+      <img alt="" class="alignnone size-full wp-image-88" decoding="async" height="264" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/amcharts-customizable-flash-pie-donut-chart.png" title="amcharts-customizable-flash-pie-donut-chart" width="404"/>
+     </a>
+    </p>
+    <p>
+     40.
+     <a href="http://www.pjhyett.com/posts/190-the-lightbox-effect-without-lightbox" target="_blank">
+      PJ Hyett : The Lightbox Effect without Lightbox
+     </a>
+     <br/>
+     <a href="http://www.pjhyett.com/posts/190-the-lightbox-effect-without-lightbox">
+      <img alt="" class="alignnone size-full wp-image-89" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/pj-hyett-the-lightbox-effect-without-lightbox.jpg" title="pj-hyett-the-lightbox-effect-without-lightbox" width="402"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Forms
+     </strong>
+    </h3>
+    <p>
+     41.
+     <a href="http://digitarald.de/playground/uplooad.html" target="_blank">
+      AJAX Upload Form
+     </a>
+     <br/>
+     <a href="http://digitarald.de/playground/uplooad.html">
+      <img alt="" class="alignnone size-full wp-image-90" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-upload-form.png" title="ajax-upload-form" width="399"/>
+     </a>
+    </p>
+    <p>
+     42.
+     <a href="http://www.dustindiaz.com/ajax-contact-form/" target="_blank">
+      An AJAX contact form
+     </a>
+     <br/>
+     <a href="http://www.dustindiaz.com/ajax-contact-form/">
+      <img alt="" class="alignnone size-full wp-image-137" decoding="async" height="189" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/an-ajax-contact-form1.png" title="an-ajax-contact-form1" width="400"/>
+     </a>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/an-ajax-contact-form.png">
+     </a>
+    </p>
+    <p>
+     43.
+     <a href="http://www.roscripts.com/AJAX_contact_form-144.html" target="_blank">
+      AJAX contact form
+     </a>
+     <br/>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-contact-form.png">
+      <img alt="" class="alignnone size-full wp-image-92" decoding="async" height="241" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-contact-form.png" title="ajax-contact-form" width="400"/>
+     </a>
+    </p>
+    <p>
+     44.
+     <a href="http://www.roscripts.com/AJAX_contact_form-144.html" target="_blank">
+      Ajax.Form
+     </a>
+     <br/>
+     <a href="http://delimitdesign.com/wp-content/uploads/2009/02/ajaxform.png">
+      <img alt="" class="alignnone size-full wp-image-93" decoding="async" height="189" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajaxform.png" title="ajaxform" width="399"/>
+     </a>
+    </p>
+    <p>
+     45.
+     <a href="http://www.roscripts.com/Ajax_form_validation-152.html" target="_blank">
+      Ajax form validation
+     </a>
+     <br/>
+     <a href="http://www.roscripts.com/Ajax_form_validation-152.htm">
+      <img alt="" class="alignnone size-full wp-image-96" decoding="async" height="214" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-form-validation.png" title="ajax-form-validation" width="400"/>
+     </a>
+    </p>
+    <p>
+     46.
+     <a href="http://tetlaw.id.au/view/javascript/really-easy-field-validation" target="_blank">
+      Really easy field validation
+     </a>
+     <br/>
+     <a href="http://tetlaw.id.au/view/javascript/really-easy-field-validation">
+      <img alt="" class="alignnone size-full wp-image-97" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/really-easy-field-validation.png" title="really-easy-field-validation" width="400"/>
+     </a>
+    </p>
+    <p>
+     47.
+     <a href="http://www.phil-taylor.com/fvalidate/" target="_blank">
+      AJAX fValidate
+     </a>
+     <br/>
+     <a href="http://www.phil-taylor.com/fvalidate/">
+      <img alt="" class="alignnone size-full wp-image-98" decoding="async" height="119" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-fvalidate.png" title="ajax-fvalidate" width="400"/>
+     </a>
+    </p>
+    <p>
+     48.
+     <a href="http://www.roscripts.com/Ajax_newsletter_form-146.html" target="_blank">
+      Ajax newsletter form
+     </a>
+     <br/>
+     <a href="http://www.roscripts.com/Ajax_newsletter_form-146.html">
+      <img alt="" class="alignnone size-full wp-image-99" decoding="async" height="91" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-newsletter-form.png" title="ajax-newsletter-form" width="400"/>
+     </a>
+    </p>
+    <p>
+     49.
+     <a href="http://www.formassembly.com/wForms/" target="_blank">
+      wForms
+     </a>
+     <br/>
+     <a href="http://www.formassembly.com/wForms/">
+      <img alt="" class="alignnone size-full wp-image-100" decoding="async" height="145" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/wforms.png" title="wforms" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Tables and Grids
+     </strong>
+    </h3>
+    <p>
+     50.
+     <a href="http://www.smashingmagazine.com/2007/05/30/tables-and-data-grids-with-ajax-dhtml-javascript/" target="_blank">
+      Data Grids with AJAX, DHTML and JavaScript | Smashing Magazine
+     </a>
+     <br/>
+     <a href="http://www.smashingmagazine.com/2007/05/30/tables-and-data-grids-with-ajax-dhtml-javascript/">
+      <img alt="" class="alignnone size-full wp-image-101" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/data-grids-with-ajax-dhtml-and-javascript-smashing-magazine.png" title="data-grids-with-ajax-dhtml-and-javascript-smashing-magazine" width="400"/>
+     </a>
+    </p>
+    <p>
+     51.
+     <a href="http://extjs.com/playpen/ext-2.0/examples/grid/grid3.html" target="_blank">
+      Grid3 Example
+     </a>
+     <br/>
+     <a href="http://extjs.com/playpen/ext-2.0/examples/grid/grid3.html">
+      <img alt="" class="alignnone size-full wp-image-102" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/grid3-example.png" title="grid3-example" width="400"/>
+     </a>
+    </p>
+    <p>
+     52.
+     <a href="http://www.frequency-decoder.com/2006/09/16/unobtrusive-table-sort-script-revisited" target="_blank">
+      AJAX Table Sort Script (revisited)
+     </a>
+     <br/>
+     <a href="http://www.frequency-decoder.com/2006/09/16/unobtrusive-table-sort-script-revisited">
+      <img alt="" class="alignnone size-full wp-image-103" decoding="async" height="150" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-table-sort-script-revisited.png" title="ajax-table-sort-script-revisited" width="400"/>
+     </a>
+    </p>
+    <p>
+     53.
+     <a href="http://www.mochikit.com/examples/ajax_tables/index.html" target="_blank">
+      AJAX Sortable Tables
+     </a>
+     <br/>
+     <a href="http://www.mochikit.com/examples/ajax_tables/index.html">
+      <img alt="" class="alignnone size-full wp-image-104" decoding="async" height="174" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-sortable-tables.png" title="ajax-sortable-tables" width="400"/>
+     </a>
+    </p>
+    <p>
+     54.
+     <a href="http://www.millstream.com.au/view/code/tablekit/" target="_blank">
+      AJAX TableKit
+     </a>
+     <br/>
+     <a href="http://www.millstream.com.au/view/code/tablekit/">
+      <img alt="" class="alignnone size-full wp-image-105" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-tablekit.png" title="ajax-tablekit" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Showcases, Galleries, and Lightbox Scripts
+     </strong>
+    </h3>
+    <p>
+     55.
+     <a href="http://www.smashingmagazine.com/2007/05/18/30-best-solutions-for-image-galleries-slideshows-lightboxes/" target="_blank">
+      30 Scripts For Galleries, Slideshows and Lightboxes | Smashing Magazine
+     </a>
+     <br/>
+     <a href="http://www.smashingmagazine.com/2007/05/18/30-best-solutions-for-image-galleries-slideshows-lightboxes/">
+      <img alt="" class="alignnone size-full wp-image-107" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/30-scripts-for-galleries-slideshows-and-lightboxes-smashing-magazine1.png" title="30-scripts-for-galleries-slideshows-and-lightboxes-smashing-magazine1" width="400"/>
+     </a>
+    </p>
+    <p>
+     56.
+     <a href="http://www.nofunc.com/Sexy_Box/" target="_blank">
+      AJAX LightBox, Sexy Box, Thick Box
+     </a>
+     <br/>
+     <a href="http://www.nofunc.com/Sexy_Box/">
+      <img alt="" class="alignnone size-full wp-image-108" decoding="async" height="158" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-lightbox-sexy-box-thick-box.png" title="ajax-lightbox-sexy-box-thick-box" width="400"/>
+     </a>
+    </p>
+    <p>
+     57.
+     <a href="http://www.huddletogether.com/projects/lightbox/" target="_blank">
+      AJAX Lightbox JS
+     </a>
+     <br/>
+     <a href="http://www.huddletogether.com/projects/lightbox">
+      <img alt="" class="alignnone size-full wp-image-109" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-lightbox-js.png" title="ajax-lightbox-js" width="400"/>
+     </a>
+    </p>
+    <p>
+     58.
+     <a href="http://orangoo.com/labs/GreyBox/" target="_blank">
+      AJAX Unobtrusive Popup – GreyBox
+     </a>
+     <br/>
+     <a href="http://orangoo.com/labs/GreyBox/">
+      <img alt="" class="alignnone size-full wp-image-110" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-unobtrusive-popup-greybox.png" title="ajax-unobtrusive-popup-greybox" width="400"/>
+     </a>
+    </p>
+    <p>
+     59.
+     <a href="http://smoothgallery.jondesign.net/showcase/gallery/" target="_blank">
+      SmoothGallery: Mootools Mojo for Images | Full gallery
+     </a>
+     <br/>
+     <a href="http://smoothgallery.jondesign.net/showcase/gallery/">
+      <img alt="" class="alignnone size-full wp-image-111" decoding="async" height="267" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/smoothgallery-mootools-mojo-for-images-full-gallery.png" title="smoothgallery-mootools-mojo-for-images-full-gallery" width="400"/>
+     </a>
+    </p>
+    <p>
+     60.
+     <a href="http://www.smashingmagazine.com/2006/11/15/ajax-dhtml-and-javascript-libraries/" target="_blank">
+      AJAX Libraries and Frameworks
+     </a>
+     <br/>
+     <a href="http://www.smashingmagazine.com/2006/11/15/ajax-dhtml-and-javascript-libraries/">
+      <img alt="" class="alignnone size-full wp-image-112" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-libraries-and-frameworks.png" title="ajax-libraries-and-frameworks" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Animation and Visual Effects Scripts
+     </strong>
+    </h3>
+    <p>
+     61.
+     <a href="http://firblitz.com/2007/3/6/re-how-to-create-digg-comment-style-sliding-divs-with-javascript-and-css" target="_blank">
+      How to Create Digg Comment Style Sliding DIVs with Javascript and CSS
+     </a>
+     <br/>
+     <a href="http://firblitz.com/2007/3/6/re-how-to-create-digg-comment-style-sliding-divs-with-javascript-and-css">
+      <img alt="" class="alignnone size-full wp-image-138" decoding="async" height="135" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/how-to-create-digg-comment-style-sliding-divs-with-javascript-and-css1.gif" title="how-to-create-digg-comment-style-sliding-divs-with-javascript-and-css1" width="400"/>
+     </a>
+    </p>
+    <p>
+     62.
+     <a href="http://www.harrymaugans.com/2007/03/05/how-to-create-a-collapsible-div-with-javascript-and-css/" target="_blank">
+      How to Create a Collapsible DIV with Javascript and CSS
+     </a>
+     <br/>
+     <a href="http://www.harrymaugans.com/2007/03/05/how-to-create-a-collapsible-div-with-javascript-and-css/">
+      <img alt="" class="alignnone size-full wp-image-117" decoding="async" height="96" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/how-to-create-a-collapsible-div-with-javascript-and-css1.png" title="how-to-create-a-collapsible-div-with-javascript-and-css1" width="400"/>
+     </a>
+    </p>
+    <p>
+     63.
+     <a href="http://www.harrymaugans.com/2007/03/06/how-to-create-an-animated-sliding-collapsible-div-with-javascript-and-css/" target="_blank">
+      How to Create an Animated, Sliding, Collapsible DIV with Javascript and CSS
+     </a>
+     <br/>
+     <a href="http://www.harrymaugans.com/2007/03/06/how-to-create-an-animated-sliding-collapsible-div-with-javascript-and-css/">
+      <img alt="" class="alignnone size-full wp-image-116" decoding="async" height="124" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/how-to-create-an-animated-sliding-collapsible-div-with-javascript-and-css.png" title="how-to-create-an-animated-sliding-collapsible-div-with-javascript-and-css" width="400"/>
+     </a>
+    </p>
+    <p>
+     64.
+     <a href="http://demo.script.aculo.us/shop" target="_blank">
+      <span lang="FR">
+       AJAX Shopcart
+      </span>
+     </a>
+     <br/>
+     <a href="http://demo.script.aculo.us/shop">
+      <img alt="" class="alignnone size-full wp-image-118" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-shopcart.png" title="ajax-shopcart" width="400"/>
+     </a>
+    </p>
+    <p>
+     65.
+     <a href="http://www.dhtmlgoodies.com/index.html?showDownload=true&amp;whichScript=dragable-content" target="_blank">
+      <span lang="FR">
+       Draggable content
+      </span>
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?showDownload=true&amp;whichScript=dragable-content">
+      <img alt="" class="alignnone size-full wp-image-119" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/draggable-content.png" title="draggable-content" width="400"/>
+     </a>
+    </p>
+    <p>
+     66.
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=dragable-boxes" target="_blank">
+      <span lang="FR">
+       Dragable RSS boxes
+      </span>
+     </a>
+     <br/>
+     <a href="http://www.dhtmlgoodies.com/index.html?whichScript=dragable-boxes">
+      <img alt="" class="alignnone size-full wp-image-120" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/dragable-rss-boxes.png" title="dragable-rss-boxes" width="400"/>
+     </a>
+    </p>
+    <p>
+     67.
+     <a href="http://www.openrico.org/demos?demo=pull_down" target="_blank">
+      AJAX Pull Down Effect
+     </a>
+     <br/>
+     <a href="http://www.openrico.org/demos?demo=pull_down">
+      <img alt="" class="alignnone size-full wp-image-121" decoding="async" height="151" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-pull-down-effect.png" title="ajax-pull-down-effect" width="400"/>
+     </a>
+    </p>
+    <p>
+     68.
+     <a href="http://www.openrico.org/demos?demo=effect_animation" target="_blank">
+      AJAX Animation Effects
+     </a>
+     <br/>
+     <a href="http://www.openrico.org/demos?demo=effect_animation">
+      <img alt="" class="alignnone size-full wp-image-122" decoding="async" height="175" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-animation-effects.png" title="ajax-animation-effects" width="400"/>
+     </a>
+    </p>
+    <p>
+     69.
+     <a href="http://wiki.script.aculo.us/scriptaculous/show/CombinationEffects" target="_blank">
+      Combination Effects in scriptaculous wiki
+     </a>
+     <br/>
+     <a href="http://wiki.script.aculo.us/scriptaculous/show/CombinationEffects">
+      <img alt="" class="alignnone size-full wp-image-123" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/combination-effects-in-scriptaculous-wiki.png" title="combination-effects-in-scriptaculous-wiki" width="400"/>
+     </a>
+    </p>
+    <p>
+     70.
+     <a href="http://demos.mootools.net/Fx.Morph" target="_blank">
+      AJAX Motion Transition
+     </a>
+     <br/>
+     <a href="http://demos.mootools.net/Fx.Morph">
+      <img alt="" class="alignnone size-full wp-image-124" decoding="async" height="253" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-motion-transition.png" title="ajax-motion-transition" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      Useful Javascript Scripts
+     </strong>
+    </h3>
+    <p>
+     71.
+     <a href="http://www.codecoffee.com/articles/9tips.html" target="_blank">
+      9 Javascript(s) you better not miss!
+     </a>
+     <br/>
+     <a href="http://www.codecoffee.com/articles/9tips.html">
+      <img alt="" class="alignnone size-full wp-image-125" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/9-javascripts-you-better-not-miss.png" title="9-javascripts-you-better-not-miss" width="400"/>
+     </a>
+    </p>
+    <p>
+     72.
+     <a href="http://www.dustindiaz.com/top-ten-javascript/" target="_blank">
+      Top 10 custom JavaScript functions of all time
+     </a>
+     <br/>
+     <a href="http://www.dustindiaz.com/top-ten-javascript/">
+      <img alt="" class="alignnone size-full wp-image-127" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/top-10-custom-javascript-functions-of-all-time1.png" title="top-10-custom-javascript-functions-of-all-time1" width="400"/>
+     </a>
+    </p>
+    <p>
+     73.
+     <a href="http://hyperdisc.unitec.ac.nz/materials/javascript/top10/breadcrumbs.htm" target="_blank">
+      Hyperdisc Materials: JavaScript: Top 10: Automatic Breadcrumb Trail
+     </a>
+     <br/>
+     <a href="http://hyperdisc.unitec.ac.nz/materials/javascript/top10/breadcrumbs.htm">
+      <img alt="" class="alignnone size-full wp-image-128" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/hyperdisc-materials-javascript-top-10-automatic-breadcrumb-trail.png" title="hyperdisc-materials-javascript-top-10-automatic-breadcrumb-trail" width="400"/>
+     </a>
+    </p>
+    <p>
+     74.
+     <a href="http://hyperdisc.unitec.ac.nz/materials/javascript/top10/" target="_blank">
+      JavaScript: Top 10 Most Useful JavaScripts
+     </a>
+     <br/>
+     <a href="http://hyperdisc.unitec.ac.nz/materials/javascript/top10/">
+      <img alt="" class="alignnone size-full wp-image-129" decoding="async" height="214" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/javascript-top-10-most-useful-javascripts.png" title="javascript-top-10-most-useful-javascripts" width="400"/>
+     </a>
+    </p>
+    <p>
+     75.
+     <a href="http://www.blakems.com/archives/000087.html?_required=first_name%2CFirst+Name%7Clast_name%2CLast+Name%7Cemailer%2CEmail&amp;first_name=asdad&amp;last_name=dasdad&amp;emailer=dasdad" target="_blank">
+      My Favorite Javascripts for Designers: Blakems.com ?
+     </a>
+     <br/>
+     <a href="http://www.blakems.com/archives/000087.html?_required=first_name%2CFirst+Name%7Clast_name%2CLast+Name%7Cemailer%2CEmail&amp;first_name=asdad&amp;last_name=dasdad&amp;emailer=dasdad">
+      <img alt="" class="alignnone size-full wp-image-130" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/my-favorite-javascripts-for-designers-blakems-com.png" title="my-favorite-javascripts-for-designers-blakems-com" width="400"/>
+     </a>
+    </p>
+    <h3>
+     <strong>
+      More Resources and Galleries
+     </strong>
+    </h3>
+    <p>
+     76.
+     <a href="http://www.maxkiesler.com/index.php/mhub/category/" target="_blank">
+      Max Kiesler – mHub : Ajax and rails examples &amp; how-to’s
+     </a>
+     <br/>
+     <a href="http://www.maxkiesler.com/index.php/mhub/category/">
+      <img alt="" class="alignnone size-full wp-image-133" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/max-kiesler-mhub-ajax-and-rails-examples-how-toe28099s.png" title="max-kiesler-mhub-ajax-and-rails-examples-how-toe28099s" width="400"/>
+     </a>
+    </p>
+    <p>
+     77.
+     <a href="http://ajax.solutoire.com/" target="_blank">
+      Ajax Resources
+     </a>
+     <br/>
+     <a href="http://ajax.solutoire.com/">
+      <img alt="" class="alignnone size-full wp-image-134" decoding="async" height="260" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/ajax-resources.png" title="ajax-resources" width="400"/>
+     </a>
+    </p>
+    <p>
+     78.
+     <a href="http://snippets.dzone.com/" target="_blank">
+      DZone Snippets: Store, sort and share source code, with tag goodness
+     </a>
+     <br/>
+     <a href="http://snippets.dzone.com/">
+      <img alt="" class="alignnone size-full wp-image-135" decoding="async" height="144" loading="lazy" src="http://delimitdesign.com/wp-content/uploads/2009/02/dzone-snippets-store-sort-and-share-source-code-with-tag-goodness.png" title="dzone-snippets-store-sort-and-share-source-code-with-tag-goodness" width="400"/>
+     </a>
+    </p>
+    <p>
+     文章来源：
+     <a href="http://delimitdesign.com/ajax/80-ajax-solutions-that-are-usefull-and-innovative/" target="_blank">
+      链接
+     </a>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9749.html">
+         <img alt="Javascript 装载和执行" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/javascript-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9749.html">
+         Javascript 装载和执行
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8170.html">
+         <img alt="一次Ajax查错的经历" height="150" src="https://coolshell.cn/wp-content/uploads/2012/08/ajax_error-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8170.html">
+         一次Ajax查错的经历
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3013.html">
+         <img alt="一些非常有意思的杂项资源" height="150" src="https://coolshell.cn/wp-content/uploads/2010/09/biolab-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3013.html">
+         一些非常有意思的杂项资源
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2593.html">
+         <img alt="Web版的VNC" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/18.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2593.html">
+         Web版的VNC
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1611.html">
+         <img alt="Ajax开发利器UIzard " height="150" src="https://coolshell.cn/wp-content/uploads/2009/10/uizard2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1611.html">
+         Ajax开发利器UIzard
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/909.html">
+         <img alt="7个免费强大的Ajax文件管理器" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/24.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/909.html">
+         7个免费强大的Ajax文件管理器
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="1b4005b942" id="post-ratings-57" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_57_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2, 0, 0);" onmouseover="current_rating(57, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_57_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2, 0, 0);" onmouseover="current_rating(57, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_57_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2, 0, 0);" onmouseover="current_rating(57, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_57_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2, 0, 0);" onmouseover="current_rating(57, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_57_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2, 0, 0);" onmouseover="current_rating(57, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      10
+     </strong>
+     人打了分，平均分：
+     <strong>
+      2.00
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_57_text">
+     </span>
+     <meta content="80个优秀的AJAX方案" itemprop="name"/>
+     <meta content="80个优秀的AJAX方案" itemprop="headline"/>
+     <meta content="Ajax作为一种WEB上的技术，已经广被开发人员接受，在过去的两三年内，互联网上涌现出了很多很多的很有创意的Ajax的解决方案，令人赞叹。这里，介绍了80以上的AJAX用法以及其脚本资源，希望对你的开发有帮助。
+Auto Complete Scripts
+1. AJAX AutoSuggest
+
+
+
+
+2. AJAX Autocompleter / script.aculo.us l..." itemprop="description"/>
+     <meta content="2009-03-07T09:20:20+08:00" itemprop="datePublished"/>
+     <meta content="2009-03-07T09:20:20+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/57.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/57.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="2" itemprop="ratingValue"/>
+      <meta content="10" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-57-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/ajaxdev" rel="category tag">
+        Ajax开发
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/ajax" rel="tag">
+        AJAX
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

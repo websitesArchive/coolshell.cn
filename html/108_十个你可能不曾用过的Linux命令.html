@@ -1,0 +1,743 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/790.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="十个你可能不曾用过的Linux命令 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/790.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2009-05-10T11:26:09+00:00" property="article:published_time"/>
+   <meta content="2009-05-10T11:26:09+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="十个你可能不曾用过的Linux命令 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/790.html#article","name":"\u5341\u4e2a\u4f60\u53ef\u80fd\u4e0d\u66fe\u7528\u8fc7\u7684Linux\u547d\u4ee4 | \u9177 \u58f3 - CoolShell","headline":"\u5341\u4e2a\u4f60\u53ef\u80fd\u4e0d\u66fe\u7528\u8fc7\u7684Linux\u547d\u4ee4","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2009-05-10T11:26:09+08:00","dateModified":"2009-05-10T11:26:09+08:00","inLanguage":"zh-CN","commentCount":5,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/790.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/790.html#webpage"},"articleSection":"Unix\/Linux, \u64cd\u4f5c\u7cfb\u7edf, Linux"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/790.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/790.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/790.html#webpage","url":"https:\/\/coolshell.cn\/articles\/790.html","name":"\u5341\u4e2a\u4f60\u53ef\u80fd\u4e0d\u66fe\u7528\u8fc7\u7684Linux\u547d\u4ee4 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/790.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2009-05-10T11:26:09+08:00","dateModified":"2009-05-10T11:26:09+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '790';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E5%8D%81%E4%B8%AA%E4%BD%A0%E5%8F%AF%E8%83%BD%E4%B8%8D%E6%9B%BE%E7%94%A8%E8%BF%87%E7%9A%84Linux%E5%91%BD%E4%BB%A4';
+	window._wp_rp_post_tags = ['linux', '%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F', 'unix%2Flinux', '1', 'usag', 'ef', 'echo', 'number', '1834', 'ls', 'split', 'bc', 'ne', 'linux', 'print', 'exit'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/790.html/feed" rel="alternate" title="酷 壳 - CoolShell » 十个你可能不曾用过的Linux命令评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/790" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=790" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F790.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F790.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-790 post type-post status-publish format-standard hentry category-unixlinux category-operatingsystem tag-linux" id="post-790">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     十个你可能不曾用过的Linux命令
+    </span>
+    <h1 class="entry-title">
+     十个你可能不曾用过的Linux命令
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/790.html" rel="bookmark" title="19:26">
+       <time class="entry-date" datetime="2009-05-10T19:26:09+08:00" pubdate="">
+        2009年05月10日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/790.html#comments">
+       5 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      15,361 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     下面可能是你不曾用过后十个Linux的命令。相当的有用。
+    </p>
+    <p>
+     <strong>
+      1）pgrep
+     </strong>
+    </p>
+    <p>
+     pgrep名字前有个p，我们可以猜到这和进程相关，又是grep，当然这是进程相关的grep命令。不过，这个命令主要是用来列举进程ID的。如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+$ pgrep -u hchen
+22441
+22444
+</pre>
+    <p>
+     这个命令相当于：
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="shell">
+      ps -ef | egrep '^hchen' | awk '{print $2}'
+     </code>
+    </p>
+    <p>
+     <span id="more-790">
+     </span>
+    </p>
+    <p>
+     <strong>
+      2）pstree
+     </strong>
+    </p>
+    <p>
+     这个命令可以以树形的方式列出进程。如下所示：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="630b000b060d23312b262f30353156" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]$ pstree
+init-+-acpid
+     |-auditd-+-python
+     |        `-{auditd}
+     |-automount---4*[{automount}]
+     |-backup.sh---sleep
+     |-dbus-daemon
+     |-events/0
+     |-events/1
+     |-hald---hald-runner---hald-addon-acpi
+     |-httpd---10*[httpd]
+     |-irqbalance
+     |-khelper
+     |-klogd
+     |-ksoftirqd/0
+     |-ksoftirqd/1
+     |-kthread-+-aio/0
+     |         |-aio/1
+     |         |-ata/0
+     |         |-ata/1
+     |         |-ata_aux
+     |         |-cqueue/0
+     |         |-cqueue/1
+     |         |-kacpid
+     |         |-kauditd
+     |         |-kblockd/0
+     |         |-kblockd/1
+     |         |-kedac
+     |         |-khubd
+     |         |-6*[kjournald]
+     |         |-kmirrord
+     |         |-kpsmoused
+     |         |-kseriod
+     |         |-kswapd0
+     |         |-2*[pdflush]
+     |         |-scsi_eh_0
+     |         |-scsi_eh_1
+     |         |-xenbus
+     |         `-xenwatch
+     |-migration/0
+     |-migration/1
+     |-6*[mingetty]
+     |-3*[multilog]
+     |-mysqld_safe---mysqld---9*[{mysqld}]
+     |-smartd
+     |-sshd---sshd---sshd---bash---pstree
+     |-svscanboot---svscan-+-3*[supervise---run]
+     |                     |-supervise---qmail-send-+-qmail-clean
+     |                     |                        |-qmail-lspawn
+     |                     |                        `-qmail-rspawn
+     |                     `-2*[supervise---tcpserver]
+     |-syslogd
+     |-udevd
+     |-watchdog/0
+     |-watchdog/1
+     `-xinetd
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      3）bc
+     </strong>
+    </p>
+    <p>
+     这个命令主要是做一个精度比较高的数学运算的。比如开平方根等。下面是一个我们利用bc命令写的一个脚本（文件名：sqrt）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+#!/bin/bash
+if [ $# -ne 1 ]
+then
+    echo 'Usage: sqrt number'
+    exit 1
+else
+    echo -e "sqrt($1)\nquit\n" | bc -q -i
+fi
+</pre>
+    <p>
+     于是，我们可以这样使用这个脚本进行平方根运算：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="254d464d404b65776d606976737710" href="/cdn-cgi/l/email-protection">[email protected]</a>]$ ./sqrt 36
+6
+[<a class="__cf_email__" data-cfemail="3f575c575a517f6d777a736c696d0a" href="/cdn-cgi/l/email-protection">[email protected]</a>]$ ./sqrt 2.0000
+1.4142
+[<a class="__cf_email__" data-cfemail="3b5358535e557b69737e77686d690e" href="/cdn-cgi/l/email-protection">[email protected]</a>]$ ./sqrt 10.0000
+3.1622
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      4）split
+     </strong>
+    </p>
+    <p>
+     如果你有一个很大的文件，你想把其分割成一些小的文件，那么这个命令就是干这件事的了。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="5b3338333e351b09131e17080d096e" href="/cdn-cgi/l/email-protection">[email protected]</a> applebak]# ls -l largefile.tar.gz
+-rw-r--r-- 1 hchen hchen 436774774 04-17 02:00 largefile.tar.gz 
+
+[<a class="__cf_email__" data-cfemail="ea8289828f84aab8a2afa6b9bcb8df" href="/cdn-cgi/l/email-protection">[email protected]</a> applebak]# split -b 50m largefile.tar.gz LF_
+
+[<a class="__cf_email__" data-cfemail="99f1faf1fcf7d9cbd1dcd5cacfcbac" href="/cdn-cgi/l/email-protection">[email protected]</a>]# ls -l LF_*
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:34 LF_aa
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:34 LF_ab
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:34 LF_ac
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:34 LF_ad
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:34 LF_ae
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:35 LF_af
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:35 LF_ag
+-rw-r--r-- 1 hchen hchen 52428800 05-10 18:35 LF_ah
+-rw-r--r-- 1 hchen hchen 17344374 05-10 18:35 LF_ai
+</pre>
+    <p>
+    </p>
+    <p>
+     文件合并只需要使用简单的合并就行了，如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="97fff4fff2f9d7c5dfd2dbc4c1c5a2" href="/cdn-cgi/l/email-protection">[email protected]</a>]#  cat LF_* &gt;largefile.tar.gz
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      5）nl
+     </strong>
+    </p>
+    <p>
+     nl命令其它和cat命令很像，只不过它会打上行号。如下所示：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="4a2229222f240a18020f06191c187f" href="/cdn-cgi/l/email-protection">[email protected]</a> include]# nl stdio.h | head -n 10
+     1  /* Define ISO C stdio on top of C++ iostreams.
+     2     Copyright (C) 1991,1994-2004,2005,2006 Free Software Foundation, Inc.
+     3     This file is part of the GNU C Library. 
+
+     4     The GNU C Library is free software; you can redistribute it and/or
+     5     modify it under the terms of the GNU Lesser General Public
+     6     License as published by the Free Software Foundation; either
+     7     version 2.1 of the License, or (at your option) any later version.
+
+     8     The GNU C Library is distributed in the hope that it will be useful,
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      6）mkfifo
+     </strong>
+    </p>
+    <p>
+     熟悉Unix的人都应该知道这个是一个创建有名管道的系统调用或命令。平时，我们在命令行上使用竖线“|”把命令串起来是使用无命管道。而我们使用mkfifo则使用的是有名管道。下面是示例：
+    </p>
+    <p>
+     下面是创建一个有名管道：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="2b4348434e456b79636e67787d791e" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# mkfifo /tmp/hchenpipe
+
+[<a class="__cf_email__" data-cfemail="ed858e858883adbfa5a8a1bebbbfd8" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# ls -l /tmp
+prw-rw-r-- 1 hchen  hchen  0 05-10 18:58 hchenpipe
+</pre>
+    <p>
+     然后，我们在一个shell中运行如下命令，这个命令不会返回，除非有人从这个有名管道中把信息读走。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="e8808b808d86a8baa0ada4bbbebadd" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# ls -al &gt; /tmp/hchenpipe
+</pre>
+    <p>
+     我们在另一个命令窗口中读取这个管道中的信息：（其会导致上一个命令返回）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="a5cdc6cdc0cbe5f7ede0e9f6f3f790" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# head /tmp/hchenpipe
+drwx------ 8 hchen hchen    4096 05-10 18:27 .
+drwxr-xr-x 7 root  root     4096 03-05 00:06 ..
+drwxr-xr-x 3 hchen hchen    4096 03-01 18:13 backup
+-rw------- 1 hchen hchen     721 05-05 22:12 .bash_history
+-rw-r--r-- 1 hchen hchen      24 02-28 22:20 .bash_logout
+-rw-r--r-- 1 hchen hchen     176 02-28 22:20 .bash_profile
+-rw-r--r-- 1 hchen hchen     124 02-28 22:20 .bashrc
+-rw-r--r-- 1 root  root    14002 03-07 00:29 index.htm
+-rw-r--r-- 1 hchen hchen   31465 03-01 23:48 index.php
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      7）ldd
+     </strong>
+    </p>
+    <p>
+     这个命令可以知道你的一个可执行文件所使用了动态链接库。如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="066e656e636846544e434a55505433" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# ldd /usr/bin/java
+        linux-gate.so.1 =&gt;  (0x00cd9000)
+        libgij.so.7rh =&gt; /usr/lib/libgij.so.7rh (0x00ed3000)
+        libgcj.so.7rh =&gt; /usr/lib/libgcj.so.7rh (0x00ed6000)
+        libpthread.so.0 =&gt; /lib/i686/nosegneg/libpthread.so.0 (0x00110000)
+        librt.so.1 =&gt; /lib/i686/nosegneg/librt.so.1 (0x009c8000)
+        libdl.so.2 =&gt; /lib/libdl.so.2 (0x008b5000)
+        libz.so.1 =&gt; /usr/lib/libz.so.1 (0x00bee000)
+        libgcc_s.so.1 =&gt; /lib/libgcc_s.so.1 (0x00aa7000)
+        libc.so.6 =&gt; /lib/i686/nosegneg/libc.so.6 (0x0022f000)
+        libm.so.6 =&gt; /lib/i686/nosegneg/libm.so.6 (0x00127000)
+        /lib/ld-linux.so.2 (0x00214000)
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      8）col
+     </strong>
+    </p>
+    <p>
+     这个命令可以让你把man文件转成纯文本文件。如下示例：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+# PAGER=cat
+# man less | col -b &gt; less.txt
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      9）xmlwf
+     </strong>
+    </p>
+    <p>
+     这个命令可以让你检查一下一个XML文档是否是所有的tag都是正常的。如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="ff979c979a91bfadb7bab3aca9adca" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# curl 'https://coolshell.cn/?feed=rss2' &gt; cocre.xml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 64882    0 64882    0     0  86455      0 --:--:-- --:--:-- --:--:-- 2073k
+[<a class="__cf_email__" data-cfemail="650d060d000b25372d202936333750" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# xmlwf cocre.xml
+[<a class="__cf_email__" data-cfemail="355d565d505b75677d707966636700" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# perl -i -pe 's@&lt;link&gt;@&lt;br&gt;@g' cocre.xml
+[hchen@RHELSVR5 ~]# xmlwf cocre.xml
+cocre.xml:13:23: mismatched tag
+</pre>
+    <p>
+    </p>
+    <p>
+     <strong>
+      10）lsof
+     </strong>
+    </p>
+    <p>
+     可以列出打开了的文件。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+[<a class="__cf_email__" data-cfemail="53213c3c2713011b161f00050166" href="/cdn-cgi/l/email-protection">[email protected]</a> ~]# lsof | grep TCP
+httpd       548    apache    4u     IPv6   14300967    TCP *:http (LISTEN)
+httpd       548    apache    6u     IPv6   14300972    TCP *:https (LISTEN)
+httpd       561    apache    4u     IPv6   14300967    TCP *:http (LISTEN)
+httpd       561    apache    6u     IPv6   14300972    TCP *:https (LISTEN)
+sshd       1764      root    3u     IPv6       4993    TCP *:ssh (LISTEN)
+tcpserver  8965      root    3u     IPv4  153795500    TCP *:pop3 (LISTEN)
+mysqld    10202     mysql   10u     IPv4   73819697    TCP *:mysql (LISTEN)
+sshd      10735      root    3u     IPv6  160731956    TCP 210.51.0.232:ssh-&gt;123.117.239.68:31810 (ESTABLISHED)
+sshd      10767     hchen    3u     IPv6  160731956    TCP 210.51.0.232:ssh-&gt;123.117.239.68:31810 (ESTABLISHED)
+vsftpd    11095      root    3u     IPv4  152157957    TCP *:ftp (LISTEN)
+</pre>
+    <p>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/22320.html">
+         <img alt="eBPF 介绍" height="150" src="https://coolshell.cn/wp-content/uploads/2022/12/eBPF-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/22320.html">
+         eBPF 介绍
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19219.html">
+         <img alt="打造高效的工作环境 – Shell 篇" height="150" src="https://coolshell.cn/wp-content/uploads/2019/03/linux.ninja_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19219.html">
+         打造高效的工作环境 – Shell 篇
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18654.html">
+         <img alt="记一次Kubernetes/Docker网络排障" height="150" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18654.html">
+         记一次Kubernetes/Docker网络排障
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17998.html">
+         <img alt="Linux PID 1 和 Systemd" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/systemd-1-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17998.html">
+         Linux PID 1 和 Systemd
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17416.html">
+         <img alt="缓存更新的套路" height="150" src="https://coolshell.cn/wp-content/uploads/2016/07/cache-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17416.html">
+         缓存更新的套路
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="543f33a106" id="post-ratings-790" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_790_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(790, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_790_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(790, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_790_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(790, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_790_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(790, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_790_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.4, 4, 0);" onmouseover="current_rating(790, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      8
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.38
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_790_text">
+     </span>
+     <meta content="十个你可能不曾用过的Linux命令" itemprop="name"/>
+     <meta content="十个你可能不曾用过的Linux命令" itemprop="headline"/>
+     <meta content="下面可能是你不曾用过后十个Linux的命令。相当的有用。
+
+1）pgrep
+
+pgrep名字前有个p，我们可以猜到这和进程相关，又是grep，当然这是进程相关的grep命令。不过，这个命令主要是用来列举进程ID的。如：
+
+[shell]
+$ pgrep -u hchen
+22441
+22444
+[/shell]
+
+这个命令相当于：
+
+[shell]ps -ef | eg..." itemprop="description"/>
+     <meta content="2009-05-10T19:26:09+08:00" itemprop="datePublished"/>
+     <meta content="2009-05-10T19:26:09+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/790.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/790.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.38" itemprop="ratingValue"/>
+      <meta content="8" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-790-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/operatingsystem/unixlinux" rel="category tag">
+        Unix/Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem" rel="category tag">
+        操作系统
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/linux" rel="tag">
+        Linux
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,1762 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/10590.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="二维码的生成细节和原理 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="【作者：陈皓】二维码又称QR Code，QR全称Quick Response，是一个近几年来移动设备上超流行的一种编码方式，它比传统的Bar Code条形码能存更多的信息，也能表示更多的数据类型：比如：字符，数字，日文，中文等等。这两天学习了一下二维码图片生成的相关细节，觉得这个玩意就是一个密码算法，在此写一这篇文章 ，揭露一下。供喜欢的人一同学习之。" property="og:description"/>
+   <meta content="https://coolshell.cn/articles/10590.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview.jpeg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview.jpeg" property="og:image:secure_url"/>
+   <meta content="770" property="og:image:width"/>
+   <meta content="462" property="og:image:height"/>
+   <meta content="2013-10-29T00:32:35+00:00" property="article:published_time"/>
+   <meta content="2013-10-29T04:01:02+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="二维码的生成细节和原理 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="【作者：陈皓】二维码又称QR Code，QR全称Quick Response，是一个近几年来移动设备上超流行的一种编码方式，它比传统的Bar Code条形码能存更多的信息，也能表示更多的数据类型：比如：字符，数字，日文，中文等等。这两天学习了一下二维码图片生成的相关细节，觉得这个玩意就是一个密码算法，在此写一这篇文章 ，揭露一下。供喜欢的人一同学习之。" name="twitter:description"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview.jpeg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/10590.html#article","name":"\u4e8c\u7ef4\u7801\u7684\u751f\u6210\u7ec6\u8282\u548c\u539f\u7406 | \u9177 \u58f3 - CoolShell","headline":"\u4e8c\u7ef4\u7801\u7684\u751f\u6210\u7ec6\u8282\u548c\u539f\u7406","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2013\/10\/QR-Code-Overview.jpeg","@id":"https:\/\/coolshell.cn\/#articleImage","width":770,"height":462},"datePublished":"2013-10-29T00:32:35+08:00","dateModified":"2013-10-29T04:01:02+08:00","inLanguage":"zh-CN","commentCount":165,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/10590.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/10590.html#webpage"},"articleSection":"\u6742\u9879\u8d44\u6e90, \u7a0b\u5e8f\u8bbe\u8ba1, Algorithm, QR, \u4e8c\u7ef4\u7801"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/10590.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/10590.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/10590.html#webpage","url":"https:\/\/coolshell.cn\/articles\/10590.html","name":"\u4e8c\u7ef4\u7801\u7684\u751f\u6210\u7ec6\u8282\u548c\u539f\u7406 | \u9177 \u58f3 - CoolShell","description":"\u3010\u4f5c\u8005\uff1a\u9648\u7693\u3011\u4e8c\u7ef4\u7801\u53c8\u79f0QR Code\uff0cQR\u5168\u79f0Quick Response\uff0c\u662f\u4e00\u4e2a\u8fd1\u51e0\u5e74\u6765\u79fb\u52a8\u8bbe\u5907\u4e0a\u8d85\u6d41\u884c\u7684\u4e00\u79cd\u7f16\u7801\u65b9\u5f0f\uff0c\u5b83\u6bd4\u4f20\u7edf\u7684Bar Code\u6761\u5f62\u7801\u80fd\u5b58\u66f4\u591a\u7684\u4fe1\u606f\uff0c\u4e5f\u80fd\u8868\u793a\u66f4\u591a\u7684\u6570\u636e\u7c7b\u578b\uff1a\u6bd4\u5982\uff1a\u5b57\u7b26\uff0c\u6570\u5b57\uff0c\u65e5\u6587\uff0c\u4e2d\u6587\u7b49\u7b49\u3002\u8fd9\u4e24\u5929\u5b66\u4e60\u4e86\u4e00\u4e0b\u4e8c\u7ef4\u7801\u56fe\u7247\u751f\u6210\u7684\u76f8\u5173\u7ec6\u8282\uff0c\u89c9\u5f97\u8fd9\u4e2a\u73a9\u610f\u5c31\u662f\u4e00\u4e2a\u5bc6\u7801\u7b97\u6cd5\uff0c\u5728\u6b64\u5199\u4e00\u8fd9\u7bc7\u6587\u7ae0 \uff0c\u63ed\u9732\u4e00\u4e0b\u3002\u4f9b\u559c\u6b22\u7684\u4eba\u4e00\u540c\u5b66\u4e60\u4e4b\u3002","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/10590.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2013-10-29T00:32:35+08:00","dateModified":"2013-10-29T04:01:02+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '10590';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%9A%84%E7%94%9F%E6%88%90%E7%BB%86%E8%8A%82%E5%92%8C%E5%8E%9F%E7%90%86';
+	window._wp_rp_post_tags = ['qr', '%E4%BA%8C%E7%BB%B4%E7%A0%81', 'algorithm', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'alt', 'channel', '25', '012', '8', '3', 'gt', 'pattern', 'version', 'code', 'detect', '1012', 'qr', '2', 'data'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/10590.html/feed" rel="alternate" title="酷 壳 - CoolShell » 二维码的生成细节和原理评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/10590" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=10590" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F10590.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F10590.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-10590 post type-post status-publish format-standard hentry category-misc category-progdesign tag-algorithm tag-qr tag-693" id="post-10590">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     二维码的生成细节和原理
+    </span>
+    <h1 class="entry-title">
+     二维码的生成细节和原理
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/10590.html" rel="bookmark" title="08:32">
+       <time class="entry-date" datetime="2013-10-29T08:32:35+08:00" pubdate="">
+        2013年10月29日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/10590.html#comments">
+       165 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      395,722 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     二维码又称QR Code，QR全称Quick Response，是一个近几年来移动设备上超流行的一种编码方式，它比传统的Bar Code条形码能存更多的信息，也能表示更多的数据类型：比如：字符，数字，日文，中文等等。这两天学习了一下二维码图片生成的相关细节，觉得这个玩意就是一个密码算法，在此写一这篇文章 ，揭露一下。供好学的人一同学习之。
+    </p>
+    <p>
+     关于QR Code Specification，可参看这个PDF：
+     <a href="http://raidenii.net/files/datasheets/misc/qr_code.pdf" target="_blank">
+      http://raidenii.net/files/datasheets/misc/qr_code.pdf
+     </a>
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86" title="基础知识">
+         基础知识
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-2" href="#%E5%AE%9A%E4%BD%8D%E5%9B%BE%E6%A1%88" title="定位图案">
+           定位图案
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-3" href="#%E5%8A%9F%E8%83%BD%E6%80%A7%E6%95%B0%E6%8D%AE" title="功能性数据">
+           功能性数据
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-4" href="#%E6%95%B0%E6%8D%AE%E7%A0%81%E5%92%8C%E7%BA%A0%E9%94%99%E7%A0%81" title="数据码和纠错码">
+           数据码和纠错码
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81" title="数据编码">
+         数据编码
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-6" href="#%E7%A4%BA%E4%BE%8B%E4%B8%80%EF%BC%9A%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81" title="示例一：数字编码">
+           示例一：数字编码
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#%E7%A4%BA%E4%BE%8B%E4%BA%8C%EF%BC%9A%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81" title="示例二：字符编码">
+           示例二：字符编码
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-8" href="#%E7%BB%93%E6%9D%9F%E7%AC%A6%E5%92%8C%E8%A1%A5%E9%BD%90%E7%AC%A6" title="结束符和补齐符">
+         结束符和补齐符
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-9" href="#%E6%8C%898bits%E9%87%8D%E6%8E%92" title="按8bits重排">
+           按8bits重排
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-10" href="#%E8%A1%A5%E9%BD%90%E7%A0%81%EF%BC%88Padding_Bytes%EF%BC%89" title="补齐码（Padding Bytes）">
+           补齐码（Padding Bytes）
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-11" href="#%E7%BA%A0%E9%94%99%E7%A0%81" title="纠错码">
+         纠错码
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-12" href="#%E6%9C%80%E7%BB%88%E7%BC%96%E7%A0%81" title="最终编码">
+         最终编码
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-13" href="#%E7%A9%BF%E6%8F%92%E6%94%BE%E7%BD%AE" title="穿插放置">
+           穿插放置
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-14" href="#Remainder_Bits" title="Remainder Bits">
+           Remainder Bits
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-15" href="#%E7%94%BB%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%9B%BE" title="画二维码图">
+         画二维码图
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-16" href="#Position_Detection_Pattern" title="Position Detection Pattern">
+           Position Detection Pattern
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-17" href="#Alignment_Pattern" title="Alignment Pattern">
+           Alignment Pattern
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-18" href="#Timing_Pattern" title="Timing Pattern">
+           Timing Pattern
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-19" href="#Format_Information" title="Format Information">
+           Format Information
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-20" href="#Version_Information" title="Version Information">
+           Version Information
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-21" href="#%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BA%A0%E9%94%99%E7%A0%81" title="数据和数据纠错码">
+           数据和数据纠错码
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-22" href="#%E6%8E%A9%E7%A0%81%E5%9B%BE%E6%A1%88" title="掩码图案">
+           掩码图案
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">
+     </span>
+     基础知识
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先，我们先说一下二维码一共有40个尺寸。官方叫版本Version。Version 1是21 x 21的矩阵，Version 2是 25 x 25的矩阵，Version 3是29的尺寸，每增加一个version，就会增加4的尺寸，公式是：(V-1)*4 + 21（V是版本号） 最高Version 40，(40-1)*4+21 = 177，所以最高是177 x 177 的正方形。
+    </p>
+    <p>
+     下面我们看看一个二维码的样例：
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-10592" decoding="async" height="370" sizes="(max-width: 616px) 100vw, 616px" src="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview.jpeg" srcset="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview.jpeg 770w, https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview-300x180.jpeg 300w, https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview-768x461.jpeg 768w, https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview-450x270.jpeg 450w" width="616"/>
+    </p>
+    <p style="text-align: left;">
+     <span id="more-10590">
+     </span>
+    </p>
+    <h5 style="text-align: left;">
+     <span class="ez-toc-section" id="%E5%AE%9A%E4%BD%8D%E5%9B%BE%E6%A1%88">
+     </span>
+     定位图案
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <ul>
+     <li>
+      Position Detection Pattern是定位图案，用于标记二维码的矩形大小。这三个定位图案有白边叫Separators for Postion Detection Patterns。之所以三个而不是四个意思就是三个就可以标识一个矩形了。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Timing Patterns也是用于定位的。原因是二维码有40种尺寸，尺寸过大了后需要有根标准线，不然扫描的时候可能会扫歪了。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Alignment Patterns 只有Version 2以上（包括Version2）的二维码需要这个东东，同样是为了定位用的。
+     </li>
+    </ul>
+    <h5 style="text-align: left;">
+     <span class="ez-toc-section" id="%E5%8A%9F%E8%83%BD%E6%80%A7%E6%95%B0%E6%8D%AE">
+     </span>
+     功能性数据
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <ul>
+     <li>
+      Format Information 存在于所有的尺寸中，用于存放一些格式化数据的。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Version Information 在 &gt;= Version 7以上，需要预留两块3 x 6的区域存放一些版本信息。
+     </li>
+    </ul>
+    <h5>
+     <span class="ez-toc-section" id="%E6%95%B0%E6%8D%AE%E7%A0%81%E5%92%8C%E7%BA%A0%E9%94%99%E7%A0%81">
+     </span>
+     数据码和纠错码
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <ul>
+     <li>
+      除了上述的那些地方，剩下的地方存放 Data Code 数据码 和 Error Correction Code 纠错码。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81">
+     </span>
+     数据编码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我们先来说说数据编码。QR码支持如下的编码：
+    </p>
+    <p>
+     <strong>
+      Numeric mode
+     </strong>
+     数字编码，从0到9。如果需要编码的数字的个数不是3的倍数，那么，最后剩下的1或2位数会被转成4或7bits，则其它的每3位数字会被编成 10，12，14bits，编成多长还要看二维码的尺寸（下面有一个表Table 3说明了这点）
+    </p>
+    <p>
+     <strong>
+      Alphanumeric mode
+     </strong>
+     字符编码。包括 0-9，大写的A到Z（没有小写），以及符号$ % * + – . / : 包括空格。这些字符会映射成一个字符索引表。如下所示：（其中的SP是空格，Char是字符，Value是其索引值） 编码的过程是把字符两两分组，然后转成下表的45进制，然后转成11bits的二进制，如果最后有一个落单的，那就转成6bits的二进制。而编码模式和字符的个数需要根据不同的Version尺寸编成9, 11或13个二进制（如下表中Table 3）
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-10594" decoding="async" height="121" loading="lazy" sizes="(max-width: 549px) 100vw, 549px" src="https://coolshell.cn/wp-content/uploads/2013/10/Alphanumeric-mode.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Alphanumeric-mode.png 686w, https://coolshell.cn/wp-content/uploads/2013/10/Alphanumeric-mode-300x66.png 300w" width="549"/>
+    </p>
+    <p>
+     <strong>
+      Byte mode
+     </strong>
+     , 字节编码，可以是0-255的ISO-8859-1字符。有些二维码的扫描器可以自动检测是否是UTF-8的编码。
+    </p>
+    <p>
+     <strong>
+      Kanji mode
+     </strong>
+     这是日文编码，也是双字节编码。同样，也可以用于中文编码。日文和汉字的编码会减去一个值。如：在0X8140 to 0X9FFC中的字符会减去8140，在0XE040到0XEBBF中的字符要减去0XC140，然后把结果前两个16进制位拿出来乘以0XC0，然后再加上后两个16进制位，最后转成13bit的编码。如下图示例：
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-10595" decoding="async" height="174" loading="lazy" sizes="(max-width: 600px) 100vw, 600px" src="https://coolshell.cn/wp-content/uploads/2013/10/Kanji-mode.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Kanji-mode.png 667w, https://coolshell.cn/wp-content/uploads/2013/10/Kanji-mode-300x86.png 300w" width="600"/>
+    </p>
+    <p>
+     <strong>
+      Extended Channel Interpretation (ECI) mode
+     </strong>
+     主要用于特殊的字符集。并不是所有的扫描器都支持这种编码。
+    </p>
+    <p>
+     <strong>
+      Structured Append mode
+     </strong>
+     用于混合编码，也就是说，这个二维码中包含了多种编码格式。
+    </p>
+    <p>
+     <strong>
+      FNC1 mode
+     </strong>
+     这种编码方式主要是给一些特殊的工业或行业用的。比如GS1条形码之类的。
+    </p>
+    <p>
+     简单起见，后面三种不会在本文 中讨论。
+    </p>
+    <p>
+     下面两张表中，
+    </p>
+    <ul>
+     <li>
+      Table 2 是各个编码格式的“编号”，这个东西要写在Format Information中。注：中文是1101
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Table 3 表示了，不同版本（尺寸）的二维码，对于，数字，字符，字节和Kanji模式下，对于单个编码的2进制的位数。（在二维码的规格说明书中，有各种各样的编码规范表，后面还会提到）
+     </li>
+    </ul>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10596" decoding="async" height="332" loading="lazy" sizes="(max-width: 442px) 100vw, 442px" src="https://coolshell.cn/wp-content/uploads/2013/10/Mode-Indicator.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Mode-Indicator.png 442w, https://coolshell.cn/wp-content/uploads/2013/10/Mode-Indicator-300x225.png 300w" width="442"/>
+    </p>
+    <p>
+     下面我们看几个示例，
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E7%A4%BA%E4%BE%8B%E4%B8%80%EF%BC%9A%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81">
+     </span>
+     示例一：数字编码
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p style="padding-left: 30px;">
+     在Version 1的尺寸下，纠错级别为H的情况下，编码： 01234567
+    </p>
+    <p style="padding-left: 30px;">
+     1. 把上述数字分成三组: 012 345 67
+    </p>
+    <p style="padding-left: 30px;">
+     2. 把他们转成二进制:  012 转成 0000001100；  345 转成 0101011001；  67 转成 1000011。
+    </p>
+    <p style="padding-left: 30px;">
+     3. 把这三个二进制串起来: 0000001100 0101011001 1000011
+    </p>
+    <p style="padding-left: 30px;">
+     4. 把数字的个数转成二进制 (version 1-H是10 bits ): 8个数字的二进制是 0000001000
+    </p>
+    <p style="padding-left: 30px;">
+     5. 把数字编码的标志0001和第4步的编码加到前面:  0001 0000001000 0000001100 0101011001 1000011
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E7%A4%BA%E4%BE%8B%E4%BA%8C%EF%BC%9A%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81">
+     </span>
+     示例二：字符编码
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p style="padding-left: 30px;">
+     在Version 1的尺寸下，纠错级别为H的情况下，编码: AC-42
+    </p>
+    <p style="padding-left: 30px;">
+     1. 从字符索引表中找到 AC-42 这五个字条的索引 (10,12,41,4,2)
+    </p>
+    <p style="padding-left: 30px;">
+     2. 两两分组: (10,12) (41,4) (2)
+    </p>
+    <p style="padding-left: 30px;">
+     3.把每一组转成11bits的二进制:
+    </p>
+    <p style="padding-left: 60px;">
+     (10,12) 10*45+12 等于 462 转成 00111001110
+     <br/>
+     (41,4) 41*45+4 等于 1849 转成 11100111001
+     <br/>
+     (2) 等于 2 转成 000010
+    </p>
+    <p style="padding-left: 30px;">
+     4. 把这些二进制连接起来：00111001110 11100111001 000010
+    </p>
+    <p style="padding-left: 30px;">
+     5. 把字符的个数转成二进制 (Version 1-H为9 bits ): 5个字符，5转成 000000101
+    </p>
+    <p style="padding-left: 30px;">
+     6. 在头上加上编码标识 0010 和第5步的个数编码:  0010 000000101 00111001110 11100111001 000010
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BB%93%E6%9D%9F%E7%AC%A6%E5%92%8C%E8%A1%A5%E9%BD%90%E7%AC%A6">
+     </span>
+     结束符和补齐符
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     假如我们有个HELLO WORLD的字符串要编码，根据上面的示例二，我们可以得到下面的编码，
+    </p>
+    <table>
+     <tbody>
+      <tr>
+       <th>
+        编码
+       </th>
+       <th>
+        字符数
+       </th>
+       <th>
+        HELLO WORLD的编码
+       </th>
+      </tr>
+      <tr>
+       <td>
+        0010
+       </td>
+       <td>
+        000001011
+       </td>
+       <td>
+        01100001011 01111000110 10001011100 10110111000 10011010100 001101
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     我们还要加上结束符：
+    </p>
+    <table>
+     <tbody>
+      <tr>
+       <th>
+        编码
+       </th>
+       <th>
+        字符数
+       </th>
+       <th>
+        HELLO WORLD的编码
+       </th>
+       <th>
+        结束
+       </th>
+      </tr>
+      <tr>
+       <td>
+        0010
+       </td>
+       <td>
+        000001011
+       </td>
+       <td>
+        01100001011 01111000110 10001011100 10110111000 10011010100 001101
+       </td>
+       <td>
+        0000
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <h5>
+     <span class="ez-toc-section" id="%E6%8C%898bits%E9%87%8D%E6%8E%92">
+     </span>
+     按8bits重排
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     如果所有的编码加起来不是8个倍数我们还要在后面加上足够的0，比如上面一共有78个bits，所以，我们还要加上2个0，然后按8个bits分好组：
+    </p>
+    <p>
+     00100000   01011011   00001011   01111000   11010001   01110010   11011100   01001101   01000011   010000
+     <span style="color: #ff0000;">
+      <strong>
+       00
+      </strong>
+     </span>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E8%A1%A5%E9%BD%90%E7%A0%81%EF%BC%88Padding_Bytes%EF%BC%89">
+     </span>
+     补齐码（Padding Bytes）
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     最后，如果如果还没有达到我们最大的bits数的限制，我们还要加一些补齐码（Padding Bytes），Padding Bytes就是重复下面的两个bytes：11101100 00010001 （这两个二进制转成十进制是236和17，我也不知道为什么，只知道Spec上是这么写的）关于每一个Version的每一种纠错级别的最大Bits限制，可以参看
+     <a href="http://raidenii.net/files/datasheets/misc/qr_code.pdf" target="_blank">
+      QR Code Spec
+     </a>
+     的第28页到32页的Table-7一表。
+    </p>
+    <p>
+     假设我们需要编码的是Version 1的Q纠错级，那么，其最大需要104个bits，而我们上面只有80个bits，所以，还需要补24个bits，也就是需要3个Padding Bytes，我们就添加三个，于是得到下面的编码：
+    </p>
+    <p>
+     00100000 01011011 00001011 01111000 11010001 01110010 11011100 01001101 01000011 01000000
+     <span style="color: #ff0000;">
+      <strong>
+       11101100 00010001 11101100
+      </strong>
+     </span>
+    </p>
+    <p>
+     上面的编码就是数据码了，叫Data Codewords，每一个8bits叫一个codeword，我们还要对这些数据码加上纠错信息。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BA%A0%E9%94%99%E7%A0%81">
+     </span>
+     纠错码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     上面我们说到了一些纠错级别，Error Correction Code Level，二维码中有四种级别的纠错，这就是为什么二维码有残缺还能扫出来，也就是为什么有人在二维码的中心位置加入图标。
+    </p>
+    <table>
+     <tbody>
+      <tr>
+       <th colspan="2">
+        错误修正容量
+       </th>
+      </tr>
+      <tr>
+       <td>
+        L水平
+       </td>
+       <td>
+        7%的字码可被修正
+       </td>
+      </tr>
+      <tr>
+       <td>
+        M水平
+       </td>
+       <td>
+        15%的字码可被修正
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Q水平
+       </td>
+       <td>
+        25%的字码可被修正
+       </td>
+      </tr>
+      <tr>
+       <td>
+        H水平
+       </td>
+       <td>
+        30%的字码可被修正
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     那么，QR是怎么对数据码加上纠错码的？首先，我们需要对数据码进行分组，也就是分成不同的Block，然后对各个Block进行纠错编码，对于如何分组，我们可以查看
+     <a href="http://raidenii.net/files/datasheets/misc/qr_code.pdf" target="_blank">
+      QR Code Spec
+     </a>
+     的第33页到44页的Table-13到Table-22的定义表。注意最后两列：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       Number of Error Code Correction Blocks
+      </strong>
+      ：需要分多少个块。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       Error Correction Code Per Blocks
+      </strong>
+      ：每一个块中的code个数，所谓的code的个数，也就是有多少个8bits的字节。
+     </li>
+    </ul>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10600" decoding="async" height="308" loading="lazy" sizes="(max-width: 576px) 100vw, 576px" src="https://coolshell.cn/wp-content/uploads/2013/10/Error-Correction-Blocks.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Error-Correction-Blocks.png 576w, https://coolshell.cn/wp-content/uploads/2013/10/Error-Correction-Blocks-300x160.png 300w" width="576"/>
+    </p>
+    <p>
+     举个例子：上述的Version 5 + Q纠错级：需要4个Blocks（2个Blocks为一组，共两组），头一组的两个Blocks中各15个bits数据 + 各 9个bits的纠错码（注：表中的codewords就是一个8bits的byte）（再注：最后一例中的（c, k, r ）的公式为：c = k + 2 * r，因为后脚注解释了：纠错码的容量小于纠错码的一半）
+    </p>
+    <p>
+     下图给一个5-Q的示例（因为二进制写起来会让表格太大，所以，我都用了十进制，我们可以看到每一块的纠错码有18个codewords，也就是18个8bits的二进制数）
+    </p>
+    <table>
+     <tbody>
+      <tr>
+       <th>
+        组
+       </th>
+       <th>
+        块
+       </th>
+       <th>
+        数据
+       </th>
+       <th>
+        对每个块的纠错码
+       </th>
+      </tr>
+      <tr>
+       <td rowspan="2" style="text-align: center;">
+        1
+       </td>
+       <td style="text-align: center;">
+        1
+       </td>
+       <td>
+        67 85 70 134 87 38 85 194 119 50 6 18 6 103 38
+       </td>
+       <td>
+        213 199 11 45 115 247 241 223 229 248 154 117 154 111 86 161 111 39
+       </td>
+      </tr>
+      <tr>
+       <td style="text-align: center;">
+        2
+       </td>
+       <td>
+        246 246 66 7 118 134 242 7 38 86 22 198 199 146 6
+       </td>
+       <td>
+        87 204 96 60 202 182 124 157 200 134 27 129 209 17 163 163 120 133
+       </td>
+      </tr>
+      <tr>
+       <td rowspan="2" style="text-align: center;">
+        2
+       </td>
+       <td style="text-align: center;">
+        1
+       </td>
+       <td>
+        182 230 247 119 50 7 118 134 87 38 82 6 134 151 50 7
+       </td>
+       <td>
+        148 116 177 212 76 133 75 242 238 76 195 230 189 10 108 240 192 141
+       </td>
+      </tr>
+      <tr>
+       <td style="text-align: center;">
+        2
+       </td>
+       <td>
+        70 247 118 86 194 6 151 50 16 236 17 236 17 236 17 236
+       </td>
+       <td>
+        235 159 5 173 24 147 59 33 106 40 255 172 82 2 131 32 178 236
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     注：二维码的纠错码主要是通过
+     <a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">
+      Reed-Solomon error correction
+     </a>
+     （里德-所罗门纠错算法）来实现的。对于这个算法，对于我来说是相当的复杂，里面有很多的数学计算，比如：多项式除法，把1-255的数映射成2的n次方（0&lt;=n&lt;=255）的伽罗瓦域Galois Field之类的神一样的东西，以及基于这些基础的纠错数学公式，因为我的数据基础差，对于我来说太过复杂，所以我一时半会儿还有点没搞明白，还在学习中，所以，我在这里就不展开说这些东西了。还请大家见谅了。（当然，如果有朋友很明白，也繁请教教我）
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%9C%80%E7%BB%88%E7%BC%96%E7%A0%81">
+     </span>
+     最终编码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <h5>
+     <span class="ez-toc-section" id="%E7%A9%BF%E6%8F%92%E6%94%BE%E7%BD%AE">
+     </span>
+     穿插放置
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     如果你以为我们可以开始画图，你就错了。二维码的混乱技术还没有玩完，它还要把数据码和纠错码的各个codewords交替放在一起。如何交替呢，规则如下：
+    </p>
+    <p>
+     对于数据码：把每个块的第一个codewords先拿出来按顺度排列好，然后再取第一块的第二个，如此类推。如：上述示例中的Data Codewords如下：
+    </p>
+    <table class="coolshell">
+     <tbody>
+      <tr>
+       <td class="head">
+        块 1
+       </td>
+       <td>
+        67
+       </td>
+       <td>
+        85
+       </td>
+       <td>
+        70
+       </td>
+       <td>
+        134
+       </td>
+       <td>
+        87
+       </td>
+       <td>
+        38
+       </td>
+       <td>
+        85
+       </td>
+       <td>
+        194
+       </td>
+       <td>
+        119
+       </td>
+       <td>
+        50
+       </td>
+       <td>
+        6
+       </td>
+       <td>
+        18
+       </td>
+       <td>
+        6
+       </td>
+       <td>
+        103
+       </td>
+       <td>
+        38
+       </td>
+       <td>
+       </td>
+      </tr>
+      <tr>
+       <td class="head">
+        块 2
+       </td>
+       <td>
+        246
+       </td>
+       <td>
+        246
+       </td>
+       <td>
+        66
+       </td>
+       <td>
+        7
+       </td>
+       <td>
+        118
+       </td>
+       <td>
+        134
+       </td>
+       <td>
+        242
+       </td>
+       <td>
+        7
+       </td>
+       <td>
+        38
+       </td>
+       <td>
+        86
+       </td>
+       <td>
+        22
+       </td>
+       <td>
+        198
+       </td>
+       <td>
+        199
+       </td>
+       <td>
+        146
+       </td>
+       <td>
+        6
+       </td>
+       <td>
+       </td>
+      </tr>
+      <tr>
+       <td class="head">
+        块 3
+       </td>
+       <td>
+        182
+       </td>
+       <td>
+        230
+       </td>
+       <td>
+        247
+       </td>
+       <td>
+        119
+       </td>
+       <td>
+        50
+       </td>
+       <td>
+        7
+       </td>
+       <td>
+        118
+       </td>
+       <td>
+        134
+       </td>
+       <td>
+        87
+       </td>
+       <td>
+        38
+       </td>
+       <td>
+        82
+       </td>
+       <td>
+        6
+       </td>
+       <td>
+        134
+       </td>
+       <td>
+        151
+       </td>
+       <td>
+        50
+       </td>
+       <td>
+        7
+       </td>
+      </tr>
+      <tr>
+       <td class="head">
+        块 4
+       </td>
+       <td>
+        70
+       </td>
+       <td>
+        247
+       </td>
+       <td>
+        118
+       </td>
+       <td>
+        86
+       </td>
+       <td>
+        194
+       </td>
+       <td>
+        6
+       </td>
+       <td>
+        151
+       </td>
+       <td>
+        50
+       </td>
+       <td>
+        16
+       </td>
+       <td>
+        236
+       </td>
+       <td>
+        17
+       </td>
+       <td>
+        236
+       </td>
+       <td>
+        17
+       </td>
+       <td>
+        236
+       </td>
+       <td>
+        17
+       </td>
+       <td>
+        236
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     我们先取第一列的：67， 246， 182， 70
+    </p>
+    <p>
+     然后再取第二列的：67， 246， 182， 70， 85，246，230 ，247
+    </p>
+    <p>
+     如此类推：67， 246， 182， 70， 85，246，230 ，247 ………  ……… ，38，6，50，17，7，236
+    </p>
+    <p>
+     对于纠错码，也是一样：
+    </p>
+    <table class="coolshell">
+     <tbody>
+      <tr>
+       <td class="head">
+        块 1
+       </td>
+       <td>
+        213
+       </td>
+       <td>
+        199
+       </td>
+       <td>
+        11
+       </td>
+       <td>
+        45
+       </td>
+       <td>
+        115
+       </td>
+       <td>
+        247
+       </td>
+       <td>
+        241
+       </td>
+       <td>
+        223
+       </td>
+       <td>
+        229
+       </td>
+       <td>
+        248
+       </td>
+       <td>
+        154
+       </td>
+       <td>
+        117
+       </td>
+       <td>
+        154
+       </td>
+       <td>
+        111
+       </td>
+       <td>
+        86
+       </td>
+       <td>
+        161
+       </td>
+       <td>
+        111
+       </td>
+       <td>
+        39
+       </td>
+      </tr>
+      <tr>
+       <td class="head">
+        块 2
+       </td>
+       <td>
+        87
+       </td>
+       <td>
+        204
+       </td>
+       <td>
+        96
+       </td>
+       <td>
+        60
+       </td>
+       <td>
+        202
+       </td>
+       <td>
+        182
+       </td>
+       <td>
+        124
+       </td>
+       <td>
+        157
+       </td>
+       <td>
+        200
+       </td>
+       <td>
+        134
+       </td>
+       <td>
+        27
+       </td>
+       <td>
+        129
+       </td>
+       <td>
+        209
+       </td>
+       <td>
+        17
+       </td>
+       <td>
+        163
+       </td>
+       <td>
+        163
+       </td>
+       <td>
+        120
+       </td>
+       <td>
+        133
+       </td>
+      </tr>
+      <tr>
+       <td class="head">
+        块 3
+       </td>
+       <td>
+        148
+       </td>
+       <td>
+        116
+       </td>
+       <td>
+        177
+       </td>
+       <td>
+        212
+       </td>
+       <td>
+        76
+       </td>
+       <td>
+        133
+       </td>
+       <td>
+        75
+       </td>
+       <td>
+        242
+       </td>
+       <td>
+        238
+       </td>
+       <td>
+        76
+       </td>
+       <td>
+        195
+       </td>
+       <td>
+        230
+       </td>
+       <td>
+        189
+       </td>
+       <td>
+        10
+       </td>
+       <td>
+        108
+       </td>
+       <td>
+        240
+       </td>
+       <td>
+        192
+       </td>
+       <td>
+        141
+       </td>
+      </tr>
+      <tr>
+       <td class="head">
+        块 4
+       </td>
+       <td>
+        235
+       </td>
+       <td>
+        159
+       </td>
+       <td>
+        5
+       </td>
+       <td>
+        173
+       </td>
+       <td>
+        24
+       </td>
+       <td>
+        147
+       </td>
+       <td>
+        59
+       </td>
+       <td>
+        33
+       </td>
+       <td>
+        106
+       </td>
+       <td>
+        40
+       </td>
+       <td>
+        255
+       </td>
+       <td>
+        172
+       </td>
+       <td>
+        82
+       </td>
+       <td>
+        2
+       </td>
+       <td>
+        131
+       </td>
+       <td>
+        32
+       </td>
+       <td>
+        178
+       </td>
+       <td>
+        236
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     和数据码取的一样，得到：213，87，148，235，199，204，116，159，…… …… 39，133，141，236
+    </p>
+    <p>
+     然后，再把这两组放在一起（纠错码放在数据码之后）得到：
+    </p>
+    <p>
+     67, 246, 182, 70, 85, 246, 230, 247, 70, 66, 247, 118, 134, 7, 119, 86, 87, 118, 50, 194, 38, 134, 7, 6, 85, 242, 118, 151, 194, 7, 134, 50, 119, 38, 87, 16, 50, 86, 38, 236, 6, 22, 82, 17, 18, 198, 6, 236, 6, 199, 134, 17, 103, 146, 151, 236, 38, 6, 50, 17, 7, 236, 213, 87, 148, 235, 199, 204, 116, 159, 11, 96, 177, 5, 45, 60, 212, 173, 115, 202, 76, 24, 247, 182, 133, 147, 241, 124, 75, 59, 223, 157, 242, 33, 229, 200, 238, 106, 248, 134, 76, 40, 154, 27, 195, 255, 117, 129, 230, 172, 154, 209, 189, 82, 111, 17, 10, 2, 86, 163, 108, 131, 161, 163, 240, 32, 111, 120, 192, 178, 39, 133, 141, 236
+    </p>
+    <p>
+     这就是我们的数据区。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Remainder_Bits">
+     </span>
+     Remainder Bits
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     最后再加上Reminder Bits，对于某些Version的QR，上面的还不够长度，还要加上Remainder Bits，比如：上述的5Q版的二维码，还要加上7个bits，Remainder Bits加零就好了。关于哪些Version需要多少个Remainder bit，可以参看
+     <a href="http://raidenii.net/files/datasheets/misc/qr_code.pdf" target="_blank">
+      QR Code Spec
+     </a>
+     的第15页的Table-1的定义表。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%94%BB%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%9B%BE">
+     </span>
+     画二维码图
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <h5>
+     <span class="ez-toc-section" id="Position_Detection_Pattern">
+     </span>
+     Position Detection Pattern
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     首先，先把Position Detection图案画在三个角上。（无论Version如何，这个图案的尺寸就是这么大）
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="141" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2013/10/finder.png" width="99"/>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Alignment_Pattern">
+     </span>
+     Alignment Pattern
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     然后，再把Alignment图案画上（无论Version如何，这个图案的尺寸就是这么大）
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="91" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2013/10/alignment-pattern.png" width="68"/>
+    </p>
+    <p>
+     关于Alignment的位置，可以查看
+     <a href="http://raidenii.net/files/datasheets/misc/qr_code.pdf" target="_blank">
+      QR Code Spec
+     </a>
+     的第81页的Table-E.1的定义表（下表是不完全表格）
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10613" decoding="async" height="239" loading="lazy" sizes="(max-width: 582px) 100vw, 582px" src="https://coolshell.cn/wp-content/uploads/2013/10/Alignment-Position.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Alignment-Position.png 582w, https://coolshell.cn/wp-content/uploads/2013/10/Alignment-Position-300x123.png 300w" width="582"/>
+    </p>
+    <p>
+     下图是根据上述表格中的Version8的一个例子（6，24，42）
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10606" decoding="async" height="288" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2013/10/alignment-example.png" width="241"/>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Timing_Pattern">
+     </span>
+     Timing Pattern
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     接下来是Timing Pattern的线（这个不用多说了）
+    </p>
+    <p style="text-align: center;">
+     <strong>
+      <img alt="" class="aligncenter" decoding="async" height="258" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2013/10/Timing-Pattern.png" width="596"/>
+     </strong>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Format_Information">
+     </span>
+     Format Information
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     再接下来是Formation Information，下图中的蓝色部分。
+    </p>
+    <p style="text-align: left;">
+     <img alt="" class="aligncenter wp-image-10610" decoding="async" height="199" loading="lazy" sizes="(max-width: 352px) 100vw, 352px" src="https://coolshell.cn/wp-content/uploads/2013/10/Format-Information.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Format-Information.png 391w, https://coolshell.cn/wp-content/uploads/2013/10/Format-Information-300x169.png 300w" width="352"/>
+    </p>
+    <p style="text-align: left;">
+     Format Information是一个15个bits的信息，每一个bit的位置如下图所示：（注意图中的Dark Module，那是永远出现的）
+    </p>
+    <p style="text-align: left;">
+     <img alt="" class="aligncenter size-full wp-image-10630" decoding="async" height="381" loading="lazy" sizes="(max-width: 363px) 100vw, 363px" src="https://coolshell.cn/wp-content/uploads/2013/10/Format-Info-bits-postion.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Format-Info-bits-postion.png 363w, https://coolshell.cn/wp-content/uploads/2013/10/Format-Info-bits-postion-285x300.png 285w" width="363"/>
+    </p>
+    <p style="text-align: left;">
+     这15个bits中包括：
+    </p>
+    <ul>
+     <li>
+      5个数据bits：其中，2个bits用于表示使用什么样的Error Correction Level， 3个bits表示使用什么样的Mask
+     </li>
+     <li>
+      10个纠错bits。主要通过BCH Code来计算
+     </li>
+    </ul>
+    <p>
+     然后15个bits还要与101010000010010做XOR操作。这样就保证不会因为我们选用了00的纠错级别和000的Mask，从而造成全部为白色，这会增加我们的扫描器的图像识别的困难。
+    </p>
+    <p>
+     下面是一个示例：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10631" decoding="async" height="116" loading="lazy" sizes="(max-width: 376px) 100vw, 376px" src="https://coolshell.cn/wp-content/uploads/2013/10/Format-Information-Example.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Format-Information-Example.png 376w, https://coolshell.cn/wp-content/uploads/2013/10/Format-Information-Example-300x92.png 300w" width="376"/>
+    </p>
+    <p>
+     关于Error Correction Level如下表所示：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10632" decoding="async" height="114" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2013/10/Error-Correction-Indicator-Code.png" width="253"/>
+    </p>
+    <p>
+     关于Mask图案如后面的Table 23所示。
+    </p>
+    <h5 style="text-align: left;">
+     <span class="ez-toc-section" id="Version_Information">
+     </span>
+     Version Information
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p style="text-align: left;">
+     再接下来是Version Information（版本7以后需要这个编码），下图中的蓝色部分。
+     <br/>
+     <img alt="" class="aligncenter wp-image-10612" decoding="async" height="254" loading="lazy" sizes="(max-width: 508px) 100vw, 508px" src="https://coolshell.cn/wp-content/uploads/2013/10/Version-Information.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Version-Information.png 635w, https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-300x149.png 300w" width="508"/>
+    </p>
+    <p>
+     Version Information一共是18个bits，其中包括6个bits的版本号以及12个bits的纠错码，下面是一个示例：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10634" decoding="async" height="63" loading="lazy" sizes="(max-width: 405px) 100vw, 405px" src="https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-Example.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-Example.png 405w, https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-Example-300x46.png 300w" width="405"/>
+    </p>
+    <p>
+     而其填充位置如下：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10635" decoding="async" height="149" loading="lazy" sizes="(max-width: 425px) 100vw, 425px" src="https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-Position.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-Position.png 425w, https://coolshell.cn/wp-content/uploads/2013/10/Version-Information-Position-300x105.png 300w" width="425"/>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BA%A0%E9%94%99%E7%A0%81">
+     </span>
+     数据和数据纠错码
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     然后是填接我们的最终编码，最终编码的填充方式如下：从左下角开始沿着红线填我们的各个bits，1是黑色，0是白色。如果遇到了上面的非数据区，则绕开或跳过。
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="372" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2013/10/Data-Placement.png" width="348"/>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E6%8E%A9%E7%A0%81%E5%9B%BE%E6%A1%88">
+     </span>
+     掩码图案
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     这样下来，我们的图就填好了，但是，也许那些点并不均衡，如果出现大面积的空白或黑块，会告诉我们扫描识别的困难。所以，我们还要做Masking操作（靠，还嫌不复杂）QR的Spec中说了，QR有8个Mask你可以使用，如下所示：其中，各个mask的公式在各个图下面。所谓mask，说白了，就是和上面生成的图做XOR操作。Mask只会和数据区进行XOR，不会影响功能区。（
+     <strong>
+      注：选择一个合适的Mask也是有算法的
+     </strong>
+     ）
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10614" decoding="async" height="274" loading="lazy" sizes="(max-width: 494px) 100vw, 494px" src="https://coolshell.cn/wp-content/uploads/2013/10/masking-pattern.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/masking-pattern.png 494w, https://coolshell.cn/wp-content/uploads/2013/10/masking-pattern-300x166.png 300w" width="494"/>
+    </p>
+    <p>
+     其Mask的标识码如下所示：（其中的i,j分别对应于上图的x,y）
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10633" decoding="async" height="181" loading="lazy" sizes="(max-width: 416px) 100vw, 416px" src="https://coolshell.cn/wp-content/uploads/2013/10/Mask-Pattern-Code.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Mask-Pattern-Code.png 416w, https://coolshell.cn/wp-content/uploads/2013/10/Mask-Pattern-Code-300x130.png 300w" width="416"/>
+    </p>
+    <p>
+     下面是Mask后的一些样子，我们可以看到被某些Mask XOR了的数据变得比较零散了。
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-10615" decoding="async" height="446" loading="lazy" sizes="(max-width: 616px) 100vw, 616px" src="https://coolshell.cn/wp-content/uploads/2013/10/Masking-Examples.png" srcset="https://coolshell.cn/wp-content/uploads/2013/10/Masking-Examples.png 616w, https://coolshell.cn/wp-content/uploads/2013/10/Masking-Examples-300x217.png 300w" width="616"/>
+    </p>
+    <p>
+     Mask过后的二维码就成最终的图了。
+    </p>
+    <p>
+     好了，大家可以去尝试去写一下QR的编码程序，当然，你可以用网上找个Reed Soloman的纠错算法的库，或是看看别人的源代码是怎么实现这个繁锁的编码。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17225.html">
+         <img alt="Cuckoo Filter：设计与实现" height="150" src="https://coolshell.cn/wp-content/uploads/2015/08/cuckoo-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17225.html">
+         Cuckoo Filter：设计与实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12052.html">
+         <img alt="Leetcode 编程训练" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12052.html">
+         Leetcode 编程训练
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11847.html">
+         <img alt="谜题的答案和活动的心得体会" height="150" src="https://coolshell.cn/wp-content/uploads/2014/08/puzzle-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11847.html">
+         谜题的答案和活动的心得体会
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11832.html">
+         <img alt="【活动】解迷题送礼物" height="150" src="https://coolshell.cn/wp-content/uploads/2014/08/538efefbgw1eiz9cvx78fj20rm0fmdi8-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11832.html">
+         【活动】解迷题送礼物
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10427.html">
+         <img alt="伙伴分配器的一个极简实现" height="150" src="https://coolshell.cn/wp-content/uploads/2013/10/buddy-memory-allocation-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10427.html">
+         伙伴分配器的一个极简实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9886.html">
+         <img alt="二叉树迭代器算法" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/8.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9886.html">
+         二叉树迭代器算法
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="cba3ed2921" id="post-ratings-10590" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_10590_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(10590, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_10590_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(10590, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_10590_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(10590, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_10590_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(10590, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_10590_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(10590, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      97
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.41
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_10590_text">
+     </span>
+     <meta content="二维码的生成细节和原理" itemprop="name"/>
+     <meta content="二维码的生成细节和原理" itemprop="headline"/>
+     <meta content="二维码又称QR Code，QR全称Quick Response，是一个近几年来移动设备上超流行的一种编码方式，它比传统的Bar Code条形码能存更多的信息，也能表示更多的数据类型：比如：字符，数字，日文，中文等等。这两天学习了一下二维码图片生成的相关细节，觉得这个玩意就是一个密码算法，在此写一这篇文章 ，揭露一下。供好学的人一同学习之。
+
+关于QR Code Specification，可参..." itemprop="description"/>
+     <meta content="2013-10-29T08:32:35+08:00" itemprop="datePublished"/>
+     <meta content="2013-10-29T12:01:02+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/10590.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/10590.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.41" itemprop="ratingValue"/>
+      <meta content="97" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-10590-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/algorithm" rel="tag">
+        Algorithm
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/qr" rel="tag">
+        QR
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e4%ba%8c%e7%bb%b4%e7%a0%81" rel="tag">
+        二维码
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

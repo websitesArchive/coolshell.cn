@@ -1,0 +1,1176 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4758.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="如何写出无法维护的代码 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4758.html" property="og:url"/>
+   <meta content="https://mindprod.com/image/icon64/woodpecker.png" property="og:image"/>
+   <meta content="https://mindprod.com/image/icon64/woodpecker.png" property="og:image:secure_url"/>
+   <meta content="2011-06-03T00:52:42+00:00" property="article:published_time"/>
+   <meta content="2011-09-08T07:28:14+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="如何写出无法维护的代码 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://mindprod.com/image/icon64/woodpecker.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4758.html#article","name":"\u5982\u4f55\u5199\u51fa\u65e0\u6cd5\u7ef4\u62a4\u7684\u4ee3\u7801 | \u9177 \u58f3 - CoolShell","headline":"\u5982\u4f55\u5199\u51fa\u65e0\u6cd5\u7ef4\u62a4\u7684\u4ee3\u7801","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/mindprod.com\/image\/icon64\/woodpecker.png","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2011-06-03T00:52:42+08:00","dateModified":"2011-09-08T07:28:14+08:00","inLanguage":"zh-CN","commentCount":146,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4758.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4758.html#webpage"},"articleSection":"C\/C++\u8bed\u8a00, \u6280\u672f\u8bfb\u7269, \u7f16\u7a0b\u8bed\u8a00, \u8f76\u4e8b\u8da3\u95fb, C++, Coding, Java, Programmer, \u7a0b\u5e8f\u5458"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4758.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4758.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4758.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4758.html","name":"\u5982\u4f55\u5199\u51fa\u65e0\u6cd5\u7ef4\u62a4\u7684\u4ee3\u7801 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4758.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2011-06-03T00:52:42+08:00","dateModified":"2011-09-08T07:28:14+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4758';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E6%97%A0%E6%B3%95%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BB%A3%E7%A0%81';
+	window._wp_rp_post_tags = ['programmer', 'coding', '%E7%A8%8B%E5%BA%8F%E5%91%98', 'java', 'c%2B%2B', '%E8%BD%B6%E4%BA%8B%E8%B6%A3%E9%97%BB', '%E6%8A%80%E6%9C%AF%E8%AF%BB%E7%89%A9', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', 'gerald', '8', 'loop', 'write', 'civil', 'bodi', 'superman', 'code', 'builder', 'ab', 'file', 'xxx', 'woodpeck', 'world', 'program'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4758.html/feed" rel="alternate" title="酷 壳 - CoolShell » 如何写出无法维护的代码评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4758" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4758" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4758.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4758.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4758 post type-post status-publish format-standard hentry category-cplusplus category-techarticle category-proglanguage category-story tag-c tag-coding tag-java tag-programmer tag-58" id="post-4758">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     如何写出无法维护的代码
+    </span>
+    <h1 class="entry-title">
+     如何写出无法维护的代码
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4758.html" rel="bookmark" title="08:52">
+       <time class="entry-date" datetime="2011-06-03T08:52:42+08:00" pubdate="">
+        2011年06月03日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4758.html#comments">
+       146 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      256,943 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     酷壳里有很多我觉得很不错的文章，但是访问量最大的却是那篇《
+     <a href="https://coolshell.cn/articles/914.html" target="_blank" title="6个变态的C语言Hello World程序">
+      6个变态的Hello World
+     </a>
+     》，和它能在本站右边栏“
+     <strong>
+      全站热门
+     </strong>
+     ”中出现的还有“
+     <a href="https://coolshell.cn/articles/933.html" target="_blank" title="如何加密/混乱C源代码">
+      如何加密源代码
+     </a>
+     ”，以及
+     <a href="https://coolshell.cn/articles/1391.html" target="_blank" title="编程真难啊">
+      编程真难啊
+     </a>
+     等这样的文章。可见本站的读者们的偏好，我也相信你们都是“身怀绝技”的程序员。所以，今天给大家推荐这篇文章，相信一定能触动大家的兴奋点。
+    </p>
+    <p>
+     这篇文章的原文在这里（
+     <a href="http://mindprod.com/jgloss/unmain.html" target="_blank">
+      http://mindprod.com/jgloss/unmain.html
+     </a>
+     ），我看完后我想说——
+    </p>
+    <ol>
+     <li>
+      <strong>
+       什么叫“创造力”，创造力就是——就算是要干一件烂事都能干得那么漂亮那么有创意的能力。
+      </strong>
+     </li>
+     <li>
+      <strong>
+       什么叫“抓狂”，抓狂就是——以一种沉着老练的不屈不挠的一本正经的精神一点一点把你推向崩溃的边缘
+      </strong>
+      。
+     </li>
+    </ol>
+    <p>
+     我把文章节选了一些，也并没有完全翻译，简译一下，也加入了一些自己的调侃。对于有下面这些编程习惯的朋友，请大家对号入座。另外，维护程序的朋友们，你们死定了！！
+    </p>
+    <blockquote>
+     <p>
+      <img align="left" alt="woodpecker" border="0" decoding="async" height="64" src="http://mindprod.com/image/icon64/woodpecker.png" width="64"/>
+      If builders built buildings the way programmers write programs, then the first woodpecker that came along would destroy civilization. （如果建筑师盖房子就像程序员写程序一样，那么，第一只到来的啄木鸟就能毁掉我们的文明）
+     </p>
+     <p>
+      ~ Gerald Weinberg (born: 1933-10-27 age: 77)
+      <a href="http://www.geraldmweinberg.com/Site/Home.html">
+       Weinberg’s Second Law
+      </a>
+     </p>
+    </blockquote>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E7%A8%8B%E5%BA%8F%E5%91%BD%E5%90%8D" title="程序命名">
+         程序命名
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E4%BC%AA%E8%A3%85%E6%AC%BA%E8%AF%88" title="伪装欺诈">
+         伪装欺诈
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E6%96%87%E6%A1%A3%E5%92%8C%E6%B3%A8%E9%87%8A" title="文档和注释">
+         文档和注释
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" title="程序设计">
+         程序设计
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E6%B7%B7%E4%B9%B1%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81" title="混乱你的代码">
+         混乱你的代码
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E6%B5%8B%E8%AF%95" title="测试">
+         测试
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E5%85%B6%E5%AE%83" title="其它">
+         其它
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-8" href="#Write_Everywhere_Read_Nowhere" title="Write Everywhere, Read Nowhere">
+         Write Everywhere, Read Nowhere
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E7%A8%8B%E5%BA%8F%E5%91%BD%E5%90%8D">
+     </span>
+     程序命名
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       容易输入的名字
+      </strong>
+      。比如：Fred，asdf
+     </li>
+     <li>
+      <strong>
+       单字母的变量名
+      </strong>
+      。比如：a,b,c, x,y,z（陈皓注：如果不够用，可以考虑a1,a2,a3,a4,….）
+     </li>
+     <li>
+      <strong>
+       有创意地拼写错误
+      </strong>
+      。比如：SetPintleOpening， SetPintalClosing。这样可以让人很难搜索代码。
+     </li>
+     <li>
+      <strong>
+       抽象
+      </strong>
+      。比如：ProcessData, DoIt, GetData… 抽象到就跟什么都没说一样。
+     </li>
+     <li>
+      <strong>
+       缩写
+      </strong>
+      。比如：WTF，RTFSC …… （陈皓注：使用拼音缩写也同样给力，比如： BT，TMD，TJJTDS）
+     </li>
+     <li>
+      <strong>
+       随机大写字母
+      </strong>
+      。比如：gEtnuMbER..
+     </li>
+     <li>
+      <strong>
+       重用命名
+      </strong>
+      。在内嵌的语句块中使用相同的变量名有奇效。
+     </li>
+     <li>
+      <strong>
+       使用重音字母
+      </strong>
+      。比如：int  ínt（注：第二个 ínt不是int）
+     </li>
+     <li>
+      <strong>
+       使用下划线
+      </strong>
+      。比如：_, __, ___。
+     </li>
+     <li>
+      <strong>
+       使用不同的语言
+      </strong>
+      。比如混用英语，德语，或是中文拼音。
+     </li>
+     <li>
+      <strong>
+       使用字符命名
+      </strong>
+      。比如：slash, asterix, comma…
+     </li>
+     <li>
+      <strong>
+       使用无关的单词
+      </strong>
+      。比如：god, superman, iloveu….
+     </li>
+     <li>
+      <strong>
+       混淆l和1
+      </strong>
+      。字母l和数字1有时候是看不出来的。
+     </li>
+    </ul>
+    <h4>
+     <span id="more-4758">
+     </span>
+     伪装欺诈
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       把注释和代码交织在一起
+      </strong>
+      。
+     </li>
+    </ul>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">for(j=0; j&lt;array_len; j+ =8)
+{
+    total += array[j+0 ];
+    total += array[j+1 ];
+    total += array[j+2 ]; /* Main body of
+    total += array[j+3]; * loop is unrolled
+    total += array[j+4]; * for greater speed.
+    total += array[j+5]; */
+    total += array[j+6 ];
+    total += array[j+7 ];
+}</pre>
+    <ul>
+     <li>
+      <strong>
+       隐藏宏定义
+      </strong>
+      。如：#define a=b a=0-b，当人们看到a=b时，谁也想不到那是一个宏。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       换行
+      </strong>
+      。如下所示，下面的示例使用搜索xy_z变得困难。
+     </li>
+    </ul>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#define local_var xy\
+_z // local_var OK</pre>
+    <ul>
+     <li>
+      <strong>
+       代码和显示不一致
+      </strong>
+      。比如，你的界面显示叫postal code，但是代码里确叫 zipcode.
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       隐藏全局变量
+      </strong>
+      。把使用全局变量以函数参数的方式传递给函数，这样可以让人觉得那个变量不是全局变量。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       使用同意词
+      </strong>
+      。如：
+     </li>
+    </ul>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#define xxx global_var // in file std.h&amp;nbsp;
+#define xy_z xxx // in file ..\other\substd.h&amp;nbsp;
+#define local_var xy_z // in file ..\codestd\inst.h</pre>
+    <ul>
+     <li>
+      <strong>
+       使用相似的变量名
+      </strong>
+      。如：单词相似，swimmer 和 swimner，字母相似：ilI1| 或 oO08。parselnt 和 parseInt， D0Calc 和 DOCalc。还有这一组：xy_Z, xy__z, _xy_z, _xyz, XY_Z, xY_z, Xy_z。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       重载函数
+      </strong>
+      。使用相同的函数名，但是其功能和具体实现完全没有关系。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       操作符重载
+      </strong>
+      。重载操作符可以让你的代码变得诡异，感谢CCTV，感谢C++。这个东西是可以把混乱代码提高到一种艺术的形式。比如：重载一个类的 ! 操作符，但实际功能并不是取反，让其返回一个整数。于是，如果你使用 ! ! 操作符，那么，有意思的事就发生了—— 先是调用类的重载 ! 操作符，然后把其返回的整数给 ! 成了 布尔变量，如果是 !!! 呢？呵呵。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       #define
+      </strong>
+      。看过本站那些混乱代码的文章，你都会知道宏定义和预编译对于写出不可读的代码的重大意义。不过，一个具有想像力的东西是——在头文件中使用预编译来查看这个头文件被include了几次，而被include不同的次数时，其中的函数定义完全不一样。
+     </li>
+    </ul>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#ifndef DONE
+#ifdef TWICE
+// put stuff here to declare 3rd time around
+void g(char* str);
+#define DONE
+#else // TWICE
+#ifdef ONCE
+// put stuff here to declare 2nd time around&lt;
+void g(void* str);
+#define TWICE
+#else // ONCE
+// put stuff here to declare 1st time around
+void g(std::string str);
+#define ONCE
+#endif // ONCE
+#endif // TWICE
+#endif // DONE</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E6%96%87%E6%A1%A3%E5%92%8C%E6%B3%A8%E9%87%8A">
+     </span>
+     文档和注释
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       在注释中撒谎
+      </strong>
+      。你不用真的去撒谎，只需在改代码的时候不要更新注释就可以了。
+     </li>
+     <li>
+      <strong>
+       注释明显的东西
+      </strong>
+      。比如：/* add 1 to i */。（参看本站的“
+      <a href="https://coolshell.cn/articles/2746.html" target="_blank" title="五种应该避免的代码注释">
+       五种应该避免的注释
+      </a>
+      ”）
+     </li>
+     <li>
+      <strong>
+       只注释是什么，而不是为什么
+      </strong>
+      。
+     </li>
+     <li>
+      <strong>
+       不要注释秘密
+      </strong>
+      。如果你开发一个航班系统，请你一定要保证每有一个新的航班被加入，就得要修改25个以上的位置的程序。千万别把这个事写在文档中。
+     </li>
+     <li>
+      <strong>
+       注重细节
+      </strong>
+      。当你设计一个很复杂的算法的时候，你一定要把所有的详细细设计都写下来，没有100页不能罢休，段落要有5级以上，段落编号要有500个以上，例如：1.2.4.6.3.13 – Display all impacts for activity where selected mitigations can apply (short pseudocode omitted). 这样，当你写代码的时候，你就可以让你的代码和文档一致，如：Act1_2_4_6_3_13()
+     </li>
+     <li>
+      <strong>
+       千万不要注释度衡单位
+      </strong>
+      。比如时间用的是秒还是毫秒，尺寸用的是像素还是英寸，大小是MB还是KB。等等。另外，在你的代码里，你可以混用不同的度衡单位，但也不要注释。
+     </li>
+     <li>
+      <strong>
+       Gotchas
+      </strong>
+      。陷阱，千万不要注释代码中的陷阱。
+     </li>
+     <li>
+      <strong>
+       在注释和文档中发泄不满
+      </strong>
+      。（参看本站的“
+      <a href="https://coolshell.cn/articles/2746.html" target="_blank" title="五种应该避免的代码注释">
+       五种应该避免的注释
+      </a>
+      ”）
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1">
+     </span>
+     程序设计
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       Java Casts
+      </strong>
+      。Java的类型转型是天赐之物。每一次当你从Collection里取到一个object的时候，你都需要把其转回原来的类型。因些，这些转型操作会出现在N多的地方。如果你改变了类型，那么你不一定能改变所有的地方。而编译器可能能检查到，也可能检查不到。
+     </li>
+     <li>
+      <strong>
+       利用Java的冗余
+      </strong>
+      。比如：Bubblegum b = new Bubblegom(); 和 swimmer = swimner + 1; 注意变量间的细微差别。
+     </li>
+     <li>
+      <strong>
+       从不验证
+      </strong>
+      。从不验证输入的数据，从不验证函数的返回值。这样做可以向大家展示你是多么的信任公司的设备和其它程序员。
+     </li>
+     <li>
+      <strong>
+       不要封装
+      </strong>
+      。调用者需要知道被调用的所有的细节。
+     </li>
+     <li>
+      <strong>
+       克隆和拷贝
+      </strong>
+      。为了效率，你要学会使用copy + paste。你几乎都不用理解别人的代码，你就可以高效地编程了。（陈皓注：Copy + Paste出来的代码bug多得不能再多）
+     </li>
+     <li>
+      <strong>
+       巨大的listener
+      </strong>
+      。写一个listener，然后让你的所有的button类都使用这个listener，这样你可以在这个listener中整出一大堆if…else…语句，相当的刺激。
+     </li>
+     <li>
+      <strong>
+       使用三维数组
+      </strong>
+      。如果你觉得三维还不足够，你可以试试四维。
+     </li>
+     <li>
+      <strong>
+       混用
+      </strong>
+      。同时使用类的get/set方法和直接访问那个public变量。这样做的好处是可以极大的挫败维护人员。
+     </li>
+     <li>
+      <strong>
+       包装，包装，包装
+      </strong>
+      。把你所有的API都包装上6到8遍，包装深度多达4层以上。然后包装出相似的功能。
+     </li>
+     <li>
+      <strong>
+       没有秘密
+      </strong>
+      。把所有的成员都声明成public的。这样，你以后就很难限制其被人使用，而且这样可以和别的代码造成更多的耦合度，可以让你的代码存活得更久。
+     </li>
+     <li>
+      <strong>
+       排列和阻碍
+      </strong>
+      。把drawRectangle(height, width) 改成 drawRectangle(width, height)，等release了几个版本后，再把其改回去。这样维护程序的程序员们将不能很快地明白哪一个是对的。
+     </li>
+     <li>
+      <strong>
+       把变量改在名字上
+      </strong>
+      。例如，把setAlignment(int alignment)改成，setLeftAlignment, setRightAlignment, setCenterAlignment。
+     </li>
+     <li>
+      <strong>
+       Packratting
+      </strong>
+      。保留你所有的没有使用的和陈旧的变量，方法和代码。
+     </li>
+     <li>
+      <strong>
+       That’s Fina
+      </strong>
+      l。Final你所有的子结点的类，这样，当你做完这个项目后，没有人可以通过继承来扩展你的类。java.lang.String不也是这样吗？
+     </li>
+     <li>
+      <strong>
+       避免使用接口
+      </strong>
+      。在java中，BS接口，在C++中BS使用虚函数。
+     </li>
+     <li>
+      <strong>
+       避免使用layout
+      </strong>
+      。这样就使得我们只能使用绝对坐标。如果你的老大强制你使用layout，你可以考虑使用GridBagLayout，然后把grid坐标hard code.
+     </li>
+     <li>
+      <strong>
+       环境变量
+      </strong>
+      。如果你的代码需要使用环境变量。(getenv() – C++ / System.getProperty() – Java )，那么，你应该把你的类的成员的初始化使用环境变量，而不是构造函数。
+     </li>
+     <li>
+      <strong>
+       使用Magic numbe
+      </strong>
+      r。参看《
+      <a href="https://coolshell.cn/articles/4576.html" target="_blank" title="Linux 2.6.39-rc3的一个插曲">
+       Linux一个插曲
+      </a>
+      》。
+     </li>
+     <li>
+      <strong>
+       使用全局变量
+      </strong>
+      。1）把全局变量的初始化放在不同的函数中，就算这个函数和这个变量没有任何关系，这样能够让我们的维护人员就像做侦探工作一样。2）使用全局变量可以让你的函数的参数变得少一些。
+     </li>
+     <li>
+      <strong>
+       配置文件
+      </strong>
+      。配置文件主要用于一些参数的初始化。在编程中，我们可以让配置文件中的参数名和实际程序中的名字不一样。
+     </li>
+     <li>
+      <strong>
+       膨胀你的类
+      </strong>
+      。让你的类尽可能地拥有各种臃肿和晦涩的方法。比如，你的类只实现一种可能性，但是你要提供所有可能性的方法。不要定义其它的类，把所有的功能都放在一个类中。
+     </li>
+     <li>
+      <strong>
+       使用子类
+      </strong>
+      。面向对象是写出无法维护代码的天赐之物。如果你有一个类有十个成为（变量和方法）你可以考虑写10个层次的继承，然后把这十个属性分别放在这十个层次中。如果可能的话，把这十个类分别放在十个不同的文件中。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E6%B7%B7%E4%B9%B1%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81">
+     </span>
+     混乱你的代码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       使用XML
+      </strong>
+      。XML的强大是无人能及的。使用XML你可以把本来只要10行的代码变成100行。而且，还要逼着别人也有XML。（参看，
+      <a href="https://coolshell.cn/articles/2504.html" target="_blank" title="信XML，得永生！">
+       信XML得永生
+      </a>
+      ，
+      <a href="https://coolshell.cn/articles/3498.html" target="_blank" title="信XML，得自信">
+       信XML得自信
+      </a>
+      ）
+     </li>
+     <li>
+      <strong>
+       混乱C代码
+      </strong>
+      。在《
+      <a href="https://coolshell.cn/articles/933.html" target="_blank" title="如何加密/混乱C源代码">
+       如何加密源代码
+      </a>
+      》中已经说过一些方法了，这里再补充一些。
+     </li>
+     <li>
+      <strong>
+       使用不同的进制
+      </strong>
+      。比如：10 和010不是一样的。再比如：array = new int[]{   111,   120,   013,   121,};
+     </li>
+     <li>
+      <strong>
+       尽量使用void*
+      </strong>
+      。然后把其转成各种类型
+     </li>
+     <li>
+      <strong>
+       使用隐式的转型
+      </strong>
+      。C++的构造函数可以让你神不知鬼不觉得完成转型。
+     </li>
+     <li>
+      <strong>
+       分解条件表达式
+      </strong>
+      。如：把 a==100分解成，a&gt;99 &amp;&amp; a&lt;101
+     </li>
+     <li>
+      <strong>
+       学会利用分号
+      </strong>
+      。如：if ( a );else;{   int d;   d = c;}
+     </li>
+     <li>
+      <strong>
+       间接转型
+      </strong>
+      。如：把double转string，写成new Double(d).toString() 而不是 Double.toString(d)
+     </li>
+     <li>
+      <strong>
+       大量使用嵌套
+      </strong>
+      。一个NB的程序员可以在一行代码上使用超过10层的小括号（），或是在一个函数里使用超过20层的语句嵌套{}，把嵌套的if else 转成 [? :] 也是一件很NB的事。
+     </li>
+     <li>
+      <strong>
+       使用C的变种数组
+      </strong>
+      。myArray[i] 可以变成*(myArray + i) 也可以变成 *(i + myArray) 其等价于 i[myArray]。再看一个函数调用的示例，函数声明：int myfunc(int q, int p) { return p%q; } 函数调用myfunc(6291, 8)[Array];
+     </li>
+     <li>
+      <strong>
+       长代码行
+      </strong>
+      。一行的代码越长越好。这样别人阅读时就需要来来回回的
+     </li>
+     <li>
+      <strong>
+       不要较早的return
+      </strong>
+      。不要使用goto，不要使用break，这样，你就需要至少5层以上的if-else来处理错误。
+     </li>
+     <li>
+      <strong>
+       不要使用{}
+      </strong>
+      。不要在if else使用{}，尤其是在你重量地使用if-else嵌套时，你甚至可以在其中乱缩进代码，这样一来，就算是最有经验的程序员也会踩上陷阱。
+     </li>
+     <li>
+      <strong>
+       使用宏定义
+      </strong>
+      。宏定义绝对是混乱C/C++代码的最佳利器。参看
+      <a href="https://coolshell.cn/articles/2420.html" target="_blank" title="老手是这样教新手编程的">
+       老手是这样教新手编程的
+      </a>
+      。
+     </li>
+     <li>
+      <strong>
+       琐碎的封装
+      </strong>
+      。比较封装一个bool类，类里面什么都做，就是一个bool.
+     </li>
+     <li>
+      <strong>
+       循环
+      </strong>
+      。千万不可用for(int i=0; i&lt;n; i++)使用while代替for，交换n和i，把&lt;改成&lt;=，使用 i–调整步伐 。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E6%B5%8B%E8%AF%95">
+     </span>
+     测试
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       从不测试
+      </strong>
+      。千万不要测试任何的出错处理，从来也不检测系统调用的返回值。
+     </li>
+     <li>
+      <strong>
+       永远不做性能测试
+      </strong>
+      。如果不够快就告诉用户换一个更快的机器。如果你一做测试，那么就可能会要改你的算法，甚至重设计，重新架构。
+     </li>
+     <li>
+      <strong>
+       不要写测试案例
+      </strong>
+      。不要做什么代码覆盖率测试，自动化测试。
+     </li>
+     <li>
+      <strong>
+       测试是懦夫行为
+      </strong>
+      。一个勇敢的程序员是根本不需要这一步的。太多的程序太害怕他们的老板，害怕失去工作，害怕用户抱怨，甚至被起诉。这种担心害怕直接影响了生产力。如果你对你的代码有强大的信心，那还要什么测试呢？真正的程序员是不需要测试自己的代码的。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E5%85%B6%E5%AE%83">
+     </span>
+     其它
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <strong>
+       你的老板什么都知道
+      </strong>
+      。无论你的老板有多SB，你都要严格地遵照他的旨意办事，这样一来，你会学到更多的知识如何写出无法维护的代码来的。
+     </li>
+     <li>
+      <strong>
+       颠覆Help Desk
+      </strong>
+      。你要确保你那满是bug的程序永远不要被维护团队知道。当用户打电话和写邮件给你的时候，你就不要理会，就算要理会，让用户重做系统或是告诉用户其帐号有问题，是标准的回答。
+     </li>
+     <li>
+      <strong>
+       闭嘴
+      </strong>
+      。对于一些像y2k这样的大bug，你要学会守口如瓶，不要告诉任何人，包括你的亲人好友以及公司的同事和管理层，这样当到那一天的时候，你就可以用这个bug挣钱了。
+     </li>
+     <li>
+      <strong>
+       忽悠
+      </strong>
+      。你会学会忽悠，就算你的代码写得很烂，你也要为其挂上GoF设计模式的标签，就算你的项目做得再烂，你也要为其挂上敏捷的标签，只有学会
+      <a href="https://coolshell.cn/articles/3745.html" target="_blank" title="再谈敏捷和ThoughtWorks中国咨询师">
+       像中国Thoughtworks的咨询师那样去忽悠
+      </a>
+      ，你才能学会更炫更酷的方法，让整个团队和公司，甚至整个业界都开始躁动，这样才能真正为难维护的代码铺平道路。
+     </li>
+    </ul>
+    <p>
+     这个文档中还有很多很多，实在是太TMD强大了，大家自己去看看吧。有精力有能力的朋友不妨把其翻译成中文。
+    </p>
+    <p>
+     总之，我们的口号是——
+    </p>
+    <h4 style="text-align: center;">
+     <span class="ez-toc-section" id="Write_Everywhere_Read_Nowhere">
+     </span>
+     Write Everywhere, Read Nowhere
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8088.html">
+         <img alt="对技术的态度" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/7.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8088.html">
+         对技术的态度
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4990.html">
+         <img alt="程序员技术练级攻略" height="150" src="https://coolshell.cn/wp-content/uploads/2011/07/programmer-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4990.html">
+         程序员技术练级攻略
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4102.html">
+         <img alt="如何学好C语言" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/25.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4102.html">
+         如何学好C语言
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1992.html">
+         <img alt="程序员眼中的编程语言" height="150" src="https://coolshell.cn/wp-content/uploads/2009/12/language-fanboys-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1992.html">
+         程序员眼中的编程语言
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="b71d5c42ca" id="post-ratings-4758" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4758_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(4758, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4758_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(4758, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4758_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(4758, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4758_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(4758, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4758_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(4758, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      67
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.42
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4758_text">
+     </span>
+     <meta content="如何写出无法维护的代码" itemprop="name"/>
+     <meta content="如何写出无法维护的代码" itemprop="headline"/>
+     <meta content="酷壳里有很多我觉得很不错的文章，但是访问量最大的却是那篇《6个变态的Hello World》，和它能在本站右边栏“全站热门”中出现的还有“如何加密源代码”，以及编程真难啊等这样的文章。可见本站的读者们的偏好，我也相信你们都是“身怀绝技”的程序员。所以，今天给大家推荐这篇文章，相信一定能触动大家的兴奋点。
+
+这篇文章的原文在这里（http://mindprod.com/jgloss/unmain..." itemprop="description"/>
+     <meta content="2011-06-03T08:52:42+08:00" itemprop="datePublished"/>
+     <meta content="2011-09-08T15:28:14+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4758.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4758.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.42" itemprop="ratingValue"/>
+      <meta content="67" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4758-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/techarticle" rel="category tag">
+        技术读物
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/story" rel="category tag">
+        轶事趣闻
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/coding" rel="tag">
+        Coding
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/java" rel="tag">
+        Java
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/programmer" rel="tag">
+        Programmer
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e7%a8%8b%e5%ba%8f%e5%91%98" rel="tag">
+        程序员
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

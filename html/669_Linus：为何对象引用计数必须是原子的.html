@@ -1,0 +1,732 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/16910.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="Linus：为何对象引用计数必须是原子的 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/16910.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Linus：为何对象引用计数必须是原子的 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/16910.html#article","name":"Linus\uff1a\u4e3a\u4f55\u5bf9\u8c61\u5f15\u7528\u8ba1\u6570\u5fc5\u987b\u662f\u539f\u5b50\u7684 | \u9177 \u58f3 - CoolShell","headline":"Linus\uff1a\u4e3a\u4f55\u5bf9\u8c61\u5f15\u7528\u8ba1\u6570\u5fc5\u987b\u662f\u539f\u5b50\u7684","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2014-12-31T01:59:33+08:00","dateModified":"2014-12-31T01:59:33+08:00","inLanguage":"zh-CN","commentCount":37,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/16910.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/16910.html#webpage"},"articleSection":"\u7a0b\u5e8f\u8bbe\u8ba1, \u7f16\u7a0b\u8bed\u8a00, Atomic, Concurrency, Linus Torvalds, lock-free, Parallelism"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/16910.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author","url":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull","name":"Leo","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/16910.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/a6e9e679d4d308a570b1e74705c026de?s=96&d=mm&r=g","width":96,"height":96,"caption":"Leo"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/16910.html#webpage","url":"https:\/\/coolshell.cn\/articles\/16910.html","name":"Linus\uff1a\u4e3a\u4f55\u5bf9\u8c61\u5f15\u7528\u8ba1\u6570\u5fc5\u987b\u662f\u539f\u5b50\u7684 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/16910.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author"},"datePublished":"2014-12-31T01:59:33+08:00","dateModified":"2014-12-31T01:59:33+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '16910';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Linus%EF%BC%9A%E4%B8%BA%E4%BD%95%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E5%BF%85%E9%A1%BB%E6%98%AF%E5%8E%9F%E5%AD%90%E7%9A%84';
+	window._wp_rp_post_tags = ['atomic', 'lock-free', 'concurrency', 'parallelism', 'linus+torvalds', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'case', 'a', 'data', 'global', 'protect', 'lock', 'gener', 'singl', 'linu', 'hash', 'wast', 'tree', 'atom', 'chain', 'multithread'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/16910.html/feed" rel="alternate" title="酷 壳 - CoolShell » Linus：为何对象引用计数必须是原子的评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/16910" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=16910" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F16910.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F16910.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-16910 post type-post status-publish format-standard hentry category-progdesign category-proglanguage tag-atomic tag-concurrency tag-linus-torvalds tag-lock-free tag-parallelism" id="post-16910">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Linus：为何对象引用计数必须是原子的
+    </span>
+    <h1 class="entry-title">
+     Linus：为何对象引用计数必须是原子的
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/16910.html" rel="bookmark" title="09:59">
+       <time class="entry-date" datetime="2014-12-31T09:59:33+08:00" pubdate="">
+        2014年12月31日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/full_of_bull" rel="author" title="View all posts by Leo">
+         Leo
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/16910.html#comments">
+       37 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      51,226 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      （感谢网友
+     </strong>
+     <a href="http://weibo.com/fullofbull" target="_blank">
+      <strong>
+       @我的上铺叫路遥
+      </strong>
+     </a>
+     <strong>
+      投稿）
+     </strong>
+    </p>
+    <p>
+     Linus大神又在rant了！这次的吐槽对象是时下很火热的
+     <strong>
+      并行技术(parellism)
+     </strong>
+     ，并直截了当地表示
+     <a href="http://www.vaikan.com/linus-parallel-computing-is-a-huge-waste-of-everybodys-time/" target="_blank" title="并行计算基本上就是浪费大家的时间">
+      并行计算是浪费所有人时间
+     </a>
+     (
+     <a href="http://www.realworldtech.com/forum/?threadid=146066&amp;curpostid=146227">
+      “The whole “let’s parallelize” thing is a huge waste of everybody’s time.”
+     </a>
+     )。大致意思是说
+     <strong>
+      乱序性能快、提高缓存容量、降功耗
+     </strong>
+     。当然笔者不打算正面讨论并行的是是非非（过于宏伟的主题），因为Linus在另一则
+     <a href="http://www.realworldtech.com/forum/?threadid=146066&amp;curpostid=146183" target="_blank" title="reference counting">
+      帖子
+     </a>
+     中举了对象
+     <strong>
+      引用计数(reference counting)
+     </strong>
+     的例子来说明并行的复杂性。
+    </p>
+    <p>
+     在Linus回复之前有人指出
+     <strong>
+      对象需要锁机制的情况下，引用计数的原子性问题：
+     </strong>
+    </p>
+    <blockquote>
+     <p>
+      Since it is being accessed in a multi-threaded way, via multiple access paths, generally it needs its own mutex — otherwise, reference counting would not be required to be atomic and a lock of a higher-level object would suffice.
+     </p>
+     <p>
+      由于（对象）通过多线程方式及多种获取渠道，一般而言它需要自身维护一个互斥锁——否则引用计数就不要求是原子的，一个更高层次的对象锁足矣。
+     </p>
+    </blockquote>
+    <p>
+     而Linus不那么认为：
+    </p>
+    <blockquote>
+     <p>
+      The problem with reference counts is that you often need to take them *before* you take the lock that protects the object data.
+     </p>
+     <p>
+      引用计数的问题在于你经常需要在对象数据
+      <strong>
+       上锁保护之前
+      </strong>
+      完成它。
+     </p>
+    </blockquote>
+    <p>
+     The thing is, you have two different cases:
+    </p>
+    <p>
+     问题有两种情况：
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      – object *reference* 对象引用
+     </strong>
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      – object data 对象数据
+     </strong>
+    </p>
+    <p>
+     and they have completely different locking.
+    </p>
+    <p>
+     <strong>
+      它们锁机制是完全不一样的。
+     </strong>
+    </p>
+    <p>
+     <span id="more-16910">
+     </span>
+    </p>
+    <p>
+     Object data locking is generally per-object. Well, unless you don’t have huge scalability issues, in which case you may have some external bigger lock (extreme case: one single global lock).
+    </p>
+    <p>
+     对象数据保护一般是一个对象拥有一个锁，假设你没有海量扩展性问题，不然你需要一些外部大一点的锁（极端的例子，一个对象一个全局锁）。
+    </p>
+    <p>
+     But object *referencing* is mostly about finding the object (and removing/freeing it). Is it on a hash chain? Is it in a tree? Linked list? When the reference count goes down to zero, it’s not the object data that you need to protect (the object is not used by anything else, so there’s nothing to protect!), it’s the ways to find the object you need to protect.
+    </p>
+    <p>
+     但对象引用主要关于对象的寻找（移除或释放），它是否在哈希链，一棵树或者链表上。
+     <strong>
+      当对象引用计数降为零，你要保护的不是对象数据，因为对象没有在其它地方使用，你要保护的是对象的寻找操作。
+     </strong>
+    </p>
+    <p>
+     And the lock for the lookup operation cannot be in the object, because – by definition – you don’t know what the object is! You’re trying to look it up, after all.
+    </p>
+    <p>
+     而且查询操作的锁不可能在对象内部，因为根据定义，你还不知道这是什么对象，你在尝试寻找它。
+    </p>
+    <p>
+     So generally you have a lock that protects the lookup operation some way, and the reference count needs to be atomic with respect to that lock.
+    </p>
+    <p>
+     因此一般你要对查询操作上锁，而且引用计数相对
+     <strong>
+      那个锁
+     </strong>
+     来说是原子的（译者注：查询锁不是引用计数所在的对象所有，不能保护对象引用计数，后面会解释为何引用计数变更时其所在对象不能上锁）。
+    </p>
+    <p>
+     And yes, that lock may well be sufficient, and now you’re back to non-atomic reference counts. But you usually don’t have just one way to look things up: you might have pointers from other objects (and that pointer is protected by the object locking of the other object), but there may be multiple such objects that point to this (which is why you have a reference count in the first place!)
+    </p>
+    <p>
+     当然这个锁是充分有效的，现在假设引用计数是非原子的，但你常常不仅仅使用一种方式来查询：你可能拥有其它对象的指针（这个指针又被其它对象的对象锁给保护起来），但同时还会有多个对象指向它（这就是为何你第一时间需要引用计数的理由）。
+    </p>
+    <p>
+     See what happens? There is no longer one single lock for lookup. Imagine walking a graph of objects, where objects have pointers to each other. Each pointer implies a reference to an object, but as you walk the graph, you have to release the lock from the source object, so you have to take a new reference to the object you are now entering.
+    </p>
+    <p>
+     看看会发生什么？查询不止存在一个锁保护。你可以想象走过一张对象流程图，其中对象存在指向其它对象的指针，每个指针暗含了一次对象引用，但当你走过这个流程图，你必须释放源对象的锁，而你进入新对象时又必须增加一次引用。
+    </p>
+    <p>
+     And in order to avoid deadlocks, you can not in the general case take the lock of the new object first – you have to release the lock on the source object, because otherwise (in a complex graph), how do you avoid simple ABBA deadlock?
+    </p>
+    <p>
+     而且为了避免死锁，你一般不能立即对新对象上锁——你必须释放源对象的锁，否则在一个复杂流程图里，你如何避免
+     <strong>
+      ABBA死锁
+     </strong>
+     （译者注：假设两个线程，一个是A-&gt;B，另一个B-&gt;;A，当线程一给A上锁，线程二给B上锁，此时两者谁也无法释放对方的锁）？
+    </p>
+    <p>
+     So atomic reference counts fix that. They work because when you move from object A to object B, you can do this:
+    </p>
+    <p>
+     原子引用计数修正了这一点，当你从对象A到对象B，你会这样做：
+    </p>
+    <p>
+     (a) you have a reference count to A, and you can lock A
+    </p>
+    <p style="padding-left: 30px;">
+     对象A增加一次引用计数，并上锁。
+    </p>
+    <p>
+     (b) once object A is locked, the pointer from A to B is stable, and you know you have a reference to B (because of that pointer from A to B)
+    </p>
+    <p style="padding-left: 30px;">
+     对象A一旦上锁，A指向B的指针就是稳定的，于是你知道你引用了对象B。
+    </p>
+    <p>
+     (c) but you cannot take the object lock for B (ABBA deadlock) while holding the lock on A
+    </p>
+    <p style="padding-left: 30px;">
+     但你不能在对象A上锁期间给B上锁（ABBA死锁）。
+    </p>
+    <p>
+     (d) increment the atomic reference count on B
+    </p>
+    <p style="padding-left: 30px;">
+     对象B增加一次原子引用计数。
+    </p>
+    <p>
+     (e) now you can drop the lock on A (you’re “exiting” A)
+    </p>
+    <p style="padding-left: 30px;">
+     现在你可以扔掉对象A的锁（退出对象A）。
+    </p>
+    <p>
+     (f) your reference count means that B cannot go away from under you despite unlocking A, so now you can lock B.
+    </p>
+    <p style="padding-left: 30px;">
+     对象B的原子引用计数意味着即使给A解锁期间，B也不会失联，现在你可以给B上锁。
+    </p>
+    <p>
+     See? Atomic reference counts make this kind of situation possible. Yes, you want to avoid the overhead if at all possible (for example, maybe you have a strict ordering of objects, so you know you can walk from A to B, and never walk from B to A, so there is no ABBA deadlock, and you can just lock B while still holding the lock on A).
+    </p>
+    <p>
+     看见了吗？原子引用计数使这种情况成为可能。是的，你想尽一切办法避免这种代价，比如，你也许把对象写成严格顺序的，这样你可以从A到B，绝不会从B到A，如此就不存在ABBA死锁了，你也就可以在A上锁期间给B上锁了。
+    </p>
+    <p>
+     But if you don’t have some kind of forced ordering, and if you have multiple ways to reach an object (and again – why have reference counts in the first place if that isn’t true!) then atomic reference counts really are the simple and sane answer.
+    </p>
+    <p>
+     但如果你无法做到这种强迫序列，如果你有多种方式接触一个对象（再一次强调，这是第一时间使用引用计数的理由），这样，原子引用计数就是简单又理智的答案。
+    </p>
+    <p>
+     If you think atomic refcounts are unnecessary, that’s a big flag that you don’t actually understand the complexities of locking.
+    </p>
+    <p>
+     <strong>
+      如果你认为原子引用计数是不必要的，这就大大说明你实际上不了解锁机制的复杂性。
+     </strong>
+    </p>
+    <p>
+     Trust me, concurrency is hard. There’s a reason all the examples of “look how easy it is to parallelize things” tend to use simple arrays and don’t ever have allocations or freeing of the objects.
+    </p>
+    <p>
+     相信我，
+     <strong>
+      并发设计是困难的。
+     </strong>
+     所有关于“并行化如此容易”的理由都倾向于使用简单数组操作做例子，甚至不包含对象的分配和释放。
+    </p>
+    <p>
+     People who think that the future is highly parallel are invariably completely unaware of just how hard concurrency really is. They’ve seen Linpack, they’ve seen all those wonderful examples of sorting an array in parallel, they’ve seen all these things that have absolutely no actual real complexity – and often very limited real usefulness.
+    </p>
+    <p>
+     那些认为未来是高度并行化的人一成不变地完全没有意识到并发设计是多么困难。他们只见过
+     <a href="https://en.wikipedia.org/wiki/LINPACK" target="_blank" title="Linpack">
+      Linpack
+     </a>
+     ，他们只见过并行技术中关于数组排序的一切精妙例子，他们只见过一切绝不算真正复杂的事物——对真正的用处经常是非常有限的。
+    </p>
+    <p>
+     （译者注：当然，我无意借大神之口把技术宗教化。实际上Linus又在另一篇
+     <a href="http://www.realworldtech.com/forum/?threadid=146066&amp;curpostid=146198" target="_blank" title="评价">
+      帖子
+     </a>
+     中综合了对并行的评价。）
+    </p>
+    <p>
+     Oh, I agree. My example was the simple case. The really complex cases are much worse.
+    </p>
+    <p>
+     哦，我同意。我的例子还算简单，真正复杂的用例更糟糕。
+    </p>
+    <p>
+     I seriously don’t believe that the future is parallel. People who think you can solve it with compilers or programming languages (or better programmers) are so far out to lunch that it’s not even funny.
+    </p>
+    <p>
+     我严重不相信未来是并行的。有人认为你可以通过编译器，编程语言或者更好的程序员来解决问题，他们目前都是神志不清，没意识到这一点都不有趣。
+    </p>
+    <p>
+     Parallelism works well in simplified cases with fairly clear interfaces and models. You find parallelism in servers with independent queries, in HPC, in kernels, in databases. And even there, people work really hard to make it work at all, and tend to expressly limit their models to be more amenable to it (eg databases do some things much better than others, so DB admins make sure that they lay out their data in order to cater to the limitations).
+    </p>
+    <p>
+     并行计算可以在简化的用例以及具备清晰的接口和模型上正常工作。你发现并行在服务器上独立查询里，在高性能计算(High-performance computing)里，在内核里，在数据库里。即使如此，人们还得花很大力气才能使它工作，并且还要明确限制他们的模型来尽更多义务（例如数据库要想做得更好，数据库管理员得确保数据得到合理安排来迎合局限性）。
+    </p>
+    <p>
+     Of course, other programming models can work. Neural networks are inherently very parallel indeed. And you don’t need smarter programmers to program them either..
+    </p>
+    <p>
+     当然，其它编程模型倒能派上用场，神经网络(neural networking)天生就是非常并行化的，你不需要更聪明的程序员为之写代码。
+    </p>
+    <h4>
+     参考资料
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.realworldtech.com/" target="_blank" title="Real World Technologies">
+       Real World Technologies
+      </a>
+      ：Linus常去“灌水”的一个论坛，讨论未来机器架构（看名字就知道Linus技术偏好，及其之前对虚拟化技术(virtualization)的
+      <a href="http://www.networkworld.com/article/2220440/opensource-subnet/torvalds-says---virtualization-is-evil-.html" target="_blank" title="virtualization is evil">
+       吐槽
+      </a>
+      ）
+     </li>
+     <li>
+      <a href="http://www.parallellabs.com/2010/04/15/atomic-operation-in-multithreaded-application/" target="_blank" title="多线程程序中操作的原子性">
+       多线程程序中操作的原子性
+      </a>
+      ：解释为什么i++不是原子操作
+     </li>
+     <li>
+      <a href="http://www.vaikan.com/docs/Concurrency-is-not-Parallelism" target="_blank" title="Concurrency Is Not Parallelism">
+       Concurrency Is Not Parallelism
+      </a>
+      ：Go语言之父Rob Pike幻灯片解释“并发”与“并行”概念上的区别
+     </li>
+    </ul>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9917.html">
+         <img alt="Alan Cox：大教堂、市集与市议会" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/10.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9917.html">
+         Alan Cox：大教堂、市集与市议会
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8990.html">
+         <img alt="Linus：利用二级指针删除单向链表" height="150" src="https://coolshell.cn/wp-content/uploads/2013/02/linus_pointer_to_pointer-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8990.html">
+         Linus：利用二级指针删除单向链表
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8275.html">
+         <img alt="对九个超级程序员的采访" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/13.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8275.html">
+         对九个超级程序员的采访
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6790.html">
+         <img alt="多版本并发控制(MVCC)在分布式系统中的应用" height="150" src="https://coolshell.cn/wp-content/uploads/2012/03/o_conditional_update_1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6790.html">
+         多版本并发控制(MVCC)在分布式系统中的应用
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2322.html">
+         <img alt="Unix传奇(上篇)" height="150" src="https://coolshell.cn/wp-content/uploads/2010/04/o_unixrichiethompson-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2322.html">
+         Unix传奇(上篇)
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1619.html">
+         <img alt="Windows 7 的新粉丝 Linus Torvalds" height="150" src="https://coolshell.cn/wp-content/uploads/2009/10/Linus_windows_7-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1619.html">
+         Windows 7 的新粉丝 Linus Torvalds
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="e8a85f5d69" id="post-ratings-16910" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_16910_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(16910, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_16910_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(16910, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_16910_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(16910, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_16910_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(16910, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_16910_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(16910, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      42
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.83
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_16910_text">
+     </span>
+     <meta content="Linus：为何对象引用计数必须是原子的" itemprop="name"/>
+     <meta content="Linus：为何对象引用计数必须是原子的" itemprop="headline"/>
+     <meta content="（感谢网友 @我的上铺叫路遥 投稿）
+
+Linus大神又在rant了！这次的吐槽对象是时下很火热的并行技术(parellism)，并直截了当地表示并行计算是浪费所有人时间(&quot;The whole &quot;let's parallelize&quot; thing is a huge waste of everybody's time.&quot;)。大致意思是说乱序性能快、提高缓存容量、降功耗。当然笔者不打算正面讨论并行..." itemprop="description"/>
+     <meta content="2014-12-31T09:59:33+08:00" itemprop="datePublished"/>
+     <meta content="2014-12-31T09:59:33+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/16910.html" itemprop="url"/>
+     <meta content="Leo" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/16910.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.83" itemprop="ratingValue"/>
+      <meta content="42" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-16910-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/atomic" rel="tag">
+        Atomic
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/concurrency" rel="tag">
+        Concurrency
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/linus-torvalds" rel="tag">
+        Linus Torvalds
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/lock-free" rel="tag">
+        lock-free
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/parallelism" rel="tag">
+        Parallelism
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

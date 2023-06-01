@@ -1,0 +1,1083 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/9666.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="浏览器的渲染原理简介 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/9666.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process.jpg" property="og:image:secure_url"/>
+   <meta content="791" property="og:image:width"/>
+   <meta content="257" property="og:image:height"/>
+   <meta content="2013-05-22T00:17:47+00:00" property="article:published_time"/>
+   <meta content="2013-05-23T03:12:48+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="浏览器的渲染原理简介 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/9666.html#article","name":"\u6d4f\u89c8\u5668\u7684\u6e32\u67d3\u539f\u7406\u7b80\u4ecb | \u9177 \u58f3 - CoolShell","headline":"\u6d4f\u89c8\u5668\u7684\u6e32\u67d3\u539f\u7406\u7b80\u4ecb","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2013\/05\/Render-Process.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":791,"height":257},"datePublished":"2013-05-22T00:17:47+08:00","dateModified":"2013-05-23T03:12:48+08:00","inLanguage":"zh-CN","commentCount":155,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/9666.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/9666.html#webpage"},"articleSection":"Web\u5f00\u53d1, \u7a0b\u5e8f\u8bbe\u8ba1, CSS, DOM, HTML, Javascript, Web"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/9666.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/9666.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/9666.html#webpage","url":"https:\/\/coolshell.cn\/articles\/9666.html","name":"\u6d4f\u89c8\u5668\u7684\u6e32\u67d3\u539f\u7406\u7b80\u4ecb | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/9666.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2013-05-22T00:17:47+08:00","dateModified":"2013-05-23T03:12:48+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '9666';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B';
+	window._wp_rp_post_tags = ['dom', 'web', 'html', 'css', 'javascript', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'web%E5%BC%80%E5%8F%91', 'franklin', '2', 'fear', 'penni', 'block', 'rule', 'css', 'fdr', 'displai', 'tree', 'doc', '3', 'alt', 'web', '4'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/9666.html/feed" rel="alternate" title="酷 壳 - CoolShell » 浏览器的渲染原理简介评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/9666" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=9666" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F9666.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F9666.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-9666 post type-post status-publish format-standard hentry category-webdev category-progdesign tag-css tag-dom tag-html tag-javascript tag-web" id="post-9666">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     浏览器的渲染原理简介
+    </span>
+    <h1 class="entry-title">
+     浏览器的渲染原理简介
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/9666.html" rel="bookmark" title="08:17">
+       <time class="entry-date" datetime="2013-05-22T08:17:47+08:00" pubdate="">
+        2013年05月22日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/9666.html#comments">
+       155 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      196,039 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     看到这个标题大家一定会想到这篇神文《
+     <a href="http://taligarsiel.com/Projects/howbrowserswork1.htm" target="_blank">
+      How Browsers Work
+     </a>
+     》，这篇文章把浏览器的很多细节讲得很细，而且也被
+     <a href="http://ux.sohu.com/topics/50972d9ae7de3e752e0081ff" target="_blank">
+      翻译成了中文
+     </a>
+     。为什么我还想写一篇呢？因为两个原因，
+    </p>
+    <p style="padding-left: 30px;">
+     1）这篇文章太长了，阅读成本太大，不能一口气读完。
+    </p>
+    <p style="padding-left: 30px;">
+     2）花了大力气读了这篇文章后可以了解很多，但似乎对工作没什么帮助。
+    </p>
+    <p>
+     所以，我准备写下这篇文章来解决上述两个问题。希望你能在上班途中，或是坐马桶时就能读完，并能从中学会一些能用在工作上的东西。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%A4%A7%E6%B5%81%E7%A8%8B" title="浏览器工作大流程">
+         浏览器工作大流程
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#DOM%E8%A7%A3%E6%9E%90" title="DOM解析">
+         DOM解析
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#CSS%E8%A7%A3%E6%9E%90" title="CSS解析">
+         CSS解析
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E6%B8%B2%E6%9F%93" title="渲染">
+         渲染
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E5%87%8F%E5%B0%91reflowrepaint" title="减少reflow/repaint">
+         减少reflow/repaint
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E5%87%A0%E4%B8%AA%E5%B7%A5%E5%85%B7%E5%92%8C%E5%87%A0%E7%AF%87%E6%96%87%E7%AB%A0" title="几个工具和几篇文章">
+         几个工具和几篇文章
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E5%8F%82%E8%80%83" title="参考">
+         参考
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%A4%A7%E6%B5%81%E7%A8%8B">
+     </span>
+     浏览器工作大流程
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     废话少说，先来看个图：
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-9667" decoding="async" height="231" sizes="(max-width: 712px) 100vw, 712px" src="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process.jpg 791w, https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-300x97.jpg 300w, https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-768x250.jpg 768w, https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-604x196.jpg 604w" width="712"/>
+    </p>
+    <p style="text-align: left;">
+     从上面这个图中，我们可以看到那么几个事：
+    </p>
+    <p>
+     <span id="more-9666">
+     </span>
+    </p>
+    <p style="text-align: left;">
+     1）浏览器会解析三个东西：
+    </p>
+    <ul>
+     <li>
+      一个是HTML/SVG/XHTML，事实上，Webkit有三个C++的类对应这三类文档。解析这三种文件会产生一个DOM Tree。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      CSS，解析CSS会产生CSS规则树。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Javascript，脚本，主要是通过DOM API和CSSOM API来操作DOM Tree和CSS Rule Tree.
+     </li>
+    </ul>
+    <p>
+     2）解析完成后，浏览器引擎会通过DOM Tree 和 CSS Rule Tree 来构造 Rendering Tree。注意：
+    </p>
+    <ul>
+     <li>
+      Rendering Tree 渲染树并不等同于DOM树，因为一些像Header或display:none的东西就没必要放在渲染树中了。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      CSS 的 Rule Tree主要是为了完成匹配并把CSS Rule附加上Rendering Tree上的每个Element。也就是DOM结点。也就是所谓的Frame。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      然后，计算每个Frame（也就是每个Element）的位置，这又叫layout和reflow过程。
+     </li>
+    </ul>
+    <p>
+     3）最后通过调用操作系统Native GUI的API绘制。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="DOM%E8%A7%A3%E6%9E%90">
+     </span>
+     DOM解析
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     HTML的DOM Tree解析如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="html">
+&lt;html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Web page parsing&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;h1&gt;Web page parsing&lt;/h1&gt;
+        &lt;p&gt;This is an example Web page.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p>
+     上面这段HTML会解析成这样：
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-9669" decoding="async" height="300" loading="lazy" sizes="(max-width: 456px) 100vw, 456px" src="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-01.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-01.jpg 651w, https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-01-300x197.jpg 300w" width="456"/>
+    </p>
+    <p>
+     下面是另一个有SVG标签的情况。
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-9670" decoding="async" height="320" loading="lazy" sizes="(max-width: 408px) 100vw, 408px" src="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-02.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-02.jpg 680w, https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-02-300x235.jpg 300w" width="408"/>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="CSS%E8%A7%A3%E6%9E%90">
+     </span>
+     CSS解析
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Firefox的玩法），假设我们有下面的HTML文档：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="html">
+&lt;doc&gt;
+&lt;title&gt;A few quotes&lt;/title&gt;
+&lt;para&gt;
+  Franklin said that &lt;quote&gt;"A penny saved is a penny earned."&lt;/quote&gt;
+&lt;/para&gt;
+&lt;para&gt;
+  FDR said &lt;quote&gt;"We have nothing to fear but &lt;span&gt;fear itself.&lt;/span&gt;"&lt;/quote&gt;
+&lt;/para&gt;
+&lt;/doc&gt;
+</pre>
+    <p>
+     于是DOM Tree是这个样子：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-9672" decoding="async" height="318" loading="lazy" sizes="(max-width: 368px) 100vw, 368px" src="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-Example.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-Example.jpg 368w, https://coolshell.cn/wp-content/uploads/2013/05/DOM-Tree-Example-300x259.jpg 300w" width="368"/>
+    </p>
+    <p>
+     然后我们的CSS文档是这样的：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="html">  /* rule 1 */ doc { display: block; text-indent: 1em; }
+/* rule 2 */ title { display: block; font-size: 3em; }
+/* rule 3 */ para { display: block; }
+/* rule 4 */ [class="emph"] { font-style: italic; }</pre>
+    <p>
+     于是我们的CSS Rule Tree会是这个样子：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-9673" decoding="async" height="238" loading="lazy" sizes="(max-width: 397px) 100vw, 397px" src="https://coolshell.cn/wp-content/uploads/2013/05/CSS-Rule-Tree-Example.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/CSS-Rule-Tree-Example.jpg 397w, https://coolshell.cn/wp-content/uploads/2013/05/CSS-Rule-Tree-Example-300x179.jpg 300w" width="397"/>
+    </p>
+    <p>
+     注意，图中的第4条规则出现了两次，一次是独立的，一次是在规则3的子结点。所以，我们可以知道，建立CSS Rule Tree是需要比照着DOM Tree来的。CSS匹配DOM Tree主要是从右到左解析CSS的Selector，好多人以为这个事会比较快，其实并不一定。关键还看我们的CSS的Selector怎么写了。
+    </p>
+    <p>
+     <strong>
+      注意：CSS匹配HTML元素是一个相当复杂和有性能问题的事情。所以，你就会在N多地方看到很多人都告诉你，DOM树要小，CSS尽量用id和class，千万不要过渡层叠下去，……
+     </strong>
+    </p>
+    <p>
+     通过这两个树，我们可以得到一个叫Style Context Tree，也就是下面这样（把CSS Rule结点Attach到DOM Tree上）：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-9674" decoding="async" height="318" loading="lazy" sizes="(max-width: 405px) 100vw, 405px" src="https://coolshell.cn/wp-content/uploads/2013/05/CSS-Content-Tree-Example.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/CSS-Content-Tree-Example.jpg 405w, https://coolshell.cn/wp-content/uploads/2013/05/CSS-Content-Tree-Example-300x235.jpg 300w" width="405"/>
+    </p>
+    <p>
+     所以，Firefox基本上来说是通过CSS 解析 生成 CSS Rule Tree，然后，通过比对DOM生成Style Context Tree，然后Firefox通过把Style Context Tree和其Render Tree（Frame Tree）关联上，就完成了。注意：Render Tree会把一些不可见的结点去除掉。而
+     <strong>
+      Firefox中所谓的Frame就是一个DOM结点，不要被其名字所迷惑了
+     </strong>
+     。
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-9677" decoding="async" height="366" loading="lazy" sizes="(max-width: 328px) 100vw, 328px" src="https://coolshell.cn/wp-content/uploads/2013/05/Firefox-style-context-tree.png" srcset="https://coolshell.cn/wp-content/uploads/2013/05/Firefox-style-context-tree.png 364w, https://coolshell.cn/wp-content/uploads/2013/05/Firefox-style-context-tree-268x300.png 268w" width="328"/>
+    </p>
+    <p>
+     注：Webkit不像Firefox要用两个树来干这个，Webkit也有Style对象，它直接把这个Style对象存在了相应的DOM结点上了。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%B8%B2%E6%9F%93">
+     </span>
+     渲染
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     渲染的流程基本上如下（黄色的四个步骤）：
+    </p>
+    <ol>
+     <li>
+      计算CSS样式
+     </li>
+     <li>
+      构建Render Tree
+     </li>
+     <li>
+      Layout – 定位坐标和大小，是否换行，各种position, overflow, z-index属性 ……
+     </li>
+     <li>
+      正式开画
+     </li>
+    </ol>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-9675" decoding="async" height="196" loading="lazy" sizes="(max-width: 712px) 100vw, 712px" src="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-Skipping.jpg" srcset="https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-Skipping.jpg 1318w, https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-Skipping-300x82.jpg 300w, https://coolshell.cn/wp-content/uploads/2013/05/Render-Process-Skipping-1024x282.jpg 1024w" width="712"/>
+    </p>
+    <p style="text-align: left;">
+     注意：上图流程中有很多连接线，这表示了Javascript动态修改了DOM属性或是CSS属会导致重新Layout，有些改变不会，就是那些指到天上的箭头，比如，修改后的CSS rule没有被匹配到，等。
+    </p>
+    <p style="text-align: left;">
+     这里重要要说两个概念，一个是Reflow，另一个是Repaint。这两个不是一回事。
+    </p>
+    <ul>
+     <li>
+      Repaint——屏幕的一部分要重画，比如某个CSS的背景色变了。但是元素的几何尺寸没有变。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Reflow——意味着元件的几何尺寸变了，我们需要重新验证并计算Render Tree。是Render Tree的一部分或全部发生了变化。这就是Reflow，或是Layout。（
+      <strong>
+       HTML使用的是flow based layout，也就是流式布局，所以，如果某元件的几何尺寸发生了变化，需要重新布局，也就叫reflow
+      </strong>
+      ）reflow 会从&lt;html&gt;这个root frame开始递归往下，依次计算所有的结点几何尺寸和位置，在reflow过程中，可能会增加一些frame，比如一个文本字符串必需被包装起来。
+     </li>
+    </ul>
+    <p>
+     下面是一个打开Wikipedia时的Layout/reflow的视频（注：HTML在初始化的时候也会做一次reflow，叫
+     <dfn>
+      intial reflow
+     </dfn>
+     ），你可以感受一下：
+    </p>
+    <p>
+     <center>
+      <object align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" height="400" width="480">
+       <param name="src" value="http://player.youku.com/player.php/sid/XMzI5MDg0OTA0/v.swf"/>
+       <param name="allowfullscreen" value="true"/>
+       <param name="quality" value="high"/>
+       <param name="allowscriptaccess" value="always"/>
+       <embed align="middle" allowfullscreen="true" allowscriptaccess="always" height="400" quality="high" src="http://player.youku.com/player.php/sid/XMzI5MDg0OTA0/v.swf" type="application/x-shockwave-flash" width="480"/>
+      </object>
+     </center>
+     Reflow的成本比Repaint的成本高得多的多。DOM Tree里的每个结点都会有reflow方法，一个结点的reflow很有可能导致子结点，甚至父点以及同级结点的reflow。
+     <strong>
+      在一些高性能的电脑上也许还没什么，但是如果reflow发生在手机上，那么这个过程是非常痛苦和耗电的
+     </strong>
+     。
+    </p>
+    <p>
+     所以，下面这些动作有很大可能会是成本比较高的。
+    </p>
+    <ul>
+     <li>
+      当你增加、删除、修改DOM结点时，会导致Reflow或Repaint
+     </li>
+     <li>
+      当你移动DOM的位置，或是搞个动画的时候。
+     </li>
+     <li>
+      当你修改CSS样式的时候。
+     </li>
+     <li>
+      当你Resize窗口的时候（移动端没有这个问题），或是滚动的时候。
+     </li>
+     <li>
+      当你修改网页的默认字体时。
+     </li>
+    </ul>
+    <p style="text-align: left;">
+     注：display:none会触发reflow，而visibility:hidden只会触发repaint，因为没有发现位置变化。
+    </p>
+    <p style="text-align: left;">
+     多说两句关于滚屏的事，通常来说，如果在滚屏的时候，我们的页面上的所有的像素都会跟着滚动，那么性能上没什么问题，因为我们的显卡对于这种把全屏像素往上往下移的算法是很快。但是如果你有一个fixed的背景图，或是有些Element不跟着滚动，有些Elment是动画，那么这个滚动的动作对于浏览器来说会是相当相当痛苦的一个过程。你可以看到很多这样的网页在滚动的时候性能有多差。因为滚屏也有可能会造成reflow。
+    </p>
+    <p style="text-align: left;">
+     基本上来说，reflow有如下的几个原因：
+    </p>
+    <ul>
+     <li>
+      Initial。网页初始化的时候。
+     </li>
+     <li>
+      Incremental。一些Javascript在操作DOM Tree时。
+     </li>
+     <li>
+      Resize。其些元件的尺寸变了。
+     </li>
+     <li>
+      StyleChange。如果CSS的属性发生变化了。
+     </li>
+     <li>
+      Dirty。几个Incremental的reflow发生在同一个frame的子树上。
+     </li>
+    </ul>
+    <p style="text-align: left;">
+     好了，我们来看一个示例吧：
+    </p>
+    <p>
+     [javascript]var bstyle = document.body.style; // cache
+    </p>
+    <p>
+     bstyle.padding = "20px"; // reflow, repaint
+     <br/>
+     bstyle.border = "10px solid red"; //  再一次的 reflow 和 repaint
+    </p>
+    <p>
+     bstyle.color = "blue"; // repaint
+     <br/>
+     bstyle.backgroundColor = "#fad"; // repaint
+    </p>
+    <p>
+     bstyle.fontSize = "2em"; // reflow, repaint
+    </p>
+    <p>
+     // new DOM element – reflow, repaint
+     <br/>
+     document.body.appendChild(document.createTextNode(‘dude!’));[/javascript]
+    </p>
+    <p style="text-align: left;">
+     当然，我们的浏览器是聪明的，它不会像上面那样，你每改一次样式，它就reflow或repaint一次。
+     <strong>
+      一般来说，浏览器会把这样的操作积攒一批，然后做一次reflow，这又叫异步reflow或增量异步reflow
+     </strong>
+     。但是有些情况浏览器是不会这么做的，比如：resize窗口，改变了页面默认的字体，等。对于这些操作，浏览器会马上进行reflow。
+    </p>
+    <p style="text-align: left;">
+     但是有些时候，我们的脚本会阻止浏览器这么干，比如：如果我们请求下面的一些DOM值：
+    </p>
+    <ol>
+     <li>
+      offsetTop, offsetLeft, offsetWidth, offsetHeight
+     </li>
+     <li>
+      scrollTop/Left/Width/Height
+     </li>
+     <li>
+      clientTop/Left/Width/Height
+     </li>
+     <li>
+      IE中的 getComputedStyle(), 或 currentStyle
+     </li>
+    </ol>
+    <p style="text-align: left;">
+     因为，如果我们的程序需要这些值，那么浏览器需要返回最新的值，而这样一样会flush出去一些样式的改变，从而造成频繁的reflow/repaint。
+    </p>
+    <h4 style="text-align: left;">
+     <span class="ez-toc-section" id="%E5%87%8F%E5%B0%91reflowrepaint">
+     </span>
+     减少reflow/repaint
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面是一些Best Practices：
+    </p>
+    <p>
+     <strong>
+      1）不要一条一条地修改DOM的样式。与其这样，还不如预先定义好css的class，然后修改DOM的className。
+     </strong>
+    </p>
+    <p>
+     [javascript]// bad
+     <br/>
+     var left = 10,
+     <br/>
+     top = 10;
+     <br/>
+     el.style.left = left + "px";
+     <br/>
+     el.style.top  = top  + "px";
+    </p>
+    <p>
+     // Good
+     <br/>
+     el.className += " theclassname";
+    </p>
+    <p>
+     // Good
+     <br/>
+     el.style.cssText += "; left: " + left + "px; top: " + top + "px;";[/javascript]
+    </p>
+    <p>
+     <strong>
+      2）把DOM离线后修改。如：
+     </strong>
+    </p>
+    <ul>
+     <li>
+      使用documentFragment 对象在内存里操作DOM
+     </li>
+     <li>
+      先把DOM给display:none(有一次reflow)，然后你想怎么改就怎么改。比如修改100次，然后再把他显示出来。
+     </li>
+     <li>
+      clone一个DOM结点到内存里，然后想怎么改就怎么改，改完后，和在线的那个的交换一下。
+     </li>
+    </ul>
+    <p>
+     3）
+     <strong>
+      不要把DOM结点的属性值放在一个循环里当成循环里的变量。
+     </strong>
+     不然这会导致大量地读写这个结点的属性。
+    </p>
+    <p>
+     4）
+     <strong>
+      尽可能的修改层级比较低的DOM
+     </strong>
+     。当然，改变层级比较底的DOM有可能会造成大面积的reflow，但是也可能影响范围很小。
+    </p>
+    <p>
+     5）
+     <strong>
+      为动画的HTML元件使用fixed或absoult的position
+     </strong>
+     ，那么修改他们的CSS是不会reflow的。
+    </p>
+    <p>
+     6）
+     <strong>
+      千万不要使用table布局
+     </strong>
+     。因为可能很小的一个小改动会造成整个table的重新布局。
+    </p>
+    <blockquote>
+     <p>
+      In this manner, the user agent can begin to lay out the table once the entire first row has been received. Cells in subsequent rows do not affect column widths. Any cell that has content that overflows uses the ‘overflow’ property to determine whether to clip the overflow content.
+     </p>
+     <p>
+      <cite>
+       <a href="http://www.w3.org/TR/CSS21/tables.html#fixed-table-layout">
+        Fixed layout, CSS 2.1 Specification
+       </a>
+      </cite>
+     </p>
+    </blockquote>
+    <blockquote>
+     <p>
+      This algorithm may be inefficient since it requires the user agent to have access to all the content in the table before determining the final layout and may demand more than one pass.
+     </p>
+     <p>
+      <cite>
+       <a href="http://www.w3.org/TR/CSS21/tables.html#auto-table-layout">
+        Automatic layout, CSS 2.1 Specification
+       </a>
+      </cite>
+     </p>
+    </blockquote>
+    <h4>
+     <span class="ez-toc-section" id="%E5%87%A0%E4%B8%AA%E5%B7%A5%E5%85%B7%E5%92%8C%E5%87%A0%E7%AF%87%E6%96%87%E7%AB%A0">
+     </span>
+     几个工具和几篇文章
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     有时候，你会也许会发现在IE下，你不知道你修改了什么东西，结果CPU一下子就上去了到100%，然后过了好几秒钟repaint/reflow才完成，这种事情以IE的年代时经常发生。所以，我们需要一些工具帮我们看看我们的代码里有没有什么不合适的东西。
+    </p>
+    <ul>
+     <li>
+      Chrome下，Google的
+      <a href="https://code.google.com/webtoolkit/speedtracer/">
+       SpeedTracer
+      </a>
+      是个非常强悍的工作让你看看你的浏览渲染的成本有多大。其实Safari和Chrome都可以使用开发者工具里的一个Timeline的东东。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Firefox下这个基于Firebug的叫
+      <a href="https://addons.mozilla.org/en-US/firefox/addon/firebug-paint-events/" target="_blank">
+       Firebug Paint Events
+      </a>
+      的插件也不错。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      IE下你可以用一个叫
+      <a href="http://ajax.dynatrace.com/pages/">
+       dynaTrace
+      </a>
+      的IE扩展。
+     </li>
+    </ul>
+    <p>
+     最后，别忘了下面这几篇提高浏览器性能的文章：
+    </p>
+    <ul>
+     <li>
+      <a href="https://code.google.com/speed/page-speed/docs/rules_intro.html">
+       Google – Web Performance Best Practices
+      </a>
+     </li>
+     <li>
+      <a href="http://developer.yahoo.com/performance/rules.html">
+       Yahoo – Best Practices for Speeding Up Your Web Site
+      </a>
+     </li>
+     <li>
+      <a href="http://stevesouders.com/hpws/rules.php">
+       Steve Souders – 14 Rules for Faster-Loading Web Sites
+      </a>
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83">
+     </span>
+     参考
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      David Baron的演讲：Fast CSS: How Browsers Lay Out Web Pages：
+      <a href="https://dbaron.org/talks/2012-03-11-sxsw/slide-1.xhtml" target="_blank">
+       slideshow
+      </a>
+      ,
+      <a href="https://dbaron.org/talks/2012-03-11-sxsw/master.xhtml">
+       all slides
+      </a>
+      ,
+      <a href="http://audio.sxsw.com/2012/podcasts/11-ACC-Fast_CSS_How_Browser_Layout.mp3">
+       audio (MP3)
+      </a>
+      ,
+      <a href="http://schedule.sxsw.com/2012/events/event_IAP12909">
+       Session page
+      </a>
+      ,
+      <a href="http://lanyrd.com/2012/sxsw-interactive/spmbt/">
+       Lanyrd page
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      How Browsers Work:
+      <a href="http://taligarsiel.com/Projects/howbrowserswork1.htm" target="_blank">
+       http://taligarsiel.com/Projects/howbrowserswork1.htm
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Mozilla 的 Style System Overview：
+      <a href="https://developer.mozilla.org/en-US/docs/Style_System_Overview" target="_blank">
+       https://developer.mozilla.org/en-US/docs/Style_System_Overview
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Mozilla 的 Note of reflow：
+      <a href="http://www-archive.mozilla.org/newlayout/doc/reflow.html" target="_blank">
+       http://www-archive.mozilla.org/newlayout/doc/reflow.html
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Rendering: repaint, reflow/relayout, restyle：
+      <a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/" target="_blank">
+       http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Effective Rendering CSS：
+      <a href="https://css-tricks.com/efficiently-rendering-css/" target="_blank">
+       http://css-tricks.com/efficiently-rendering-css/
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+      </strong>
+      Webkit Rendering文档：
+      <a href="http://trac.webkit.org/wiki/WebCoreRendering" target="_blank">
+       http://trac.webkit.org/wiki/WebCoreRendering
+      </a>
+     </li>
+    </ul>
+    <p>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3684.html">
+         <img alt="Web开发人员速查卡" height="150" src="https://coolshell.cn/wp-content/uploads/2011/02/1128-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3684.html">
+         Web开发人员速查卡
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17634.html">
+         <img alt="Chrome开发者工具的小技巧" height="150" src="https://coolshell.cn/wp-content/uploads/2017/01/pretty-code-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17634.html">
+         Chrome开发者工具的小技巧
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9749.html">
+         <img alt="Javascript 装载和执行" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/javascript-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9749.html">
+         Javascript 装载和执行
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6840.html">
+         <img alt="CSS 布局:40个教程、技巧、例子和最佳实践" height="150" src="https://coolshell.cn/wp-content/uploads/2012/03/css-layouts-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6840.html">
+         CSS 布局:40个教程、技巧、例子和最佳实践
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6043.html">
+         <img alt="Web开发中需要了解的东西" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/30.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6043.html">
+         Web开发中需要了解的东西
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5537.html">
+         <img alt="一些文章资源和趣闻" height="150" src="https://coolshell.cn/wp-content/uploads/2011/11/stackparts.com_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5537.html">
+         一些文章资源和趣闻
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="785fa25f31" id="post-ratings-9666" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_9666_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(9666, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_9666_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(9666, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_9666_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(9666, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_9666_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(9666, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_9666_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(9666, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      71
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.39
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_9666_text">
+     </span>
+     <meta content="浏览器的渲染原理简介" itemprop="name"/>
+     <meta content="浏览器的渲染原理简介" itemprop="headline"/>
+     <meta content="看到这个标题大家一定会想到这篇神文《How Browsers Work》，这篇文章把浏览器的很多细节讲得很细，而且也被翻译成了中文。为什么我还想写一篇呢？因为两个原因，
+1）这篇文章太长了，阅读成本太大，不能一口气读完。
+2）花了大力气读了这篇文章后可以了解很多，但似乎对工作没什么帮助。
+所以，我准备写下这篇文章来解决上述两个问题。希望你能在上班途中，或是坐马桶时就能读完，并能从中学会一些能..." itemprop="description"/>
+     <meta content="2013-05-22T08:17:47+08:00" itemprop="datePublished"/>
+     <meta content="2013-05-23T11:12:48+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/9666.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/9666.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.39" itemprop="ratingValue"/>
+      <meta content="71" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-9666-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/webdev" rel="category tag">
+        Web开发
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/css" rel="tag">
+        CSS
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/dom" rel="tag">
+        DOM
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/html" rel="tag">
+        HTML
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/javascript" rel="tag">
+        Javascript
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/web" rel="tag">
+        Web
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

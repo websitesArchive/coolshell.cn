@@ -1,0 +1,550 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4626.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="读书笔记：对线程模型的批评 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4626.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2011-05-03T02:23:27+00:00" property="article:published_time"/>
+   <meta content="2011-05-03T02:23:27+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="读书笔记：对线程模型的批评 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4626.html#article","name":"\u8bfb\u4e66\u7b14\u8bb0\uff1a\u5bf9\u7ebf\u7a0b\u6a21\u578b\u7684\u6279\u8bc4 | \u9177 \u58f3 - CoolShell","headline":"\u8bfb\u4e66\u7b14\u8bb0\uff1a\u5bf9\u7ebf\u7a0b\u6a21\u578b\u7684\u6279\u8bc4","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/ian-sino#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2011-05-03T02:23:27+08:00","dateModified":"2011-05-03T02:23:27+08:00","inLanguage":"zh-CN","commentCount":37,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4626.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4626.html#webpage"},"articleSection":"\u6280\u672f\u8bfb\u7269, \u64cd\u4f5c\u7cfb\u7edf, \u7a0b\u5e8f\u8bbe\u8ba1, \u7f16\u7a0b\u8bed\u8a00, Design, Programmer, programming language, threading model"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4626.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/ian-sino#author","url":"https:\/\/coolshell.cn\/articles\/author\/ian-sino","name":"Ian.sino","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4626.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/e2ea38ff49f2147eee95687f2dc51a90?s=96&d=mm&r=g","width":96,"height":96,"caption":"Ian.sino"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4626.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4626.html","name":"\u8bfb\u4e66\u7b14\u8bb0\uff1a\u5bf9\u7ebf\u7a0b\u6a21\u578b\u7684\u6279\u8bc4 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4626.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/ian-sino#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/ian-sino#author"},"datePublished":"2011-05-03T02:23:27+08:00","dateModified":"2011-05-03T02:23:27+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4626';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%AF%B9%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%89%B9%E8%AF%84';
+	window._wp_rp_post_tags = ['threading+model', 'programmer', 'programming+language', 'design', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', '%E6%8A%80%E6%9C%AF%E8%AF%BB%E7%89%A9', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', '%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F', 'um', 'java', 'kent', 'bug', 'mapreduc', '7', '80', 'window', 'a', 'agent', 'web', 'model', 'problem', 'nasa', 'fp'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4626.html/feed" rel="alternate" title="酷 壳 - CoolShell » 读书笔记：对线程模型的批评评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4626" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4626" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4626.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4626.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4626 post type-post status-publish format-standard hentry category-techarticle category-operatingsystem category-progdesign category-proglanguage tag-design tag-programmer tag-programming-language tag-threading-model" id="post-4626">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     读书笔记：对线程模型的批评
+    </span>
+    <h1 class="entry-title">
+     读书笔记：对线程模型的批评
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4626.html" rel="bookmark" title="10:23">
+       <time class="entry-date" datetime="2011-05-03T10:23:27+08:00" pubdate="">
+        2011年05月03日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/ian-sino" rel="author" title="View all posts by Ian.sino">
+         Ian.sino
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4626.html#comments">
+       37 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      33,098 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <span style="color: #cc0000;">
+      <strong>
+       ——感谢Ian.Sian投递本文——
+      </strong>
+     </span>
+    </p>
+    <p>
+     多线程模型是主流的并发编程模型。在过去几十年来，多线程模型一直是开发并发程序的有力工具。然而，它的历史并非总那么美好。1997年，NASA 的“火星探路者”号在执行任务的途中遭遇了严重的时序异常（参见 “
+     <a href="http://research.microsoft.com/en-us/um/people/mbj/mars_pathfinder/mars_pathfinder.html" target="_blank">
+      What really happend on Mars
+     </a>
+     “，注目 follow-up 中的
+     <a href="http://research.microsoft.com/en-us/um/people/mbj/mars_pathfinder/Authoritative_Account.html" target="_blank">
+      现身说法
+     </a>
+     ），无法发回探测数据。如果不是 NASA 远程刷新了程序，它的结局就只能是报废在火星上。这一切都是由程序中潜藏的一个优先级反转 bug 造成的。更早的例子还有80年代的一系列
+     <a href="https://en.wikipedia.org/wiki/Therac-25" target="_blank" title="Therac-25">
+      Therac-25
+     </a>
+     型医用粒子加速器事故。在这些加速器释放出的过量辐射照射之下，数位病人死亡。事后调查显示，至少有一次发生事故的原因，是加速器的控制软件中，存在一个只能由特定操作序列引发的竞争条件 bug。你也许认为这些只是陈年往事，但是直到现在，即便是世界500强公司们高价买来的信息系统，也同样避免不了这些问题。这导致许多程序员认为线程是个潘多拉魔盒，对它采取能躲就躲的态度。然而近来计算机的发展使得躲猫猫的空间越来越小：随便从市场上淘一个CPU，它里面也有不止一个核心。未来的程序员只会有越来越多的机会接触到并发编程，而无法再独善其身了。
+    </p>
+    <p>
+     加州大学伯克利分校教授，
+     <a href="http://ptolemy.eecs.berkeley.edu/~eal/" target="_blank">
+      爱德华 A. 李
+     </a>
+     在2006年做了一次题为
+     <a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-1.html" target="_blank">
+      《线程的麻烦 (The Problem with Threads)》
+     </a>
+     的学术报告。在报告中他提到：看上去，多线程只是对核心语言的小小扩展，甚至可以以第三方库的形式存在。但实质上，多线程程序和原有的核心语言编写的程序已经完全不同了。其原因在于，由于多线程程序可能以任意的次序交错执行，程序再也无法像顺序执行时那样产生确定的结果。多线程程序容易编写(因为写的是顺序程序)，但是难分析，难调试，更容易出错。
+    </p>
+    <p>
+     在我的想法中，产生问题的根源，是多线程模型作为对并发问题的一个抽象，是很不完善的。
+     <span id="more-4626">
+     </span>
+     抽象的实质是对问题的转换。我们可以把抽象应用于一个问题，把它转换成另一个（或许）更简单的问题来解决。解决了转换后的简单问题，就意味着解决了原有的困难问题。严格来说，一个抽象一定要保存原有问题的结构，同时去除无关细节。但是，由于我们生活的世界并没有什么东西是完全“严格”的，现实中使用的抽象有时会隐藏解决问题的关键细节，或者残留一些不该漏出来的东西。评价一个抽象的好坏，也就不止是看它能节省多少代码，和它的界面有多优美这么简单，同时还要看看在一个问题被抽象转换之后，留了下来的细节还能不能好好地解决它。
+    </p>
+    <p>
+     我们可以从这个意义上理解为什么线程模型是个很糟糕的抽象。一方面，对解决问题很关键的细节（如执行次序）被隐藏起来并受到了粗暴的对待。另一方面，线程模型极力兼容顺序程序的设计思想也使得如共享变量这样的，与线程不兼容的细节依然残留在程序员们的视线之内。我们无力控制程序的执行次序，而我们程序的正确性却依赖于对共享变量的有序变更。可以说，线程提供给我们的抽象简直是千疮百孔。我们还能用它干活，只是因为我们手里还有加锁机制，而它可以部分地堵上线程模型的漏洞。讽刺的是，引入加锁机制解决问题的同时，又带来了新的问题，所以我们编写多线程程序总会遇上死锁，活锁，优先级反转……等等。
+    </p>
+    <p>
+     同样作为并发编程问题的抽象，
+     <a href="http://c2.com/cgi/wiki?ActorsModel" target="_blank">
+      角色模型
+     </a>
+     （Actor Model） 比线程模型好就好在，它的资源分享不像线程模型那样通过共享变量来进行。角色模型中的资源分享只能通过特定的机制（消息传递）来进行。你在角色模型里依然可能犯错误，如你可能制造死锁，也有可能造成优先级反转。但是没有共享变量就意味着没有了竞争条件，所以绝大部分资源也用不着上锁了。这样一来，原先至关重要的细节变得不那么重要，问题就这么解决了。
+    </p>
+    <p>
+     一般来说，在修复一个糟糕的抽象时，可以采取的策略分如下两类：
+    </p>
+    <ul>
+     <li>
+      把造成问题的那部分抽象拿掉，直接露出底层的细节
+     </li>
+     <li>
+      换一个和底层兼容性更好的抽象模型
+     </li>
+    </ul>
+    <p>
+     以
+     <a href="https://en.wikipedia.org/wiki/MapReduce" target="_blank">
+      MapReduce
+     </a>
+     为例，它在解决分布式计算问题时，采取的是第一类策略。与现时流行的做法相反，MapReduce 并不试图制造计算是在单一场所完成的假象(流行话讲叫“云计算”)，相反它需要程序员自己把问题拆分到集群中不同的机器上。同时，它却隐藏了大量其他细节。这种另类策略导致批评 MapReduce “
+     <a href="http://databasecolumn.vertica.com/database-innovation/mapreduce-a-major-step-backwards/" target="_blank">
+      太底层，不通用
+     </a>
+     ” 的声音不绝于耳， 然而这正是 MapReduce 聪明的地方。它放弃面面俱到，集中精力于高效地解决一小类问题（这类问题与排序问题有类似的结构），同时对其他的问题故意视而不见。它的流行证明了这一策略的成功。
+    </p>
+    <p>
+     角色模型，通信进程（
+     <a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes" target="_blank">
+      Communicating Sequential Processes
+     </a>
+     , CSP），以及函数式编程（FP）在应对并发编程问题时不约而同地选择了第二类策略。它们采用了与并发兼容性更好的抽象。角色模型与通信进程从线程模型的问题中抹去了共享变量，纯粹 FP 则抹掉了“变量”的可变性。CSP 还可以降低程序执行次序的不确定性（因为在CSP中执行次序默认是确定的，不确定性必须在程序设计时显式声明）。由于这些努力，这几种模型都避免了落入线程模型的麻烦中，得到了对并发问题的更优美的解法。我们可以说，这些模型提供的抽象比线程模型的都要好。很遗憾的是，它们尽管优美，但却乏人问津。角色模型与通信进程目前不被任何主流操作系统原生支持（微软在 Windows 7 附带的新并行运行时
+     <a href="http://msdn.microsoft.com/en-us/library/dd504870.aspx" target="_blank">
+      ConcRT
+     </a>
+     中加入了基于角色模型的 Asynchronous Agents Library，使得状况稍微改观了一点）。FP 的年岁几乎和计算机语言的历史一样古老， 但它的市场份额直到现在也小得可怜。
+    </p>
+    <p>
+     也许一切都是因为线程模型表面上那迷惑人的简单性，以及墨菲定律的变体：布劳尔技术惯性定律（已经成功的技术在新的，更好的技术出现时也会赖着不走）。我们曾经接纳了一个有缺点的解决方案，而现在我们被捆绑在这个方案上了。我们为线程模型写了成百上千万行的代码，而现在这些代码的重量束缚住我们的手脚，使得我们无法前行。
+    </p>
+    <p>
+     解决线程模型带来的问题的正确做法，是推广新的，更完善的模型。既然解决问题的阻碍同时来自于新技术的低认知度和现有代码的拖累，很自然地有两个方面的工作要做。一、使得新技术更容易被多数程序员使用，二、想办法让现有的代码和新技术兼容。
+    </p>
+    <p>
+     在兼容老代码这一头，我们已经有了一些行动。微软在 Windows 7 中提供一个称为
+     <a href="http://msdn.microsoft.com/en-us/library/dd627187%28v=vs.85%29.aspx" target="_blank">
+      用户模式调度
+     </a>
+     (UMS) 的功能。UMS 可以将内核模式的线程转换为用户模式线程，而应用程序可以自己提供一个 UMS 调度器来调度它们。这意味着，我们现在有机会重载掉系统调度器的默认行为，而根据应用自身的特点给出更合理的调度安排来。这个功能可以用在构造更容易使用的并发模型上，这样开发的模型可以与老代码兼容（但 UMS 有一个让人迷惑的限制：只能用在64bit 的Windows 7 版本上）。
+    </p>
+    <p>
+     同样地，在推广新技术方面，现在也有了很多成果。除了角色模型外，事务性内存(这又是一种避免竞争条件，从而避免加锁的方法)正在研究中；CSP 已经有了数个实现（如由 Kent 大学开发，针对 Java 的
+     <a href="http://www.cs.kent.ac.uk/projects/ofa/jcsp/" target="_blank">
+      JCSP
+     </a>
+     ），同时还有针对 CSP 的模型检证工具；至于 FP，最近因为人们认为 Web 系统的建模可以在函数式编程范式中更好的表达，FP 正在唤起人们的注意。我们缺的只剩下新技术的成功应用范例（实际上，前面的技术并不是没有成功范例，我们缺的是经验能够大规模运用的范例 ），以及一支理解这些技术的程序员大军了。对于这后一条，我甚至想，既然多线程编程唯一”容易”的事情是写代码，何不做出一种工具来让程序员们可以用写顺序程序的思维来在这些新模型中编写程序呢？这样的工具会帮助程序员利用线性程序的思维来理解代码，但是同时又让人注意到自己的改动正在影响系统的哪一部分。如果新模型的代码变得好理解了，也许更多的人会使用它们。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17680.html">
+         <img alt="从Gitlab误删除数据库想到的" height="150" src="https://coolshell.cn/wp-content/uploads/2017/02/gitlab-600-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17680.html">
+         从Gitlab误删除数据库想到的
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17459.html">
+         <img alt="关于高可用的系统" height="150" src="https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17459.html">
+         关于高可用的系统
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9949.html">
+         <img alt="IoC/DIP其实是一种管理思想" height="150" src="https://coolshell.cn/wp-content/uploads/2013/07/inverted-bookshelf_thumb-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9949.html">
+         IoC/DIP其实是一种管理思想
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6775.html">
+         <img alt="Bret Victor – Inventing on Principle" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/24.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6775.html">
+         Bret Victor – Inventing on Principle
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6639.html">
+         <img alt="千万别惹程序员 " height="150" src="https://coolshell.cn/wp-content/uploads/2012/02/programming-language-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6639.html">
+         千万别惹程序员
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="ab5f7a73cc" id="post-ratings-4626" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4626_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(4626, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4626_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(4626, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4626_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(4626, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4626_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(4626, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4626_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(4626, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      25
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.92
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4626_text">
+     </span>
+     <meta content="读书笔记：对线程模型的批评" itemprop="name"/>
+     <meta content="读书笔记：对线程模型的批评" itemprop="headline"/>
+     <meta content='——感谢Ian.Sian投递本文——
+
+多线程模型是主流的并发编程模型。在过去几十年来，多线程模型一直是开发并发程序的有力工具。然而，它的历史并非总那么美好。1997年，NASA 的“火星探路者”号在执行任务的途中遭遇了严重的时序异常（参见 "What really happend on Mars"，注目 follow-up 中的现身说法），无法发回探测数据。如果不是 NASA 远程刷新了程序...' itemprop="description"/>
+     <meta content="2011-05-03T10:23:27+08:00" itemprop="datePublished"/>
+     <meta content="2011-05-03T10:23:27+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4626.html" itemprop="url"/>
+     <meta content="Ian.sino" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4626.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.92" itemprop="ratingValue"/>
+      <meta content="25" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4626-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/techarticle" rel="category tag">
+        技术读物
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem" rel="category tag">
+        操作系统
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/design" rel="tag">
+        Design
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/programmer" rel="tag">
+        Programmer
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/programming-language" rel="tag">
+        programming language
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/threading-model" rel="tag">
+        threading model
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

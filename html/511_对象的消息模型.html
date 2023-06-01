@@ -1,0 +1,722 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/5202.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="对象的消息模型 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/5202.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2011-08-15T02:37:13+00:00" property="article:published_time"/>
+   <meta content="2011-08-15T10:01:47+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="对象的消息模型 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/5202.html#article","name":"\u5bf9\u8c61\u7684\u6d88\u606f\u6a21\u578b | \u9177 \u58f3 - CoolShell","headline":"\u5bf9\u8c61\u7684\u6d88\u606f\u6a21\u578b","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2011-08-15T02:37:13+08:00","dateModified":"2011-08-15T10:01:47+08:00","inLanguage":"zh-CN","commentCount":42,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/5202.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/5202.html#webpage"},"articleSection":"\u7f16\u7a0b\u8bed\u8a00, C++, Javascript, OOP, Ruby"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/5202.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author","url":"https:\/\/coolshell.cn\/articles\/author\/todd","name":"Todd","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/5202.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/6ff3f136c340de6931974e710bf30f89?s=96&d=mm&r=g","width":96,"height":96,"caption":"Todd"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/5202.html#webpage","url":"https:\/\/coolshell.cn\/articles\/5202.html","name":"\u5bf9\u8c61\u7684\u6d88\u606f\u6a21\u578b | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/5202.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/todd#author"},"datePublished":"2011-08-15T02:37:13+08:00","dateModified":"2011-08-15T10:01:47+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '5202';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B6%88%E6%81%AF%E6%A8%A1%E5%9E%8B';
+	window._wp_rp_post_tags = ['c%2B%2B', 'ruby', 'javascript', 'oop', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'delta', 'set', 'idea', 'acc', 'int', 'privat', 'pa', 'quot', 'big', 'class', 'public', 'null', 'librari', 'coin', 'a'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/5202.html/feed" rel="alternate" title="酷 壳 - CoolShell » 对象的消息模型评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/5202" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=5202" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F5202.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F5202.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-5202 post type-post status-publish format-standard hentry category-proglanguage tag-c tag-javascript tag-oop tag-ruby" id="post-5202">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     对象的消息模型
+    </span>
+    <h1 class="entry-title">
+     对象的消息模型
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/5202.html" rel="bookmark" title="10:37">
+       <time class="entry-date" datetime="2011-08-15T10:37:13+08:00" pubdate="">
+        2011年08月15日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/todd" rel="author" title="View all posts by Todd">
+         Todd
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/5202.html#comments">
+       42 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      27,517 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      <span style="color: #cc0000;">
+       [ ———— 感谢
+      </span>
+      <a href="http://www.cnblogs.com/weidagang2046/" target="_blank">
+       Todd 同学
+      </a>
+      <span style="color: #cc0000;">
+       投递本文，
+       <a href="http://www.cnblogs.com/weidagang2046/archive/2011/08/14/2138059.html" target="_blank">
+        原文链接
+       </a>
+       ———— ]
+      </span>
+     </strong>
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#C%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B" title="C++对象模型">
+         C++对象模型
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B6%88%E6%81%AF%E6%A8%A1%E5%9E%8B" title="对象的消息模型">
+         对象的消息模型
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#Method_Missing" title="Method Missing">
+         Method Missing
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E6%80%BB%E7%BB%93" title="总结">
+         总结
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E5%8F%82%E8%80%83" title="参考">
+         参考
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="C%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">
+     </span>
+     <strong>
+      C++对象模型
+     </strong>
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     话题从下面这段C++程序说起，你认为它可以顺利执行吗？
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//C++
+class A {
+    public:
+        void Hello(const std::string&amp; name) {
+           std::cout &lt;&lt; "hello " &lt;&lt; name;
+         }
+};
+int main(int argc, char** argv)
+{
+    A* pa = NULL; //!!
+    pa-&gt;Hello("world");
+    return 0;
+}</pre>
+    <p>
+     试试的确可以顺利运行输出hello world，奇怪吗？其实并不奇怪，根据C++对象模型，类的非虚方法并不会存在于对象内存布局中，实际上编译器是把Hello方法转化成了类似这样的全局函数：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">void A_Hello_xxx(A * const this, const std::string&amp; name) {
+    std::cout &lt;&lt; “hello “ &lt;&lt; name;
+}</pre>
+    <p>
+     对象指针其实是作为第一个参数被隐式传递的，pa-&gt;Hello(“world”)实际上是调用的A_Hello_xxx(pa, “world”)，而恰好A_Hello_xxx内部没有使用pa，所以这段代码得以顺利运行。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B6%88%E6%81%AF%E6%A8%A1%E5%9E%8B">
+     </span>
+     <strong>
+      对象的消息模型
+     </strong>
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     如果是研究C++对象模型，上面的讨论可以到此为止，不过这里我想从另一个层面来继续探讨这个问题。OOP的先驱人物Alan Kay在总结Smalltalk的OO特征时强调：
+    </p>
+    <p>
+     <span id="more-5202">
+     </span>
+    </p>
+    <blockquote>
+     <p>
+      Smalltalk is not only NOT its syntax or the class library, it is not even about classes. I’m sorry that I long ago coined the term “objects” for this topic because it gets many people to focus on the lesser idea. The big idea is “messaging”.
+     </p>
+    </blockquote>
+    <p>
+     也就是说相比类和对象的概念来讲，他认为对象交互的消息模型是OOP更为本质的特征，因为消息关注的是对象间的接口和交互，在构建大的系统的时候重要的不是对象/模块的内部状态，而是它们的交互。根据消息模型，牛.吃(草) 的语义是发送一条消息给“牛”，消息的类型是“吃”，消息的内容是“草”。如果按照严格的消息模型，那么上面那段C++代码应解释为向一个NULL对象发送Hello消息，这显然是不应该顺利执行的。类似的代码如果是在Java或C#中则会抛出空引用异常，所以Java和C#的设计更符合消息模型。
+    </p>
+    <p>
+     不过，Java和C#中也并非完全符合消息模型，来看一个经典的封装问题：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="csharp">//C#
+
+public class Account {
+    private int _amount;
+
+    public void Transfer(Account acc, int delta) {
+        acc._amount += delta;
+        this._amount -= delta;
+    }
+    …
+}</pre>
+    <p>
+     上面定义了一个Account类，问题在于为什么在这个类的Transfer方法中可以直接访问另一个对象acc的私有成员_amount呢？这是不是有破坏封装的嫌疑呢？这个问题经典的答案是：并不破坏封装，封装是划分了基于类的静态的代码边界，使得类的private代码修改不影响外界，而不是对于动态对象的保护。这个解释当然是合理的，不过正如上面C++代码的解释属于C++对象模型范畴，这个解释则属于基于类的静态类型OOP语言的范畴。消息模型强调了对象内部状态的保护，只能通过消息改变其状态，而对象内部是否真的具有_amout这样一个私有成员对其他任何对象（即使同类对象）都是未知的。
+    </p>
+    <p>
+     如果要严格遵守消息模型实现对象内部状态的保护应该怎么做呢？我们来看一个例子，定义一个集合类，包括：1.集合对象的构造函数；2.In方法：判断元素是否存在；3.Join方法：对两个集合做交集；4.Union方法：对两个集合做并集。下面是一种Javascript实现：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">//Javascript
+
+//集合类Set的构造函数
+function Set() {
+    var _elements = arguments;
+    //In方法：判断元素e是否在集合中
+    this.In = function(e) {
+        for (var i = 0; i &lt; _elements.length; ++i) {
+            if (_elements[i] == e) return true;
+        }
+        return false;
+    };
+}
+
+//Join方法：对两个集合求交集
+Set.prototype.Join = function(s2) {
+    var s1 = this;
+    var s = new Set();
+    s.In = function(e) { return s1.In(e) &amp;&amp; s2.In(e); }
+    return s;
+};
+
+//Union方法：对两个集合求并集
+Set.prototype.Union = function(s2) {
+    var s1 = this;
+    var s = new Set();
+    s.In = function(e) { return s1.In(e) || s2.In(e); }
+    return s;
+};
+
+var s1 = new Set(1, 2, 3, 4, 5);
+var s2 = new Set(2, 3, 4, 5, 6);
+var s3 = new Set(3, 4, 5, 6, 7);
+assert(false == s1.Join(s2).Join(s3).In(2));
+assert(true == s1.Join(s2).Uion(s3).In(7));</pre>
+    <p>
+     如果是在静态类型OOP语言中，要实现集合类的Join或Union，我们多半会像上面Account的例子一样直接对s2内部的_elements进行操作，而上面这段Javascript定义的Set关于对象s2的访问完全是符合消息模型的基于接口的访问。要实现消息模型Javascript的prototype机制并非必须的，真正的关键在于函数式的高级函数和闭包特性。从这个例子我们也可以体会到函数式的优点不仅在于无副作用，函数的可组合性也是函数式编程强大的原因。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Method_Missing">
+     </span>
+     <strong>
+      Method Missing
+     </strong>
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     接下来我们还要进行深度历险，让我们思考一下如果发送一条对象不能识别的消息会怎样？这种情况在C++、Java、C#等静态类型语言中会得到一个方法未定义的编译错误，如果是在Javascript中则会产生运行时异常。比如，s1.count()会产生一个运行时异常：Object #&lt;Set&gt; has no method ‘count’。
+    </p>
+    <p>
+     在静态类型语言这个问题很少受到重视，但在动态类型语言中却大有文章，来看下面的例子：
+     <br/>
+     //Ruby
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="ruby">
+builder = Builder::XmlMarkup.new
+xml = builder.books {|b|
+    b.book :isbn =&gt; "14134" do
+        b.title "Revelation Space"
+        b.author "Alastair Reynolds"
+    end
+    b.book :isbn =&gt; "53534" do
+        b.title "Accelerando"
+        b.author "Charles Stross"
+    end
+}</pre>
+    <p>
+     上面这段很DSL的Ruby代码创建了这样一个XML文件对象：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="xml">
+
+&lt;books&gt;
+    &lt;book isbn="14134"&gt;
+        &lt;title&gt;Revelation Space&lt;/title&gt;
+        &lt;author&gt;Alastair Reynolds&lt;/author&gt;
+    &lt;/book&gt;
+    &lt;book isbn="53534"&gt;
+        &lt;title&gt;Accelerando&lt;/title&gt;
+        &lt;author&gt;Charles Stross&lt;/author&gt;
+    &lt;/book&gt;
+&lt;/books&gt;
+
+</pre>
+    <p>
+     builder.books, b.book, b.title都是对象方法调用，由于XML的元素名是任意的，所以不可能事先定义这些方法，类似的代码如果是在Javascript中就是no method异常。那为什么上面的Ruby代码可以正确执行呢？其实只要理解了消息模型就很容易想明白，只需要定义一个通用的消息处理方法，所有未明确定义的消息都交给它来处理就行了，这就是所谓的Method Missing模式：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="ruby">
+class Foo
+    def method_missing(method, *args, &amp;block)
+        …
+    end
+end
+</pre>
+    <p>
+     Method Missing除了对实现DSL很重要外，还可用于产生更好地调试和错误信息，把参数嵌入到方法名中等场合。目前，Ruby、Python、Groovy几种语言对Method Missing都有很好的支持，甚至在C# 4.0中也可以利用动态特性实现。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%80%BB%E7%BB%93">
+     </span>
+     总结
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     本文主要介绍了对象的消息模型的特征，并比较了C++对象模型，Java、C#等基于类的静态类型语言中的对象模型与严格消息模型的差异，最后探讨了Method Missing相关话题。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83">
+     </span>
+     参考
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://book.douban.com/subject/1484262/" target="_blank">
+       Inside the C++ Object Model
+      </a>
+     </li>
+     <li>
+      <a href="http://book.douban.com/subject/4031906/" target="_blank">
+       冒号课堂 – 编程范式与OOP思想
+      </a>
+     </li>
+     <li>
+      <a href="http://c2.com/cgi/wiki?AlanKaysDefinitionOfObjectOriented" target="_blank">
+       Alan Kays Definition Of Object Oriented
+      </a>
+     </li>
+     <li>
+      <a href="http://fitzgeraldnick.com/weblog/39/" target="_blank">
+       OOP The Good Parts: Message Passing, Duck Typing, Object Composition, and not Inheritance
+      </a>
+     </li>
+     <li>
+      <a href="http://olabini.com/blog/2010/04/patterns-of-method-missing/">
+       Patterns of Method Missing
+      </a>
+     </li>
+     <li>
+      <a href="http://haacked.com/archive/2009/08/26/method-missing-csharp-4.aspx">
+       Fun With Method Missing and C# 4
+      </a>
+     </li>
+    </ul>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10337.html">
+         <img alt="数据即代码：元驱动编程" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/24.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10337.html">
+         数据即代码：元驱动编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10739.html">
+         <img alt="Lua简明教程" height="150" src="https://coolshell.cn/wp-content/uploads/2013/12/lua-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10739.html">
+         Lua简明教程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10169.html">
+         <img alt="类型的本质和函数式实现" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/5.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10169.html">
+         类型的本质和函数式实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6731.html">
+         <img alt="理解Javascript的闭包" height="150" src="https://coolshell.cn/wp-content/uploads/2012/03/closure-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6731.html">
+         理解Javascript的闭包
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6668.html">
+         <img alt="再谈javascript面向对象编程 " height="150" src="https://coolshell.cn/wp-content/uploads/2012/02/joo_1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6668.html">
+         再谈javascript面向对象编程
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="5144b3e170" id="post-ratings-5202" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_5202_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(5202, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_5202_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(5202, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_5202_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(5202, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_5202_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(5202, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_5202_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(5202, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      13
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.92
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_5202_text">
+     </span>
+     <meta content="对象的消息模型" itemprop="name"/>
+     <meta content="对象的消息模型" itemprop="headline"/>
+     <meta content='[ ———— 感谢 Todd 同学 投递本文，原文链接 ———— ]
+C++对象模型
+话题从下面这段C++程序说起，你认为它可以顺利执行吗？
+
+[c]//C++
+class A {
+    public:
+        void Hello(const std::string&amp; name) {
+           std::cout &lt;&lt; "hello " &lt;&lt; name;
+...' itemprop="description"/>
+     <meta content="2011-08-15T10:37:13+08:00" itemprop="datePublished"/>
+     <meta content="2011-08-15T18:01:47+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/5202.html" itemprop="url"/>
+     <meta content="Todd" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/5202.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.92" itemprop="ratingValue"/>
+      <meta content="13" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-5202-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/javascript" rel="tag">
+        Javascript
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/oop" rel="tag">
+        OOP
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/ruby" rel="tag">
+        Ruby
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

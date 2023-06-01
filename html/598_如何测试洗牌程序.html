@@ -1,0 +1,888 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/8593.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="如何测试洗牌程序 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/8593.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2012-11-20T00:22:07+00:00" property="article:published_time"/>
+   <meta content="2012-11-27T08:49:26+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="如何测试洗牌程序 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/8593.html#article","name":"\u5982\u4f55\u6d4b\u8bd5\u6d17\u724c\u7a0b\u5e8f | \u9177 \u58f3 - CoolShell","headline":"\u5982\u4f55\u6d4b\u8bd5\u6d17\u724c\u7a0b\u5e8f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2012-11-20T00:22:07+08:00","dateModified":"2012-11-27T08:49:26+08:00","inLanguage":"zh-CN","commentCount":142,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/8593.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/8593.html#webpage"},"articleSection":"\u6742\u9879\u8d44\u6e90, \u7f16\u7a0b\u8bed\u8a00, Algorithm, test, Unit Test"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/8593.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/8593.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/8593.html#webpage","url":"https:\/\/coolshell.cn\/articles\/8593.html","name":"\u5982\u4f55\u6d4b\u8bd5\u6d17\u724c\u7a0b\u5e8f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/8593.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2012-11-20T00:22:07+08:00","dateModified":"2012-11-27T08:49:26+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '8593';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95%E6%B4%97%E7%89%8C%E7%A8%8B%E5%BA%8F';
+	window._wp_rp_post_tags = ['algorithm', 'test', 'unit+test', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'ia', 'return', 'ja', 'int', 'a', 'gt', 'gf', 'void', 'rand', 'po', 'main', 'jj', 'char', 'compar', 'len'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/8593.html/feed" rel="alternate" title="酷 壳 - CoolShell » 如何测试洗牌程序评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/8593" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=8593" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F8593.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F8593.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-8593 post type-post status-publish format-standard hentry category-misc category-proglanguage tag-algorithm tag-test tag-unit-test" id="post-8593">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     如何测试洗牌程序
+    </span>
+    <h1 class="entry-title">
+     如何测试洗牌程序
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/8593.html" rel="bookmark" title="08:22">
+       <time class="entry-date" datetime="2012-11-20T08:22:07+08:00" pubdate="">
+        2012年11月20日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/8593.html#comments">
+       142 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      93,261 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     我希望本文有助于你了解测试软件是一件很重要也是一件不简单的事。
+    </p>
+    <p>
+     我们有一个程序，叫ShuffleArray()，是用来洗牌的，我见过N多千变万化的ShuffleArray()，但是似乎从来没人去想过怎么去测试这个算法。所以，我在面试中我经常会问应聘者如何测试ShuffleArray()，没想到这个问题居然难倒了很多有多年编程经验的人。对于这类的问题，其实，测试程序可能比算法更难写，代码更多。而这个问题正好可以加强一下我在《
+     <a href="https://coolshell.cn/articles/6994.html" target="_blank" title="我们需要专职的QA吗？">
+      我们需要专职的QA吗？
+     </a>
+     》中我所推崇的——开发人员更适合做测试的观点。
+    </p>
+    <p>
+     我们先来看几个算法（
+     <strong>
+      第一个用递归二分随机抽牌，第二个比较偷机取巧，第三个比较通俗易懂
+     </strong>
+     ）
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E9%80%92%E5%BD%92%E4%BA%8C%E5%88%86%E9%9A%8F%E6%9C%BA%E6%8A%BD%E7%89%8C" title="递归二分随机抽牌">
+         递归二分随机抽牌
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E5%BF%AB%E6%8E%92Hack%E6%B3%95" title="快排Hack法">
+         快排Hack法
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E5%A4%A7%E5%A4%9A%E6%95%B0%E4%BA%BA%E7%9A%84%E5%AE%9E%E7%8E%B0" title="大多数人的实现">
+         大多数人的实现
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95" title="如何测试">
+         如何测试
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%AE%97%E6%B3%95" title="正确的算法">
+         正确的算法
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E5%A6%82%E4%BD%95%E5%86%99%E6%B5%8B%E8%AF%95%E6%A1%88%E4%BE%8B" title="如何写测试案例">
+         如何写测试案例
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E6%B3%A8%E6%84%8F" title="注意">
+         注意
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-8" href="#%E9%99%84%E5%BD%95" title="附录">
+         附录
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E9%80%92%E5%BD%92%E4%BA%8C%E5%88%86%E9%9A%8F%E6%9C%BA%E6%8A%BD%E7%89%8C">
+     </span>
+     递归二分随机抽牌
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     有一次是有一个朋友做了一个网页版的扑克游戏，他用到的算法就是想模拟平时我们玩牌时用手洗牌的方式，是用递归+二分法，我说这个程序恐怕不对吧。他觉得挺对的，说测试了没有问题。他的程序大致如下（原来的是用Javascript写的，我在这里凭记忆用C复现一下）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">
+//递归二分方法
+const size_t MAXLEN = 10;
+const char TestArr[MAXLEN] = {'A','B','C','D','E','F','G','H','I','J'};
+
+static char RecurArr[MAXLEN]={0};
+static int cnt = 0;
+void ShuffleArray_Recursive_Tmp(char* arr, int len)
+{
+    if(cnt &gt; MAXLEN || len &lt;=0){
+        return;
+    }
+
+    int pos = rand() % len;
+    RecurArr[cnt++] = arr[pos];
+    if (len==1) return;
+    ShuffleArray_Recursive_Tmp(arr, pos);
+    ShuffleArray_Recursive_Tmp(arr+pos+1, len-pos-1);
+}
+
+void ShuffleArray_Recursive(char* arr, int len)
+{
+    memset(RecurArr, 0, sizeof(RecurArr));
+    cnt=0;
+    ShuffleArray_Recursive_Tmp(arr, len);
+    memcpy(arr, RecurArr, len);
+}
+
+void main()
+{
+    char temp[MAXLEN]={0};
+    for(int i=0; i&lt;5; i++) {
+        strncpy(temp, TestArr, MAXLEN);
+        ShuffleArray_Recursive((char*)temp, MAXLEN);
+    }
+}
+</pre>
+    <p>
+     <span id="more-8593">
+     </span>
+    </p>
+    <p>
+     随便测试几次，还真像那么回事：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">第一次：D C A B H E G F I J
+第二次：A G D B C E F J H I
+第三次：A B H F C E D G I J
+第四次：J I F B A D C E H G
+第五次：F B A D C E H G I J</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%BF%AB%E6%8E%92Hack%E6%B3%95">
+     </span>
+     快排Hack法
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     让我们再看一个hack 快排的洗牌程序（只看算法，省去别的代码）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">
+int compare( const void *a, const void *b )
+{
+    return rand()%3-1;
+}
+
+void ShuffleArray_Sort(char* arr, int len)
+{
+    qsort( (void *)arr, (size_t)len, sizeof(char), compare );
+}
+</pre>
+    <p>
+     运行个几次，感觉得还像那么回事：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">第一次：H C D J F E A G B I
+第二次：B F J D C E I H G A
+第三次：C G D E J F B I A H
+第四次：H C B J D F G E I A
+第五次：D B C F E A I H G J</pre>
+    <p>
+     看不出有什么破绽。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A4%A7%E5%A4%9A%E6%95%B0%E4%BA%BA%E7%9A%84%E5%AE%9E%E7%8E%B0">
+     </span>
+     大多数人的实现
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面这个算法是大多数人的实现，就是for循环一次，然后随机交换两个数
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">void ShuffleArray_General(char* arr, int len)
+{
+    const int suff_time = len;
+    for(int idx=0; idx&lt;suff_time; idx++) {
+        int i = rand() % len;
+        int j = rand() % len;
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}</pre>
+    <p>
+     跑起来也还不错，洗得挺好的。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">第一次：G F C D A J B I H E
+第二次：D G J F E I A H C B
+第三次：C J E F A D G B H I
+第四次：H D C F A E B J I G
+第五次：E A J F B I H G D C</pre>
+    <p>
+     但是上述三个算法哪个的效果更好？好像都是对的。
+     <strong>
+      一般的QA或是程序员很有可能就这样把这个功能Pass了
+     </strong>
+     。但是事情并没有那么简单……
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95">
+     </span>
+     如何测试
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     在做测试之前，我们还需要了解一下一个基本知识——
+     <strong>
+      PC机上是做不出真随机数的，只能做出伪随机数。真随机数需要硬件支持
+     </strong>
+     。但是不是这样我们就无法测试了呢，不是的。我们依然可以测试。
+    </p>
+    <p>
+     我们知道，洗牌洗得好不好，主要是看是不是够随机。那么如何测试随机性呢？
+    </p>
+    <p>
+     试想，我们有个随机函数rand()返回1到10中的一个数，如果够随机的话，每个数返回的概率都应该是一样的，也就是说每个数都应该有10分之1的概率会被返回。
+    </p>
+    <p>
+     一到概率问题，我们只有一个方法来做测试，那就是用统计的方式。也就是说，你调用rand()函数100次，其中，每个数出现的次数大约都在10次左右。（注意：我用了左右，这说明概率并不是很准确的）不应该有一个数出现了15次以上，另一个在5次以下，要是这样的话，这个函数就是错的。
+    </p>
+    <p>
+     举一反三，测试洗牌程序也一样，需要通过概率的方式来做统计，是不是每张牌出现在第一个位置的次数都是差不多的。
+    </p>
+    <p>
+     于是，这样一来上面的程序就可以很容易做测试了。
+    </p>
+    <p>
+     下面是测试结果（
+     <strong>
+      测试样本1000次——列是每个位置出现的次数，行是各个字符的统计
+     </strong>
+     ，出现概率应该是1/10，也就是100次）：
+    </p>
+    <p>
+     <strong>
+      递归随机抽牌的方法
+     </strong>
+    </p>
+    <p>
+     很明显，这个洗牌程序太有问题。算法是错的！
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">     1    2    3    4    5    6    7    8    9    10
+----------------------------------------------------
+A | 101  283  317  208   65   23    3    0    0    0
+B | 101  191  273  239  127   54   12    2    1    0
+C | 103  167  141  204  229  115   32    7    2    0
+D | 103  103   87  128  242  195  112   26    3    1
+E | 104   83   62   67  116  222  228   93   22    3
+F |  91   58   34   60   69  141  234  241   65    7
+G |  93   43   35   19   44  102  174  274  185   31
+H |  94   28   27   27   46   68   94  173  310  133
+I | 119   27   11   30   28   49   64   96  262  314
+J |  91   17   13   18   34   31   47   88  150  511</pre>
+    <p>
+     <strong>
+      快排Hack法
+     </strong>
+    </p>
+    <p>
+     看看对角线（从左上到右下）上的数据，很离谱！所以，这个算法也是错的。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">      1    2    3    4    5    6    7    8    9    10
+-----------------------------------------------------
+A |   74  108  123  102   93  198   40   37   52  173
+B |  261  170  114   70   49   28   37   76  116   79
+C |  112  164  168  117   71   37   62   96  116   57
+D |   93   91  119  221  103   66   91   98   78   40
+E |   62   60   82   90  290  112   95   98   71   40
+F |   46   60   63   76   81  318   56   42   70  188
+G |   72   57   68   77   83   39  400  105   55   44
+H |   99   79   70   73   87   34  124  317   78   39
+I |  127  112  102   90   81   24   57   83  248   76
+J |   54   99   91   84   62  144   38   48  116  264</pre>
+    <p>
+     <strong>
+      大多数人的算法
+     </strong>
+    </p>
+    <p>
+     我们再来看看大多数人的算法。还是对角线上的数据有问题，所以，还是错的。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">      1    2    3    4    5    6    7    8    9    10
+-----------------------------------------------------
+A |  178   98   92   82  101   85   79  105   87   93
+B |   88  205   90   94   77   84   93   86  106   77
+C |   93   99  185   96   83   87   98   88   82   89
+D |  105   85   89  190   92   94  105   73   80   87
+E |   97   74   85   88  204   91   80   90  100   91
+F |   85   84   90   91   96  178   90   91  105   90
+G |   81   84   84  104  102  105  197   75   79   89
+H |   84   99  107   86   82   78   92  205   79   88
+I |  102   72   88   94   87  103   94   92  187   81
+J |   87  100   90   75   76   95   72   95   95  215</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%AE%97%E6%B3%95">
+     </span>
+     正确的算法
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面，我们来看看性能高且正确的算法——
+     <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank">
+      Fisher_Yates算法
+     </a>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">void ShuffleArray_Fisher_Yates(char* arr, int len)
+{
+    int i = len, j;
+    char temp;
+
+    if ( i == 0 ) return;
+    while ( --i ) {
+        j = rand() % (i+1);
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}</pre>
+    <p>
+     这个算法不难理解，看看测试效果（效果明显比前面的要好）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">      1    2    3    4    5    6    7    8    9    10
+-----------------------------------------------------
+A |  107   98   83  115   89  103  105   99   94  107
+B |   91  106   90  102   88  100  102   97  112  112
+C |  100  107   99  108  101   99   86   99  101  100
+D |   96   85  108  101  117  103  102   96  108   84
+E |  106   89  102   86   88  107  114  109  100   99
+F |  109   96   87   94   98  102  109  101   92  102
+G |   94   95  119  110   97  112   89  101   89   94
+H |   93  102  102  103  100   89  107  105  101   98
+I |   99  110  111  101  102   79  103   89  104  102
+J |  105  112   99   99  108  106   95   95   99   82</pre>
+    <p>
+     但是我们可以看到还是不完美。因为我们使用的rand()是伪随机数，不过已经很不错的。最大的误差在20%左右。
+    </p>
+    <p>
+     我们再来看看洗牌100万次的统计值，你会看到误差在6%以内了。这个对于伪随机数生成的程序已经很不错了。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">      1       2     3       4      5      6      7      8     9      10
+-------------------------------------------------------------------------
+A | 100095  99939 100451  99647  99321 100189 100284  99565 100525  99984
+B |  99659 100394  99699 100436  99989 100401  99502 100125 100082  99713
+C |  99938  99978 100384 100413 100045  99866  99945 100025  99388 100018
+D |  99972  99954  99751 100112 100503  99461  99932  99881 100223 100211
+E | 100041 100086  99966  99441 100401  99958  99997 100159  99884 100067
+F | 100491 100294 100164 100321  99902  99819  99449 100130  99623  99807
+G |  99822  99636  99924 100172  99738 100567 100427  99871 100125  99718
+H |  99445 100328  99720  99922 100075  99804 100127  99851 100526 100202
+I | 100269 100001  99542  99835 100070  99894 100229 100181  99718 100261
+J | 100268  99390 100399  99701  99956 100041 100108 100212  99906 100019</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A6%82%E4%BD%95%E5%86%99%E6%B5%8B%E8%AF%95%E6%A1%88%E4%BE%8B">
+     </span>
+     如何写测试案例
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     测试程序其实很容易写了。就是，设置一个样本大小，做一下统计，然后计算一下误差值是否在可以容忍的范围内。比如：
+    </p>
+    <ul>
+     <li>
+      样本：100万次
+     </li>
+     <li>
+      最大误差：10%以内
+     </li>
+     <li>
+      平均误差：5%以内 （或者：90%以上的误差要小于5%）
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E6%B3%A8%E6%84%8F">
+     </span>
+     注意
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     其实，以上的测试只是测试了牌在各个位置的概率。这个还不足够好。因为还可能会现在有Patten的情况。如：每次洗牌出来的都是一个循环顺序数组。这完全可以满足我上面的测试条件。但是那明显是错的。
+     <strong>
+      所以，还需要统计每种排列的出现的次数
+     </strong>
+     ，看看是不是均匀。但是，
+     <strong>
+      如果这些排列又是以某种规律出现的呢
+     </strong>
+     ？看来，这没完没了了。
+    </p>
+    <p>
+     测试的确是一个很重要，并不简单的事情。谢谢所有参与讨论的人。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%99%84%E5%BD%95">
+     </span>
+     附录
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     之前忘贴了一个模拟我们玩牌洗牌的算法，现补充如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">void ShuffleArray_Manual(char* arr, int len)
+{
+    int mid = len / 2;
+
+    for (int n=0; n&lt;5; n++){
+
+        //两手洗牌
+        for (int i=1; i&lt;mid; i+=2){
+            char tmp = arr[i];
+            arr[i] = arr[mid+i];
+            arr[mid+i] = tmp;
+        }
+
+        //随机切牌
+        char *buf = (char*)malloc(sizeof(char)*len);
+
+        for(int j=0; j&lt;5; j++) {
+            int start= rand() % (len-1) + 1;
+            int numCards= rand()% (len/2) + 1;
+
+            if (start + numCards &gt; len ){
+                numCards = len - start;
+            }
+
+            memset(buf, 0, len);
+            strncpy(buf, arr, start);
+            strncpy(arr, arr+start, numCards);
+            strncpy(arr+numCards, buf, start);
+        }
+        free(buf);
+
+    }
+}</pre>
+    <p>
+     我们来看看测试结果：（10万次）效果更好一些，误差在2%以内了。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">      1       2     3       4      5      6      7      8     9      10
+-------------------------------------------------------------------------
+A |  10002   9998   9924  10006  10048  10200   9939   9812  10080   9991
+B |   9939   9962  10118  10007   9974  10037  10149  10052   9761  10001
+C |  10054  10100  10050   9961   9856   9996   9853  10016   9928  10186
+D |   9851   9939   9852  10076  10208  10003   9974  10052   9992  10053
+E |  10009   9915  10050  10037   9923  10094  10078  10059   9880   9955
+F |  10151  10115  10113   9919   9844   9896   9891   9904  10225   9942
+G |  10001  10116  10097  10030  10061   9993   9891   9922   9889  10000
+H |  10075  10033   9866   9857  10170   9854  10062  10078  10056   9949
+I |  10045   9864   9879  10066   9930   9919  10085  10104  10095  10013
+J |   9873   9958  10051  10041   9986  10008  10078  10001  10094   9910</pre>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17381.html">
+         <img alt="性能测试应该怎么做？" height="150" src="https://coolshell.cn/wp-content/uploads/2016/07/PerfTest-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17381.html">
+         性能测试应该怎么做？
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17225.html">
+         <img alt="Cuckoo Filter：设计与实现" height="150" src="https://coolshell.cn/wp-content/uploads/2015/08/cuckoo-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17225.html">
+         Cuckoo Filter：设计与实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12052.html">
+         <img alt="Leetcode 编程训练" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12052.html">
+         Leetcode 编程训练
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11847.html">
+         <img alt="谜题的答案和活动的心得体会" height="150" src="https://coolshell.cn/wp-content/uploads/2014/08/puzzle-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11847.html">
+         谜题的答案和活动的心得体会
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11832.html">
+         <img alt="【活动】解迷题送礼物" height="150" src="https://coolshell.cn/wp-content/uploads/2014/08/538efefbgw1eiz9cvx78fj20rm0fmdi8-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11832.html">
+         【活动】解迷题送礼物
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10590.html">
+         <img alt="二维码的生成细节和原理" height="150" src="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10590.html">
+         二维码的生成细节和原理
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="48b88eafa5" id="post-ratings-8593" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_8593_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(8593, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_8593_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(8593, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_8593_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(8593, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_8593_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(8593, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_8593_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(8593, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      30
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.10
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_8593_text">
+     </span>
+     <meta content="如何测试洗牌程序" itemprop="name"/>
+     <meta content="如何测试洗牌程序" itemprop="headline"/>
+     <meta content="我希望本文有助于你了解测试软件是一件很重要也是一件不简单的事。
+
+我们有一个程序，叫ShuffleArray()，是用来洗牌的，我见过N多千变万化的ShuffleArray()，但是似乎从来没人去想过怎么去测试这个算法。所以，我在面试中我经常会问应聘者如何测试ShuffleArray()，没想到这个问题居然难倒了很多有多年编程经验的人。对于这类的问题，其实，测试程序可能比算法更难写，代码更多。..." itemprop="description"/>
+     <meta content="2012-11-20T08:22:07+08:00" itemprop="datePublished"/>
+     <meta content="2012-11-27T16:49:26+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/8593.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/8593.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.1" itemprop="ratingValue"/>
+      <meta content="30" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-8593-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/algorithm" rel="tag">
+        Algorithm
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/test" rel="tag">
+        test
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/unit-test" rel="tag">
+        Unit Test
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

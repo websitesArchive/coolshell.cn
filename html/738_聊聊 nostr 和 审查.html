@@ -1,0 +1,784 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/22367.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="聊聊 nostr 和 审查 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/22367.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" property="og:image:secure_url"/>
+   <meta content="2023-02-03T07:46:13+00:00" property="article:published_time"/>
+   <meta content="2023-02-05T04:10:43+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="聊聊 nostr 和 审查 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/22367.html#article","name":"\u804a\u804a nostr \u548c \u5ba1\u67e5 | \u9177 \u58f3 - CoolShell","headline":"\u804a\u804a nostr \u548c \u5ba1\u67e5","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2023\/02\/nostr-aplicacion-descentralizada-1.png","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2023-02-03T07:46:13+08:00","dateModified":"2023-02-05T04:10:43+08:00","inLanguage":"zh-CN","commentCount":13,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/22367.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/22367.html#webpage"},"articleSection":"\u4e1a\u754c\u65b0\u95fb, \u7cfb\u7edf\u67b6\u6784, \u7f51\u7edc\u5b89\u5168, censorship, network, nostr, social media, Twitter"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/22367.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/22367.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/22367.html#webpage","url":"https:\/\/coolshell.cn\/articles\/22367.html","name":"\u804a\u804a nostr \u548c \u5ba1\u67e5 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/22367.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2023-02-03T07:46:13+08:00","dateModified":"2023-02-05T04:10:43+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '22367';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E8%81%8A%E8%81%8A+nostr+%E5%92%8C+%E5%AE%A1%E6%9F%A5';
+	window._wp_rp_post_tags = ['social+media', 'network', 'twitter', 'nostr', 'censorship', '%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84', '%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8', '%E4%B8%9A%E7%95%8C%E6%96%B0%E9%97%BB', 'lili', 'btc', 'pow', 'json', 'li', 'zone', 'app', 'ul', 'channel', 'twitter', 'alt', 'stuff', 'io', 'relai', 'a'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/22367.html/feed" rel="alternate" title="酷 壳 - CoolShell » 聊聊 nostr 和 审查评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/22367" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=22367" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22367.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22367.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-22367 post type-post status-publish format-standard hentry category-itnews category-602 category-netsecurity tag-censorship tag-network tag-nostr tag-social-media tag-twitter" id="post-22367">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     聊聊 nostr 和 审查
+    </span>
+    <h1 class="entry-title">
+     聊聊 nostr 和 审查
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/22367.html" rel="bookmark" title="15:46">
+       <time class="entry-date" datetime="2023-02-03T15:46:13+08:00" pubdate="">
+        2023年02月03日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/22367.html#comments">
+       13 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      26,684 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright size-medium wp-image-22368" decoding="async" height="150" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" srcset="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png 300w, https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-1024x512.png 1024w, https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-768x384.png 768w, https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-540x270.png 540w, https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1.png 1140w" width="300"/>
+     这两天在网络上又有一个东西火了，Twitter 的创始人
+     <a href="https://twitter.com/jack">
+      @jack
+     </a>
+     新的社交 iOS App
+     <a href="https://apps.apple.com/ca/app/damus/id1628663131" rel="noopener" target="_blank">
+      Damus
+     </a>
+     上苹果商店（第二天就因为违反中国法律在中国区下架了），这个软件是一个去中心化的 Twitter，使用到的是 nostr – Notes and Other Stuff Transmitted by Relays 的协议（
+     <a href="https://github.com/nostr-protocol/nostr" rel="noopener" target="_blank">
+      协议简介
+     </a>
+     ，
+     <a href="https://github.com/nostr-protocol/nips" rel="noopener" target="_blank">
+      协议细节
+     </a>
+     ），协议简介中有很大的篇幅是在批评Twitter和其相类似的中心化的产品，如：
+     <a href="https://mastodon.social/" rel="noopener" target="_blank">
+      Mastodon
+     </a>
+     和
+     <a href="https://scuttlebutt.nz/" rel="noopener" target="_blank">
+      Secure Scuttlebutt
+     </a>
+     。我顺着去看了一下这个协议，发现这个协议真是非常的简单，简单到几句话就可以讲清楚了。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E9%80%9A%E8%AE%AF%E8%BF%87%E7%A8%8B" title="通讯过程">
+         通讯过程
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E6%91%98%E8%A6%81" title="技术细节摘要">
+         技术细节摘要
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5" title="如何对抗网络审查">
+         如何对抗网络审查
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8A%97Spam%E5%92%8C%E9%AA%97%E5%AD%90" title="如何对抗Spam和骗子">
+         如何对抗Spam和骗子
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E5%AE%A1%E6%9F%A5" title="怎么理解审查">
+         怎么理解审查
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E9%80%9A%E8%AE%AF%E8%BF%87%E7%A8%8B">
+     </span>
+     通讯过程
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      这个协议中有两个东西，一个是 client，一个是 relay，client 就是用户社交的客户端，relay 就是转发服务器。
+     </li>
+     <li>
+      用户不需要注册，用户只需要有一个密钥对（公钥+私钥）就好了，然后把要发的信息做签名，发给一组 relays
+     </li>
+     <li>
+      然后你的 Follower 就可以从这些 relays 上订阅到你的信息。
+     </li>
+    </ul>
+    <p>
+     <span id="more-22367">
+     </span>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E6%91%98%E8%A6%81">
+     </span>
+     技术细节摘要
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      技术实现上，nostr 使用 websocket + JSON 的方式。其中主要是下面这么几个指令
+      <ul>
+       <li>
+        Client 到 Relay主要是下面这几个指令：
+        <ul>
+         <li>
+          <code>
+           EVENT
+          </code>
+          。发出事件，可以扩展出很多很多的动作来，比如：发信息，删信息，迁移信息，建 Channel ……扩展性很好。
+         </li>
+         <li>
+          <code>
+           REQ
+          </code>
+          。用于请求事件和订阅更新。收到
+          <code>
+           REQ
+          </code>
+          消息后，relay 会查询其内部数据库并返回与过滤器匹配的事件，然后存储该过滤器，并将其接收的所有未来事件再次发送到同一websocket，直到websocket关闭。
+         </li>
+         <li>
+          <code>
+           CLOSE
+          </code>
+          。用于停止被
+          <code>
+           REQ
+          </code>
+          请求的订阅。
+         </li>
+        </ul>
+       </li>
+       <li>
+        Relay 到 Client 主要是下面几个指令：
+        <ul>
+         <li>
+          <code>
+           EVENT
+          </code>
+          。用于发送客户端请求的事件。
+         </li>
+         <li>
+          <code>
+           NOTICE
+          </code>
+          。用于向客户端发送人类可读的错误消息或其他信息
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li>
+      关于
+      <code>
+       EVENT
+      </code>
+      下面是几个常用的基本事件：
+      <ul>
+       <li>
+        <code>
+         0
+        </code>
+        :
+        <code>
+         set_metadata
+        </code>
+        ：比如，用户名，用户头像，用户简介等这样的信息。
+       </li>
+       <li>
+        <code>
+         1
+        </code>
+        :
+        <code>
+         text_note
+        </code>
+        ：用户要发的信息内容
+       </li>
+       <li>
+        <code>
+         2
+        </code>
+        ：
+        <code>
+         recommend_server
+        </code>
+        ：用户想要推荐给关注者的Relay的URL（例如
+        <code>
+         wss://somerelay.com
+        </code>
+        ）
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5">
+     </span>
+     如何对抗网络审查
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     那么，这个协议是如何对抗网络审查的？
+    </p>
+    <ul>
+     <li>
+      识别你的身份是通过你的签名，所以，只要你的私钥还在，你是不会被删号的
+     </li>
+     <li>
+      任何人都可以运行一个或多个relay，所以，就很难有人控制所有的relay
+     </li>
+     <li>
+      你还可以很方便的告诉其中的 relay 把你发的信息迁到另一个 relay 上
+     </li>
+     <li>
+      你的信息是一次发给多个relay的，所以，只要不是所有的热门realy封了你，你就可以发出信息
+     </li>
+     <li>
+      每个relay的运营者都可以自己制定规则，会审查哪些类型内容。用户据此选择即可。基本不会有一个全局的规则。
+     </li>
+     <li>
+      如果你被全部的relay封了，你还是可以自建你的relay，然后，你可以通过各种方式告诉你身边的人你的relay服务器是什么？这样，他们把这个relay服务器加到他们的client列表中，你又可以从社死中复活了。
+     </li>
+    </ul>
+    <p>
+     嗯，听起来很简单，整个网络是构建在一种 “社区式”的松散结构，完全可能会出现若干个 relay zone。这种架构就像是互联网的架构，没有中心化，比如 DNS服务器和Email服务器一样，只要你愿意，你完全可以发展出自己圈子里的“私服”。
+    </p>
+    <p>
+     其实，电子邮件是很难被封禁和审查的。我记得2003年中国非典的时候，我当时在北京，当时的卫生部部长说已经控制住了，才12个人感染，当局也在控制舆论和删除互联网上所有的真实信息。但是，大家都在用电子邮件传播信息，当时基本没有什么社交软件，大家分享信息都是通过邮件，尤其是外企工作的圈子，当时每天都要收很多的非典的群发邮件，大家还都是用公司的邮件服务器发……这种松散的，点对点的架构，让审查是基本不可能的。其实，
+     <strong>
+      我觉得 nostr 就是另外一个变种或是升级版的 email 的形式
+     </strong>
+     。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8A%97Spam%E5%92%8C%E9%AA%97%E5%AD%90">
+     </span>
+     如何对抗Spam和骗子
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     但是问题来了，如果不能删号封人的话，那么如何对抗那些制造Spam，骗子或是反人类的信息呢？nostr目前的解决方案是通过比特币闪电网络。比如有些客户端实现了如果对方没有follow 你，如果给他发私信，需要支付一点点btc ，或是relay要求你给btc才给你发信息（注：我不认为这是一个好的方法，因为：1）因为少数的坏人让大多数正常人也要跟着付出成本，这是个糟糕的治理方式，2）不鼓励那些生产内容的人，那么平台就没有任何价值了）。
+    </p>
+    <p>
+     不过，我觉得也有可以有下面的这些思路：
+    </p>
+    <ul>
+     <li>
+      用户主动拉黑，但很明显这个效率不高，而且体验不好
+     </li>
+     <li>
+      社区或是同盟维护一个黑名单，relay定期更新（如同email中防垃圾邮件也是这样搞的），这其实也是审查。
+     </li>
+     <li>
+      防Spam的算法过滤垃圾信息（如同email中干的），自动化审查。
+     </li>
+     <li>
+      增加发Spam的成本，如: PoW 工作量证明（比特币的挖矿，最早也是用于Email），发信息要花钱（这个对正常用户伤害太大了）等。
+     </li>
+     <li>
+      ……
+     </li>
+    </ul>
+    <p>
+     总之，还是有相应的方法的，但是一定没有完美解，email对抗了这么多年，你还是可以收到大量的垃圾邮件和钓鱼邮件，所以，我觉得 nostr 也不可能做到……
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E5%AE%A1%E6%9F%A5">
+     </span>
+     怎么理解审查
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     最后，我们要明白的是，
+     <strong>
+      无论你用什么方法，审查是肯定需要的，所以，我觉得要完全干掉审查，最终的结果就是一个到处都垃圾内容的地方！
+     </strong>
+    </p>
+    <p>
+     <strong>
+      我理解的审查不应该是为权力或是个体服务的，而是为大众和人民服务的，所以，审查必然是要有一个开放和共同决策的流程，而不是独断的
+     </strong>
+     。
+    </p>
+    <p>
+     这点可以参考开源软件基金会的运作模式。
+    </p>
+    <ul>
+     <li>
+      最底端的是用户（User）参与开源社区的使用并提供问题和反馈。
+     </li>
+     <li>
+      用户在使用过程中了解项目情况后贡献代码和文档就可以晋升为贡献者（Contributors），
+     </li>
+     <li>
+      当贡献者提交一定数量贡献之后就可以晋升为提交者（Committers），此时你将拥有你参与仓库的代码读写权限。
+     </li>
+     <li>
+      当提交者Committers在社区得到认可后，由项目管理委员会（PMC）选举并产生PMC成员（类似于议员），PMC成员拥有社区相关事务的投票、提名和共同决策权利和义务。
+     </li>
+    </ul>
+    <p>
+     注意下面几点
+    </p>
+    <ul>
+     <li>
+      整个社区的决策者，是要通过自己贡献来挣到被选举权的。
+     </li>
+     <li>
+      社区所有的工作和决定都是要公开的。
+     </li>
+     <li>
+      社区的方向和决策都是要投票的，PMC成员有binding的票权，大众也有non-binding的投票权供参考。
+     </li>
+     <li>
+      <strong>
+       如果出现了价值观的不同，那么，直接分裂社区就好了，不同价值观的人加入到不同的社区就好了
+      </strong>
+      。
+     </li>
+    </ul>
+    <p>
+     如果审查是在这个框架下运作的话，虽然不完美，但至少会在一种公允的基础下运作，是透明公开的，也是集体决策的。
+    </p>
+    <p>
+     开源软件社区是一个很成功的示范，所以，我觉得只有技术而没有一个良性的可持续运作的社区，是不可能解决问题的，
+     <strong>
+      干净整齐的环境是一定要有人打扫和整理的
+     </strong>
+     。
+    </p>
+    <p>
+    </p>
+    <figure aria-describedby="caption-attachment-22371" class="wp-caption aligncenter" id="attachment_22371" style="width: 300px">
+     <img alt="欢迎关注我 npub1w6r99545cxea6z76e8nvzjxnymjt4nrsddld33almtm78z7fz95s3c94nu" class="wp-image-22371 size-medium" decoding="async" height="289" loading="lazy" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-300x289.jpg" srcset="https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-300x289.jpg 300w, https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-1024x987.jpg 1024w, https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-768x740.jpg 768w, https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-280x270.jpg 280w, https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533.jpg 1242w" width="300"/>
+     <figcaption class="wp-caption-text" id="caption-attachment-22371">
+      欢迎关注我 npub1w6r99545cxea6z76e8nvzjxnymjt4nrsddld33almtm78z7fz95s3c94nu
+     </figcaption>
+    </figure>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18654.html">
+         <img alt="记一次Kubernetes/Docker网络排障" height="150" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18654.html">
+         记一次Kubernetes/Docker网络排障
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9859.html">
+         <img alt="Alan Cox：单向链表中prev指针的妙用" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9859.html">
+         Alan Cox：单向链表中prev指针的妙用
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5247.html">
+         <img alt="国内微博和Twitter的最大不同" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/15.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5247.html">
+         国内微博和Twitter的最大不同
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/25.html">
+         <img alt="如何上网觅无踪" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/5.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/25.html">
+         如何上网觅无踪
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1231.html">
+         <img alt="Javascripts加密库" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/13.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1231.html">
+         Javascripts加密库
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/294.html">
+         <img alt="OSGi和Java企业级运算的未来方向" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/6.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/294.html">
+         OSGi和Java企业级运算的未来方向
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="a07d624eb3" id="post-ratings-22367" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_22367_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22367, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_22367_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22367, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_22367_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22367, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_22367_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22367, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_22367_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22367, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      53
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.26
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_22367_text">
+     </span>
+     <meta content="聊聊 nostr 和 审查" itemprop="name"/>
+     <meta content="聊聊 nostr 和 审查" itemprop="headline"/>
+     <meta content="这两天在网络上又有一个东西火了，Twitter 的创始人 @jack 新的社交 iOS App  Damus 上苹果商店（第二天就因为违反中国法律在中国区下架了），这个软件是一个去中心化的 Twitter，使用到的是 nostr - Notes and Other Stuff Transmitted by Relays 的协议（协议简介，协议细节），协议简介中有很大的篇幅是在批评Twitter和其..." itemprop="description"/>
+     <meta content="2023-02-03T15:46:13+08:00" itemprop="datePublished"/>
+     <meta content="2023-02-05T12:10:43+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/22367.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/22367.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.26" itemprop="ratingValue"/>
+      <meta content="53" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-22367-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/itnews" rel="category tag">
+        业界新闻
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84" rel="category tag">
+        系统架构
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/netsecurity" rel="category tag">
+        网络安全
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/censorship" rel="tag">
+        censorship
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/network" rel="tag">
+        network
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/nostr" rel="tag">
+        nostr
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/social-media" rel="tag">
+        social media
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/twitter" rel="tag">
+        Twitter
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

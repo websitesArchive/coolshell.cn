@@ -1,0 +1,1461 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/21128.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="Go编程模式：切片，接口，时间和性能 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/21128.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/12/go.slices.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/12/go.slices.png" property="og:image:secure_url"/>
+   <meta content="1576" property="og:image:width"/>
+   <meta content="890" property="og:image:height"/>
+   <meta content="2020-12-18T07:36:30+00:00" property="article:published_time"/>
+   <meta content="2021-01-12T01:57:36+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Go编程模式：切片，接口，时间和性能 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/12/go.slices.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/21128.html#article","name":"Go\u7f16\u7a0b\u6a21\u5f0f\uff1a\u5207\u7247\uff0c\u63a5\u53e3\uff0c\u65f6\u95f4\u548c\u6027\u80fd | \u9177 \u58f3 - CoolShell","headline":"Go\u7f16\u7a0b\u6a21\u5f0f\uff1a\u5207\u7247\uff0c\u63a5\u53e3\uff0c\u65f6\u95f4\u548c\u6027\u80fd","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/12\/go.slices.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":1576,"height":890},"datePublished":"2020-12-18T07:36:30+08:00","dateModified":"2021-01-12T01:57:36+08:00","inLanguage":"zh-CN","commentCount":33,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/21128.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/21128.html#webpage"},"articleSection":"Go \u8bed\u8a00, \u7a0b\u5e8f\u8bbe\u8ba1, \u7f16\u7a0b\u8bed\u8a00, Go, golang, Go\u7f16\u7a0b\u6a21\u5f0f"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/21128.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/21128.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/21128.html#webpage","url":"https:\/\/coolshell.cn\/articles\/21128.html","name":"Go\u7f16\u7a0b\u6a21\u5f0f\uff1a\u5207\u7247\uff0c\u63a5\u53e3\uff0c\u65f6\u95f4\u548c\u6027\u80fd | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/21128.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2020-12-18T07:36:30+08:00","dateModified":"2021-01-12T01:57:36+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '21128';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Go%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%87%E7%89%87%EF%BC%8C%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%97%B6%E9%97%B4%E5%92%8C%E6%80%A7%E8%83%BD';
+	window._wp_rp_post_tags = ['go', 'golang', 'go+%E8%AF%AD%E8%A8%80', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'arrai', 'pre', 'gt', 'slice', 'print', 'path', 'int', 'cap', 'alt', 'main', 'len'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/21128.html/feed" rel="alternate" title="酷 壳 - CoolShell » Go编程模式：切片，接口，时间和性能评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/21128" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=21128" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21128.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21128.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-21128 post type-post status-publish format-standard hentry category-go- category-progdesign category-proglanguage tag-go tag-golang series-go" id="post-21128">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Go编程模式：切片，接口，时间和性能
+    </span>
+    <h1 class="entry-title">
+     Go编程模式：切片，接口，时间和性能
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/21128.html" rel="bookmark" title="15:36">
+       <time class="entry-date" datetime="2020-12-18T15:36:30+08:00" pubdate="">
+        2020年12月18日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/21128.html#comments">
+       33 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      81,020 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright size-medium wp-image-21234" decoding="async" height="169" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2020/12/go.slices-300x169.png" srcset="https://coolshell.cn/wp-content/uploads/2020/12/go.slices-300x169.png 300w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices-1024x578.png 1024w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices-768x434.png 768w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices-1536x867.png 1536w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices-478x270.png 478w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices.png 1576w" width="300"/>
+    </p>
+    <p>
+     在本篇文章中，我会对Go语言编程模式的一些基本技术和要点，这样可以让你更容易掌握Go语言编程。其中，主要包括，数组切片的一些小坑，还有接口编程，以及时间和程序运行性能相关的话题。
+    </p>
+    <section class="post-series">
+     <h3 class="post-series-title">
+      本文是全系列中第1 / 10篇：
+      <a href="https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f">
+       Go编程模式
+      </a>
+     </h3>
+     <ul class="post-series-list">
+      <li class="post-series-item-current post-series-item">
+       <span class="post-series-item-title">
+        Go编程模式：切片，接口，时间和性能
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21140.html">
+         Go 编程模式：错误处理
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21146.html">
+         Go 编程模式：Functional Options
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21214.html">
+         Go编程模式：委托和反转控制
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21164.html">
+         Go编程模式：Map-Reduce
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21179.html">
+         Go 编程模式：Go Generation
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/17929.html">
+         Go编程模式：修饰器
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21228.html">
+         Go编程模式：Pipeline
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21263.html">
+         Go 编程模式：k8s Visitor 模式
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21615.html">
+         Go编程模式 ： 泛型编程
+        </a>
+       </span>
+      </li>
+     </ul>
+     <nav class="post-series-nav">
+      <span class="post-series-nav-next">
+       <a href="https://coolshell.cn/articles/21140.html" rel="next" title="Go 编程模式：错误处理">
+        下一篇文章
+       </a>
+       »
+      </span>
+     </nav>
+    </section>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#Slice" title="Slice">
+         Slice
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E6%B7%B1%E5%BA%A6%E6%AF%94%E8%BE%83" title="深度比较">
+         深度比较
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B" title="接口编程">
+         接口编程
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E6%8E%A5%E5%8F%A3%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5" title="接口完整性检查">
+         接口完整性检查
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E6%97%B6%E9%97%B4" title="时间">
+         时间
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E6%80%A7%E8%83%BD%E6%8F%90%E7%A4%BA" title="性能提示">
+         性能提示
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3" title="参考文档">
+         参考文档
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="Slice">
+     </span>
+     Slice
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先，我们先来讨论一下Slice，中文翻译叫“切片”，这个东西在Go语言中不是数组，而是一个结构体，其定义如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type slice struct {
+    array unsafe.Pointer //指向存放数据的数组指针
+    len   int            //长度有多大
+    cap   int            //容量有多大
+}</pre>
+    <p>
+     用图示来看，一个空的slice的表现如下：
+    </p>
+    <p>
+     <img alt="" class="aligncenter wp-image-21129 size-medium" decoding="async" height="190" loading="lazy" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2020/12/slice1-300x190.png" srcset="https://coolshell.cn/wp-content/uploads/2020/12/slice1-300x190.png 300w, https://coolshell.cn/wp-content/uploads/2020/12/slice1-427x270.png 427w, https://coolshell.cn/wp-content/uploads/2020/12/slice1.png 466w" width="300"/>
+     熟悉C/C++的同学一定会知道，在结构体里用数组指针的问题——数据会发生共享！下面我们来看一下slice的一些操作
+    </p>
+    <p>
+     <span id="more-21128">
+     </span>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">foo = make([]int, 5)
+foo[3] = 42
+foo[4] = 100
+
+bar  := foo[1:4]
+bar[1] = 99</pre>
+    <p>
+     对于上面这段代码。
+    </p>
+    <ul>
+     <li>
+      首先先创建一个foo的slice，其中的长度和容量都是5
+     </li>
+     <li>
+      然后开始对foo所指向的数组中的索引为3和4的元素进行赋值
+     </li>
+     <li>
+      然后，对foo做切片后赋值给bar，再修改bar[1]
+     </li>
+    </ul>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-21130" decoding="async" height="362" loading="lazy" sizes="(max-width: 818px) 100vw, 818px" src="https://coolshell.cn/wp-content/uploads/2020/12/slice2.png" srcset="https://coolshell.cn/wp-content/uploads/2020/12/slice2.png 818w, https://coolshell.cn/wp-content/uploads/2020/12/slice2-300x133.png 300w, https://coolshell.cn/wp-content/uploads/2020/12/slice2-768x340.png 768w, https://coolshell.cn/wp-content/uploads/2020/12/slice2-604x267.png 604w" width="818"/>
+    </p>
+    <p>
+     通过上图我们可以看到，因为foo和bar的内存是共享的，所以，foo和bar的对数组内容的修改都会影响到对方。
+    </p>
+    <p>
+     接下来，我们再来看一个数据操作
+     <code>
+      append()
+     </code>
+     的示例
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">a := make([]int, 32)
+b := a[1:16]
+a = append(a, 1)
+a[2] = 42</pre>
+    <p>
+     上面这段代码中，把
+     <code>
+      a[1:16]
+     </code>
+     的切片赋给到了
+     <code>
+      b
+     </code>
+     ，此时，
+     <code>
+      a
+     </code>
+     和
+     <code>
+      b
+     </code>
+     的内存空间是共享的，然后，对
+     <code>
+      a
+     </code>
+     做了一个
+     <code>
+      append()
+     </code>
+     的操作，这个操作会让
+     <code>
+      a
+     </code>
+     重新分享内存，导致
+     <code>
+      a
+     </code>
+     和
+     <code>
+      b
+     </code>
+     不再共享，如下图所示：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-large wp-image-21326" decoding="async" height="321" loading="lazy" sizes="(max-width: 640px) 100vw, 640px" src="https://coolshell.cn/wp-content/uploads/2020/12/go.slices.append-1024x513.png" srcset="https://coolshell.cn/wp-content/uploads/2020/12/go.slices.append-1024x513.png 1024w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices.append-300x150.png 300w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices.append-768x385.png 768w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices.append-539x270.png 539w, https://coolshell.cn/wp-content/uploads/2020/12/go.slices.append.png 1454w" width="640"/>
+    </p>
+    <p>
+     从上图我们可以看以看到
+     <code>
+      append()
+     </code>
+     操作让
+     <code>
+      a
+     </code>
+     的容量变成了64，而长度是33。这里，需要重点注意一下——
+     <strong>
+      <code>
+       append()
+      </code>
+      这个函数在
+      <code>
+       cap
+      </code>
+      不够用的时候就会重新分配内存以扩大容量，而如果够用的时候不不会重新分享内存！
+     </strong>
+    </p>
+    <p>
+     我们再看来看一个例子：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func main() {
+    path := []byte("AAAA/BBBBBBBBB")
+    sepIndex := bytes.IndexByte(path,'/’)
+
+    dir1 := path[:sepIndex]
+    dir2 := path[sepIndex+1:]
+
+    fmt.Println("dir1 =&gt;",string(dir1)) //prints: dir1 =&gt; AAAA
+    fmt.Println("dir2 =&gt;",string(dir2)) //prints: dir2 =&gt; BBBBBBBBB
+
+    dir1 = append(dir1,"suffix"...)
+
+    fmt.Println("dir1 =&gt;",string(dir1)) //prints: dir1 =&gt; AAAAsuffix
+    fmt.Println("dir2 =&gt;",string(dir2)) //prints: dir2 =&gt; uffixBBBB
+}</pre>
+    <p>
+     上面这个例子中，
+     <code>
+      dir1
+     </code>
+     和
+     <code>
+      dir2
+     </code>
+     共享内存，虽然
+     <code>
+      dir1
+     </code>
+     有一个
+     <code>
+      append()
+     </code>
+     操作，但是因为 cap 足够，于是数据扩展到了
+     <code>
+      dir2
+     </code>
+     的空间。下面是相关的图示（注意上图中
+     <code>
+      dir1
+     </code>
+     和
+     <code>
+      dir2
+     </code>
+     结构体中的
+     <code>
+      cap
+     </code>
+     和
+     <code>
+      len
+     </code>
+     的变化）
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-large wp-image-21328" decoding="async" height="463" loading="lazy" sizes="(max-width: 640px) 100vw, 640px" src="https://coolshell.cn/wp-content/uploads/2020/12/slice4-1024x740.png" srcset="https://coolshell.cn/wp-content/uploads/2020/12/slice4-1024x740.png 1024w, https://coolshell.cn/wp-content/uploads/2020/12/slice4-300x217.png 300w, https://coolshell.cn/wp-content/uploads/2020/12/slice4-768x555.png 768w, https://coolshell.cn/wp-content/uploads/2020/12/slice4-374x270.png 374w, https://coolshell.cn/wp-content/uploads/2020/12/slice4.png 1481w" width="640"/>
+    </p>
+    <p>
+     如果要解决这个问题，我们只需要修改一行代码。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">dir1 := path[:sepIndex]
+</pre>
+    <p>
+     修改为
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">dir1 := path[:sepIndex:sepIndex]
+</pre>
+    <p>
+     新的代码使用了 Full Slice Expression，其最后一个参数叫“Limited Capacity”，于是，后续的
+     <code>
+      append()
+     </code>
+     操作将会导致重新分配内存。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%B7%B1%E5%BA%A6%E6%AF%94%E8%BE%83">
+     </span>
+     深度比较
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     当我们复杂一个对象时，这个对象可以是内建数据类型，数组，结构体，map……我们在复制结构体的时候，当我们需要比较两个结构体中的数据是否相同时，我们需要使用深度比较，而不是只是简单地做浅度比较。这里需要使用到反射
+     <code>
+      reflect.DeepEqual()
+     </code>
+     ，下面是几个示例
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">import (
+    "fmt"
+    "reflect"
+)
+
+func main() {
+
+    v1 := data{}
+    v2 := data{}
+    fmt.Println("v1 == v2:",reflect.DeepEqual(v1,v2))
+    //prints: v1 == v2: true
+
+    m1 := map[string]string{"one": "a","two": "b"}
+    m2 := map[string]string{"two": "b", "one": "a"}
+    fmt.Println("m1 == m2:",reflect.DeepEqual(m1, m2))
+    //prints: m1 == m2: true
+
+    s1 := []int{1, 2, 3}
+    s2 := []int{1, 2, 3}
+    fmt.Println("s1 == s2:",reflect.DeepEqual(s1, s2))
+    //prints: s1 == s2: true
+}</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">
+     </span>
+     接口编程
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面，我们来看段代码，其中是两个方法，它们都是要输出一个结构体，其中一个使用一个函数，另一个使用一个“成员函数”。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func PrintPerson(p *Person) {
+    fmt.Printf("Name=%s, Sexual=%s, Age=%d\n",
+  p.Name, p.Sexual, p.Age)
+}
+
+func (p *Person) Print() {
+    fmt.Printf("Name=%s, Sexual=%s, Age=%d\n",
+  p.Name, p.Sexual, p.Age)
+}
+
+func main() {
+    var p = Person{
+        Name: "Hao Chen",
+        Sexual: "Male",
+        Age: 44,
+    }
+
+    PrintPerson(&amp;p)
+    p.Print()
+}</pre>
+    <p>
+     你更喜欢哪种方式呢？在 Go 语言中，使用“成员函数”的方式叫“Receiver”，这种方式是一种封装，因为
+     <code>
+      PrintPerson()
+     </code>
+     本来就是和
+     <code>
+      Person
+     </code>
+     强耦合的，所以，理应放在一起。更重要的是，这种方式可以进行接口编程，对于接口编程来说，也就是一种抽象，主要是用在“多态”，这个技术，在《
+     <a href="https://coolshell.cn/articles/8460.html#%E6%8E%A5%E5%8F%A3%E5%92%8C%E5%A4%9A%E6%80%81" rel="noopener" target="_blank">
+      Go语言简介（上）：接口与多态
+     </a>
+     》中已经讲过。在这里，我想讲另一个Go语言接口的编程模式。
+    </p>
+    <p>
+     首先，我们来看一下，有下面这段代码：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type Country struct {
+    Name string
+}
+
+type City struct {
+    Name string
+}
+
+type Printable interface {
+    PrintStr()
+}
+func (c Country) PrintStr() {
+    fmt.Println(c.Name)
+}
+func (c City) PrintStr() {
+    fmt.Println(c.Name)
+}
+
+c1 := Country {"China"}
+c2 := City {"Beijing"}
+c1.PrintStr()
+c2.PrintStr()</pre>
+    <p>
+     其中，我们可以看到，其使用了一个
+     <code>
+      Printable
+     </code>
+     的接口，而
+     <code>
+      Country
+     </code>
+     和
+     <code>
+      City
+     </code>
+     都实现了接口方法
+     <code>
+      PrintStr()
+     </code>
+     而把自己输出。然而，这些代码都是一样的。能不能省掉呢？
+    </p>
+    <p>
+     我们可以使用“结构体嵌入”的方式来完成这个事，如下的代码所示，
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type WithName struct {
+    Name string
+}
+
+type Country struct {
+    WithName
+}
+
+type City struct {
+    WithName
+}
+
+type Printable interface {
+    PrintStr()
+}
+
+func (w WithName) PrintStr() {
+    fmt.Println(w.Name)
+}
+
+c1 := Country {WithName{ "China"}}
+c2 := City { WithName{"Beijing"}}
+c1.PrintStr()
+c2.PrintStr()</pre>
+    <p>
+     引入一个叫
+     <code>
+      WithName
+     </code>
+     的结构体，然而，所带来的问题就是，在初始化的时候，变得有点乱。那么，我们有没有更好的方法？下面是另外一个解。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type Country struct {
+    Name string
+}
+
+type City struct {
+    Name string
+}
+
+type Stringable interface {
+    ToString() string
+}
+func (c Country) ToString() string {
+    return "Country = " + c.Name
+}
+func (c City) ToString() string{
+    return "City = " + c.Name
+}
+
+func PrintStr(p Stringable) {
+    fmt.Println(p.ToString())
+}
+
+d1 := Country {"USA"}
+d2 := City{"Los Angeles"}
+PrintStr(d1)
+PrintStr(d2)</pre>
+    <p>
+     上面这段代码，我们可以看到——
+     <strong>
+      我们使用了一个叫
+      <code>
+       Stringable
+      </code>
+      的接口，我们用这个接口把“业务类型”
+      <code>
+       Country
+      </code>
+      和
+      <code>
+       City
+      </code>
+      和“控制逻辑”
+      <code>
+       Print()
+      </code>
+      给解耦了。
+     </strong>
+     于是，只要实现了
+     <code>
+      Stringable
+     </code>
+     接口，都可以传给
+     <code>
+      PrintStr()
+     </code>
+     来使用。
+    </p>
+    <p>
+     这种编程模式在Go 的标准库有很多的示例，最著名的就是
+     <code>
+      io.Read
+     </code>
+     和
+     <code>
+      ioutil.ReadAll
+     </code>
+     的玩法，其中
+     <code>
+      io.Read
+     </code>
+     是一个接口，你需要实现他的一个
+     <code>
+      Read(p []byte) (n int, err error)
+     </code>
+     接口方法，只要满足这个规模，就可以被
+     <code>
+      ioutil.ReadAll
+     </code>
+     这个方法所使用。
+     <strong>
+      这就是面向对象编程方法的黄金法则——“Program to an interface not an implementation”
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%8E%A5%E5%8F%A3%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A3%80%E6%9F%A5">
+     </span>
+     接口完整性检查
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     另外，我们可以看到，Go语言的编程器并没有严格检查一个对象是否实现了某接口所有的接口方法，如下面这个示例：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type Shape interface {
+    Sides() int
+    Area() int
+}
+type Square struct {
+    len int
+}
+func (s* Square) Sides() int {
+    return 4
+}
+func main() {
+    s := Square{len: 5}
+    fmt.Printf("%d\n",s.Sides())
+}</pre>
+    <p>
+     我们可以看到
+     <code>
+      Square
+     </code>
+     并没有实现
+     <code>
+      Shape
+     </code>
+     接口的所有方法，程序虽然可以跑通，但是这样编程的方式并不严谨，如果我们需要强制实现接口的所有方法，那么我们应该怎么办呢？
+    </p>
+    <p>
+     在Go语言编程圈里有一个比较标准的作法：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">var _ Shape = (*Square)(nil)</pre>
+    <p>
+     声明一个
+     <code>
+      _
+     </code>
+     变量（没人用），其会把一个
+     <code>
+      nil
+     </code>
+     的空指针，从
+     <code>
+      Square
+     </code>
+     转成
+     <code>
+      Shape
+     </code>
+     ，这样，如果没有实现完相关的接口方法，编译器就会报错：
+    </p>
+    <blockquote>
+     <p>
+      cannot use (*Square)(nil) (type *Square) as type Shape in assignment: *Square does not implement Shape (missing Area method)
+     </p>
+    </blockquote>
+    <p>
+     这样就做到了个强验证的方法。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%97%B6%E9%97%B4">
+     </span>
+     时间
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     对于时间来说，这应该是编程中比较复杂的问题了，相信我，时间是一种非常复杂的事（比如《
+     <a href="https://coolshell.cn/articles/5075.html" rel="noopener" target="_blank" title="你确信你了解时间吗？">
+      你确信你了解时间吗？
+     </a>
+     》、《
+     <a href="https://coolshell.cn/articles/7804.html" title="关于闰秒">
+      关于闰秒
+     </a>
+     》等文章）。而且，时间有时区、格式、精度等等问题，其复杂度不是一般人能处理的。所以，一定要重用已有的时间处理，而不是自己干。
+    </p>
+    <p>
+     在 Go 语言中，你一定要使用
+     <code>
+      time.Time
+     </code>
+     和
+     <code>
+      time.Duration
+     </code>
+     两个类型：
+    </p>
+    <ul>
+     <li>
+      在命令行上，
+      <code>
+       flag
+      </code>
+      通过
+      <code>
+       time.ParseDuration
+      </code>
+      支持了
+      <code>
+       time.Duration
+      </code>
+     </li>
+     <li>
+      JSon 中的
+      <code>
+       encoding/json
+      </code>
+      中也可以把
+      <code>
+       time.Time
+      </code>
+      编码成
+      <a href="https://tools.ietf.org/html/rfc3339" rel="noopener" target="_blank">
+       RFC 3339
+      </a>
+      的格式
+     </li>
+     <li>
+      数据库使用的
+      <code>
+       database/sql
+      </code>
+      也支持把
+      <code>
+       DATATIME
+      </code>
+      或
+      <code>
+       TIMESTAMP
+      </code>
+      类型转成
+      <code>
+       time.Time
+      </code>
+     </li>
+     <li>
+      YAML你可以使用
+      <code>
+       gopkg.in/yaml.v2
+      </code>
+      也支持
+      <code>
+       time.Time
+      </code>
+      、
+      <code>
+       time.Duration
+      </code>
+      和
+      <a href="https://tools.ietf.org/html/rfc3339" rel="noopener" target="_blank">
+       RFC 3339
+      </a>
+      格式
+     </li>
+    </ul>
+    <p>
+     如果你要和第三方交互，实在没有办法，也请使用
+     <a href="https://tools.ietf.org/html/rfc3339" rel="noopener" target="_blank">
+      RFC 3339
+     </a>
+     的格式。
+    </p>
+    <p>
+     最后，如果你要做全球化跨时区的应用，你一定要把所有服务器和时间全部使用UTC时间。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%80%A7%E8%83%BD%E6%8F%90%E7%A4%BA">
+     </span>
+     性能提示
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Go 语言是一个高性能的语言，但并不是说这样我们就不用关心性能了，我们还是需要关心的。下面是一个在编程方面和性能相关的提示。
+    </p>
+    <ul>
+     <li>
+      如果需要把数字转字符串，使用
+      <code>
+       strconv.Itoa()
+      </code>
+      会比
+      <code>
+       fmt.Sprintf()
+      </code>
+      要快一倍左右
+     </li>
+     <li>
+      尽可能地避免把
+      <code>
+       String
+      </code>
+      转成
+      <code>
+       []Byte
+      </code>
+      。这个转换会导致性能下降。
+     </li>
+     <li>
+      如果在for-loop里对某个slice 使用
+      <code>
+       append()
+      </code>
+      请先把 slice的容量很扩充到位，这样可以避免内存重新分享以及系统自动按2的N次方幂进行扩展但又用不到，从而浪费内存。
+     </li>
+     <li>
+      使用
+      <code>
+       StringBuffer
+      </code>
+      或是
+      <code>
+       StringBuild
+      </code>
+      来拼接字符串，会比使用
+      <code>
+       +
+      </code>
+      或
+      <code>
+       +=
+      </code>
+      性能高三到四个数量级。
+     </li>
+     <li>
+      尽可能的使用并发的 go routine，然后使用
+      <code>
+       sync.WaitGroup
+      </code>
+      来同步分片操作
+     </li>
+     <li>
+      避免在热代码中进行内存分配，这样会导致gc很忙。尽可能的使用
+      <code>
+       sync.Pool
+      </code>
+      来重用对象。
+     </li>
+     <li>
+      使用 lock-free的操作，避免使用 mutex，尽可能使用
+      <code>
+       sync/Atomic
+      </code>
+      包。 （关于无锁编程的相关话题，可参看《
+      <a href="https://coolshell.cn/articles/8239.html" title="无锁队列的实现">
+       无锁队列实现
+      </a>
+      》或《
+      <a href="https://coolshell.cn/articles/9703.html" title="无锁HashMap的原理与实现">
+       无锁Hashmap实现
+      </a>
+      》）
+     </li>
+     <li>
+      使用 I/O缓冲，I/O是个非常非常慢的操作，使用
+      <code>
+       bufio.NewWrite()
+      </code>
+      和
+      <code>
+       bufio.NewReader()
+      </code>
+      可以带来更高的性能。
+     </li>
+     <li>
+      对于在for-loop里的固定的正则表达式，一定要使用
+      <code>
+       regexp.Compile()
+      </code>
+      编译正则表达式。性能会得升两个数量级。
+     </li>
+     <li>
+      如果你需要更高性能的协议，你要考虑使用
+      <a href="https://github.com/golang/protobuf" rel="noopener" target="_blank">
+       protobuf
+      </a>
+      或
+      <a href="https://github.com/tinylib/msgp" rel="noopener" target="_blank">
+       msgp
+      </a>
+      而不是JSON，因为JSON的序列化和反序列化里使用了反射。
+     </li>
+     <li>
+      你在使用map的时候，使用整型的key会比字符串的要快，因为整型比较比字符串比较要快。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3">
+     </span>
+     参考文档
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     还有很多不错的技巧，下面的这些参考文档可以让你写出更好的Go的代码，必读！
+    </p>
+    <ul>
+     <li>
+      <b>
+       Effective
+      </b>
+      <b>
+       Go
+       <br/>
+      </b>
+      <a href="https://golang.org/doc/effective_go.html">
+       https://golang.org/doc/effective_go.html
+      </a>
+     </li>
+     <li>
+      <b>
+       Uber
+      </b>
+      <b>
+       Go
+      </b>
+      <b>
+       Style
+       <br/>
+      </b>
+      <a href="https://github.com/uber-go/guide/blob/master/style.md">
+       https://github.com/uber-go/guide/blob/master/style.md
+      </a>
+     </li>
+     <li>
+      <b>
+       50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs
+       <br/>
+      </b>
+      <a href="http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/">
+       http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
+      </a>
+     </li>
+     <li>
+      <b>
+       Go
+      </b>
+      <b>
+       Advice
+       <br/>
+      </b>
+      <a href="https://github.com/cristaloleg/go-advice">
+       https://github.com/cristaloleg/go-advice
+      </a>
+      <b>
+      </b>
+     </li>
+     <li>
+      <b>
+       Practical Go Benchmarks
+       <br/>
+      </b>
+      <a href="https://www.instana.com/blog/practical-golang-benchmarks/">
+       https://www.instana.com/blog/practical-golang-benchmarks/
+      </a>
+      <b>
+      </b>
+     </li>
+     <li>
+      <b>
+       Benchmarks of Go serialization methods
+       <br/>
+      </b>
+      <a href="https://github.com/alecthomas/go_serialization_benchmarks">
+       https://github.com/alecthomas/go_serialization_benchmarks
+      </a>
+      <b>
+      </b>
+     </li>
+     <li>
+      <b>
+       Debugging
+      </b>
+      <b>
+       performance
+      </b>
+      <b>
+       issues
+      </b>
+      <b>
+       in
+      </b>
+      <b>
+       Go
+      </b>
+      <b>
+       programs
+       <br/>
+      </b>
+      <a href="https://github.com/golang/go/wiki/Performance">
+       https://github.com/golang/go/wiki/Performance
+      </a>
+      <b>
+      </b>
+     </li>
+     <li>
+      <b>
+       Go
+      </b>
+      <b>
+       code
+      </b>
+      <b>
+       refactoring:
+      </b>
+      <b>
+       the
+      </b>
+      <b>
+       23x
+      </b>
+      <b>
+       performance
+      </b>
+      <b>
+       hunt
+       <br/>
+      </b>
+      <a href="https://medium.com/@val_deleplace/go-code-refactoring-the-23x-performance-hunt-156746b522f7">
+       https://medium.com/@val_deleplace/go-code-refactoring-the-23x-performance-hunt-156746b522f7
+      </a>
+     </li>
+    </ul>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21615.html">
+         <img alt="Go编程模式 ： 泛型编程" height="150" src="https://coolshell.cn/wp-content/uploads/2021/09/go-generics-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21615.html">
+         Go编程模式 ： 泛型编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21263.html">
+         <img alt="Go 编程模式：k8s Visitor 模式" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21263.html">
+         Go 编程模式：k8s Visitor 模式
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21228.html">
+         <img alt="Go编程模式：Pipeline" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.line_.-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21228.html">
+         Go编程模式：Pipeline
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21214.html">
+         <img alt="Go编程模式：委托和反转控制" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.pair_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21214.html">
+         Go编程模式：委托和反转控制
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21179.html">
+         <img alt="Go 编程模式：Go Generation" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.generate-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21179.html">
+         Go 编程模式：Go Generation
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21164.html">
+         <img alt="Go编程模式：Map-Reduce" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.map_.reduce-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21164.html">
+         Go编程模式：Map-Reduce
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="12f1ace188" id="post-ratings-21128" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_21128_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21128, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_21128_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21128, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_21128_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21128, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_21128_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21128, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_21128_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(21128, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      44
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.30
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_21128_text">
+     </span>
+     <meta content="Go编程模式：切片，接口，时间和性能" itemprop="name"/>
+     <meta content="Go编程模式：切片，接口，时间和性能" itemprop="headline"/>
+     <meta content="
+
+在本篇文章中，我会对Go语言编程模式的一些基本技术和要点，这样可以让你更容易掌握Go语言编程。其中，主要包括，数组切片的一些小坑，还有接口编程，以及时间和程序运行性能相关的话题。
+
+
+
+Slice
+
+首先，我们先来讨论一下Slice，中文翻译叫“切片”，这个东西在Go语言中不是数组，而是一个结构体，其定义如下：
+
+type slice struct {
+    array unsafe.Poi..." itemprop="description"/>
+     <meta content="2020-12-18T15:36:30+08:00" itemprop="datePublished"/>
+     <meta content="2021-01-12T09:57:36+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/21128.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/21128.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.3" itemprop="ratingValue"/>
+      <meta content="44" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-21128-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/go-%e8%af%ad%e8%a8%80" rel="category tag">
+        Go 语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/go" rel="tag">
+        Go
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/golang" rel="tag">
+        golang
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

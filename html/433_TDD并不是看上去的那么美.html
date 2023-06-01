@@ -1,0 +1,596 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/3649.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="TDD并不是看上去的那么美 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/3649.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2011-02-12T00:48:16+00:00" property="article:published_time"/>
+   <meta content="2011-02-12T04:57:01+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="TDD并不是看上去的那么美 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/3649.html#article","name":"TDD\u5e76\u4e0d\u662f\u770b\u4e0a\u53bb\u7684\u90a3\u4e48\u7f8e | \u9177 \u58f3 - CoolShell","headline":"TDD\u5e76\u4e0d\u662f\u770b\u4e0a\u53bb\u7684\u90a3\u4e48\u7f8e","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2011-02-12T00:48:16+08:00","dateModified":"2011-02-12T04:57:01+08:00","inLanguage":"zh-CN","commentCount":102,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/3649.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/3649.html#webpage"},"articleSection":"\u6d41\u7a0b\u65b9\u6cd5, agile, TDD"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/3649.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/3649.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/3649.html#webpage","url":"https:\/\/coolshell.cn\/articles\/3649.html","name":"TDD\u5e76\u4e0d\u662f\u770b\u4e0a\u53bb\u7684\u90a3\u4e48\u7f8e | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/3649.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2011-02-12T00:48:16+08:00","dateModified":"2011-02-12T04:57:01+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '3649';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'TDD%E5%B9%B6%E4%B8%8D%E6%98%AF%E7%9C%8B%E4%B8%8A%E5%8E%BB%E7%9A%84%E9%82%A3%E4%B9%88%E7%BE%8E';
+	window._wp_rp_post_tags = ['agile', 'tdd', '%E6%B5%81%E7%A8%8B%E6%96%B9%E6%B3%95', 'test', 'wont', 'case', 'titl', 'good', 'write', 'driven', 'a'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/3649.html/feed" rel="alternate" title="酷 壳 - CoolShell » TDD并不是看上去的那么美评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/3649" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=3649" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F3649.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F3649.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-3649 post type-post status-publish format-standard hentry category-process tag-agile tag-tdd" id="post-3649">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     TDD并不是看上去的那么美
+    </span>
+    <h1 class="entry-title">
+     TDD并不是看上去的那么美
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/3649.html" rel="bookmark" title="08:48">
+       <time class="entry-date" datetime="2011-02-12T08:48:16+08:00" pubdate="">
+        2011年02月12日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/3649.html#comments">
+       102 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      62,538 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     春节前的一篇
+     <a href="https://coolshell.cn/articles/3609.html" title="那些炒作过度的技术和概念">
+      那些炒作过度的技术和概念
+     </a>
+     中对敏捷和中国ThoughtWorks的微辞引发了很多争议，也惊动了中国ThoughtWorks公司给我发来了邮件想来找我当面聊聊。对于Agile的Fans们，意料之中地也对我进行了很多质疑和批评。我也回复了许多评论。不过，我的那些回复都是关于中国ThoughtWorks咨询师以及其咨询的方法的。我对Agile方法论中的具体内容评价的不是很多，所以，我想不妨讨论一下Agile方法论中的具体的实践（以前本站也讨论过
+     <a href="https://coolshell.cn/articles/16.html" target="_blank">
+      结对编程的利与弊
+     </a>
+     ）。
+    </p>
+    <p>
+     那么，这次就说说TDD吧，这是ThoughtWorks中国和Agile的Fans们最喜欢的东西了。我在
+     <a href="https://coolshell.cn/articles/3609.html" target="_blank">
+      原来的那篇文章
+     </a>
+     中，我把TDD从过度炒作的技术剔除了出去，因为我还是觉得TDD有些道理的，不过，回顾我的经验，我也并不是很喜欢TDD。我这篇文章是想告诉大家，
+     <strong>
+      TDD并没有看上去的那么美，而且非常难以掌控，并且，这个方法是有悖论之处的
+     </strong>
+     。
+    </p>
+    <h4>
+     TDD简介
+    </h4>
+    <p>
+     <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">
+      TDD
+     </a>
+     全称Test Driven Development，是一种软件开发的流程，其由敏捷的“
+     <a href="https://en.wikipedia.org/wiki/Extreme_programming" target="_blank">
+      极限编程
+     </a>
+     ”引入。其开发过程是从功能需求的test case开始，先添加一个test case，然后运行所有的test case看看有没有问题，再实现test case所要测试的功能，然后再运行test case，查看是否有case失败，然后重构代码，再重复以上步骤。其理念主要是确保两件事：
+    </p>
+    <ul>
+     <li>
+      确保所有的需求都能被照顾到。
+     </li>
+     <li>
+      在代码不断增加和重构的过程中，可以检查所有的功能是否正确。
+     </li>
+    </ul>
+    <p>
+     我不否认TDD的一些有用的地方，如果我们以Test Case 开始，那么，我们就可以立刻知道我们的代码运行的情况是什么样的，这样可以让我们更早地得到我们实现思路的反馈，于是我们更会有信心去重构，去重新设计，从而可以让我们的代码更为正确。
+    </p>
+    <p>
+     不过，我想提醒的是，
+     <strong>
+      TDD和Unit Test是两码子事儿
+     </strong>
+     。有很多人可能混淆了自动化的Unit Test（如：XUnit系例）和TDD的软件开发过程。另外，可能还会有人向鼓吹“
+     <strong>
+      TDD让你进行自顶向下的设计方式
+     </strong>
+     ”，对此，请参阅本站的《
+     <a href="https://coolshell.cn/articles/1654.html" target="_blank">
+      Richard Feynman, 挑战者号, 软件工程
+     </a>
+     》——NASA的挑战者号告诉你自顶向下设计的危险性。
+    </p>
+    <h4>
+     TDD的困难之处
+    </h4>
+    <p>
+     下面是几个我认为TDD不容易掌控的地方，甚至就有些不可能（如果有某某TDD的Fans或是ThoughtWorks的咨询师和你鼓吹TDD，你可以问问他们下面这些问题）
+    </p>
+    <ul>
+     <li>
+      <strong>
+       测试范围的确定
+      </strong>
+      。TDD开发流程，一般是先写Test Case。Test Case有很多种，有Functional的，有Unit的，有Integration的……，最难的是Test Case要写成什么样的程度呢。
+      <br/>
+      <span id="more-3649">
+      </span>
+      <p style="padding-left: 30px;">
+       <ul>
+        <li style="text-align: left;">
+         如果写的太过High Level，那么，当你的Test Case 失败的时候，你不知道哪里出问题了，你得要花很多精力去debug代码。而我们希望的是其能够告诉我是哪个模块出的问题。只有High Level的Test Case，岂不就是Waterfall中的Test环节?
+        </li>
+        <li style="text-align: left;">
+         如果写的太过Low Level，那么，带来的问题是，你需要花两倍的时间来维护你的代码，一份给test case，一份给实现的功能代码。
+        </li>
+        <li style="text-align: left;">
+         另外，如果写得太Low Level，根据Agile的迭代开发来说，你的需求是易变的，很多时候，我们的需求都是开发人员自己做的Assumption。所以，你把Test Case 写得越细，将来，一旦需求或Assumption发生变化，你的维护成本也是成级数增加的。
+        </li>
+        <li style="text-align: left;">
+         当然，如果我把一个功能或模块实现好了，我当然知道Test 的Scope在哪里，我也知道我的Test Case需要写成什么样的程度。但是，
+         <strong>
+          TDD的悖论就在于，你在实现之前先把Test Case就写出来，所以，你怎么能保证你一开始的Test Case是适合于你后面的代码的
+         </strong>
+         ？不要忘了，程序员也是在开发的过程中逐渐了解需求和系统的。如果边实现边调整Test Case，为什么不在实现完后再写Test Case呢？如果是这样的话，那就不是TDD了。
+        </li>
+       </ul>
+      </p>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       关注测试而不是设计
+      </strong>
+      。这可能是TDD的一个弊端，就像《
+      <a href="https://coolshell.cn/articles/2424.html" title="十条不错的编程观点">
+       十条不错的编程观点
+      </a>
+      》中所说的一样——“Unit Test won’t help you write the good code”，在实际的操作过程中，我看到很多程序员为了赶工或是应付工作，
+      <strong>
+       导致其写的代码是为了满足测试的，而忽略了代码质量和实际需求
+      </strong>
+      。有时候，当我们重构代码或是fix bug的时候，甚至导致程序员认为只要所有的Test Case都通过了，代码就是正确的。当然，TDD的粉丝们一定会有下面的辩解：
+      <p style="padding-left: 30px;">
+       <ul>
+        <li>
+         可以通过结对编程来保证代码质量。
+        </li>
+        <li>
+         代码一开始就是需要满足功能正确，后面才是重构和调优，而TDD正好让你的重构和优化不会以牺牲功能为代价。
+        </li>
+       </ul>
+      </p>
+     </li>
+    </ul>
+    <p style="padding-left: 30px;">
+     说的没错，但仅在理论上。操作起来可能会并不会得到期望的结果。1）“结对编程”其并不能保证结对的两个人都不会以满足测试为目的，因为重构或是优化的过程中，一旦程序员看到N多的test cases 都failed了，人是会紧张的，你会不自然地去fix你的代码以让所有的test case都通过。2）另外，我不知道大家怎么编程，我一般的做法是从大局思考一下各种可行的实现方案，对于一些难点需要实际地去编程试试，最后权衡比较，挑选一个最好的方案去实现。而往往着急着去实现某一功能，通常在会导致的是返工，而后面的重构基本上因为前期考虑不足和成为了重写。所以，在实际操作过程中，你会发现，很多时候的重构通常意味着重写，因为那些”非功能性”的需求，你不得不re-design。而re-design往往意味着，你要重写很多Low-Level的Test Cases，搞得你只敢写High Level的Test Case。
+    </p>
+    <p style="padding-left: 30px;">
+     <ul>
+      <li>
+       <strong>
+        TDD导致大量的Mock和Stub
+       </strong>
+       。相信我，Test Case并不一定是那么容易的。比如，和其它团队或是系统的接口的对接，或是对实现还不是很清楚的模块，等等。于是你需要在你的代码中做很多的Mock和Stub，甚至fake一些函数来做模拟，很明显，你需要作大量的 assumption。于是，你发现管理和维护这些Mock和Stub也成了一种负担，最要命的是，那不是真正的集成测试，你的Test Case中的Mock很可能是错的，你需要重写他们。
+      </li>
+     </ul>
+     <p style="padding-left: 30px;">
+      也许，你会说，就算是不用TDD，在正常的开发过程中，我们的确需要使用Mock和Stub。没错！的确是这样的，不过，记住，我们是在实现代码后来决定什么地方放一个Mock或Stub，而不是在代码实现前干这个事的。
+     </p>
+     <ul>
+      <li>
+       <strong>
+        Test Case并没有想像中的那么简单
+       </strong>
+       。和Waterfall一样，Waterfall的每一个环节都依赖于前面那个环节的正确性，如果我们没有正确的理解需求，那么对于TDD，Test Case和我们的Code都会的错的。所以，TDD中，Test Case是开发中最重要的环节，Test Case的质量的问题会直接导致软件开发的正确和效率。
+       <strong>
+        而TW的咨询师和Agile的Fans们似乎天生就认为，TDD比Waterfall更能准确地了解需求。如果真是这样，用TDD进行需求分析，后面直接Waterfall就OK了
+       </strong>
+       。
+      </li>
+     </ul>
+     <p style="padding-left: 30px;">
+      另外，某些Test Case并不一定那么好写，你可能80%的编程时间需要花在某个Test Case的设计和实现上（比如：测试并发），然后，需求一变，你又得重写Test Case。有时候，你会发现写Test Case其实和做实际设计没有差别，你同样要考虑你Test Case的正确性，扩展性，易读性，易维护性，甚至重用性。
+      <strong>
+       如果说我们开发的Test Case是用来保证我们代码实现的正确性，那么，谁又来保证我们的Test Case的正确性呢
+      </strong>
+      ？编写Test Case也需要结对或是Code review吗？软件开发有点像长跑，如果把能量花在了前半程，后半程在发力就能难了。
+     </p>
+     <p>
+      也许，TDD真是过度炒作的，不过，我还真是见过使用TDD开发的不错的项目，只不过那个项目比较简单了。更多的情况下，我看到的是教条式的生硬的TDD，所以，不奇怪地听到了程序员们的抱怨——“自从用了TDD，工作量更大了”。当然，这也不能怪他们，TDD本来就是很难把控的方法。这里送给软件开发管理者们一句话——“
+      <strong>
+       当你的软件开发出现问题的时候，就像bug-fix一样，首要的事是找到root cause，然后再case by case的解决，千万不要因为有问题就要马上换一种新的开发方法
+      </strong>
+      ”。相信我，大多数的问题是人和管理者的问题，不是方法的问题。
+     </p>
+     <p>
+      （
+      <strong>
+       全文完，转载请注明作者和出处，请勿用于商业用途
+      </strong>
+      ）
+     </p>
+     <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+      <p align="center">
+       <strong>
+        （转载本站文章请注明作者和出处
+        <a href="https://coolshell.cn/">
+         酷 壳 – CoolShell
+        </a>
+        ，请勿用于任何商业用途）
+       </strong>
+      </p>
+     </div>
+     <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+      <div class="wp_rp_content">
+       <h3 class="related_post_title">
+        相关文章
+       </h3>
+       <ul class="related_post wp_rp">
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8209.html">
+          <img alt="“单元测试要做多细？”" height="150" src="https://coolshell.cn/wp-content/uploads/2012/09/fight-150x150.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/8209.html">
+          “单元测试要做多细？”
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5531.html">
+          <img alt="Test-Driven Development？别逗了" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/14.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/5531.html">
+          Test-Driven Development？别逗了
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5143.html">
+          <img alt="在新浪微博上关于敏捷的一些讨论" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/10.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/5143.html">
+          在新浪微博上关于敏捷的一些讨论
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4891.html">
+          <img alt="Bob大叔和Jim Coplien对TDD的论战" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/17.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/4891.html">
+          Bob大叔和Jim Coplien对TDD的论战
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3778.html">
+          <img alt="敏捷水管工" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/30.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/3778.html">
+          敏捷水管工
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3745.html">
+          <img alt="再谈敏捷和ThoughtWorks中国咨询师" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/26.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/3745.html">
+          再谈敏捷和ThoughtWorks中国咨询师
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="post-ratings" data-nonce="18a2131423" id="post-ratings-3649" itemscope="" itemtype="https://schema.org/Article">
+      <img alt="好烂啊" id="rating_3649_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(3649, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+      <img alt="有点差" id="rating_3649_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(3649, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+      <img alt="凑合看看" id="rating_3649_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(3649, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+      <img alt="还不错" id="rating_3649_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(3649, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+      <img alt="很精彩" id="rating_3649_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(3649, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+      (
+      <strong>
+       34
+      </strong>
+      人打了分，平均分：
+      <strong>
+       4.15
+      </strong>
+      )
+      <br/>
+      <span class="post-ratings-text" id="ratings_3649_text">
+      </span>
+      <meta content="TDD并不是看上去的那么美" itemprop="name"/>
+      <meta content="TDD并不是看上去的那么美" itemprop="headline"/>
+      <meta content="春节前的一篇那些炒作过度的技术和概念中对敏捷和中国ThoughtWorks的微辞引发了很多争议，也惊动了中国ThoughtWorks公司给我发来了邮件想来找我当面聊聊。对于Agile的Fans们，意料之中地也对我进行了很多质疑和批评。我也回复了许多评论。不过，我的那些回复都是关于中国ThoughtWorks咨询师以及其咨询的方法的。我对Agile方法论中的具体内容评价的不是很多，所以，我想不妨讨论..." itemprop="description"/>
+      <meta content="2011-02-12T08:48:16+08:00" itemprop="datePublished"/>
+      <meta content="2011-02-12T12:57:01+08:00" itemprop="dateModified"/>
+      <meta content="https://coolshell.cn/articles/3649.html" itemprop="url"/>
+      <meta content="陈皓" itemprop="author"/>
+      <meta content="https://coolshell.cn/articles/3649.html" itemprop="mainEntityOfPage"/>
+      <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+       <meta content="酷 壳 - CoolShell" itemprop="name"/>
+       <meta content="https://coolshell.cn" itemprop="url"/>
+       <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+        <meta content="" itemprop="url"/>
+       </div>
+      </div>
+      <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+       <meta content="5" itemprop="bestRating"/>
+       <meta content="1" itemprop="worstRating"/>
+       <meta content="4.15" itemprop="ratingValue"/>
+       <meta content="34" itemprop="ratingCount"/>
+      </div>
+     </div>
+     <div class="post-ratings-loading" id="post-ratings-3649-loading">
+      <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+      Loading...
+     </div>
+    </p>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/process" rel="category tag">
+        流程方法
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/agile" rel="tag">
+        agile
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/tdd" rel="tag">
+        TDD
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

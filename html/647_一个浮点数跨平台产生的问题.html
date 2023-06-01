@@ -1,0 +1,811 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/11235.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="一个浮点数跨平台产生的问题 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/11235.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="一个浮点数跨平台产生的问题 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/11235.html#article","name":"\u4e00\u4e2a\u6d6e\u70b9\u6570\u8de8\u5e73\u53f0\u4ea7\u751f\u7684\u95ee\u9898 | \u9177 \u58f3 - CoolShell","headline":"\u4e00\u4e2a\u6d6e\u70b9\u6570\u8de8\u5e73\u53f0\u4ea7\u751f\u7684\u95ee\u9898","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/tanglei-name#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2014-03-15T12:44:24+08:00","dateModified":"2014-03-17T00:56:54+08:00","inLanguage":"zh-CN","commentCount":25,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/11235.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/11235.html#webpage"},"articleSection":".NET\u7f16\u7a0b, C\/C++\u8bed\u8a00, .NET, C++, float, FPU, SSE"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/11235.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/tanglei-name#author","url":"https:\/\/coolshell.cn\/articles\/author\/tanglei-name","name":"tanglei.name","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/11235.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/57f7d69a4ffb3b4318541931823a7abb?s=96&d=mm&r=g","width":96,"height":96,"caption":"tanglei.name"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/11235.html#webpage","url":"https:\/\/coolshell.cn\/articles\/11235.html","name":"\u4e00\u4e2a\u6d6e\u70b9\u6570\u8de8\u5e73\u53f0\u4ea7\u751f\u7684\u95ee\u9898 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/11235.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/tanglei-name#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/tanglei-name#author"},"datePublished":"2014-03-15T12:44:24+08:00","dateModified":"2014-03-17T00:56:54+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '11235';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E4%B8%80%E4%B8%AA%E6%B5%AE%E7%82%B9%E6%95%B0%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%A7%E7%94%9F%E7%9A%84%E9%97%AE%E9%A2%98';
+	window._wp_rp_post_tags = ['.net', 'fpu', 'c%2B%2B', 'sse', 'float', '.net%E7%BC%96%E7%A8%8B', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', 'main', '6', '69', 'cento', '32', 'float', 'return', 'doubl', '64', 'ubuntu'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/11235.html/feed" rel="alternate" title="酷 壳 - CoolShell » 一个浮点数跨平台产生的问题评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/11235" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=11235" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11235.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11235.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-11235 post type-post status-publish format-standard hentry category-dotnet category-cplusplus tag-net tag-c tag-float tag-fpu tag-sse" id="post-11235">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     一个浮点数跨平台产生的问题
+    </span>
+    <h1 class="entry-title">
+     一个浮点数跨平台产生的问题
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/11235.html" rel="bookmark" title="20:44">
+       <time class="entry-date" datetime="2014-03-15T20:44:24+08:00" pubdate="">
+        2014年03月15日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/tanglei-name" rel="author" title="View all posts by tanglei.name">
+         tanglei.name
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/11235.html#comments">
+       25 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      35,216 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      感谢网友
+      <a href="http://www.tanglei.name/" target="_blank">
+       唐磊
+      </a>
+      （微博@
+      <a href="http://weibo.com/tangleithu?from=feed&amp;loc=nickname" title="唐磊_name">
+       唐磊_name
+      </a>
+      ）投稿，本文原文在唐磊的博客上（
+      <a href="http://www.tanglei.name/a-bug-relate-with-float-point-between-x86-and-x64-in-csharp/">
+       原文地址
+      </a>
+      ），原文分析还不够好，而且可能对人有误导，所以，我对原文做了很多修改，并加了Linux下的内容。浮点数是一个很复杂的事情，希望这篇文章有助于大家了解浮点数与其相关的C/C++的编译选项。
+     </strong>
+     （注：我没有Windows 32位以及C#的环境，所以，对于Windows 32位的程序和C#的程序没有验证过）
+    </p>
+    <p>
+     背景就简单点儿说，最近一个项目C#编写，涉及浮点运算，来龙去脉省去，直接看如下代码。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="csharp">float p3x = 80838.0f;
+float p2y = -2499.0f;
+double v321 = p3x * p2y;
+Console.WriteLine(v321);</pre>
+    <p>
+     很简单吧，马上笔算下结果为-202014162，没问题，难道C#没有产生这样的结果？不可能吧，开启Visual Studio，copy代码试试，果然结果是-202014162。就这样完了么？显然没有！你把编译时的选项从AnyCPU改成x64试试~(服务器环境正是64位滴哦！！)结果居然边成了-202014160，对没错，就是-202014160。有点不相信，再跑两遍，仍然是-202014160。呃，想通了，因为浮点运算的误差，-202014160这个结果是合理的。
+    </p>
+    <p>
+     为什么合理呢？很正常，因为上面的p3x和p2y是两个float类型，虽然v321是double，但也是两个float类型计算完后再转成double的，
+     <strong>
+      float的精度本来也只有7位，所以，对于这个上亿的数，自然没有办法保证精度
+     </strong>
+     。
+    </p>
+    <p>
+     <strong>
+      但是为什么修改CPU的type会有不同的效果？
+     </strong>
+     嗯，我们再试试C/C++。
+    </p>
+    <p>
+     <span id="more-11235">
+     </span>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include
+using namespace std;
+
+int main()
+{
+    float p3x = 80838.0f;
+    float p2y = -2499.0f;
+    double v321 = p3x * p2y;
+    std::cout.precision(15);
+    std::cout &lt;&lt; v321 &lt;&lt; std::endl;
+
+    return 0;
+}
+</pre>
+    <p>
+     上面这段C++代码在不同的平台下的结果如下：
+    </p>
+    <ul>
+     <li>
+      Windows 32/64位下：-202014160
+     </li>
+     <li>
+      Linux 64位下（CentOS 6 gcc 4.4.7）-202014160，
+     </li>
+     <li>
+      Linux 32位下（Ubuntu 12.04+ gcc 4.6.3）是：-202014162
+     </li>
+    </ul>
+    <p>
+     <strong>
+      合理的结果应该是-202014160，正确的运算结果是-202014162
+     </strong>
+     ，合理性是浮点精度不够造成的（文后解释了合理性）。若是用两个double相乘可得正确且合理的运算结果（注：把上面C++的程序中的p3x和p2y的类型声明成double，就能得到正确的结果，因为double是双精度的，float是单精度，所以double有足够的位数存放更多的数位）。
+     <strong>
+      但是我们有点不明白，为什么Linux 32位下，居然能算出“正确”的数，而不是“合理”的数
+     </strong>
+     。
+    </p>
+    <p>
+     与C++一样，C#在32位和64位（DEBUG下，这个后面会说）下没有得到一致的结果，那我们来看一下C++/C#的汇编代码（使用gdb的disassemble /m main 命令，另外下面只显示 float * float 然后转成double的那一行代码的汇编）
+    </p>
+    <p>
+     <strong>
+      Linux平台下用G++编译
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//C++ 32位系统下 Ubuntu 12.04
+8	    double v321 = p3x * p2y;
+   0x0804860f &lt;+27&gt;:	flds   0x18(%esp)
+   0x08048613 &lt;+31&gt;:	fmuls  0x1c(%esp)
+   0x08048617 &lt;+35&gt;:	fstpl  0x10(%esp)
+
+.......</pre>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//C++ 64位系统下 CentOS 6
+9           double v321 = p3x * p2y;
+   0x000000000040083c &lt;+24&gt;:    movss  -0x20(%rbp),%xmm0
+   0x0000000000400841 &lt;+29&gt;:    mulss  -0x1c(%rbp),%xmm0
+   0x0000000000400846 &lt;+34&gt;:    unpcklps %xmm0,%xmm0
+   0x0000000000400849 &lt;+37&gt;:    cvtps2pd %xmm0,%xmm0
+   0x000000000040084c &lt;+40&gt;:    movsd  %xmm0,-0x18(%rbp)</pre>
+    <p>
+     <strong>
+      Windows平台下用Visual Studio编译
+     </strong>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//C# AnyCPU编译，Windows VS2012
+double v321 = p3x * p2y;
+00000049  fld         dword ptr [ebp-40h]
+0000004c  fmul        dword ptr [ebp-44h]
+0000004f  fstp        qword ptr [ebp-4Ch]</pre>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//C# X64位编译 Windows7 VS2012
+double v321 = p3x * p2y;&lt;/pre&gt;
+009B43B8 movss xmm0,dword ptr [p3x]
+009B43BD mulss xmm0,dword ptr [p2y]
+009B43C2 cvtss2sd xmm0,xmm0
+009B43C6 movsd mmword ptr [v321],xmm0</pre>
+    <p>
+     从上面的汇编代码可以看出，无论是Linux和Windows，C++或C# 32位和64对浮点数的汇编指令并不一样。 32位生成代码用的指令是fld/fmul/fstp等，而64位下的使用了movss/mulss/movsd/的指令。看下来，似乎这个事情和平台有关系。
+    </p>
+    <p>
+     我们继续调查，我们发现，其中fld/fmul/fstp等指令是由
+     <strong>
+      FPU
+     </strong>
+     (float point unit)浮点运算处理器做的，准确的说，是FPU x87指令，FPU在进行浮点运算时，用了
+     <strong>
+      80位
+     </strong>
+     的寄存器做相关浮点运算，然后再根据是float/double截取成32位或64位，FPU默认上会尽量减少由于需要四舍五入带来的精度问题。可参看浮点运算标准
+     <a href="https://en.wikipedia.org/wiki/IEEE_floating_point" target="_blank">
+      IEEE-754
+     </a>
+     推荐标准实现者提供浮点可扩展精度格式(
+     <a href="https://en.wikipedia.org/wiki/Extended_precision" target="_blank">
+      Extended precision
+     </a>
+     )，Intel x86处理器有FPU(float point unit)浮点运算处理器支持这种扩展。
+    </p>
+    <p>
+     非FPU的情况是用了SSE中128位寄存器(float实际只用了其中的32位，计算时也是以32位计算的)，这就是导致上述问题产生的最终原因。详细分析见文末说明。
+    </p>
+    <p>
+     知道了这一点，我们可以man g++ 看一下文档，我们可以找到一个编译选项叫：
+     <strong>
+      -mfpmath，在32位下，这个编译选项的默认值是：387，也就是x87 FPU指令，在64位下，这个编译选项的值是sse，也就是使用SSE的指令
+     </strong>
+     。所以，就这篇文章中的这个例子而言，如果你在64bits下加上如 -mfpmath=387，你会得到“正确的”结果，而不是“合理的”结果。
+    </p>
+    <p>
+     而在VS2012中C++，
+     <a href="http://msdn.microsoft.com/zh-cn/library/vstudio/e7s85ffb(v=vs.110).aspx" target="_blank">
+      编译选项可以设置(代码生成中)
+     </a>
+     可选，/fp:[precise | fast | strict]，本例中Release 32位下用precise 或者 strict将得到合理的结果(-202014160)，fast将产生正确的结果(-202014162), fast debug/release下结果也不一样哦(release下才优化了)。64系统下各个结果可以大家自己去测试下(Debug/Release)，分别看看VS编译后产生的中间代码长什么样。（陈皓注：我的VS2012在debug编译下，无论你怎么设置/fp的参数值，汇编都是一样的，使用SSE指令，而Release就不一样了，但是我的release下看代码的汇编非常怪异和源代码对上号，多年不用Windows开发了，对VS的使用仅停留在VC6++/VC2005上）
+    </p>
+    <p>
+     所以，我们在从x87 FPU指令向SSE指令做代码移植的时候，我们可能会遇到向这样的浮点数的精度问题，这个精度问题会多次科学计算中会更糟糕。
+     <strong>
+      这个问题并不简单的只是在32位和64位中的系统出算，这个问题主要还是看语言编译器的实现
+     </strong>
+     。在更为高级的语言中，如：C99或Fortran 2003中，引入了“long double”来做可扩展双精度（Extension Double），这样就可以消除更多的精度问题。
+    </p>
+    <p>
+     下面我们把程序改成long double，（注：其中的类型变成long double）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include
+using namespace std;
+
+int main()
+{
+    long double p3x = 80838.0;
+    long double p2y = -2499.0;
+    long double v321 = p3x * p2y;
+    std::cout.precision(15);
+    std::cout &lt;&lt; v321 &lt;&lt; std::endl;
+
+    return 0;
+}</pre>
+    <p>
+     用gdb的disassemble /m main你会看到其中的运算的汇编如下（使用了fmlp指令）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//linux 32位系统
+8	    long double v321 = p3x * p2y;
+   0x08048633 &lt;+63&gt;:	fldt   0x10(%esp)
+   0x08048637 &lt;+67&gt;:	fldt   0x20(%esp)
+   0x0804863b &lt;+71&gt;:	fmulp  %st,%st(1)
+   0x0804863d &lt;+73&gt;:	fstpt  0x30(%esp)
+</pre>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">//linux 64位系统
+8           long double v321 = p3x * p2y;
+   0x0000000000400818 &lt;+52&gt;:    fldt   -0x30(%rbp)
+   0x000000000040081b &lt;+55&gt;:    fldt   -0x20(%rbp)
+   0x000000000040081e &lt;+58&gt;:    fmulp  %st,%st(1)
+   0x0000000000400820 &lt;+60&gt;:    fstpt  -0x10(%rbp)
+</pre>
+    <p>
+     <span style="line-height: 1.5em;">
+      我们可以看到，32位系统和64位系统使用了同样的汇编指令（当然，我没有那么多物理机，我只是在VMWare Play的虚拟机上测试的，所以上面的示例并不一定适用于所有的地方，另外，C/C++语言和编译器和平台有非常大的关系） ，原因自然是我们用到了long double这个扩展双精度的数据类型。（注：如果你用double或float，在Linux上，32位用x87 FPU 指令编译，而64位用SSE指令编译）
+     </span>
+    </p>
+    <p>
+     好了，我们再回到C#上来，
+     <span style="line-height: 1.5em;">
+      C#的浮点是支持该标准的，其中
+     </span>
+     <a href="http://msdn.microsoft.com/en-us/library/aa691146(v=vs.71).aspx" style="line-height: 1.5em;">
+      其官方文档
+     </a>
+     <span style="line-height: 1.5em;">
+      也提到了浮点运算可能会产生比返回类型更高精度的值（正如上面的返回值精度就超过了float的精度），并说明如果硬件支持可扩展浮点精度的话，那么
+     </span>
+     <strong style="line-height: 1.5em;">
+      所有的
+     </strong>
+     <span style="line-height: 1.5em;">
+      浮点运算都将用此精度进行以提高效率，举个例子x*y/z, x*y的值可能都在double的能力范围之外了，但真实情况可能除以z后又能把结果拉回到double范围内，这样的话，用了FPU的结果就会得到一个准确的double值，而非FPU的就是无穷大之类的了。
+     </span>
+    </p>
+    <p>
+     <span style="line-height: 1.5em;">
+      所以，对于
+     </span>
+     C#来说，你显然无法找到一个像C/C++一样的利用编译器选项的来解决这个问题的“解决方案”（其实，用编译器参数是一个伪解决方案）
+     <span style="line-height: 1.5em;">
+      。
+     </span>
+    </p>
+    <p>
+     <span style="line-height: 1.5em;">
+      <strong>
+       而且，要解决这个问题也不是要修改编译器选项，因为这个问题明显不是FPU或是SSE的问题，FPU是个过时的技术，SSE才是合理的技术，所以，
+       <span style="color: #cc0000;">
+        如果你不想你的浮点数在计算上有什么问题，而且你需要精度准确，正确的解决方案不是搞编译参数，而是——你一定要使用精度更高字节数更多的数据类型，比如：double 或是long double
+       </span>
+       。
+      </strong>
+     </span>
+    </p>
+    <p>
+     另外，大家在写代码的时候得保证实际运行环境/测试环境/开发环境的
+     <strong>
+      一致性(包括OS架构啊、编译选项等)
+     </strong>
+     啊（
+     <strong>
+      尤其是C/C++ 而且，编译器上的参数可能会有很多坑，而且有些坑可能会掩盖你程序中的问题
+     </strong>
+     ），不然莫名其妙的问题会产生（本文就是开发环境与运行环境不一致导致的问题，纠结了好久才发现是这个原因）；遇到涉及浮点运算的时候别忘了有可能是这个原因产生的；
+     <strong>
+      float/double混用的情况得特别注意
+     </strong>
+     。
+    </p>
+    <p>
+     <strong>
+      Reference：
+     </strong>
+    </p>
+    <p>
+     [1]
+     <a href="http://msdn.microsoft.com/en-us/library/aa691146(v=vs.71).aspx">
+      C# Language Specification Floating point types
+     </a>
+     <br/>
+     [2]
+     <a href="http://stackoverflow.com/questions/6683059/are-floating-point-numbers-consistent-in-c-can-they-be">
+      Are floating-point numbers consistent in C#? Can they be?
+     </a>
+     <br/>
+     [3]
+     <a href="http://www.plantation-productions.com/Webster/www.artofasm.com/Linux/HTML/RealArithmetica2.html">
+      The FPU Instruction Set
+     </a>
+    </p>
+    <h4>
+     <strong>
+      附录
+     </strong>
+    </h4>
+    <h5>
+     <strong>
+      80838.0f * -2499.0f = -202014160.0浮点运算过程的说明
+     </strong>
+    </h5>
+    <p>
+     32位浮点数在计算机中的表示方式为：1位符号位(s)-8位指数位(E)-23位有效数字(M)。
+     <br/>
+     32位Float = (-1)^s * (1+m) * 2^(e-127), 其中e是实际转换成1.xxxxx*2^e的指数,m是前面的xxxxx(节约1位)
+    </p>
+    <p>
+     80838.0f = 1 0011 1011 1100 0110.0= 1.00111011110001100*2^16
+     <br/>
+     有效位M = 0011 1011 1100 0110 0000 000
+     <br/>
+     指数位E = 16 + 127 = 143 =  10001111
+     <br/>
+     内部表示 80838.0 =  0 [1000 1111] [0011 1011 1100 0110 0000 000]
+     <br/>
+     = 0100 0111 1001 1101 1110 0011 0000 0000
+     <br/>
+     = 47 9d e3 00 //实际调试时看到的内存值 可能是00 e3 9d 47是因为调试环境用了小端表示法法：低位字节排内存低地址端，高位排内存高地址
+    </p>
+    <p>
+     -2499.0 = -100111000011.0 = -1.001110000110 * 2^11
+     <br/>
+     有效位M = 0011 1000 0110 0000 0000 000
+     <br/>
+     指数位E = 11+127=138= 10001010
+     <br/>
+     符号位s = 1
+     <br/>
+     内部表示-2499.0 = 1 [10001010] [0011 1000 0110 0000 0000 000]
+     <br/>
+     =1100 0101 0001 1100 0011 0000 0000 0000
+     <br/>
+     =c5 1c 30 00
+    </p>
+    <p>
+     80838.0 * -2499.0 = ?
+    </p>
+    <p>
+     首先是指数 e = 11+16 = 27
+     <br/>
+     指数位E = e + 127 = 154 = 10011010
+     <br/>
+     有效位相乘结果为 1.1000 0001 0100 1111 1011 1010 01 //可以自己动手实际算下
+     <br/>
+     实际中只能有23位，后面的被截断即1000 0001 0100 1111 1011 101
+     <span style="text-decoration: line-through;">
+      0 01
+     </span>
+     <br/>
+     相乘结果内部表示=1[10011010][1000 0001 0100 1111 1011 101]
+     <br/>
+     = 1100 1101 0100 0000 1010 0111 1101 1101
+     <br/>
+     = cd 40 a7 dd
+    </p>
+    <p>
+     结果 =  -1.1000 0001 0100 1111 1011 101 *2^27
+     <br/>
+     =  -11000 0001 0100 1111 1011 1010000
+     <br/>
+     =  -202014160
+     <br/>
+     再转成double后还是-202014160.
+    </p>
+    <p>
+     如果是FPU的话，上面的有效位结果不会被截断，即
+     <br/>
+     FPU结果 = -1.1000 0001 0100 1111 1011 101
+     <strong>
+      001
+     </strong>
+     *2^27
+     <br/>
+     = -11000 0001 0100 1111 1011 101
+     <strong>
+      001
+     </strong>
+     0
+     <br/>
+     = -202014162
+    </p>
+    <p>
+     全文完，若本文有纰漏之处欢迎指正。
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3008.html">
+         <img alt="Windows编程革命简史" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/10.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3008.html">
+         Windows编程革命简史
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2672.html">
+         <img alt=".NET代码转换器" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/0.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2672.html">
+         .NET代码转换器
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/20845.html">
+         <img alt="Rust语言的编程范式" height="150" src="https://coolshell.cn/wp-content/uploads/2020/03/rust-social-wide-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/20845.html">
+         Rust语言的编程范式
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12052.html">
+         <img alt="Leetcode 编程训练" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12052.html">
+         Leetcode 编程训练
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="7b356b0751" id="post-ratings-11235" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_11235_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.6, 4, 0);" onmouseover="current_rating(11235, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_11235_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.6, 4, 0);" onmouseover="current_rating(11235, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_11235_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.6, 4, 0);" onmouseover="current_rating(11235, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_11235_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.6, 4, 0);" onmouseover="current_rating(11235, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_11235_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.6, 4, 0);" onmouseover="current_rating(11235, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      19
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.63
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_11235_text">
+     </span>
+     <meta content="一个浮点数跨平台产生的问题" itemprop="name"/>
+     <meta content="一个浮点数跨平台产生的问题" itemprop="headline"/>
+     <meta content="感谢网友唐磊（微博@唐磊_name）投稿，本文原文在唐磊的博客上（原文地址），原文分析还不够好，而且可能对人有误导，所以，我对原文做了很多修改，并加了Linux下的内容。浮点数是一个很复杂的事情，希望这篇文章有助于大家了解浮点数与其相关的C/C++的编译选项。（注：我没有Windows 32位以及C#的环境，所以，对于Windows 32位的程序和C#的程序没有验证过）
+
+背景就简单点儿说，最..." itemprop="description"/>
+     <meta content="2014-03-15T20:44:24+08:00" itemprop="datePublished"/>
+     <meta content="2014-03-17T08:56:54+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/11235.html" itemprop="url"/>
+     <meta content="tanglei.name" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/11235.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.63" itemprop="ratingValue"/>
+      <meta content="19" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-11235-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/dotnet" rel="category tag">
+        .NET编程
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/net" rel="tag">
+        .NET
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/float" rel="tag">
+        float
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/fpu" rel="tag">
+        FPU
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/sse" rel="tag">
+        SSE
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

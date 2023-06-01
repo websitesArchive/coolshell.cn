@@ -1,0 +1,1001 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/17459.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="关于高可用的系统 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/17459.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK.png" property="og:image:secure_url"/>
+   <meta content="1000" property="og:image:width"/>
+   <meta content="1000" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="关于高可用的系统 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/17459.html#article","name":"\u5173\u4e8e\u9ad8\u53ef\u7528\u7684\u7cfb\u7edf | \u9177 \u58f3 - CoolShell","headline":"\u5173\u4e8e\u9ad8\u53ef\u7528\u7684\u7cfb\u7edf","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2016\/08\/HighAvailability-BK.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":1000,"height":1000},"datePublished":"2016-08-21T04:34:53+08:00","dateModified":"2016-08-21T08:48:08+08:00","inLanguage":"zh-CN","commentCount":87,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/17459.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/17459.html#webpage"},"articleSection":"\u6280\u672f\u7ba1\u7406, \u7a0b\u5e8f\u8bbe\u8ba1, \u7cfb\u7edf\u67b6\u6784, Design, High Availability, Paxos, Programmer, \u5206\u5e03\u5f0f, \u7a0b\u5e8f\u5458"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/17459.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/17459.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/17459.html#webpage","url":"https:\/\/coolshell.cn\/articles\/17459.html","name":"\u5173\u4e8e\u9ad8\u53ef\u7528\u7684\u7cfb\u7edf | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/17459.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2016-08-21T04:34:53+08:00","dateModified":"2016-08-21T08:48:08+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '17459';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E5%85%B3%E4%BA%8E%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F';
+	window._wp_rp_post_tags = ['%E5%88%86%E5%B8%83%E5%BC%8F', 'high+availability', 'programmer', '%E7%A8%8B%E5%BA%8F%E5%91%98', 'design', 'paxos', '%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86', '%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'level', 'a', 'lia', 'ap', 'li', 'area', 'concept', 'review', 'titl', 'high', 'datacent', 'node', 'data', 'lili'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/17459.html/feed" rel="alternate" title="酷 壳 - CoolShell » 关于高可用的系统评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/17459" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=17459" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F17459.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F17459.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-17459 post type-post status-publish format-standard hentry category-550 category-progdesign category-602 tag-design tag-high-availability tag-paxos tag-programmer tag-704 tag-58" id="post-17459">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     关于高可用的系统
+    </span>
+    <h1 class="entry-title">
+     关于高可用的系统
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/17459.html" rel="bookmark" title="12:34">
+       <time class="entry-date" datetime="2016-08-21T12:34:53+08:00" pubdate="">
+        2016年08月21日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/17459.html#comments">
+       87 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      148,760 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="HighAvailability-BK" class="alignright size-medium wp-image-17475" decoding="async" height="300" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-300x300.png" srcset="https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-300x300.png 300w, https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-150x150.png 150w, https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-768x768.png 768w, https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-200x200.png 200w, https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK-270x270.png 270w, https://coolshell.cn/wp-content/uploads/2016/08/HighAvailability-BK.png 1000w" width="300"/>
+     在《
+     <a href="https://coolshell.cn/articles/17446.html" target="_blank">
+      这多年来我一直在钻研的技术
+     </a>
+     》这篇文章中，我讲述了一下，我这么多年来一直在关注的技术领域，其中我多次提到了工业级的软件，我还以为有很多人会问我怎么定义工业级？以及一个高可用性的软件系统应该要怎么干出来？这样我也可以顺理成章的写下这篇文章，但是没有人问，那么，我只好厚颜无耻的自己写下这篇文章了。哈哈。
+    </p>
+    <p>
+     另外，我在一些讨论高可用系统的地方看到大家只讨论各个公司的技术方案，
+     <strong>
+      其实，高可用的系统并不简单的是技术方案，一个高可用的系统其实还包括很多别的东西，所以，我觉得大家对高可用的系统了解的还不全面，为了让大家的认识更全面，所以，我写下这篇文章
+     </strong>
+     。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E7%90%86%E8%A7%A3%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F" title="理解高可用系统">
+         理解高可用系统
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" title="高可用系统的技术解决方案">
+         高可用系统的技术解决方案
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E7%9A%84%E7%A4%BA%E4%BE%8B" title="高可用技术方案的示例">
+         高可用技术方案的示例
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84SLA%E7%9A%84%E5%AE%9A%E4%B9%89" title="高可用性的SLA的定义">
+         高可用性的SLA的定义
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E5%BD%B1%E5%93%8D%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%E5%9B%A0%E7%B4%A0" title="影响高可用的因素">
+         影响高可用的因素
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-6" href="#%E6%97%A0%E8%AE%A1%E5%88%92%E7%9A%84%E5%AE%95%E6%9C%BA%E5%8E%9F%E5%9B%A0" title="无计划的宕机原因">
+           无计划的宕机原因
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#%E6%9C%89%E8%AE%A1%E5%88%92%E7%9A%84%E5%AE%95%E6%9C%BA%E5%8E%9F%E5%9B%A0" title="有计划的宕机原因">
+           有计划的宕机原因
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-8" href="#%E7%9C%9F%E6%AD%A3%E5%86%B3%E5%AE%9A%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8E%9F%E5%9B%A0" title="真正决定高可用系统的本质原因">
+         真正决定高可用系统的本质原因
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-9" href="#%E5%85%B6%E5%AE%83" title="其它">
+         其它
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E7%90%86%E8%A7%A3%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F">
+     </span>
+     理解高可用系统
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先，我们需要理解什么是高可用，英文叫High Availability（
+     <a href="https://en.wikipedia.org/wiki/High_availability">
+      Wikipedia词条
+     </a>
+     ），基本上来说，就是要让我们的计算环境（包括软硬件）做到full-time的可用性。在设计上一般来说，需要做好如下的设计：
+    </p>
+    <p>
+     <span id="more-17459">
+     </span>
+    </p>
+    <ol>
+     <li>
+      对软硬件的冗余，以消除单点故障。任何系统都会有一个或多个冗余系统做standby
+     </li>
+     <li>
+      对故障的检测和恢复。检测故障以及用备份的结点接管故障点。这也就是failover
+     </li>
+     <li>
+      需要很可靠的交汇点（CrossOver）。这是一些不容易冗余的结点，比如域名解析，负载均衡器等。
+     </li>
+    </ol>
+    <p>
+     听起似乎很简单吧，然而不是，细节之处全是魔鬼，冗余结点最大的难题就是对于有状态的结点的数据复制和数据一致性的保证（无状态结点的冗余相对比较简单）。冗余数据所带来的一致性问题是魔鬼中的魔鬼：
+    </p>
+    <ul>
+     <li>
+      如果系统的数据镜像到冗余结点是异步的，那么在failover的时候就会出现数据差异的情况。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      如果系统在数据镜像到冗余结点是同步的，那么就会导致冗余结点越多性能越慢。
+     </li>
+    </ul>
+    <p>
+     所以，很多高可用系统都是在做各种取舍，这需要比对着业务的特点来的，比如银行账号的余额是一个状态型的数据，那么，冗余时就必需做到强一致性，再比如说，订单记录属于追加性的数据，那么在failover的时候，就可以到备机上进行追加，这样就比较简单了（阿里目前所谓的异地双活其实根本做不到状态型数据的双活）。
+    </p>
+    <p>
+     下面，总结一下高可用的设计原理：
+    </p>
+    <ul>
+     <li>
+      要做到数据不丢，就必需要持久化
+     </li>
+     <li>
+      要做到服务高可用，就必需要有备用（复本），无论是应用结点还是数据结点
+     </li>
+     <li>
+      要做到复制，就会有数据一致性的问题。
+     </li>
+     <li>
+      我们不可能做到100%的高可用，也就是说，我们能做到几个9个的SLA。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">
+     </span>
+     高可用系统的技术解决方案
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我在《
+     <a href="https://coolshell.cn/articles/10910.html" target="_blank">
+      分布式系统的事务处理
+     </a>
+     》中引用过下面这个图：这个图来自来自：Google App Engine的co-founder Ryan Barrett在2009年的Google I/O上的演讲《
+     <a href="http://snarfed.org/transactions_across_datacenters_io.html" target="_blank">
+      Transaction Across DataCenter
+     </a>
+     》（视频：
+     <a href="https://www.youtube.com/watch?v=srOgpXECblk" target="_blank" title="阿里旺旺无法确定该链接的安全性">
+      http://www.youtube.com/watch?v=srOgpXECblk
+     </a>
+     ）
+    </p>
+    <p>
+     <img alt="Transaction Across DataCenter" class="size-full wp-image-10942 aligncenter" decoding="async" height="255" loading="lazy" sizes="(max-width: 566px) 100vw, 566px" src="https://coolshell.cn/wp-content/uploads/2014/01/Transaction-Across-DataCenter.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/01/Transaction-Across-DataCenter.jpg 566w, https://coolshell.cn/wp-content/uploads/2014/01/Transaction-Across-DataCenter-300x135.jpg 300w" width="566"/>
+    </p>
+    <p>
+     这个图基本上来说是目前高可用系统中能看得到的所有的解决方案的基础了。M/S、MM实现起来不难，但是会有很多问题，2PC的问题就是性能不行，而Paxos的问题就是太复杂，实现难度太大。
+    </p>
+    <p>
+     总结一下各个高可用方案的的问题：
+    </p>
+    <ul>
+     <li>
+      对于最终一致性来说，在宕机的情况下，会出现数据没有完全同步完成，会出现数据差异性。
+     </li>
+     <li>
+      对于强一致性来说，要么使用性能比较慢的
+      <a href="https://en.wikipedia.org/wiki/X/Open_XA">
+       XA系
+      </a>
+      的两阶段提交的方案，要么使用性能比较好，但是实现比较复杂的Paxos协议。
+     </li>
+    </ul>
+    <p>
+     注：这是软件方面的方案。当然，也可以使用造价比较高的硬件解决方案，不过本文不涉及硬件解决方案。
+    </p>
+    <p>
+     另外，现今开源软件中，很多缓存，消息中间件或数据库都有持久化和Replication的设计，从而也都有高可用解决方案，但是开源软件一般都没有比较高的SLA，所以，如果我们使用开源软件的话，需要注意这一点。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%AB%98%E5%8F%AF%E7%94%A8%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E7%9A%84%E7%A4%BA%E4%BE%8B">
+     </span>
+     高可用技术方案的示例
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面，我们来看一下MySQL的高可用的方案的SLA（下图下面红色的标识表示了这个方案有几个9）：
+    </p>
+    <p>
+     <a href="http://www.slideshare.net/andrewjamesmorgan/mysql-high-availability-solutions-feb-2015-webinar">
+      <img alt="mysql-high-availability-solutions-feb-2015-webinar-9-638" class="aligncenter size-full wp-image-17461" decoding="async" height="359" loading="lazy" sizes="(max-width: 638px) 100vw, 638px" src="https://coolshell.cn/wp-content/uploads/2016/08/mysql-high-availability-solutions-feb-2015-webinar-9-638.jpg" srcset="https://coolshell.cn/wp-content/uploads/2016/08/mysql-high-availability-solutions-feb-2015-webinar-9-638.jpg 638w, https://coolshell.cn/wp-content/uploads/2016/08/mysql-high-availability-solutions-feb-2015-webinar-9-638-300x169.jpg 300w" width="638"/>
+     </a>
+    </p>
+    <p style="text-align: center;">
+     图片来源：
+     <a href="http://www.slideshare.net/andrewjamesmorgan/mysql-high-availability-solutions-feb-2015-webinar">
+      MySQL High Availability Solutions
+     </a>
+    </p>
+    <p>
+     简单解释一下MySQL的这几个方案（主要是想表达一个越多的9就越复杂）
+    </p>
+    <ul>
+     <li>
+      MySQL Repleaction就是传统的异步数据同步或是半同步Semi-Sync（只要有一个slave收到更新就返回成功）这个方式本质上不到2个9。
+     </li>
+     <li>
+      MySQL Fabric简单来说就是数据分片下的M/S的读写分离模式。这个方案的的可用性可以达到99%
+     </li>
+     <li>
+      DRBD通过底层的磁盘同步技术来解决数据同步的问题，就是RAID 1——把两台以上的主机的硬盘镜像成一个。这个方案不到3个9
+     </li>
+     <li>
+      Solaris Clustering/Oracle VM ，这个机制监控了包括硬件、操作系统、网络和数据库。这个方案一般会伴随着节点间的“心跳机制”，而且还会动用到SAN（Storage Area Network）或是本地的分布式存储系统，还会动用虚拟化技术来做虚拟机的迁移以降低宕机时间的概率。这个解决方案完全就是一个“全栈式的解决方案”。这个方案接近4个9。
+     </li>
+     <li>
+      MySQL Cluster是官方的一个开源方案，其把MySQL的集群分成SQL Node 和Data Node，Data Node是一个自动化sharing和复制的集群NDB，为了更高的可用性，MySQL Cluster采用了“完全同步”的数据复制的机制来冗余数据结点。这个方案接近5个9。
+     </li>
+    </ul>
+    <p>
+     那么，这些2个9，3个9，4个9，5个9是什么意思呢？又是怎么来的呢？请往下看。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84SLA%E7%9A%84%E5%AE%9A%E4%B9%89">
+     </span>
+     高可用性的SLA的定义
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <strong>
+      上面那些都不是本文的重点，本文的重点现在开始，如何测量系统的高可用性
+     </strong>
+     。当然是SLA，全称
+     <a href="https://en.wikipedia.org/wiki/Service-level_agreement" target="_blank">
+      Service Level Agrement
+     </a>
+     ，也就是有几个9的高可用性。
+    </p>
+    <p>
+     工业界有两种方法来测量SLA，
+    </p>
+    <ul>
+     <li>
+      一个是故障发生到恢复的时间
+     </li>
+     <li>
+      另一个是两次故障间的时间
+     </li>
+    </ul>
+    <p>
+     但大多数都采用第一种方法，也就是故障发生到恢复的时间，也就是服务不可用的时间，如下表所示：
+    </p>
+    <table align="center" class="wikitable">
+     <tbody>
+      <tr>
+       <th>
+        系统可用性%
+       </th>
+       <th>
+        宕机时间/年
+       </th>
+       <th>
+        宕机时间/月
+       </th>
+       <th>
+        宕机时间/周
+       </th>
+       <th>
+        宕机时间/天
+       </th>
+      </tr>
+      <tr>
+       <td align="left">
+        90% (1个9)
+       </td>
+       <td>
+        36.5 天
+       </td>
+       <td>
+        72 小时
+       </td>
+       <td>
+        16.8 小时
+       </td>
+       <td>
+        2.4 小时
+       </td>
+      </tr>
+      <tr>
+       <td align="left">
+        99% (2个9)
+       </td>
+       <td>
+        3.65 天
+       </td>
+       <td>
+        7.20 小时
+       </td>
+       <td>
+        1.68 小时
+       </td>
+       <td>
+        14.4 分
+       </td>
+      </tr>
+      <tr>
+       <td align="left">
+        99.9% (3个9)
+       </td>
+       <td>
+        8.76 小时
+       </td>
+       <td>
+        43.8 分
+       </td>
+       <td>
+        10.1 分钟
+       </td>
+       <td>
+        1.44 分
+       </td>
+      </tr>
+      <tr>
+       <td align="left">
+        99.99% (4个9)
+       </td>
+       <td>
+        52.56 分
+       </td>
+       <td>
+        4.38 分
+       </td>
+       <td>
+        1.01 分钟
+       </td>
+       <td>
+        8.66 秒
+       </td>
+      </tr>
+      <tr>
+       <td align="left">
+        99.999% (5个9)
+       </td>
+       <td>
+        5.26 分
+       </td>
+       <td>
+        25.9 秒
+       </td>
+       <td>
+        6.05 秒
+       </td>
+       <td>
+        0.87 秒
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     比如，99.999%的可用性，一年只能有5分半钟的服务不可用。感觉很难做到吧。
+    </p>
+    <p>
+     <strong>
+      就算是3个9的可用性，一个月的宕机时间也只有40多分钟，看看那些设计和编码不认真的团队，把所有的期望寄托在人肉处理故障的运维团队， 一个故障就能处理1个多小时甚至2-3个小时，连个自动化的工具都没有，还好意思在官网上声明自己的SLA是3个9或是5个9，这不是欺骗大众吗？
+     </strong>
+     。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%BD%B1%E5%93%8D%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%E5%9B%A0%E7%B4%A0">
+     </span>
+     影响高可用的因素
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     老实说，我们很难计算我们设计的系统有多少的可用性，因为影响一个系统的因素实在是太多了，除了软件设计，还有硬件，还有每三方的服务（如电信联通的宽带SLA），当然包括“建筑施工队的挖掘机”。所以，正如SLA的定义，
+     <strong>
+      这不仅仅只是一个技术指标，而是一种服务提供商和用户之间的contract或契约
+     </strong>
+     。
+     <strong>
+      这种工业级的玩法，就像飞机一样，并不是把飞机造出来就好了，还有大量的无比专业的配套设施、工具、流程、管理和运营
+     </strong>
+     。
+    </p>
+    <p>
+     简而言之，SLA的几个9就是能持续提供可用服务的级别，不过，工业界中，会把服务不可用的因素分成两种：一种是有计划的，一种是无计划的。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E6%97%A0%E8%AE%A1%E5%88%92%E7%9A%84%E5%AE%95%E6%9C%BA%E5%8E%9F%E5%9B%A0">
+     </span>
+     无计划的宕机原因
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     下图来自Oracle的 《
+     <a href="https://docs.oracle.com/cd/A91202_01/901_doc/rac.901/a89867/pshavdtl.htm">
+      High Availability Concepts and Best Practices
+     </a>
+     》
+    </p>
+    <p>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E6%9C%89%E8%AE%A1%E5%88%92%E7%9A%84%E5%AE%95%E6%9C%BA%E5%8E%9F%E5%9B%A0">
+     </span>
+     <img alt="unplaned_downtime" class="aligncenter size-full wp-image-17467" decoding="async" height="602" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2016/08/unplaned_downtime.gif" width="600"/>
+     有计划的宕机原因
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     下图来自Oracle的 《
+     <a href="https://docs.oracle.com/cd/A91202_01/901_doc/rac.901/a89867/pshavdtl.htm">
+      High Availability Concepts and Best Practices
+     </a>
+     》
+    </p>
+    <p>
+     <img alt="planned_downtime" class="aligncenter size-full wp-image-17466" decoding="async" height="356" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2016/08/planned_downtime.gif" width="600"/>
+    </p>
+    <p>
+    </p>
+    <p>
+     我们可以看到，上面的宕机原因包括如下：
+    </p>
+    <p>
+     无计划的
+    </p>
+    <ul>
+     <li>
+      系统级的故障 –  包括主机、操作系统、中间件、数据库、网络、电源以及外围设备
+     </li>
+     <li>
+      数据和中介的故障 – 包括人员误操作、硬盘故障、数据乱了
+     </li>
+     <li>
+      还有：自然灾害、人为破坏、以及供电问题。
+     </li>
+    </ul>
+    <p>
+     有计划的
+    </p>
+    <ul>
+     <li>
+      日常任务：备份，容量规划，用户和安全管理，后台批处理应用
+     </li>
+     <li>
+      运维相关：数据库维护、应用维护、中间件维护、操作系统维护、网络维护
+     </li>
+     <li>
+      升级相关：数据库、应用、中间件、操作系统、网络、包括硬件升级
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E7%9C%9F%E6%AD%A3%E5%86%B3%E5%AE%9A%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8E%9F%E5%9B%A0">
+     </span>
+     真正决定高可用系统的本质原因
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     从上面这些会影响高可用的SLA的因素，你看到了什么？如果你还是只看到了技术方面或是软件设计的东西，那么你只看到了冰山一角。我们再仔细想一想，
+     <strong>
+      那个5个9的SLA在一年内只能是5分钟的不可用时间，5分钟啊，如果按一年只出1次故障，你也得在五分钟内恢复故障，让我们想想，这意味着什么？
+     </strong>
+    </p>
+    <p>
+     <strong>
+      如果你没有一套科学的牛逼的软件工程的管理，没有牛逼先进的自动化的运维工具，没有技术能力很牛逼的工程师团队，怎么可能出现高可用的系统啊
+     </strong>
+     。
+    </p>
+    <p>
+     是的，
+     <strong>
+      要干出高可用的系统，这TMD就是一套严谨科学的工程管理
+     </strong>
+     ，其中包括但不限于了：
+    </p>
+    <ul>
+     <li>
+      软件的设计、编码、测试、上线和软件配置管理的水平
+     </li>
+     <li>
+      工程师的人员技能水平
+     </li>
+     <li>
+      运维的管理和技术水平
+     </li>
+     <li>
+      数据中心的运营管理水平
+     </li>
+     <li>
+      依赖于第三方服务的管理水平
+     </li>
+    </ul>
+    <p>
+     深层交的东西则是——对工程这门科学的尊重：
+    </p>
+    <ul>
+     <li>
+      对待技术的态度
+     </li>
+     <li>
+      一个公司的工程文化
+     </li>
+     <li>
+      领导者对工程的尊重
+     </li>
+    </ul>
+    <p>
+     <strong>
+      所以，以后有人在你面前提高可用，你要看的不是他的技术设计，而还要看看他们的工程能力，看看他们公司是否真正的尊重工程这门科学
+     </strong>
+     。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%85%B6%E5%AE%83">
+     </span>
+     其它
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     有好些非技术甚至技术人员和我说过，做个APP做个网站，不就是找几个码农过来写写代码嘛。等系统不可用的时候，他们才会明白，要找技术能力比较强的人，但是，
+     <strong>
+      就算你和他们讲一万遍道理，他们也很难会明白写代码怎么就是一种工程了，而工程怎么就成了一门科学了。其实，很多做技术的人都不明白这个道理
+     </strong>
+     。
+    </p>
+    <p>
+     包括很多技术人员也永远不会理解，为什么要做好多像Code Review、自动化运维、自动化测试、持续集成之类这样很无聊的东西。就像我在《
+     <a href="https://coolshell.cn/articles/11432.html" target="_blank">
+      从Code Review 谈如何做技术
+     </a>
+     》中提到的，阿里很多的工程师，架构师/专家，甚至资深架构师都没有这个意识，当然，这不怪他们，因为经历决定思维方式，他们的经历的是民用级的系统，做的都是堆功能的工作，的确不需要。
+    </p>
+    <p>
+     看完这些，最后让我们都扪心自问一下，你还敢说你的系统是高可用的了么？ ;-)
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17680.html">
+         <img alt="从Gitlab误删除数据库想到的" height="150" src="https://coolshell.cn/wp-content/uploads/2017/02/gitlab-600-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17680.html">
+         从Gitlab误删除数据库想到的
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10910.html">
+         <img alt="分布式系统的事务处理" height="150" src="https://coolshell.cn/wp-content/uploads/2014/01/trade-off-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10910.html">
+         分布式系统的事务处理
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9949.html">
+         <img alt="IoC/DIP其实是一种管理思想" height="150" src="https://coolshell.cn/wp-content/uploads/2013/07/inverted-bookshelf_thumb-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9949.html">
+         IoC/DIP其实是一种管理思想
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6775.html">
+         <img alt="Bret Victor – Inventing on Principle" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/24.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6775.html">
+         Bret Victor – Inventing on Principle
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="c168b6d534" id="post-ratings-17459" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_17459_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(17459, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_17459_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(17459, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_17459_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(17459, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_17459_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(17459, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_17459_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(17459, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      70
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.60
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_17459_text">
+     </span>
+     <meta content="关于高可用的系统" itemprop="name"/>
+     <meta content="关于高可用的系统" itemprop="headline"/>
+     <meta content="在《这多年来我一直在钻研的技术》这篇文章中，我讲述了一下，我这么多年来一直在关注的技术领域，其中我多次提到了工业级的软件，我还以为有很多人会问我怎么定义工业级？以及一个高可用性的软件系统应该要怎么干出来？这样我也可以顺理成章的写下这篇文章，但是没有人问，那么，我只好厚颜无耻的自己写下这篇文章了。哈哈。
+
+另外，我在一些讨论高可用系统的地方看到大家只讨论各个公司的技术方案，其实，高可用的系统并不..." itemprop="description"/>
+     <meta content="2016-08-21T12:34:53+08:00" itemprop="datePublished"/>
+     <meta content="2016-08-21T16:48:08+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/17459.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/17459.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.6" itemprop="ratingValue"/>
+      <meta content="70" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-17459-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/%e6%8a%80%e6%9c%af%e7%ae%a1%e7%90%86" rel="category tag">
+        技术管理
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84" rel="category tag">
+        系统架构
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/design" rel="tag">
+        Design
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/high-availability" rel="tag">
+        High Availability
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/paxos" rel="tag">
+        Paxos
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/programmer" rel="tag">
+        Programmer
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e5%88%86%e5%b8%83%e5%bc%8f" rel="tag">
+        分布式
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e7%a8%8b%e5%ba%8f%e5%91%98" rel="tag">
+        程序员
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

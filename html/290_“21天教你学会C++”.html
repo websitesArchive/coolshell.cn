@@ -1,0 +1,720 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/2250.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="“21天教你学会C++” | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/2250.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days.jpg" property="og:image:secure_url"/>
+   <meta content="550" property="og:image:width"/>
+   <meta content="471" property="og:image:height"/>
+   <meta content="2010-03-30T00:27:27+00:00" property="article:published_time"/>
+   <meta content="2010-05-17T17:40:20+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="“21天教你学会C++” | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/2250.html#article","name":"\u201c21\u5929\u6559\u4f60\u5b66\u4f1aC++\u201d | \u9177 \u58f3 - CoolShell","headline":"\u201c21\u5929\u6559\u4f60\u5b66\u4f1aC++\u201d","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2010\/03\/Teach_Youself_CPP_21days.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":550,"height":471},"datePublished":"2010-03-30T00:27:27+08:00","dateModified":"2010-05-17T17:40:20+08:00","inLanguage":"zh-CN","commentCount":194,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/2250.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/2250.html#webpage"},"articleSection":"C\/C++\u8bed\u8a00, \u7f16\u7a0b\u8bed\u8a00, \u8f76\u4e8b\u8da3\u95fb, C++, Programmer, \u7a0b\u5e8f\u5458"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/2250.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/2250.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/2250.html#webpage","url":"https:\/\/coolshell.cn\/articles\/2250.html","name":"\u201c21\u5929\u6559\u4f60\u5b66\u4f1aC++\u201d | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/2250.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2010-03-30T00:27:27+08:00","dateModified":"2010-05-17T17:40:20+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '2250';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E2%80%9C21%E5%A4%A9%E6%95%99%E4%BD%A0%E5%AD%A6%E4%BC%9AC%2B%2B%E2%80%9D';
+	window._wp_rp_post_tags = ['c%2B%2B', 'programmer', '%E7%A8%8B%E5%BA%8F%E5%91%98', '%E8%BD%B6%E4%BA%8B%E8%B6%A3%E9%97%BB', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'style', 'alt', 'learn', 'bengali', 'grammar', 'teach', 'java', 'design', 'dai', 'craft', 'magic', 'labor', 'amp', '24', 'program'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/2250.html/feed" rel="alternate" title="酷 壳 - CoolShell » “21天教你学会C++”评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/2250" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=2250" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F2250.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F2250.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-2250 post type-post status-publish format-standard hentry category-cplusplus category-proglanguage category-story tag-c tag-programmer tag-58" id="post-2250">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     “21天教你学会C++”
+    </span>
+    <h1 class="entry-title">
+     “21天教你学会C++”
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/2250.html" rel="bookmark" title="08:27">
+       <time class="entry-date" datetime="2010-03-30T08:27:27+08:00" pubdate="">
+        2010年03月30日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/2250.html#comments">
+       194 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      281,569 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     下面是一个《Teach Yourself  C++ in 21 Days》的流程图，请各位程序员同仁认真领会。如果有必要，你可以查看这个图书以作参照：
+     <a href="http://www.china-pub.com/27043" target="_blank">
+      http://www.china-pub.com/27043
+     </a>
+    </p>
+    <p style="text-align: center;">
+     <a href="https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days.jpg">
+      <img alt="" class="alignnone size-full wp-image-2251" decoding="async" height="471" sizes="(max-width: 550px) 100vw, 550px" src="https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days.jpg" srcset="https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days.jpg 550w, https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days-300x257.jpg 300w, https://coolshell.cn/wp-content/uploads/2010/03/Teach_Youself_CPP_21days-315x270.jpg 315w" title="Teach Youself C++ 21 Days" width="550"/>
+     </a>
+    </p>
+    <p>
+     看完上面这个图片，我在想，我学习C++有12年了，好像C++也没有学得特别懂，看到STL和泛型，还是很头大。不过，我应该去考虑研究量子物理和生物化学，这样，我才能重返98年杀掉还在大学的我，然后达到21天搞定C++的目标。另外，得要特别提醒刚刚开始学习C++的朋友，第21天的时候，小心被人杀害。呵呵。
+    </p>
+    <p>
+     当然，上面只是一个恶搞此类图片，学习一门技术，需要你很长的时间，正如图片中的第三图和第四图所示，你需要用十年的时间去不断在尝试，并在错误中总结经验教训，以及在项目开发中通过与别人相互沟通互相学习来历练自己。你才能算得上是真正学会。
+    </p>
+    <p>
+     这里有篇文章叫《
+     <a href="http://norvig.com/21-days.html" target="_blank">
+      <strong>
+       Teach Yourself Programming in Ten Years
+      </strong>
+     </a>
+     》，网上有人翻译了一下，不过原文已被更新了，我把网上的译文转载并更新如下：
+    </p>
+    <p>
+     <span id="more-2250">
+     </span>
+    </p>
+    <h3 style="text-align: center;">
+    </h3>
+    <h3 style="text-align: center;">
+     用十年来学编程
+     <br/>
+     Peter Norvig
+    </h3>
+    <div>
+    </div>
+    <h4>
+     为什么每个人都急不可耐？
+    </h4>
+    <div>
+     走进任何一家书店，你会看见《Teach Yourself Java in 7 Days》（7天Java无师自通）的旁边是一长排看不到尽头的类似书籍，它们要教会你Visual Basic、Windows、Internet等等，而只需要几天甚至几小时。我在
+     <a href="https://www.amazon.com/" target="_blank">
+      Amazon.com
+     </a>
+     上进行了如下
+     <a href="https://www.amazon.com/exec/obidos/tg/browse/-/468558/104-5938873-6579160">
+      搜索
+     </a>
+     ：
+    </div>
+    <div>
+    </div>
+    <div>
+     <a href="https://www.amazon.com/exec/obidos/search-handle-url/ix=books&amp;rank=%2Bfeaturedrank&amp;fqp=power%01pubdate%3A%20after%201992%20and%20title%3A%20days%20and%0D%20%28title%3A%20learn%20or%20title%3A%20teach%20yourself%29&amp;sz=25&amp;pg=1/ref=s_b_np" target="_blank">
+      pubdate: after 1992 and title: days and (title: learn or title: teach yourself)
+      <br/>
+     </a>
+     (出版日期：1992年后 and 书名：天 and （书名：学会 or 书名：无师自通）)
+    </div>
+    <div>
+    </div>
+    <div>
+     我一共得到了248个搜索结果。前面的78个是计算机书籍（第79个是《
+     <a href="https://www.amazon.com/exec/obidos/ASIN/0781802245/" target="_blank">
+      Learn Bengali in 30 days
+     </a>
+     》，30天学会孟加拉语）。我把关键词“days”换成“
+     <a href="https://www.amazon.com/exec/obidos/search-handle-url/ix=books&amp;rank=%2Bfeaturedrank&amp;fqp=power%01pubdate%3A%20after%201992%20and%20title%3A%20hours%20and%0D%20%28title%3A%20learn%20or%20title%3A%20teach%20yourself%29&amp;sz=25&amp;pg=3/ref=s_b_np" target="_blank">
+      hours
+     </a>
+     ”，得到了非常相似的结果：这次有253本书，头77本是计算机书籍，第78本是《
+     <a href="https://www.amazon.com/exec/obidos/ASIN/0028638999/" target="_blank">
+      Teach Yourself Grammar and Style in 24 Hours
+     </a>
+     》（24小时学会文法和文体）。头200本书中，有96%是计算机书籍。
+    </div>
+    <div>
+    </div>
+    <div>
+     结论是，要么是人们非常急于学会计算机，要么就是不知道为什么计算机惊人地简单，比任何东西都容易学会。没有一本书是要在几天里教会人们欣赏贝多芬或者量子物理学，甚至怎样给狗打扮。在《
+     <em>
+      <a href="http://www.ccs.neu.edu/home/matthias/HtDP2e/index.html">
+       How to Design Programs
+      </a>
+     </em>
+     》这本书里说“
+     <em>
+      Bad programming is easy. Idiots can learn it in 21 days, even if they are dummies.”
+     </em>
+     （坏的程序是很容易的，就算他们是笨蛋白痴都可以在21天内学会。）
+    </div>
+    <div>
+    </div>
+    <div>
+     让我们来分析一下像《
+     <a href="https://www.amazon.com/Learn-C-Three-Days-Rachele/dp/1556227078" target="_self">
+      Learn C++ in Three Days
+     </a>
+     》（3天学会C++）这样的题目到底是什么意思：
+    </div>
+    <ul>
+     <li>
+      <strong>
+       学会
+      </strong>
+      ：在3天时间里，你不够时间写一些有意义的程序，并从它们的失败与成功中学习。你不够时间跟一些有经验的程序员一起工作，你不会知道在C++那样的环境中是什么滋味。简而言之，没有足够的时间让你学到很多东西。所以这些书谈论的只是表面上的精通，而非深入的理解。如Alexander Pope（英国诗人、作家，1688-1744）所言，
+      <strong>
+       <span style="color: #800080;">
+        一知半解是危险的（a little learning is a dangerous thing）
+       </span>
+      </strong>
+     </li>
+     <li>
+      <strong>
+       C++
+      </strong>
+      ：在3天时间里你可以学会C++的语法（如果你已经会一门类似的语言），但你无法学到多少如何运用这些语法。简而言之，如果你是，比如说一个Basic程序员，你可以学会用C++语法写出Basic风格的程序，但你学不到C++真正的优点（和缺点）。那关键在哪里？Alan Perlis（ACM第一任主席，图灵奖得主，1922-1990）曾经说过：“
+      <strong>
+       <span style="color: #800080;">
+        如果一门语言不能影响你对编程的想法，那它就不值得去学
+       </span>
+      </strong>
+      ”。另一种观点是，有时候你不得不学一点C++（更可能是javascript和Flash Flex之类）的皮毛，因为你需要接触现有的工具，用来完成特定的任务。但此时你不是在学习如何编程，你是在学习如何完成任务。
+     </li>
+     <li>
+      <strong>
+       3天
+      </strong>
+      ：不幸的是，这是不够的，正如下一节所言。
+     </li>
+    </ul>
+    <h4>
+     10年学编程
+    </h4>
+    <div>
+     一些研究者（
+     <a href="https://www.amazon.com/exec/obidos/ASIN/034531509X/">
+      Bloom (1985)
+     </a>
+     ,
+     <a href="http://norvig.com/21-days.html#bh">
+      Bryan &amp; Harter (1899)
+     </a>
+     ,
+     <a href="https://www.amazon.com/exec/obidos/ASIN/0805803092">
+      Hayes (1989)
+     </a>
+     ,
+     <a href="http://norvig.com/21-days.html#sc">
+      Simmon &amp; Chase (1973)
+     </a>
+     ）的研究表明，在许多领域，都需要大约10 年时间才能培养出专业技能，包括国际象棋、作曲、绘画、钢琴、游泳、网球，以及神经心理学和拓扑学的研究。似乎并不存在真正的捷径：即使是莫扎特，他4 岁就显露出音乐天才，在他写出世界级的音乐之前仍然用了超过13年时间。再看另一种音乐类型的披头士，他们似乎是在1964年的Ed Sullivan节目中突然冒头的。但其实他们从1957年就开始表演了，即使他们很早就显示出了巨大的吸引力，他们第一次真正的成功——Sgt. Peppers——也要到1967年才发行。
+     <a href="https://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017922">
+      Malcolm Gladwell
+     </a>
+     研究报告称，把在伯林音乐学院学生一个班的学生按水平分成高中低，然后问他们对音乐练习花了多少工夫：
+    </div>
+    <blockquote>
+     <p>
+      在这三个小组中的每一个人基本上都是从相同的时间开始练习的（在五岁的时候）。在开始的几年里，每个人都是每周练习2-3个小时。但是在八岁的时候，练习的强度开始显现差异。在这个班中水平最牛的人开始比别人练习得更多——在九岁的时候每周练习6个小时，十二岁的时候，每周8个小时，十四岁的时候每周16个小时，并在成长过程中练习得越来越多，到20岁的时候，其每周练习可超过30个小时。到了20岁，这些优秀者在其生命中练习音乐总共超过 10,000 小时。与之对比，其它人只平均有8,000小时，而未来只能留校当老师的人仅仅是4,000 小时。
+     </p>
+    </blockquote>
+    <div>
+     所以，这也许需要10,000 小时，并不是十年，但这是一个magic number。Samuel Johnson（英国诗人）认为10 年还是不够的：“
+     <strong>
+      <span style="color: #800080;">
+       任何领域的卓越成就都只能通过一生的努力来获得；稍低一点的代价也换不来。
+      </span>
+     </strong>
+     ”（Excellence in any department can be attained only by the labor of a lifetime; it is not to be purchased at a lesser price.） 乔叟（Chaucer，英国诗人，1340-1400）也抱怨说：“
+     <strong>
+      <span style="color: #800080;">
+       生命如此短暂，掌握技艺却要如此长久。
+      </span>
+     </strong>
+     ”（the lyf so short, the craft so long to lerne.）
+    </div>
+    <div>
+    </div>
+    <div>
+     下面是我在编程这个行当里获得成功的处方：
+    </div>
+    <ul>
+     <li>
+      对编程感兴趣，因为乐趣而去编程。确定始终都能保持足够的乐趣，以致你能够将10年时间投入其中。
+     </li>
+     <li>
+      跟其他程序员交谈；阅读其他程序。这比任何书籍或训练课程都更重要。
+     </li>
+     <li>
+      编程。最好的学习是
+      <a href="http://www.engines4ed.org/hyperbook/nodes/NODE-120-pg.html" target="_blank">
+       从实践中学习
+      </a>
+      。用更加技术性的语言来讲，“个体在特定领域最高水平的表现不是作为长期的经验的结果而自动获得的，但即使是非常富有经验的个体也可以通过刻意的努力而提高其表现水平。”（
+      <a href="http://www2.umassd.edu/swpi/DesignInCS/expertise.html" target="_blank">
+       p. 366
+      </a>
+      ），而且“最有效的学习要求为特定个体制定适当难度的任务，有意义的反馈，以及重复及改正错误的机会。”（p. 20-21）《
+      <a href="https://www.amazon.com/exec/obidos/ASIN/0521357349" target="_blank">
+       Cognition in Practice: Mind, Mathematics, and Culture in Everyday Life
+      </a>
+      》（在实践中认知：心智、数学和日常生活的文化）是关于这个观点的一本有趣的参考书。
+     </li>
+     <li>
+      如果你愿意，在大学里花上4年时间（或者再花几年读研究生）。这能让你获得一些工作的入门资格，还能让你对此领域有更深入的理解，但如果你不喜欢进学校，（作出一点牺牲）你在工作中也同样能获得类似的经验。在任何情况下，单从书本上学习都是不够的。“计算机科学的教育不会让任何人成为内行的程序员，正如研究画笔和颜料不会让任何人成为内行的画家”, Eric Raymond，《The New Hacker’s Dictionary》（新黑客字典）的作者如是说。我曾经雇用过的最优秀的程序员之一仅有高中学历；但他创造出了许多伟大的软件（
+      <a href="http://www.xemacs.org/" target="_blank">
+       XEmacs
+      </a>
+      ,
+      <a href="http://www.mozilla.org/" target="_blank">
+       Mozilla
+      </a>
+      ），甚至有讨论他本人的
+      <a href="https://groups.google.com/groups?q=alt.fan.jwz&amp;meta=site%3Dgroups" target="_blank">
+       新闻组
+      </a>
+      ，而且股票期权让他达到我无法企及的
+      <a href="https://en.wikipedia.org/wiki/DNA_Lounge" target="_blank">
+       富有程度
+      </a>
+      （译注：指Jamie Zawinski，Xemacs和Netscape的作者）。
+     </li>
+     <li>
+      跟别的程序员一起完成项目。在一些项目中成为最好的程序员；在其他一些项目中当最差的一个。当你是最好的程序员时，你要测试自己领导项目的能力，并通过你的洞见鼓舞其他人。当你是最差的时候，你学习高手们在做些什么，以及他们不喜欢做什么（因为他们让你帮他们做那些事）。
+     </li>
+     <li>
+      接手别的程序员完成项目。用心理解别人编写的程序。看看在没有最初的程序员在场的时候理解和修改程序需要些什么。想一想怎样设计你的程序才能让别人接手维护你的程序时更容易一些。
+     </li>
+     <li>
+      学会至少半打编程语言。包括一门支持类抽象（class abstraction）的语言（如Java或C++），一门支持函数抽象（functional abstraction）的语言（如Lisp或ML），一门支持句法抽象（syntactic abstraction）的语言（如Lisp），一门支持说明性规约（declarative specification）的语言（如Prolog或C++模版），一门支持协程（coroutine）的语言（如Icon或Scheme），以及一门支持并行处理（parallelism）的语言（如Sisal）。
+     </li>
+     <li>
+      记住在“计算机科学”这个词组里包含“计算机”这个词。了解你的计算机执行一条指令要多长时间，从内存中取一个word要多长时间（包括缓存命中和未命中的情况），从磁盘上读取连续的数据要多长时间，定位到磁盘上的新位置又要多长时间。（
+      <a href="http://norvig.com/21-days.html#answers" target="_blank">
+       答案在这里
+      </a>
+      ）
+     </li>
+     <li>
+      尝试参与到一项语言标准化工作中。可以是ANSI C++委员会，也可以是决定自己团队的编码风格到底采用2个空格的缩进还是4个。不论是哪一种，你都可以学到在这门语言中到底人们喜欢些什么，他们有多喜欢，甚至有可能稍微了解为什么他们会有这样的感觉。
+     </li>
+     <li>
+      拥有尽快从语言标准化工作中抽身的良好判断力。
+     </li>
+    </ul>
+    <p>
+     抱着这些想法，我很怀疑从书上到底能学到多少东西。在我第一个孩子出生前，我读完了所有“怎样……”的书，却仍然感到自己是个茫无头绪的新手。30个月后，我第二个孩子出生的时候，我重新拿起那些书来复习了吗？不。相反，我依靠我自己的经验，结果比专家写的几千页东西更有用更靠得住。
+    </p>
+    <p>
+     Fred Brooks在他的短文《
+     <a href="https://en.wikipedia.org/wiki/No_Silver_Bullet" target="_blank">
+      No Silver Bullets
+     </a>
+     》（没有银弹）中确立了如何发现杰出的软件设计者的三步规划：
+    </p>
+    <ul>
+     <li>
+      尽早系统地识别出最好的设计者群体。
+     </li>
+     <li>
+      指派一个事业上的导师负责有潜质的对象的发展，小心地帮他保持职业生涯的履历。
+     </li>
+     <li>
+      让成长中的设计师们有机会互相影响，互相激励。
+     </li>
+    </ul>
+    <p>
+     这实际上是假定了有些人本身就具有成为杰出设计师的必要潜质；要做的只是引导他们前进。
+     <a href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html" target="_blank">
+      Alan Perlis
+     </a>
+     说得更简洁：“每个人都可以被教授如何雕塑；而对米开朗基罗来说，能教给他的倒是怎样能够不去雕塑。杰出的程序员也一样”。
+    </p>
+    <p>
+     所以尽管去买那些Java书；你很可能会从中找到些用处。但你的生活，或者你作为程序员的真正的专业技术，并不会因此在24小时、24天甚至24个月内发生真正的变化。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12052.html">
+         <img alt="Leetcode 编程训练" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12052.html">
+         Leetcode 编程训练
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9543.html">
+         <img alt="“C++的数组不支持多态”？" height="150" src="https://coolshell.cn/wp-content/uploads/2013/04/weibo-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9543.html">
+         “C++的数组不支持多态”？
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8088.html">
+         <img alt="对技术的态度" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/7.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8088.html">
+         对技术的态度
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5388.html">
+         <img alt="C语言中史上最愚蠢的Bug" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/15.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5388.html">
+         C语言中史上最愚蠢的Bug
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="d6a7b6c26e" id="post-ratings-2250" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_2250_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(2250, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_2250_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(2250, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_2250_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(2250, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_2250_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(2250, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_2250_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(2250, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      126
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.78
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_2250_text">
+     </span>
+     <meta content="“21天教你学会C++”" itemprop="name"/>
+     <meta content="“21天教你学会C++”" itemprop="headline"/>
+     <meta content="下面是一个《Teach Yourself  C++ in 21 Days》的流程图，请各位程序员同仁认真领会。如果有必要，你可以查看这个图书以作参照：http://www.china-pub.com/27043
+
+看完上面这个图片，我在想，我学习C++有12年了，好像C++也没有学得特别懂，看到STL和泛型，还是很头大。不过，我应该去考虑研究量子物理和生物化学，这样，我才能重返98年杀掉还在大..." itemprop="description"/>
+     <meta content="2010-03-30T08:27:27+08:00" itemprop="datePublished"/>
+     <meta content="2010-05-18T01:40:20+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/2250.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/2250.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.78" itemprop="ratingValue"/>
+      <meta content="126" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-2250-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/story" rel="category tag">
+        轶事趣闻
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/programmer" rel="tag">
+        Programmer
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e7%a8%8b%e5%ba%8f%e5%91%98" rel="tag">
+        程序员
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

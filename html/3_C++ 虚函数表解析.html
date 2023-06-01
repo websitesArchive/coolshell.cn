@@ -1,0 +1,905 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/12165.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="C++ 虚函数表解析 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/12165.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/12/01.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/12/01.jpg" property="og:image:secure_url"/>
+   <meta content="331" property="og:image:width"/>
+   <meta content="129" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="C++ 虚函数表解析 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/12/01.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/12165.html#article","name":"C++ \u865a\u51fd\u6570\u8868\u89e3\u6790 | \u9177 \u58f3 - CoolShell","headline":"C++ \u865a\u51fd\u6570\u8868\u89e3\u6790","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2014\/12\/01.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":331,"height":129},"datePublished":"2007-12-18T01:08:02+08:00","dateModified":"2015-04-01T12:45:26+08:00","inLanguage":"zh-CN","commentCount":39,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/12165.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/12165.html#webpage"},"articleSection":"C\/C++\u8bed\u8a00, \u7f16\u7a0b\u8bed\u8a00, C++"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/12165.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/12165.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/12165.html#webpage","url":"https:\/\/coolshell.cn\/articles\/12165.html","name":"C++ \u865a\u51fd\u6570\u8868\u89e3\u6790 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/12165.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2007-12-18T01:08:02+08:00","dateModified":"2015-04-01T12:45:26+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '12165';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'C%2B%2B+%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8%E8%A7%A3%E6%9E%90';
+	window._wp_rp_post_tags = ['c%2B%2B', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', '2', 'void', 'virtual', 'base', 'public', 'deriv', 'quot', '710', 'linux', '1'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/12165.html/feed" rel="alternate" title="酷 壳 - CoolShell » C++ 虚函数表解析评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/12165" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=12165" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F12165.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F12165.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-12165 post type-post status-publish format-standard hentry category-cplusplus category-proglanguage tag-c" id="post-12165">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     C++ 虚函数表解析
+    </span>
+    <h1 class="entry-title">
+     C++ 虚函数表解析
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/12165.html" rel="bookmark" title="09:08">
+       <time class="entry-date" datetime="2007-12-18T09:08:02+08:00" pubdate="">
+        2007年12月18日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/12165.html#comments">
+       39 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      51,060 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     C++中的虚函数的作用主要是实现了多态的机制。关于多态，简而言之就是用父类型别的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有“多种形态”，这是一种泛型技术。所谓泛型技术，说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI技术，虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。
+    </p>
+    <p>
+     关于虚函数的使用方法，我在这里不做过多的阐述。大家可以看看相关的C++的书籍。在这篇文章中，我只想从虚函数的实现机制上面为大家 一个清晰的剖析。
+    </p>
+    <p>
+     当然，相同的文章在网上也出现过一些了，但我总感觉这些文章不是很容易阅读，大段大段的代码，没有图片，没有详细的说明，没有比较，没有举一反三。不利于学习和阅读，所以这是我想写下这篇文章的原因。也希望大家多给我提意见。
+    </p>
+    <p>
+     言归正传，让我们一起进入虚函数的世界。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8" title="虚函数表">
+         虚函数表
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E4%B8%80%E8%88%AC%E7%BB%A7%E6%89%BF%EF%BC%88%E6%97%A0%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89" title="一般继承（无虚函数覆盖）">
+         一般继承（无虚函数覆盖）
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E4%B8%80%E8%88%AC%E7%BB%A7%E6%89%BF%EF%BC%88%E6%9C%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89" title="一般继承（有虚函数覆盖）">
+         一般继承（有虚函数覆盖）
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%EF%BC%88%E6%97%A0%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89" title="多重继承（无虚函数覆盖）">
+         多重继承（无虚函数覆盖）
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%EF%BC%88%E6%9C%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89" title="多重继承（有虚函数覆盖）">
+         多重继承（有虚函数覆盖）
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E5%AE%89%E5%85%A8%E6%80%A7" title="安全性">
+         安全性
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#%E4%B8%80%E3%80%81%E9%80%9A%E8%BF%87%E7%88%B6%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AD%90%E7%B1%BB%E8%87%AA%E5%B7%B1%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0" title="一、通过父类型的指针访问子类自己的虚函数">
+           一、通过父类型的指针访问子类自己的虚函数
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-8" href="#%E4%BA%8C%E3%80%81%E8%AE%BF%E9%97%AEnon-public%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0" title="二、访问non-public的虚函数">
+           二、访问non-public的虚函数
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-9" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD" title="结束语">
+         结束语
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-10" href="#%E9%99%84%E5%BD%95%E4%B8%80%EF%BC%9AVC%E4%B8%AD%E6%9F%A5%E7%9C%8B%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8" title="附录一：VC中查看虚函数表">
+           附录一：VC中查看虚函数表
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-11" href="#%E9%99%84%E5%BD%95_%E4%BA%8C%EF%BC%9A%E4%BE%8B%E7%A8%8B" title="附录 二：例程">
+           附录 二：例程
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8">
+     </span>
+     虚函数表
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     对C++ 了解的人都应该知道虚函数（Virtual Function）是通过一张虚函数表（Virtual Table）来实现的。简称为V-Table。在这个表中，主是要一个类的虚函数的地址表，这张表解决了继承、覆盖的问题，保证其容真实反应实际的函数。这样，在有虚函数的类的实例中这个表被分配在了这个实例的内存中，所以，当我们用父类的指针来操作一个子类的时候，这张虚函数表就显得由为重要了，它就像一个地图一样，指明了实际所应该调用的函数。
+    </p>
+    <p>
+     这里我们着重看一下这张虚函数表。C++的编译器应该是保证虚函数表的指针存在于对象实例中最前面的位置（这是为了保证取到虚函数表的有最高的性能——如果有多层继承或是多重继承的情况下）。 这意味着我们通过对象实例的地址得到这张虚函数表，然后就可以遍历其中函数指针，并调用相应的函数。
+    </p>
+    <p>
+     听我扯了那么多，我可以感觉出来你现在可能比以前更加晕头转向了。 没关系，下面就是实际的例子，相信聪明的你一看就明白了。
+    </p>
+    <p>
+     <span id="more-12165">
+     </span>
+    </p>
+    <p>
+     假设我们有这样的一个类：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">class Base {
+     public:
+            virtual void f() { cout &lt;&lt; "Base::f" &lt;&lt; endl; }
+            virtual void g() { cout &lt;&lt; "Base::g" &lt;&lt; endl; }
+            virtual void h() { cout &lt;&lt; "Base::h" &lt;&lt; endl; }
+
+};</pre>
+    <p>
+     按照上面的说法，我们可以通过Base的实例来得到虚函数表。 下面是实际例程：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">typedef void(*Fun)(void);
+
+Base b;
+
+Fun pFun = NULL;
+
+cout &lt;&lt; "虚函数表地址：" &lt;&lt; (int*)(&amp;b) &lt;&lt; endl;
+cout &lt;&lt; "虚函数表 — 第一个函数地址：" &lt;&lt; (int*)*(int*)(&amp;b) &lt;&lt; endl;
+
+// Invoke the first virtual function
+pFun = (Fun)*((int*)*(int*)(&amp;b));
+pFun();</pre>
+    <p>
+     实际运行经果如下：(Windows XP+VS2003, Linux 2.6.22 + GCC 4.1.3)
+    </p>
+    <p style="padding-left: 30px;">
+     虚函数表地址：0012FED4
+     <br/>
+     虚函数表 — 第一个函数地址：0044F148
+     <br/>
+     Base::f
+    </p>
+    <p>
+     通过这个示例，我们可以看到，我们可以通过强行把&amp;b转成int *，取得虚函数表的地址，然后，再次取址就可以得到第一个虚函数的地址了，也就是Base::f()，这在上面的程序中得到了验证（把int* 强制转成了函数指针）。通过这个示例，我们就可以知道如果要调用Base::g()和Base::h()，其代码如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">(Fun)*((int*)*(int*)(&amp;b)+0);  // Base::f()
+(Fun)*((int*)*(int*)(&amp;b)+1);  // Base::g()
+(Fun)*((int*)*(int*)(&amp;b)+2);  // Base::h()</pre>
+    <p>
+     这个时候你应该懂了吧。什么？还是有点晕。也是，这样的代码看着太乱了。没问题，让我画个图解释一下。如下所示：
+    </p>
+    <p>
+     <img alt="01" class="aligncenter size-full wp-image-12166" decoding="async" height="129" sizes="(max-width: 331px) 100vw, 331px" src="https://coolshell.cn/wp-content/uploads/2014/12/01.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/12/01.jpg 331w, https://coolshell.cn/wp-content/uploads/2014/12/01-300x117.jpg 300w" width="331"/>
+    </p>
+    <p>
+     注意：在上面这个图中，我在虚函数表的最后多加了一个结点，这是虚函数表的结束结点，就像字符串的结束符“/0”一样，其标志了虚函数表的结束。这个结束标志的值在不同的编译器下是不同的。在WinXP+VS2003下，这个值是NULL。而在Ubuntu 7.10 + Linux 2.6.22 + GCC 4.1.3下，这个值是如果1，表示还有下一个虚函数表，如果值是0，表示是最后一个虚函数表。
+    </p>
+    <p>
+     下面，我将分别说明“无覆盖”和“有覆盖”时的虚函数表的样子。没有覆盖父类的虚函数是毫无意义的。我之所以要讲述没有覆盖的情况，主要目的是为了给一个对比。在比较之下，我们可以更加清楚地知道其内部的具体实现。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%80%E8%88%AC%E7%BB%A7%E6%89%BF%EF%BC%88%E6%97%A0%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89">
+     </span>
+     一般继承（无虚函数覆盖）
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面，再让我们来看看继承时的虚函数表是什么样的。假设有如下所示的一个继承关系：
+    </p>
+    <p>
+     <img alt="02" class="aligncenter size-full wp-image-12167" decoding="async" height="194" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2014/12/02.jpg" width="78"/>
+    </p>
+    <p>
+     请注意，在这个继承关系中，子类没有重载任何父类的函数。那么，在派生类的实例中，其虚函数表如下所示：
+    </p>
+    <p>
+     对于实例：Derive d; 的虚函数表如下：
+    </p>
+    <p>
+     <img alt="03" class="aligncenter size-full wp-image-12168" decoding="async" height="124" loading="lazy" sizes="(max-width: 551px) 100vw, 551px" src="https://coolshell.cn/wp-content/uploads/2014/12/03.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/12/03.jpg 551w, https://coolshell.cn/wp-content/uploads/2014/12/03-300x67.jpg 300w" width="551"/>
+    </p>
+    <p>
+     我们可以看到下面几点：
+     <br/>
+     1）虚函数按照其声明顺序放于表中。
+     <br/>
+     2）父类的虚函数在子类的虚函数前面。
+    </p>
+    <p>
+     我相信聪明的你一定可以参考前面的那个程序，来编写一段程序来验证。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%80%E8%88%AC%E7%BB%A7%E6%89%BF%EF%BC%88%E6%9C%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89">
+     </span>
+     一般继承（有虚函数覆盖）
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     覆盖父类的虚函数是很显然的事情，不然，虚函数就变得毫无意义。下面，我们来看一下，如果子类中有虚函数重载了父类的虚函数，会是一个什么样子？假设，我们有下面这样的一个继承关系。
+    </p>
+    <p>
+     <img alt="04" class="aligncenter size-full wp-image-12169" decoding="async" height="194" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2014/12/04.jpg" width="78"/>
+    </p>
+    <p>
+     为了让大家看到被继承过后的效果，在这个类的设计中，我只覆盖了父类的一个函数：f()。那么，对于派生类的实例，其虚函数表会是下面的一个样子：
+    </p>
+    <p>
+     <img alt="05" class="aligncenter size-full wp-image-12170" decoding="async" height="124" loading="lazy" sizes="(max-width: 500px) 100vw, 500px" src="https://coolshell.cn/wp-content/uploads/2014/12/05.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/12/05.jpg 500w, https://coolshell.cn/wp-content/uploads/2014/12/05-300x74.jpg 300w" width="500"/>
+    </p>
+    <p>
+     我们从表中可以看到下面几点，
+     <br/>
+     1）覆盖的f()函数被放到了虚表中原来父类虚函数的位置。
+     <br/>
+     2）没有被覆盖的函数依旧。
+    </p>
+    <p>
+     这样，我们就可以看到对于下面这样的程序，
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">Base *b = new Derive();
+
+b-&gt;f();</pre>
+    <p>
+     由b所指的内存中的虚函数表的f()的位置已经被Derive::f()函数地址所取代，于是在实际调用发生时，是Derive::f()被调用了。这就实现了多态。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%EF%BC%88%E6%97%A0%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89">
+     </span>
+     多重继承（无虚函数覆盖）
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面，再让我们来看看多重继承中的情况，假设有下面这样一个类的继承关系。注意：子类并没有覆盖父类的函数。
+    </p>
+    <p>
+     <img alt="06" class="aligncenter size-full wp-image-12171" decoding="async" height="192" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2014/12/06.jpg" width="282"/>
+    </p>
+    <p>
+     对于子类实例中的虚函数表，是下面这个样子：
+    </p>
+    <p>
+     <img alt="07" class="aligncenter size-full wp-image-12172" decoding="async" height="173" loading="lazy" sizes="(max-width: 493px) 100vw, 493px" src="https://coolshell.cn/wp-content/uploads/2014/12/07.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/12/07.jpg 493w, https://coolshell.cn/wp-content/uploads/2014/12/07-300x105.jpg 300w" width="493"/>
+    </p>
+    <p>
+     我们可以看到：
+     <br/>
+     1） 每个父类都有自己的虚表。
+     <br/>
+     2） 子类的成员函数被放到了第一个父类的表中。（所谓的第一个父类是按照声明顺序来判断的）
+    </p>
+    <p>
+     这样做就是为了解决不同的父类类型的指针指向同一个子类实例，而能够调用到实际的函数。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%EF%BC%88%E6%9C%89%E8%99%9A%E5%87%BD%E6%95%B0%E8%A6%86%E7%9B%96%EF%BC%89">
+     </span>
+     多重继承（有虚函数覆盖）
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面我们再来看看，如果发生虚函数覆盖的情况。
+    </p>
+    <p>
+     <img alt="08" class="aligncenter size-full wp-image-12173" decoding="async" height="192" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2014/12/08.jpg" width="282"/>
+    </p>
+    <p>
+     下图中，我们在子类中覆盖了父类的f()函数。
+    </p>
+    <p>
+     <img alt="09" class="aligncenter size-full wp-image-12174" decoding="async" height="173" loading="lazy" sizes="(max-width: 420px) 100vw, 420px" src="https://coolshell.cn/wp-content/uploads/2014/12/09.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/12/09.jpg 420w, https://coolshell.cn/wp-content/uploads/2014/12/09-300x123.jpg 300w" width="420"/>
+    </p>
+    <p>
+     下面是对于子类实例中的虚函数表的图：
+    </p>
+    <p>
+     我们可以看见，三个父类虚函数表中的f()的位置被替换成了子类的函数指针。这样，我们就可以任一静态类型的父类来指向子类，并调用子类的f()了。如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">Derive d;
+Base1 *b1 = &amp;d;
+Base2 *b2 = &amp;d;
+Base3 *b3 = &amp;d;
+b1-&gt;f(); //Derive::f()
+b2-&gt;f(); //Derive::f()
+b3-&gt;f(); //Derive::f()
+
+b1-&gt;g(); //Base1::g()
+b2-&gt;g(); //Base2::g()
+b3-&gt;g(); //Base3::g()</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%AE%89%E5%85%A8%E6%80%A7">
+     </span>
+     安全性
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     每次写C++的文章，总免不了要批判一下C++。这篇文章也不例外。通过上面的讲述，相信我们对虚函数表有一个比较细致的了解了。水可载舟，亦可覆舟。下面，让我们来看看我们可以用虚函数表来干点什么坏事吧。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E4%B8%80%E3%80%81%E9%80%9A%E8%BF%87%E7%88%B6%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AD%90%E7%B1%BB%E8%87%AA%E5%B7%B1%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0">
+     </span>
+     一、通过父类型的指针访问子类自己的虚函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     我们知道，子类没有重载父类的虚函数是一件毫无意义的事情。因为多态也是要基于函数重载的。虽然在上面的图中我们可以看到Base1的虚表中有Derive的虚函数，但我们根本不可能使用下面的语句来调用子类的自有虚函数：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">Base1 *b1 = new Derive();
+b1-&gt;f1();  //编译出错</pre>
+    <p>
+     任何妄图使用父类指针想调用子类中的
+     <strong>
+      未覆盖父类的成员函数
+     </strong>
+     的行为都会被编译器视为非法，所以，这样的程序根本无法编译通过。但在运行时，我们可以通过指针的方式访问虚函数表来达到违反C++语义的行为。（关于这方面的尝试，通过阅读后面附录的代码，相信你可以做到这一点）
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E4%BA%8C%E3%80%81%E8%AE%BF%E9%97%AEnon-public%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0">
+     </span>
+     二、访问non-public的虚函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     另外，如果父类的虚函数是private或是protected的，但这些非public的虚函数同样会存在于虚函数表中，所以，我们同样可以使用访问虚函数表的方式来访问这些non-public的虚函数，这是很容易做到的。
+    </p>
+    <p>
+     如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">class Base {
+    private:
+            virtual void f() { cout &lt;&lt; "Base::f" &lt;&lt; endl; }
+
+};
+
+class Derive : public Base{
+
+};
+
+typedef void(*Fun)(void);
+
+void main() {
+    Derive d;
+    Fun  pFun = (Fun)*((int*)*(int*)(&amp;d)+0);
+    pFun();
+}</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BB%93%E6%9D%9F%E8%AF%AD">
+     </span>
+     结束语
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     C++这门语言是一门Magic的语言，对于程序员来说，我们似乎永远摸不清楚这门语言背着我们在干了什么。需要熟悉这门语言，我们就必需要了解C++里面的那些东西，需要去了解C++中那些危险的东西。不然，这是一种搬起石头砸自己脚的编程语言。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E9%99%84%E5%BD%95%E4%B8%80%EF%BC%9AVC%E4%B8%AD%E6%9F%A5%E7%9C%8B%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8">
+     </span>
+     附录一：VC中查看虚函数表
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     我们可以在VC的IDE环境中的Debug状态下展开类的实例就可以看到虚函数表了（并不是很完整的）
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E9%99%84%E5%BD%95_%E4%BA%8C%EF%BC%9A%E4%BE%8B%E7%A8%8B">
+     </span>
+     附录 二：例程
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     下面是一个关于多重继承的虚函数表访问的例程：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include &lt;iostream&gt;
+using namespace std;
+
+class Base1 {
+public:
+            virtual void f() { cout &lt;&lt; "Base1::f" &lt;&lt; endl; }
+            virtual void g() { cout &lt;&lt; "Base1::g" &lt;&lt; endl; }
+            virtual void h() { cout &lt;&lt; "Base1::h" &lt;&lt; endl; }
+
+};
+
+class Base2 {
+public:
+            virtual void f() { cout &lt;&lt; "Base2::f" &lt;&lt; endl; }
+            virtual void g() { cout &lt;&lt; "Base2::g" &lt;&lt; endl; }
+            virtual void h() { cout &lt;&lt; "Base2::h" &lt;&lt; endl; }
+};
+
+class Base3 {
+public:
+            virtual void f() { cout &lt;&lt; "Base3::f" &lt;&lt; endl; }
+            virtual void g() { cout &lt;&lt; "Base3::g" &lt;&lt; endl; }
+            virtual void h() { cout &lt;&lt; "Base3::h" &lt;&lt; endl; }
+};
+
+class Derive : public Base1, public Base2, public Base3 {
+public:
+            virtual void f() { cout &lt;&lt; "Derive::f" &lt;&lt; endl; }
+            virtual void g1() { cout &lt;&lt; "Derive::g1" &lt;&lt; endl; }
+};
+
+typedef void(*Fun)(void);
+
+int main()
+{
+            Fun pFun = NULL;
+
+            Derive d;
+            int** pVtab = (int**)&amp;d;
+
+            //Base1's vtable
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+0);
+            pFun = (Fun)pVtab[0][0];
+            pFun();
+
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+1);
+            pFun = (Fun)pVtab[0][1];
+            pFun();
+
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+2);
+            pFun = (Fun)pVtab[0][2];
+            pFun();
+
+            //Derive's vtable
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+3);
+            pFun = (Fun)pVtab[0][3];
+            pFun();
+
+            //The tail of the vtable
+            pFun = (Fun)pVtab[0][4];
+            cout&lt;&lt;pFun&lt;&lt;endl;
+
+            //Base2's vtable
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+0);
+            pFun = (Fun)pVtab[1][0];
+            pFun();
+
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+1);
+            pFun = (Fun)pVtab[1][1];
+            pFun();
+
+            pFun = (Fun)pVtab[1][2];
+            pFun();
+
+            //The tail of the vtable
+            pFun = (Fun)pVtab[1][3];
+            cout&lt;&lt;pFun&lt;&lt;endl;
+
+            //Base3's vtable
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+0);
+            pFun = (Fun)pVtab[2][0];
+            pFun();
+
+            //pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+1);
+            pFun = (Fun)pVtab[2][1];
+            pFun();
+
+            pFun = (Fun)pVtab[2][2];
+            pFun();
+
+            //The tail of the vtable
+            pFun = (Fun)pVtab[2][3];
+            cout&lt;&lt;pFun&lt;&lt;endl;
+
+            return 0;
+}</pre>
+    <p>
+     <strong>
+      注：本文年代久远，所有的示例都是在32位机上跑的。
+     </strong>
+    </p>
+    <p>
+     (全文完)
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/20845.html">
+         <img alt="Rust语言的编程范式" height="150" src="https://coolshell.cn/wp-content/uploads/2020/03/rust-social-wide-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/20845.html">
+         Rust语言的编程范式
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12052.html">
+         <img alt="Leetcode 编程训练" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12052.html">
+         Leetcode 编程训练
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12012.html">
+         <img alt="State Threads 回调终结者" height="150" src="https://coolshell.cn/wp-content/uploads/2014/10/edsm-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12012.html">
+         State Threads 回调终结者
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11466.html">
+         <img alt="C语言的整型溢出问题" height="150" src="https://coolshell.cn/wp-content/uploads/2014/04/c99-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11466.html">
+         C语言的整型溢出问题
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="b3e155cbfd" id="post-ratings-12165" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_12165_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(12165, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_12165_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(12165, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_12165_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(12165, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_12165_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(12165, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_12165_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(12165, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      35
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.17
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_12165_text">
+     </span>
+     <meta content="C++ 虚函数表解析" itemprop="name"/>
+     <meta content="C++ 虚函数表解析" itemprop="headline"/>
+     <meta content="C++中的虚函数的作用主要是实现了多态的机制。关于多态，简而言之就是用父类型别的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有“多种形态”，这是一种泛型技术。所谓泛型技术，说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI技术，虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。
+
+关于虚函数的使用方法，我在这里不做过..." itemprop="description"/>
+     <meta content="2007-12-18T09:08:02+08:00" itemprop="datePublished"/>
+     <meta content="2015-04-01T20:45:26+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/12165.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/12165.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.17" itemprop="ratingValue"/>
+      <meta content="35" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-12165-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

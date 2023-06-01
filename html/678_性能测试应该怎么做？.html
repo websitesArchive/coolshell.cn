@@ -1,0 +1,683 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/17381.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="性能测试应该怎么做？ | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/17381.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2016/07/PerfTest.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2016/07/PerfTest.png" property="og:image:secure_url"/>
+   <meta content="300" property="og:image:width"/>
+   <meta content="277" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="性能测试应该怎么做？ | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2016/07/PerfTest.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/17381.html#article","name":"\u6027\u80fd\u6d4b\u8bd5\u5e94\u8be5\u600e\u4e48\u505a\uff1f | \u9177 \u58f3 - CoolShell","headline":"\u6027\u80fd\u6d4b\u8bd5\u5e94\u8be5\u600e\u4e48\u505a\uff1f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2016\/07\/PerfTest.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":300,"height":277},"datePublished":"2016-07-05T17:03:26+08:00","dateModified":"2016-07-10T07:39:10+08:00","inLanguage":"zh-CN","commentCount":77,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/17381.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/17381.html#webpage"},"articleSection":"\u6d41\u7a0b\u65b9\u6cd5, \u7a0b\u5e8f\u8bbe\u8ba1, Performance, test"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/17381.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/17381.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/17381.html#webpage","url":"https:\/\/coolshell.cn\/articles\/17381.html","name":"\u6027\u80fd\u6d4b\u8bd5\u5e94\u8be5\u600e\u4e48\u505a\uff1f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/17381.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2016-07-05T17:03:26+08:00","dateModified":"2016-07-10T07:39:10+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '17381';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F';
+	window._wp_rp_post_tags = ['test', 'performance', '%E6%B5%81%E7%A8%8B%E6%96%B9%E6%B3%95', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'averag', 'top', 'a', 'suck'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/17381.html/feed" rel="alternate" title="酷 壳 - CoolShell » 性能测试应该怎么做？评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/17381" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=17381" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F17381.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F17381.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-17381 post type-post status-publish format-standard hentry category-process category-progdesign tag-performance tag-test" id="post-17381">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     性能测试应该怎么做？
+    </span>
+    <h1 class="entry-title">
+     性能测试应该怎么做？
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/17381.html" rel="bookmark" title="01:03">
+       <time class="entry-date" datetime="2016-07-06T01:03:26+08:00" pubdate="">
+        2016年07月06日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/17381.html#comments">
+       77 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      120,674 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="PerfTest" class="alignright size-full wp-image-17383" decoding="async" height="277" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2016/07/PerfTest.png" srcset="https://coolshell.cn/wp-content/uploads/2016/07/PerfTest.png 300w, https://coolshell.cn/wp-content/uploads/2016/07/PerfTest-292x270.png 292w" width="300"/>
+     偶然间看到了阿里中间件
+     <a href="http://dubbo.io/User+Guide-zh.htm#UserGuide-zh-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A" target="_blank">
+      Dubbo的性能测试报告
+     </a>
+     ，我觉得这份性能测试报告让人觉得做这性能测试的人根本不懂性能测试，我觉得这份报告会把大众带沟里去，所以，想写下这篇文章，做一点科普。
+    </p>
+    <p>
+     首先，这份测试报告里的主要问题如下：
+    </p>
+    <p>
+     <strong>
+      1）用的全是平均值
+     </strong>
+     。老实说，平均值是非常不靠谱的。
+    </p>
+    <p>
+     <strong>
+      2）响应时间没有和吞吐量TPS/QPS挂钩
+     </strong>
+     。而只是测试了低速率的情况，这是完全错误的。
+    </p>
+    <p>
+     <strong>
+      3）响应时间和吞吐量没有和成功率挂钩。
+     </strong>
+    </p>
+    <p>
+     <span id="more-17381">
+     </span>
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E9%9D%A0%E8%B0%B1" title="为什么平均值不靠谱">
+         为什么平均值不靠谱
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4%EF%BC%88latency%EF%BC%89%E8%A6%81%E5%92%8C%E5%90%9E%E5%90%90%E9%87%8F%EF%BC%88Thoughput%EF%BC%89%E6%8C%82%E9%92%A9" title="为什么响应时间（latency）要和吞吐量（Thoughput）挂钩">
+         为什么响应时间（latency）要和吞吐量（Thoughput）挂钩
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4%E5%90%9E%E5%90%90%E9%87%8F%E5%92%8C%E6%88%90%E5%8A%9F%E7%8E%87%E8%A6%81%E6%8C%82%E9%92%A9" title="为什么响应时间吞吐量和成功率要挂钩">
+         为什么响应时间吞吐量和成功率要挂钩
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%A6%82%E4%BD%95%E4%B8%A5%E8%B0%A8%E5%9C%B0%E5%81%9A%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95" title="如何严谨地做性能测试">
+         如何严谨地做性能测试
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E9%9D%A0%E8%B0%B1">
+     </span>
+     为什么平均值不靠谱
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     关于平均值为什么不靠谱，我相信大家读新闻的时候经常可以看到，
+     <strong>
+      平均工资
+     </strong>
+     ，
+     <strong>
+      平均房价
+     </strong>
+     ，
+     <strong>
+      平均支出
+     </strong>
+     ，等等这样的字眼，
+     <span class="show_c" id="zoom">
+      你就知道为什么平均值不靠谱了。（这些都是数学游戏，对于理工科的同学来说，天生应该有免疫力）
+     </span>
+    </p>
+    <p>
+     软件的性能测试也一样，平均数也是不靠谱的，这里可以参看这篇详细的文章《
+     <a href="http://apmblog.dynatrace.com/2012/11/14/why-averages-suck-and-percentiles-are-great/" target="_blank">
+      Why Averages Suck and Percentiles are Great
+     </a>
+     》，我在这里简单说一下。
+    </p>
+    <p>
+     我们知道，性能测试时，测试得到的结果数据不总是一样的，而是有高有低的，如果算平均值就会出现这样的情况，假如，测试了10次，有9次是1ms，而有1次是1s，那么平均数据就是100ms，很明显，这完全不能反应性能测试的情况，也许那1s的请求就是一个不正常的值，是个噪点，应该去掉。所以，我们会在一些评委打分中看到要去掉一个最高分一个最低分，然后再算平均值。
+    </p>
+    <p>
+     另外，中位数（Mean）可能会比平均数要稍微靠谱一些，所谓中位数的意就是把将一组数据按大小顺序排列，处在最中间位置的一个数叫做这组数据的中位数 ，这意味着至少有50%的数据低于或高于这个中位数。
+    </p>
+    <p>
+     当然，最为正确的统计做法是用百分比分布统计。也就是英文中的TP – Top Percentile ，TP50的意思在，50%的请求都小于某个值，TP90表示90%的请求小于某个时间。
+    </p>
+    <p>
+     比如：我们有一组数据：[ 10ms,  1s, 200ms, 100ms]，我们把其从小到大排个序：[10ms, 100ms, 200ms, 1s]，于是我们知道，TP50，就是50%的请求ceil(4*0.5)=2时间是小于100ms的，TP90就是90%的请求ceil(4*0.9)=4时间小于1s。于是：TP50就是100ms，TP90就是1s。
+    </p>
+    <p>
+     我以前在路透做的金融系统响应时间的性能测试的要求是这样的，
+     <strong>
+      99.9%的请求必须小于1ms，所有的平均时间必须小于1ms。两个条件的限制。
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4%EF%BC%88latency%EF%BC%89%E8%A6%81%E5%92%8C%E5%90%9E%E5%90%90%E9%87%8F%EF%BC%88Thoughput%EF%BC%89%E6%8C%82%E9%92%A9">
+     </span>
+     为什么响应时间（latency）要和吞吐量（Thoughput）挂钩
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     系统的性能如果只看吞吐量，不看响应时间是没有意义的。我的系统可以顶10万请求，但是响应时间已经到了5秒钟，这样的系统已经不可用了，这样的吞吐量也是没有意义的。
+    </p>
+    <p>
+     我们知道，当并发量（吞吐量）上涨的时候，系统会变得越来越不稳定，响应时间的波动也会越来越大，响应时间也会变得越来越慢，而吞吐率也越来越上不去（如下图所示），包括CPU的使用率情况也会如此。所以，当系统变得不稳定的时候，吞吐量已经没有意义了。吞吐量有意义的时候仅当系统稳定的时候。
+    </p>
+    <p>
+     <img alt="BenchmarkOptimalRate" class="aligncenter size-full wp-image-17382" decoding="async" height="343" loading="lazy" sizes="(max-width: 535px) 100vw, 535px" src="https://coolshell.cn/wp-content/uploads/2016/07/BenchmarkOptimalRate.png" srcset="https://coolshell.cn/wp-content/uploads/2016/07/BenchmarkOptimalRate.png 535w, https://coolshell.cn/wp-content/uploads/2016/07/BenchmarkOptimalRate-300x192.png 300w" width="535"/>
+    </p>
+    <p>
+     所以，
+     <strong>
+      吞吐量的值必需有响应时间来卡。
+     </strong>
+     比如：
+     <strong>
+      TP99小于100ms的时候，系统可以承载的最大并发数是1000qps
+     </strong>
+     。这意味着，我们要不断的在不同的并发数上测试，以找到软件的最稳定时的最大吞吐量。
+    </p>
+    <p>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4%E5%90%9E%E5%90%90%E9%87%8F%E5%92%8C%E6%88%90%E5%8A%9F%E7%8E%87%E8%A6%81%E6%8C%82%E9%92%A9">
+     </span>
+     为什么响应时间吞吐量和成功率要挂钩
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我们这应该不难理解了，如果请求不成功的话，都还做毛的性能测试。比如，我说我的系统并发可以达到10万，但是失败率是
+    </p>
+    <p>
+     40%，那么，这10万的并发完全就是一个笑话了。
+    </p>
+    <p>
+     性能测试的失败率的容忍应该是非常低的。对于一些关键系统，成功请求数必须在100%，一点都不能含糊。
+    </p>
+    <p>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%A6%82%E4%BD%95%E4%B8%A5%E8%B0%A8%E5%9C%B0%E5%81%9A%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95">
+     </span>
+     如何严谨地做性能测试
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     一般来说，性能测试要统一考虑这么几个因素：
+     <strong>
+      Thoughput吞吐量
+     </strong>
+     ，
+     <strong>
+      Latency响应时间
+     </strong>
+     ，
+     <strong>
+      资源利用
+     </strong>
+     （CPU/MEM/IO/Bandwidth…），
+     <strong>
+      成功率
+     </strong>
+     ，
+     <strong>
+      系统稳定性
+     </strong>
+     。
+    </p>
+    <p>
+     下面的这些性能测试的方式基本上来源自我的老老东家汤森路透，一家做real-time的金融数据系统的公司。
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      一，你得定义一个系统的响应时间latency，建议是TP99，以及成功率
+     </strong>
+     。比如路透的定义：99.9%的响应时间必需在1ms之内，平均响应时间在1ms以内，100%的请求成功。
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      二，在这个响应时间的限制下，找到最高的吞吐量
+     </strong>
+     。测试用的数据，需要有大中小各种尺寸的数据，并可以混合。最好使用生产线上的测试数据。
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      三，在这个吞吐量做Soak Test，比如：使用第二步测试得到的吞吐量连续7天的不间断的压测系统。
+     </strong>
+     然后收集CPU，内存，硬盘/网络IO，等指标，查看系统是否稳定，比如，CPU是平稳的，内存使用也是平稳的。那么，这个值就是系统的性能
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      四，找到系统的极限值。比如：在成功率100%的情况下（不考虑响应时间的长短），系统能坚持10分钟的吞吐量。
+     </strong>
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      五，做Burst Test。用第二步得到的吞吐量执行5分钟，然后在第四步得到的极限值执行1分钟，再回到第二步的吞吐量执行5钟，再到第四步的权限值执行1分钟，如此往复个一段时间，比如2天。
+     </strong>
+     收集系统数据：CPU、内存、硬盘/网络IO等，观察他们的曲线，以及相应的响应时间，确保系统是稳定的。
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      六、低吞吐量和网络小包的测试。
+     </strong>
+     有时候，在低吞吐量的时候，可能会导致latency上升，比如TCP_NODELAY的参数没有开启会导致latency上升（详见
+     <a href="https://coolshell.cn/articles/11564.html" target="_blank">
+      TCP的那些事
+     </a>
+     ），而网络小包会导致带宽用不满也会导致性能上不去，所以，性能测试还需要根据实际情况有选择的测试一下这两咱场景。
+    </p>
+    <p>
+     （注：在路透，路透会用第二步得到的吞吐量乘以66.7%来做为系统的软报警线，80%做为系统的硬报警线，而极限值仅仅用来扛突发的peak）
+    </p>
+    <p>
+     <strong>
+      是不是很繁锁？是的，只因为，这是工程，工程是一门科学，科学是严谨的。
+     </strong>
+    </p>
+    <p>
+     欢迎大家也分享一下你们性能测试的经验和方法。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <p>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/22242.html">
+         <img alt="ETCD的内存问题" height="150" src="https://coolshell.cn/wp-content/uploads/2022/05/etcd-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/22242.html">
+         ETCD的内存问题
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11454.html">
+         <img alt="从LongAdder看更高效的无锁实现" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/17.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11454.html">
+         从LongAdder看更高效的无锁实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10910.html">
+         <img alt="分布式系统的事务处理" height="150" src="https://coolshell.cn/wp-content/uploads/2014/01/trade-off-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10910.html">
+         分布式系统的事务处理
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9703.html">
+         <img alt="无锁HashMap的原理与实现" height="150" src="https://coolshell.cn/wp-content/uploads/2013/05/图1-3-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9703.html">
+         无锁HashMap的原理与实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9169.html">
+         <img alt="并发框架Disruptor译文" height="150" src="https://coolshell.cn/wp-content/uploads/2013/02/Disruptor-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9169.html">
+         并发框架Disruptor译文
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8883.html">
+         <img alt="应该知道的Linux技巧" height="150" src="https://coolshell.cn/wp-content/uploads/2013/01/linux-bash-300x225-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8883.html">
+         应该知道的Linux技巧
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="e049912e4b" id="post-ratings-17381" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_17381_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(17381, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_17381_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(17381, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_17381_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(17381, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_17381_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(17381, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_17381_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(17381, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      73
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.53
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_17381_text">
+     </span>
+     <meta content="性能测试应该怎么做？" itemprop="name"/>
+     <meta content="性能测试应该怎么做？" itemprop="headline"/>
+     <meta content="偶然间看到了阿里中间件Dubbo的性能测试报告，我觉得这份性能测试报告让人觉得做这性能测试的人根本不懂性能测试，我觉得这份报告会把大众带沟里去，所以，想写下这篇文章，做一点科普。
+
+首先，这份测试报告里的主要问题如下：
+
+1）用的全是平均值。老实说，平均值是非常不靠谱的。
+
+2）响应时间没有和吞吐量TPS/QPS挂钩。而只是测试了低速率的情况，这是完全错误的。
+
+3）响应时间和吞吐..." itemprop="description"/>
+     <meta content="2016-07-06T01:03:26+08:00" itemprop="datePublished"/>
+     <meta content="2016-07-10T15:39:10+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/17381.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/17381.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.53" itemprop="ratingValue"/>
+      <meta content="73" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-17381-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/process" rel="category tag">
+        流程方法
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/performance" rel="tag">
+        Performance
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/test" rel="tag">
+        test
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

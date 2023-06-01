@@ -1,0 +1,648 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/1302.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="Code Review中的几个提示 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/1302.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2009/08/review.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2009/08/review.jpg" property="og:image:secure_url"/>
+   <meta content="124" property="og:image:width"/>
+   <meta content="88" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Code Review中的几个提示 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2009/08/review.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/1302.html#article","name":"Code Review\u4e2d\u7684\u51e0\u4e2a\u63d0\u793a | \u9177 \u58f3 - CoolShell","headline":"Code Review\u4e2d\u7684\u51e0\u4e2a\u63d0\u793a","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2009\/08\/review.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":124,"height":88},"datePublished":"2009-08-20T15:49:49+08:00","dateModified":"2014-04-12T03:51:45+08:00","inLanguage":"zh-CN","commentCount":40,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/1302.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/1302.html#webpage"},"articleSection":"\u6280\u672f\u8bfb\u7269, \u6d41\u7a0b\u65b9\u6cd5, Code Review"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/1302.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/1302.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/1302.html#webpage","url":"https:\/\/coolshell.cn\/articles\/1302.html","name":"Code Review\u4e2d\u7684\u51e0\u4e2a\u63d0\u793a | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/1302.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2009-08-20T15:49:49+08:00","dateModified":"2014-04-12T03:51:45+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '1302';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Code+Review%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8F%90%E7%A4%BA';
+	window._wp_rp_post_tags = ['code+review', '%E6%B5%81%E7%A8%8B%E6%96%B9%E6%B3%95', '%E6%8A%80%E6%9C%AF%E8%AF%BB%E7%89%A9', 'code', 'span', 'review'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/1302.html/feed" rel="alternate" title="酷 壳 - CoolShell » Code Review中的几个提示评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/1302" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=1302" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F1302.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F1302.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-1302 post type-post status-publish format-standard hentry category-techarticle category-process tag-code-review" id="post-1302">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Code Review中的几个提示
+    </span>
+    <h1 class="entry-title">
+     Code Review中的几个提示
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/1302.html" rel="bookmark" title="23:49">
+       <time class="entry-date" datetime="2009-08-20T23:49:49+08:00" pubdate="">
+        2009年08月20日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/1302.html#comments">
+       40 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      55,491 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="Code Reivew" class="alignright size-full wp-image-1303" decoding="async" height="88" src="https://coolshell.cn/wp-content/uploads/2009/08/review.jpg" title="Code Reivew" width="124"/>
+     Code Review应该是软件工程最最有价值的一个活动，之前，本站发表过《
+     <a href="https://coolshell.cn/articles/1218.html" rel="bookmark">
+      简单实用的Code Review工具
+     </a>
+     》，那些工具主要是用来帮助更有效地进行这个活动，这里的这篇文章，我们主要想和大家分享一下Code Review代码审查的一些心得。
+    </p>
+    <p>
+     首先，我们先来看看Code Reivew的用处：
+    </p>
+    <ol>
+     <li>
+      Code reviews 中，可以通过大家的建议增进代码的质量。
+     </li>
+     <li>
+      Code reviews  是一个传递知识的手段，可以让其它并不熟悉代码的人知道作者的意图和想法，从而可以在以后轻松维护代码。
+     </li>
+     <li>
+      Code reviews 也鼓励程序员们相互学习对方的长处和优点。
+     </li>
+     <li>
+      Code reviews 也可以被用来确认自己的设计和实现是一个清楚和简单的。
+     </li>
+    </ol>
+    <p>
+     你也许注意到了在上面的Code Reivew中的诸多用处中，我们没有提到可以帮助找到程序的bug和保证代码风格和编码标准。这是因为我们认为：
+    </p>
+    <p>
+     <span id="more-1302">
+     </span>
+    </p>
+    <ol>
+     <li>
+      <strong>
+       Code reviews
+       <span style="color: #993300;">
+        不应该
+       </span>
+       承担发现代码错误的职责
+      </strong>
+      。Code Review主要是审核代码的质量，如可读性，可维护性，以及程序的逻辑和对需求和设计的实现。代码中的bug和错误应该由单元测试，功能测试，性能测试，回归测试来保证的（其中主要是单元测试，因为那是最接近Bug，也是Bug没有扩散的地方）
+     </li>
+     <li>
+      <strong>
+       Code reviews
+       <span style="color: #993300;">
+        不应该
+       </span>
+       成为保证代码风格和编码标准的手段
+      </strong>
+      。编码风格和代码规范都属于死的东西，每个程序员在把自己的代码提交团队Review的时候，代码就应该是符合规范的，这是默认值，属于每个人自己的事情，不应该交由团队来完成，否则只会浪费大家本来就不够的时间。我个人认为“meeting”是奢侈的，因为那需要大家在同一时刻都挤出时间，所以应该用在最需要的地方。代码规范比起程序的逻辑和对需求设计的实现来说，太不值得让大家都来了。
+     </li>
+    </ol>
+    <p>
+     10年前，上面这两件事会是理所当然的（10年前的中国的软件开发还没有Code Reivew呢），今天，在中国的很多公司上面这两件事依然被认为是Code Reivew最重要的事，所以，我能够看到很多开发Team抱怨Code Review就是一个形式，费时费力不说，发现的问题还不如测试，而评审者们除了在代码风格上有些见术，别的也就没什么用了，长而久之，大家都会开始厌烦这个事了。
+    </p>
+    <p>
+     所以，在今天，请不要把上面的那两件事分散了Code Review的注意力，取而代之的是，对于Bug，程序的作者要在Review前提交自己的单元测试报告（如：XUnit的测试结果），对于代码规范，这是程序作者自己需要保证的，而且，有一些工具是可以帮你来检查代码规范的。
+    </p>
+    <p>
+     <strong>
+      当然，上述这些言论并不是说，你不能在Code Review中报告一个程序的bug或是一个代码规范的问题。我只是说，那并不是Code Review的意图。
+     </strong>
+    </p>
+    <p>
+     下面是我们认为的几个小提示可以让你更好进行Code Review这项最有价值的活动。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#1-_%E7%BB%8F%E5%B8%B8%E8%BF%9B%E8%A1%8CCode_Review" title="1.- 经常进行Code Review">
+         1.- 经常进行Code Review
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#2-_Code_Review%E4%B8%8D%E8%A6%81%E5%A4%AA%E6%AD%A3%E5%BC%8F%EF%BC%8C%E8%80%8C%E4%B8%94%E8%A6%81%E7%9F%AD" title="2.- Code Review不要太正式，而且要短">
+         2.- Code Review不要太正式，而且要短
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#3-_%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E8%AE%A9%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%BAReivew%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81" title="3.- 尽可能的让不同的人Reivew你的代码">
+         3.- 尽可能的让不同的人Reivew你的代码
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#4-_%E4%BF%9D%E6%8C%81%E7%A7%AF%E6%9E%81%E7%9A%84%E6%AD%A3%E9%9D%A2%E7%9A%84%E6%80%81%E5%BA%A6" title="4.- 保持积极的正面的态度">
+         4.- 保持积极的正面的态度
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#5-_%E5%AD%A6%E4%BC%9A%E4%BA%AB%E5%8F%97Code_Reivew" title="5.- 学会享受Code Reivew">
+         5.- 学会享受Code Reivew
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="1-_%E7%BB%8F%E5%B8%B8%E8%BF%9B%E8%A1%8CCode_Review">
+     </span>
+     1.- 经常进行Code Review
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     以前经历过几个相当痛苦的Code Review，那几次Code Review都是在程序完成的时候进行的，当你面对那近万行的代码，以前N多掺和在一起的功能，你会发现，整个Code Review变得非常地艰难，用不了一会儿，你就会发现大家都在拼命地打着哈欠，但还是要坚持，有时候，这样的Review会持续3个小时以上，相当的夸张。而且，会议上会出现相当多的问题和争论，因为，这就好像，人家都把整个房子盖好了，大家Review时这挑一点那挑一点，有时候触动地基或是承重墙体，需要大动手术，让人返工，这当然会让盖房的人一下就跳起来极力地维护自己的代码，最后还伤了团队成员的感情。
+    </p>
+    <p>
+     所以，千万不要等大厦都盖好了再去Reivew，而且当有了地基，有了框架，有了房顶，有了门窗，有了装修，的各个时候循序渐进地进行Review，这样反而会更有效率，也更有帮助。
+    </p>
+    <p>
+     下面是一些观点，千万要铭记：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       要Review的代码越多，那么要重构，重写的代码就会越多。而越不被程序作者接受的建议也会越多，唾沫口水战也会越多。
+       <br/>
+      </strong>
+     </li>
+     <li>
+      <strong>
+       程序员代码写得时候越长，程序员就会在代码中加入越来越多的个人的东西。
+      </strong>
+      程序员最大的问题就是“自负”，无论什么时候，什么情况下，有太多的机会会让这种“自负”澎涨开来，并开始影响团队影响整个项目，以至于听不见别人的建议，从而让Code Review变成了口水战。
+     </li>
+     <li>
+      <strong>
+       越接近软件发布的最终期限，代码也就不能改得太多。
+      </strong>
+     </li>
+    </ul>
+    <p>
+     我个人的习惯，并且也是对团队成员的要求是——先Review设计实现思路，然后Review设计模式，接着Review成形的骨干代码，最后Review完成的代码，如果程序复杂的话，需要拆成几个单元或模块分别Review。当然，最佳的practice是，每次Review的代码应该在1000行以内，时间不能超过一部电影的时间——1.5小时（因为据说那个一个正常人的膀胱可以容纳尿液的最长限度）
+    </p>
+    <p>
+     当然，在敏捷开发中，他们不需要Code Reivew，其实，敏捷开发中使用更为极端的“结对编程”（Pair-Programming）的方法 —— 一种时时刻刻都在进行Code Review的方法，个人感觉在实际过程中，这种方法有点过了。另外，大家可以看看本站的另一篇文章《
+     <a href="https://coolshell.cn/articles/16.html" rel="bookmark">
+      结对编程的利与弊
+     </a>
+     》来了解一下这种方法的问题。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="2-_Code_Review%E4%B8%8D%E8%A6%81%E5%A4%AA%E6%AD%A3%E5%BC%8F%EF%BC%8C%E8%80%8C%E4%B8%94%E8%A6%81%E7%9F%AD">
+     </span>
+     2.- Code Review不要太正式，而且要短
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     忘了那个代码评审的Checklist吧，走到你的同事座位跟前，像请师父一样请他坐到你的电脑面前，然后，花5分钟给他讲讲你的代码，给他另外一个5分钟让他给你的代码提提意见，这比什么都好。而如果你用了一个Checklist，让这个事情表现得很正式的话，下面两件事中必有一件事会发生：
+    </p>
+    <ol>
+     <li>
+      只有在Checklist上存在的东西才会被Review。
+     </li>
+     <li>
+      Code Reviews 变成了一种礼节性的东西，你的同事会装做很关心你的代码，但其实他心里想着尽快地离开你。
+     </li>
+    </ol>
+    <p>
+     只有不正式的Code Review才会让你和评审者放轻松，人只有放松了，才会表现得很真实，很真诚。记住Review只不过是一种形式，而只有在相互信任中通过相互的讨论得到了有意义和有建设性的建议和意见，那才是最实在的。不然，作者和评审者的关系就会变成小偷和警察的关系。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="3-_%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E8%AE%A9%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%BAReivew%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81">
+     </span>
+     3.- 尽可能的让不同的人Reivew你的代码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     这是一个好主意，如果可能的话，不要总是只找一个人来Review你的代码，不同的人有不同的思考方式，有不同的见解，所以，不同的人可以全面的从各个方面评论你的代码，有的从实现的角度，有的从需求的角度，有的从用户使用的角度，有的从算法的角度，有的从性能效率的角度，有的从易读的角度，有的从扩展性的角度……，啊，好多啊，还让不让人活了。不管怎么说，多找一些不同的人会对你很有好处。当然，不要太多了，人多嘴杂反而适得其反，基本上来说，不要超过3个人，这是因为，这是一个可以围在一起讨论的最大人员尺寸。
+    </p>
+    <p>
+     下面是几个优点：
+    </p>
+    <ol>
+     <li>
+      从不同的方向评审代码总是好的。
+     </li>
+     <li>
+      会有更多的人帮你在日后维护你的代码。
+     </li>
+     <li>
+      这也是一个增加团队凝聚力的方法。
+     </li>
+    </ol>
+    <h4>
+     <span class="ez-toc-section" id="4-_%E4%BF%9D%E6%8C%81%E7%A7%AF%E6%9E%81%E7%9A%84%E6%AD%A3%E9%9D%A2%E7%9A%84%E6%80%81%E5%BA%A6">
+     </span>
+     4.- 保持积极的正面的态度
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     再说一次，程序最大的问题就是“自负”，尤其当我们Reivew别人的代码的时候，我已经见过无数的场面，程序员在Code Review的时候，开始抨击别人的代码，质疑别人的能力。太可笑了，我分析了一下，这类的程序员其实并没有什么本事，因为他们指责对方的目的是想告诉大家自己有多么的牛，靠这种手段来表现自己的程序员，其实是就是传说中所说的“半瓶水”。
+    </p>
+    <p>
+     所以，无论是代码作者，还是评审者，都需要一种积极向上的正面的态度，作者需要能够虚心接受别人的建议，因为别人的建议是为了让你做得更好；评审者也需要以一种积极的正面的态度向作者提意见，因为那是和你在一个战壕里的战友。记住，你不是一段代码，你是一个人！
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="5-_%E5%AD%A6%E4%BC%9A%E4%BA%AB%E5%8F%97Code_Reivew">
+     </span>
+     5.- 学会享受Code Reivew
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     这可能是最重要的一个提示了，如果你到了一个人人都喜欢Code Reivew的团阿，那么，你会进入到一个生机勃勃的地方，在那里，每个人都能写出质量非常好的代码，在那里，你不需要经理的管理，团队会自适应一切变化，他们相互学习，相互帮助，不仅仅是写出好的代码，而且团队和其中的每个人都会自动进化，最关键的是，这个是一个团队。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17757.html">
+         <img alt="如何重构“箭头型”代码" height="150" src="https://coolshell.cn/wp-content/uploads/2017/04/IMG_7411-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17757.html">
+         如何重构“箭头型”代码
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11432.html">
+         <img alt="从Code Review 谈如何做技术" height="150" src="https://coolshell.cn/wp-content/uploads/2014/04/code_review-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11432.html">
+         从Code Review 谈如何做技术
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4875.html">
+         <img alt="一个空格引发的惨剧" height="150" src="https://coolshell.cn/wp-content/uploads/2011/06/20110620115951113-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4875.html">
+         一个空格引发的惨剧
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1719.html">
+         <img alt="橡皮鸭程序调试法" height="150" src="https://coolshell.cn/wp-content/uploads/2009/11/Rubber-Duck-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1719.html">
+         橡皮鸭程序调试法
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1218.html">
+         <img alt="简单实用的Code Review工具" height="150" src="https://coolshell.cn/wp-content/uploads/2009/08/viewtopicdetail-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1218.html">
+         简单实用的Code Review工具
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3136.html">
+         <img alt="chmod -x chmod的N种解法" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/3.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3136.html">
+         chmod -x chmod的N种解法
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="61fa0d48e3" id="post-ratings-1302" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_1302_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(1302, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_1302_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(1302, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_1302_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(1302, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_1302_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(1302, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_1302_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(1302, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      23
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.43
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_1302_text">
+     </span>
+     <meta content="Code Review中的几个提示" itemprop="name"/>
+     <meta content="Code Review中的几个提示" itemprop="headline"/>
+     <meta content="Code Review应该是软件工程最最有价值的一个活动，之前，本站发表过《简单实用的Code Review工具》，那些工具主要是用来帮助更有效地进行这个活动，这里的这篇文章，我们主要想和大家分享一下Code Review代码审查的一些心得。
+
+首先，我们先来看看Code Reivew的用处：
+
+	Code reviews 中，可以通过大家的建议增进代码的质量。
+	Code review..." itemprop="description"/>
+     <meta content="2009-08-20T23:49:49+08:00" itemprop="datePublished"/>
+     <meta content="2014-04-12T11:51:45+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/1302.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/1302.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.43" itemprop="ratingValue"/>
+      <meta content="23" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-1302-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/techarticle" rel="category tag">
+        技术读物
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/process" rel="category tag">
+        流程方法
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/code-review" rel="tag">
+        Code Review
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

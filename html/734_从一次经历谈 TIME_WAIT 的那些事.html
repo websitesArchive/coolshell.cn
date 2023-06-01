@@ -1,0 +1,948 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/22263.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="从一次经历谈 TIME_WAIT 的那些事 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/22263.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/07/wall_clock.jpeg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/07/wall_clock.jpeg" property="og:image:secure_url"/>
+   <meta content="900" property="og:image:width"/>
+   <meta content="500" property="og:image:height"/>
+   <meta content="2022-07-19T06:43:39+00:00" property="article:published_time"/>
+   <meta content="2022-10-28T08:37:32+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="从一次经历谈 TIME_WAIT 的那些事 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/07/wall_clock.jpeg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/22263.html#article","name":"\u4ece\u4e00\u6b21\u7ecf\u5386\u8c08 TIME_WAIT \u7684\u90a3\u4e9b\u4e8b | \u9177 \u58f3 - CoolShell","headline":"\u4ece\u4e00\u6b21\u7ecf\u5386\u8c08 TIME_WAIT \u7684\u90a3\u4e9b\u4e8b","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2022\/07\/wall_clock.jpeg","@id":"https:\/\/coolshell.cn\/#articleImage","width":900,"height":500},"datePublished":"2022-07-19T06:43:39+08:00","dateModified":"2022-10-28T08:37:32+08:00","inLanguage":"zh-CN","commentCount":31,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/22263.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/22263.html#webpage"},"articleSection":"Go \u8bed\u8a00, Unix\/Linux, \u64cd\u4f5c\u7cfb\u7edf, \u7f16\u7a0b\u8bed\u8a00, SO_LINGER, TCP, TIME_WAIT"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/22263.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/22263.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/22263.html#webpage","url":"https:\/\/coolshell.cn\/articles\/22263.html","name":"\u4ece\u4e00\u6b21\u7ecf\u5386\u8c08 TIME_WAIT \u7684\u90a3\u4e9b\u4e8b | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/22263.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2022-07-19T06:43:39+08:00","dateModified":"2022-10-28T08:37:32+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '22263';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E4%BB%8E%E4%B8%80%E6%AC%A1%E7%BB%8F%E5%8E%86%E8%B0%88+TIME_WAIT+%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B';
+	window._wp_rp_post_tags = ['time_wait', 'tcp', 'so_linger', 'unix%2Flinux', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'go+%E8%AF%AD%E8%A8%80', '%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F', '15', 'ul', 'linux', '60', 'unix', '410', 'sequenc', 'li', 'a', 'alt', 'number', 'reset', 'socket'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/22263.html/feed" rel="alternate" title="酷 壳 - CoolShell » 从一次经历谈 TIME_WAIT 的那些事评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/22263" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=22263" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22263.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22263.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-22263 post type-post status-publish format-standard hentry category-go- category-unixlinux category-operatingsystem category-proglanguage tag-so_linger tag-tcp tag-time_wait" id="post-22263">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     从一次经历谈 TIME_WAIT 的那些事
+    </span>
+    <h1 class="entry-title">
+     从一次经历谈 TIME_WAIT 的那些事
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/22263.html" rel="bookmark" title="14:43">
+       <time class="entry-date" datetime="2022-07-19T14:43:39+08:00" pubdate="">
+        2022年07月19日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/22263.html#comments">
+       31 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      40,507 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright" decoding="async" height="222" src="https://coolshell.cn/wp-content/uploads/2022/07/wall_clock-300x167.jpeg" width="400"/>
+     今天来讲一讲TCP 的
+     <code>
+      TIME_WAIT
+     </code>
+     的问题。这个问题尽人皆知，不过，这次遇到的是不太一样的场景，前两天也解决了，正好写篇文章，顺便把
+     <code>
+      TIME_WAIT
+     </code>
+     的那些事都说一说。对了，这个场景，跟我开源的探活小工具
+     <a href="https://github.com/megaease/easeprobe">
+      EaseProbe
+     </a>
+     有关，我先说说这个场景里的问题，然后，顺着这个场景跟大家好好说一下这个事。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF" title="问题背景">
+         问题背景
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81_TIME_WAIT" title="为什么要 TIME_WAIT">
+         为什么要 TIME_WAIT
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" title="解决方案">
+         解决方案
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#Go_%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C" title="Go 实际操作">
+         Go 实际操作
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E6%80%BB%E7%BB%93" title="总结">
+         总结
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF">
+     </span>
+     问题背景
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     先说一下背景，
+     <a href="https://github.com/megaease/easeprobe">
+      EaseProbe
+     </a>
+     是一个轻量独立的用来探活服务健康状况的小工具，支持http/tcp/shell/ssh/tls/host以及各种中间件的探活，然后，直接发送通知到主流的IM上，如：Slack/Telegram/Discrod/Email/Team，包括国内的企业微信/钉钉/飞书， 非常好用，用过的人都说好 😏。
+    </p>
+    <p>
+     这个探活工具在每次探活的时候，必须要从头开始建立整个网络链接，也就是说，需要从头开始进行DNS查询，建立TCP链接，然后进行通信，再关闭链接。这里，我们不会设置 TCP 的 KeepAlive 重用链接，因为探活工具除了要探活所远端的服务，还要探活整个网络的情况，所以，每次探活都需要从新来过，这样才能捕捉得到整个链路的情况。
+    </p>
+    <p>
+     <span id="more-22263">
+     </span>
+    </p>
+    <p>
+     但是，这样不断的新建链接和关闭链接，根据TCP的状态机，我们知道这会导致在探测端这边出现的
+     <code>
+      TIME_WAIT
+     </code>
+     的 TCP 链接，根据 TCP 协议的定义，这个 TIME_WAIT 需要等待 2倍的MSL 时间，TCP 链接都会被系统回收，在回收之前，这个链接会占用系统的资源，主要是两个资源，一个是文件描述符，这个还好，可以调整，另一个则是端口号，这个是没法调整的，因为作为发起请求的client来说，在对同一个IP上理论上你只有64K的端口号号可用（实际上系统默认只有近30K，从32,768 到 60,999 一共 60999+1-32768=28,232，你可以通过
+     <code>
+      sysctl net.ipv4.ip_local_port_range
+     </code>
+     查看  ），如果
+     <code>
+      TIME_WAIT
+     </code>
+     过多，会导致TCP无法建立链接，还会因为资源消耗太多导致整个程序甚至整个系统异常。
+    </p>
+    <p>
+     试想，如果我们以 10秒为周期探测10K的结点，如果TIME_WAIT的超时时间是120秒，那么在第60秒后，等着超时的
+     <code>
+      TIME_WAIT
+     </code>
+     我们就有可能把某个IP的端口基本用完了，就算还行，系统也有些问题。（注意：我们不仅仅只是TCP，还有HTTP协议，所以，大家不要觉得TCP的四元组只要目标地址不一样就好了，一方面，我们探的是域名，需要访问DNS服务，所以，DNS服务一般是一台服务器，还有，因为HTTPS一般是探API，而且会有网关代理API，所以链接会到同一个网关上。另外就算还可以建出站连接，但是本地程序会因为端口耗尽无法bind了。所以，现实情况并不会像理论情况那样只要四元组不冲突，端口就不会耗尽）
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81_TIME_WAIT">
+     </span>
+     为什么要 TIME_WAIT
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     那么，为什么TCP在
+     <code>
+      TIME_WAIT
+     </code>
+     上要等待一个2MSL的时间？
+     <code>
+     </code>
+    </p>
+    <p>
+     以前写过篇比较宏观的《TCP的那些事》（
+     <a href="https://coolshell.cn/articles/11564.html" rel="noopener" target="_blank" title="TCP 的那些事儿（上）">
+      上篇
+     </a>
+     ，
+     <a href="https://coolshell.cn/articles/11609.html" rel="noopener" target="_blank" title="TCP 的那些事儿（下）">
+      下篇
+     </a>
+     ），这个访问在“上篇”里讲过，这里再说一次，TCP 断链接的时候，会有下面这个来来回回的过程。
+    </p>
+    <p>
+     我们来看主动断链接的最后一个状态
+     <code>
+      TIME_WAIT
+     </code>
+     后就不需要等待对端回 ack了，而是进入了超时状态。这主要是因为，在网络上，如果要知道我们发出的数据被对方收到了，那我们就需要对方发来一个确认的Ack信息，那问题来了，对方怎么知道自己发出去的ack，被收到了？难道还要再ack一下，这样ack来ack回的，那什么谁也不要玩了……是的，这就是比较著名的【两将军问题】——两个将军需要在一个不稳定的信道上达成对敌攻击时间的协商，A向B派出信鸽，我们明早8点进攻，A怎么知道B收到了信？那需要B向A派出信鸽，ack说我收到了，明早8点开干。但是，B怎么知道A会收到自己的确认信？是不是还要A再确认一下？这样无穷无尽的确认导致这个问题是没有完美解的（我们在《
+     <a href="https://coolshell.cn/articles/10910.html#Two_Generals_Problem%EF%BC%88%E4%B8%A4%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98%EF%BC%89" rel="noopener" target="_blank">
+      分布式事务
+     </a>
+     》一文中说过这个问题，这里不再重述）
+    </p>
+    <p>
+     所以，我们只能等一个我们认为最大小时来解决两件个问题：
+    </p>
+    <p>
+     1） 为了
+     <strong>
+      防止来自一个连接的延迟段
+     </strong>
+     被依赖于相同四元组（源地址、源端口、目标地址、目标端口）的稍后连接接受（被接受后，就会被马上断掉，TCP状态机紊乱）。虽然，可以通过指定 TCP 的 sequence number 一定范围内才能被接受。但这也只是让问题发生的概率低了一些，对于一个吞吐量大的的应用来说，依然能够出现问题，尤其是在具有大接收窗口的快速连接上。
+     <a href="https://tools.ietf.org/html/rfc1337" title="RFC 1337：TCP 中的 TIME-WAIT 暗杀危险">
+      RFC 1337
+     </a>
+     详细解释了当
+     <code>
+      TIME-WAIT
+     </code>
+     状态不足时会发生什么。
+     <sup id="fnref-rfc1337">
+     </sup>
+     <code>
+      TIME-WAIT
+     </code>
+     以下是如果不缩短状态可以避免的示例：
+    </p>
+    <figure aria-describedby="caption-attachment-22267" class="wp-caption aligncenter" id="attachment_22267" style="width: 456px">
+     <img alt="" class="wp-image-22267" decoding="async" height="467" loading="lazy" sizes="(max-width: 456px) 100vw, 456px" src="https://coolshell.cn/wp-content/uploads/2022/07/duplicate-segment.png" srcset="https://coolshell.cn/wp-content/uploads/2022/07/duplicate-segment.png 800w, https://coolshell.cn/wp-content/uploads/2022/07/duplicate-segment-293x300.png 293w, https://coolshell.cn/wp-content/uploads/2022/07/duplicate-segment-768x787.png 768w, https://coolshell.cn/wp-content/uploads/2022/07/duplicate-segment-263x270.png 263w" width="456"/>
+     <figcaption class="wp-caption-text" id="caption-attachment-22267">
+      由于缩短的 TIME-WAIT 状态，后续的 TCP 段已在不相关的连接中被接受（
+      <a href="https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux" rel="noopener" target="_blank">
+       来源
+      </a>
+      ）
+     </figcaption>
+    </figure>
+    <p>
+    </p>
+    <p>
+     2）另一个目的是确保
+     <strong>
+      远端已经关闭了连接
+     </strong>
+     。当最后一个
+     <em>
+      ACK
+     </em>
+     ​​ 丢失时，对端保持该
+     <code>
+      LAST-ACK
+     </code>
+     状态。
+     <sup id="fnref-lastack">
+     </sup>
+     在没有
+     <code>
+      TIME-WAIT
+     </code>
+     状态的情况下，可以重新打开连接，而远程端仍然认为先前的连接有效。当它收到一个
+     <em>
+      SYN
+     </em>
+     段（并且序列号匹配）时，它将以
+     <em>
+      RST
+     </em>
+     应答，因为它不期望这样的段。新连接将因错误而中止：
+    </p>
+    <p>
+    </p>
+    <figure aria-describedby="caption-attachment-22268" class="wp-caption aligncenter" id="attachment_22268" style="width: 559px">
+     <img alt="" class="wp-image-22268" decoding="async" height="375" loading="lazy" sizes="(max-width: 559px) 100vw, 559px" src="https://coolshell.cn/wp-content/uploads/2022/07/last-ack.png" srcset="https://coolshell.cn/wp-content/uploads/2022/07/last-ack.png 783w, https://coolshell.cn/wp-content/uploads/2022/07/last-ack-300x201.png 300w, https://coolshell.cn/wp-content/uploads/2022/07/last-ack-768x515.png 768w, https://coolshell.cn/wp-content/uploads/2022/07/last-ack-403x270.png 403w" width="559"/>
+     <figcaption class="wp-caption-text" id="caption-attachment-22268">
+      如果远端因为最后一个 ACK​​ 丢失而停留在 LAST-ACK 状态，则打开具有相同四元组的新连接将不起作用 （
+      <a href="https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux" rel="noopener" target="_blank">
+       来源
+      </a>
+      ）
+     </figcaption>
+    </figure>
+    <p>
+     <code>
+      TIME_WAIT
+     </code>
+     的这个超时时间的值如下所示：
+    </p>
+    <ul>
+     <li>
+      在 macOS 上是15秒，
+      <code>
+       sysctl net.inet.tcp | grep net.inet.tcp.msl
+      </code>
+     </li>
+     <li>
+      在 Linux 上是 60秒
+      <code>
+       cat /proc/sys/net/ipv4/tcp_fin_timeout
+      </code>
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">
+     </span>
+     解决方案
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     要解决这个问题，网上一般会有下面这些解法
+    </p>
+    <ul>
+     <li>
+      把这个超时间调小一些，这样就可以把TCP 的端口号回收的快一些。但是也不能太小，如果流量很大的话，TIME_WAIT一样会被耗尽。
+     </li>
+     <li>
+      设置上
+      <code>
+       tcp_tw_reuse
+      </code>
+      。
+      <a href="https://tools.ietf.org/html/rfc1323" title="RFC 1323：高性能 TCP 扩展">
+       RFC 1323
+      </a>
+      提出了一组 TCP 扩展来提高高带宽路径的性能。除其他外，它定义了一个新的 TCP 选项，带有两个四字节
+      <strong>
+       时间戳字段
+      </strong>
+      。第一个是发送选项的 TCP 时间戳的当前值，而第二个是从远程主机接收到的最新时间戳。如果新时间戳严格大于为前一个连接记录的最新时间戳。Linux 将重用该状态下的现有
+      <code>
+       TIME_WAIT
+      </code>
+      连接用于
+      <strong>
+       出站的链接
+      </strong>
+      。也就是说，
+      <strong>
+       这个参数对于入站连接是没有任何用图的。
+      </strong>
+     </li>
+     <li>
+      设置上
+      <code>
+       tcp_tw_recycle
+      </code>
+      。 这个参数同样依赖于时间戳选项，但会影响进站和出站链接。这个参数会影响NAT环境，也就是一个公司里的所有员工用一个IP地址访问外网的情况。在这种情况下，时间戳条件将禁止在这个公网IP后面的所有设备在一分钟内连接，因为它们不共享相同的时间戳时钟。毫无疑问，禁用此选项要好得多，因为它会导致
+      <strong>
+       难以检测
+      </strong>
+      和
+      <strong>
+       诊断
+      </strong>
+      问题。（注：从 Linux 4.10 (commit
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95a22caee396cef0bb2ca8fafdd82966a49367bb" title="tcp：为每个连接随机化 tcp 时间戳偏移">
+       95a22caee396
+      </a>
+      ) 开始，Linux 将为每个连接随机化时间戳偏移量，从而使该选项完全失效，无论有无
+      <abbr title="网络地址解读">
+       NAT
+      </abbr>
+      。它已从 Linux 4.12中完全删除）
+     </li>
+    </ul>
+    <p>
+     对于服务器来说，上述的三个访问都不能解决服务器的
+     <code>
+      TIME_WAIT
+     </code>
+     过多的问题，真正解决问题的就是——
+     <strong>
+      不作死就不会死，也就是说，服务器不要主动断链接，而设置上KeepAlive后，让客户端主动断链接，这样服务端只会有
+      <code>
+       CLOSE_WAIT
+      </code>
+     </strong>
+     。
+    </p>
+    <p>
+     但是对于用于建立出站连接的探活的 EaseProbe来说，设置上
+     <code>
+      tcp_tw_reuse
+     </code>
+     就可以重用
+     <code>
+      TIME_WAIT
+     </code>
+     了，但是这依然无法解决
+     <code>
+      TIME_WAIT
+     </code>
+     过多的问题。
+    </p>
+    <p>
+     然后，过了几天后，我忽然想起来以前在《UNIX 网络编程》上有看到过一个Socket的参数，叫
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      &lt;code&gt;SO_LINGER
+     </code>
+     ，我的编程生涯中从来没有使用过这个设置，这个参数主要是为了延尽关闭来用的，也就是说你应用调用
+     <code>
+      close()
+     </code>
+     函数时，如果还有数据没有发送完成，则需要等一个延时时间来让数据发完，但是，如果你把延时设置为 0  时，Socket就丢弃数据，并向对方发送一个
+     <code>
+      RST
+     </code>
+     来终止连接，因为走的是 RST 包，所以就不会有
+     <code>
+      TIME_WAIT
+     </code>
+     了。
+    </p>
+    <p>
+     这个东西在服务器端永远不要设置，不然，你的客户端就总是看到 TCP 链接错误 “connnection reset by peer”，但是这个参数对于 EaseProbe 的客户来说，简直是太完美了，当EaseProbe 探测完后，直接 reset connection， 即不会有功能上的问题，也不会影响服务器，更不会有烦人的
+     <code>
+      TIME_WAIT
+     </code>
+     问题。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Go_%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C">
+     </span>
+     Go 实际操作
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     在 Golang的标准库代码里，
+     <code>
+      net.TCPConn
+     </code>
+     有个方法
+     <code>
+      SetLinger()
+     </code>
+     可以完成这个事，使用起来也比较简单：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">conn, _ := net.DialTimeout("tcp", t.Host, t.Timeout())
+
+if tcpCon, ok := conn.(*net.TCPConn); ok {
+    tcpCon.SetLinger(0)
+}</pre>
+    <p>
+     你需要把一个
+     <code>
+      net.Conn
+     </code>
+     转型成
+     <code>
+      net.TCPConn
+     </code>
+     ，然后就可以调用方法了。
+    </p>
+    <p>
+     但是对于Golang 的标准库中的 HTTP 对象来说，就有点麻烦了，Golang的 http 库把底层的这边连接对象全都包装成私有变量了，你在外面根本获取不到。这篇《
+     <a href="https://iximiuz.com/en/posts/go-net-http-setsockopt-example/" rel="noopener" target="_blank">
+      How to Set Go net/http Socket Options – setsockopt() example
+     </a>
+     》中给出了下面的方法：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">dialer := &amp;net.Dialer{
+    Control: func(network, address string, conn syscall.RawConn) error {
+        var operr error
+        if err := conn.Control(func(fd uintptr) {
+            operr = syscall.SetsockoptInt(int(fd), unix.SOL_SOCKET, unix.TCP_QUICKACK, 1)
+        }); err != nil {
+            return err
+        }
+        return operr
+    },
+}
+
+client := &amp;http.Client{
+    Transport: &amp;http.Transport{
+        DialContext: dialer.DialContext,
+    },
+}</pre>
+    <p>
+     上面这个方法非常的低层，需要直接使用setsocketopt这样的系统调用，我其实，还是想使用
+     <code>
+      TCPConn.SetLinger(0)
+     </code>
+     来完成这个事，即然都被封装好了，最好还是别破坏封闭性碰底层的东西。
+    </p>
+    <p>
+     经过Golang http包的源码阅读和摸索，我使用了下面的方法：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">client := &amp;http.Client{
+    Timeout: h.Timeout(),
+    Transport: &amp;http.Transport{
+      TLSClientConfig:   tls,
+      DisableKeepAlives: true,
+      DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+        d := net.Dialer{Timeout: h.Timeout()}
+        conn, err := d.DialContext(ctx, network, addr)
+        if err != nil {
+          return nil, err
+        }
+        tcpConn, ok := conn.(*net.TCPConn)
+        if ok {
+          tcpConn.SetLinger(0)
+          return tcpConn, nil
+        }
+        return conn, nil
+      },
+    },
+  }</pre>
+    <p>
+     然后，我找来了全球 T0p 100W的域名，然后在AWS上开了一台服务器，用脚本生成了 TOP 10K 和 20K 的网站来以5s, 10s, 30s, 60s的间隔进行探活，搞到Cloudflare 的 1.1.1.1 DNS 时不时就把我拉黑，最后的测试结果也非常不错，根本 没有 TIME_WAIT 的链接，相关的测试方法、测试数据和测试报告可以参看：
+     <a href="https://github.com/megaease/easeprobe/blob/main/docs/Benchmark.md" rel="noopener" target="_blank">
+      Benchmark Report
+     </a>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%80%BB%E7%BB%93">
+     </span>
+     总结
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面是几点总结
+    </p>
+    <ul>
+     <li>
+      <code>
+       TIME_WAIT
+      </code>
+      是一个TCP 协议完整性的手段，虽然会有一定的副作用，但是这个设计是非常关键的，最好不要妥协掉。
+     </li>
+     <li>
+      永远不要使用
+      <code>
+       tcp_tw_recycle
+      </code>
+      ，这个参数是个巨龙，破坏力极大。
+     </li>
+     <li>
+      服务器端永远不要使用
+      <code>
+       SO_LINGER(0)
+      </code>
+      ，而且使用
+      <code>
+       tcp_tw_reuse
+      </code>
+      对服务端意义不大，因为它只对出站流量有用。
+     </li>
+     <li>
+      在服务端上最好不要主动断链接，设置好KeepAlive，重用链接，让客户端主动断链接。
+     </li>
+     <li>
+      在客户端上可以使用
+      <code>
+       tcp_tw_reuse
+      </code>
+      和
+      <code>
+       SO_LINGER(0)
+      </code>
+      。
+     </li>
+    </ul>
+    <p>
+     最后强烈推荐阅读这篇文章 –
+     <a href="https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux" rel="noopener" target="_blank">
+      Coping with the TCP TIME-WAIT state on busy Linux servers
+     </a>
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11564.html">
+         <img alt="TCP 的那些事儿（上）" height="150" src="https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11564.html">
+         TCP 的那些事儿（上）
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19840.html">
+         <img alt="HTTP的前世今生" height="150" src="https://coolshell.cn/wp-content/uploads/2019/10/HTTP-770x513-300x200-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19840.html">
+         HTTP的前世今生
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11609.html">
+         <img alt="TCP 的那些事儿（下）" height="150" src="https://coolshell.cn/wp-content/uploads/2014/05/xin_2001040422167711230318-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11609.html">
+         TCP 的那些事儿（下）
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9859.html">
+         <img alt="Alan Cox：单向链表中prev指针的妙用" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9859.html">
+         Alan Cox：单向链表中prev指针的妙用
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7490.html">
+         <img alt="性能调优攻略" height="150" src="https://coolshell.cn/wp-content/uploads/2012/06/f1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7490.html">
+         性能调优攻略
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1484.html">
+         <img alt="TCP网络关闭的状态变换时序图" height="150" src="https://coolshell.cn/wp-content/uploads/2009/09/tcp1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1484.html">
+         TCP网络关闭的状态变换时序图
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="d0dc49868f" id="post-ratings-22263" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_22263_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(22263, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_22263_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(22263, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_22263_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(22263, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_22263_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(22263, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_22263_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(22263, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      55
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.58
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_22263_text">
+     </span>
+     <meta content="从一次经历谈 TIME_WAIT 的那些事" itemprop="name"/>
+     <meta content="从一次经历谈 TIME_WAIT 的那些事" itemprop="headline"/>
+     <meta content="今天来讲一讲TCP 的 TIME_WAIT 的问题。这个问题尽人皆知，不过，这次遇到的是不太一样的场景，前两天也解决了，正好写篇文章，顺便把 TIME_WAIT 的那些事都说一说。对了，这个场景，跟我开源的探活小工具 EaseProbe 有关，我先说说这个场景里的问题，然后，顺着这个场景跟大家好好说一下这个事。
+
+问题背景
+
+先说一下背景，EaseProbe 是一个轻量独立的用来探活服务健康状况的..." itemprop="description"/>
+     <meta content="2022-07-19T14:43:39+08:00" itemprop="datePublished"/>
+     <meta content="2022-10-28T16:37:32+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/22263.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/22263.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.58" itemprop="ratingValue"/>
+      <meta content="55" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-22263-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/go-%e8%af%ad%e8%a8%80" rel="category tag">
+        Go 语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem/unixlinux" rel="category tag">
+        Unix/Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem" rel="category tag">
+        操作系统
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/so_linger" rel="tag">
+        SO_LINGER
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/tcp" rel="tag">
+        TCP
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/time_wait" rel="tag">
+        TIME_WAIT
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,888 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/11377.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="C语言结构体里的成员数组和指针 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/11377.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/03/zero_array.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/03/zero_array.png" property="og:image:secure_url"/>
+   <meta content="549" property="og:image:width"/>
+   <meta content="204" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="C语言结构体里的成员数组和指针 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/03/zero_array.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/11377.html#article","name":"C\u8bed\u8a00\u7ed3\u6784\u4f53\u91cc\u7684\u6210\u5458\u6570\u7ec4\u548c\u6307\u9488 | \u9177 \u58f3 - CoolShell","headline":"C\u8bed\u8a00\u7ed3\u6784\u4f53\u91cc\u7684\u6210\u5458\u6570\u7ec4\u548c\u6307\u9488","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2014\/03\/zero_array.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":549,"height":204},"datePublished":"2014-04-01T00:17:15+08:00","dateModified":"2014-04-01T16:19:50+08:00","inLanguage":"zh-CN","commentCount":196,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/11377.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/11377.html#webpage"},"articleSection":"C\/C++\u8bed\u8a00, \u7f16\u7a0b\u8bed\u8a00, C++"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/11377.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/11377.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/11377.html#webpage","url":"https:\/\/coolshell.cn\/articles\/11377.html","name":"C\u8bed\u8a00\u7ed3\u6784\u4f53\u91cc\u7684\u6210\u5458\u6570\u7ec4\u548c\u6307\u9488 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/11377.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2014-04-01T00:17:15+08:00","dateModified":"2014-04-01T16:19:50+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '11377';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E9%87%8C%E7%9A%84%E6%88%90%E5%91%98%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88';
+	window._wp_rp_post_tags = ['c%2B%2B', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', 'char', 'access', 'test', 'pint', 'aint', 'foo', 'int', 'main', 'len', 'short', 'address', 'memori', 'ca', 'return'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/11377.html/feed" rel="alternate" title="酷 壳 - CoolShell » C语言结构体里的成员数组和指针评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/11377" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=11377" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11377.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11377.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-11377 post type-post status-publish format-standard hentry category-cplusplus category-proglanguage tag-c" id="post-11377">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     C语言结构体里的成员数组和指针
+    </span>
+    <h1 class="entry-title">
+     C语言结构体里的成员数组和指针
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/11377.html" rel="bookmark" title="08:17">
+       <time class="entry-date" datetime="2014-04-01T08:17:15+08:00" pubdate="">
+        2014年04月01日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/11377.html#comments">
+       196 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      148,452 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     单看这文章的标题，你可能会觉得好像没什么意思。你先别下这个结论，相信这篇文章会对你理解C语言有帮助。这篇文章产生的背景是在微博上，看到
+     <a href="http://weibo.com/laruence" target="_blank" title="Laruence">
+      @Laruence
+     </a>
+     同学出了一个关于C语言的题，
+     <a href="http://weibo.com/1170999921/ADojDbuSe" target="_blank">
+      微博链接
+     </a>
+     。微博截图如下。我觉得好多人对这段代码的理解还不够深入，所以写下了这篇文章。
+    </p>
+    <p style="text-align: center;">
+     <a href="http://weibo.com/1170999921/ADojDbuSe" target="_blank">
+      <img alt="zero_array" class="aligncenter size-full wp-image-11378" decoding="async" height="204" sizes="(max-width: 549px) 100vw, 549px" src="https://coolshell.cn/wp-content/uploads/2014/03/zero_array.png" srcset="https://coolshell.cn/wp-content/uploads/2014/03/zero_array.png 549w, https://coolshell.cn/wp-content/uploads/2014/03/zero_array-300x111.png 300w" width="549"/>
+     </a>
+    </p>
+    <p>
+     为了方便你把代码copy过去编译和调试，我把代码列在下面：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include &lt;stdio.h&gt;
+struct str{
+    int len;
+    char s[0];
+};
+
+struct foo {
+    struct str *a;
+};
+
+int main(int argc, char** argv) {
+    struct foo f={0};
+    if (f.a-&gt;s) {
+        printf( f.a-&gt;s);
+    }
+    return 0;
+}
+</pre>
+    <p>
+     你编译一下上面的代码，在VC++和GCC下都会在14行的printf处crash掉你的程序。
+     <a href="http://weibo.com/laruence" target="_blank" title="Laruence">
+      @Laruence
+     </a>
+     说这个是个经典的坑，我觉得这怎么会是经典的坑呢？上面这代码，你一定会问，为什么if语句判断的不是f.a？而是f.a里面的数组？写这样代码的人脑子里在想什么？还是用这样的代码来玩票？不管怎么样，看过原微博的回复，我个人觉得大家主要还是对C语言理解不深，如果这算坑的话，那么全都是坑。
+    </p>
+    <p>
+     <span id="more-11377">
+     </span>
+    </p>
+    <p>
+     接下来，你调试一下，或是你把14行的printf语句改成：
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="c">
+      printf("%x\n", f.a-&gt;s);
+     </code>
+    </p>
+    <p>
+     你会看到程序不crash了。程序输出：4。 这下你知道了，访问0x4的内存地址，不crash才怪。于是，你一定会有如下的问题：
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      1）为什么不是 13行if语句出错？f.a被初始化为空了嘛，用空指针访问成员变量为什么不crash？
+     </strong>
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      2）为什么会访问到了0x4的地址？靠，4是怎么出来的？
+     </strong>
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      3）代码中的第4行，char s[0] 是个什么东西？零长度的数组？为什么要这样玩？
+     </strong>
+    </p>
+    <p>
+     让我们从基础开始一点一点地来解释C语言中这些诡异的问题。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98" title="结构体中的成员">
+         结构体中的成员
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%B7%AE%E5%88%AB" title="指针和数组的差别">
+         指针和数组的差别
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E5%85%B3%E4%BA%8E%E9%9B%B6%E9%95%BF%E5%BA%A6%E7%9A%84%E6%95%B0%E7%BB%84" title="关于零长度的数组">
+         关于零长度的数组
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%90%8E%E8%AE%B0" title="后记">
+         后记
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98">
+     </span>
+     结构体中的成员
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先，我们需要知道——
+     <strong>
+      所谓变量，其实是内存地址的一个抽像名字罢了
+     </strong>
+     。在静态编译的程序中，所有的变量名都会在编译时被转成内存地址。机器是不知道我们取的名字的，只知道地址。
+    </p>
+    <p>
+     所以有了——栈内存区，堆内存区，静态内存区，常量内存区，我们代码中的所有变量都会被编译器预先放到这些内存区中。
+    </p>
+    <p>
+     有了上面这个基础，我们来看一下结构体中的成员的地址是什么？我们先简单化一下代码：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">struct test{
+    int i;
+    char *p;
+};</pre>
+    <p>
+     上面代码中，test结构中i和p指针，在C的编译器中保存的是相对地址——也就是说，他们的地址是相对于struct test的实例的。如果我们有这样的代码：
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="c">
+      struct test t;
+     </code>
+    </p>
+    <p>
+     我们用gdb跟进去，对于实例t，我们可以看到：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell"># t实例中的p就是一个野指针
+(gdb) p t
+$1 = {i = 0, c = 0 '\000', d = 0 '\000', p = 0x4003e0 "1\355I\211\..."}
+
+# 输出t的地址
+(gdb) p &amp;t
+$2 = (struct test *) 0x7fffffffe5f0
+
+#输出(t.i)的地址
+(gdb) p &amp;(t.i)
+$3 = (char **) 0x7fffffffe5f0
+
+#输出(t.p)的地址
+(gdb) p &amp;(t.p)
+$4 = (char **) 0x7fffffffe5f4</pre>
+    <p>
+     我们可以看到，t.i的地址和t的地址是一样的，t.p的址址相对于t的地址多了个4。说白了，
+     <strong>
+      t.i 其实就是(&amp;t + 0x0)
+     </strong>
+     ,
+     <strong>
+      t.p 的其实就是 (&amp;t + 0x4)
+     </strong>
+     。0x0和0x4这个偏移地址就是成员i和p在编译时就被编译器给hard code了的地址。于是，你就知道，
+     <strong>
+      不管结构体的实例是什么——访问其成员其实就是加成员的偏移量
+     </strong>
+     。
+    </p>
+    <p>
+     下面我们来做个实验：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">struct test{
+    int i;
+    short c;
+    char *p;
+};
+
+int main(){
+    struct test *pt=NULL;
+    return 0;
+}</pre>
+    <p>
+     编译后，我们用gdb调试一下，当初始化pt后，我们看看如下的调试：（我们可以看到就算是pt为NULL，访问其中的成员时，其实就是在访问相对于pt的内址）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">(gdb) p pt
+$1 = (struct test *) 0x0
+(gdb) p pt-&gt;i
+Cannot access memory at address 0x0
+(gdb) p pt-&gt;c
+Cannot access memory at address 0x4
+(gdb) p pt-&gt;p
+Cannot access memory at address 0x8</pre>
+    <p>
+     注意：上面的pt-&gt;p的偏移之所以是0x8而不是0x6，是因为内存对齐了（我在64位系统上）。关于内存对齐，可参看《
+     <a href="https://coolshell.cn/articles/5761.html" rel="bookmark" target="_blank" title="深入理解C语言">
+      深入理解C语言
+     </a>
+     》一文。
+    </p>
+    <p>
+     好了，现在你知道为什么原题中会访问到了0x4的地址了吧，因为是相对地址。
+    </p>
+    <p>
+     相对地址有很好多处，其可以玩出一些有意思的编程技巧，比如把C搞出面向对象式的感觉来，你可以参看我正好11年前的文章《
+     <a href="http://blog.csdn.net/haoel/article/details/2864" target="_blank">
+      用C写面向对像的程序
+     </a>
+     》（用指针类型强转的危险玩法——相对于C++来说，C++编译器帮你管了继承和虚函数表，语义也清楚了很多）
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%B7%AE%E5%88%AB">
+     </span>
+     指针和数组的差别
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     有了上面的基础后，你把源代码中的struct str结构体中的char s[0];改成char *s;试试看，你会发现，在13行if条件的时候，程序因为Cannot access memory就直接挂掉了。为什么声明成char s[0]，程序会在14行挂掉，而声明成char *s，程序会在13行挂掉呢？
+     <strong>
+      那么char *s 和 char s[0]有什么差别呢
+     </strong>
+     ？
+    </p>
+    <p>
+     在说明这个事之前，有必要看一下汇编代码，用GDB查看后发现：
+    </p>
+    <ul>
+     <li>
+      对于char s[0]来说，汇编代码用了lea指令，lea   0x04(%rax),   %rdx
+     </li>
+     <li>
+      对于char*s来说，汇编代码用了mov指令，mov 0x04(%rax),   %rdx
+     </li>
+    </ul>
+    <p>
+     lea全称load effective address，是把地址放进去，而mov则是把地址里的内容放进去。所以，就crash了。
+    </p>
+    <p>
+     从这里，我们可以看到，
+     <strong>
+      访问成员数组名其实得到的是数组的相对地址，而访问成员指针其实是相对地址里的内容
+     </strong>
+     （这和访问其它非指针或数组的变量是一样的）
+    </p>
+    <p>
+     换句话说，
+     <strong>
+      对于数组 char s[10]来说，数组名 s 和 &amp;s 都是一样的
+     </strong>
+     （不信你可以自己写个程序试试）。在我们这个例子中，也就是说，都表示了偏移后的地址。这样，如果我们访问 指针的地址（或是成员变量的地址），那么也就不会让程序挂掉了。
+    </p>
+    <p>
+     正如下面的代码，可以运行一点也不会crash掉（你汇编一下你会看到用的都是lea指令）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">struct test{
+    int i;
+    short c;
+    char *p;
+    char s[10];
+};
+
+int main(){
+    struct test *pt=NULL;
+    printf("&amp;s = %x\n", pt-&gt;s); //等价于 printf("%x\n", &amp;(pt-&gt;s) );
+    printf("&amp;i = %x\n", &amp;pt-&gt;i); //因为操作符优先级，我没有写成&amp;(pt-&gt;i)
+    printf("&amp;c = %x\n", &amp;pt-&gt;c);
+    printf("&amp;p = %x\n", &amp;pt-&gt;p);
+    return 0;
+}</pre>
+    <p>
+     <strong>
+      看到这里，你觉得这能算坑吗？不要出什么事都去怪语言，大家要想想是不是问题出在自己身上。
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%85%B3%E4%BA%8E%E9%9B%B6%E9%95%BF%E5%BA%A6%E7%9A%84%E6%95%B0%E7%BB%84">
+     </span>
+     关于零长度的数组
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先，我们要知道，
+     <strong>
+      0长度的数组在ISO C和C++的规格说明书中是不允许的
+     </strong>
+     。这也就是为什么在VC++2012下编译你会得到一个警告：“arning C4200: 使用了非标准扩展 : 结构/联合中的零大小数组”。
+    </p>
+    <p>
+     那么为什么gcc可以通过而连一个警告都没有？那是因为gcc 为了预先支持C99的这种玩法，所以，让“零长度数组”这种玩法合法了。关于GCC对于这个事的文档在这里：“
+     <a href="http://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html" target="_blank" title="Arrays of Length Zero">
+      Arrays of Length Zero
+     </a>
+     ”，文档中给了一个例子（我改了一下，改成可以运行的了）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+struct line {
+   int length;
+   char contents[0]; // C99的玩法是：char contents[]; 没有指定数组长度
+};
+
+int main(){
+    int this_length=10;
+    struct line *thisline = (struct line *)
+                     malloc (sizeof (struct line) + this_length);
+    thisline-&gt;length = this_length;
+    memset(thisline-&gt;contents, 'a', this_length);
+    return 0;
+}</pre>
+    <p>
+     上面这段代码的意思是：我想分配一个不定长的数组，于是我有一个结构体，其中有两个成员，一个是length，代表数组的长度，一个是contents，代码数组的内容。后面代码里的 this_length（长度是10）代表是我想分配的数据的长度。（这看上去是不是像一个C++的类？）这种玩法英文叫：Flexible Array，中文翻译叫：柔性数组。
+    </p>
+    <p>
+     我们来用gdb看一下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">(gdb) p thisline
+$1 = (struct line *) 0x601010
+
+(gdb) p *thisline
+$2 = {length = 10, contents = 0x601010 "\n"}
+
+(gdb) p thisline-&gt;contents
+$3 = 0x601014 "aaaaaaaaaa"</pre>
+    <p>
+     我们可以看到：在输出*thisline时，我们发现其中的成员变量contents的地址居然和thisline是一样的（偏移量为0x0??!!）。但是当我们输出thisline-&gt;contents的时候，你又发现contents的地址是被offset了0x4了的，内容也变成了10个‘a’。（我觉得这是一个GDB的bug，VC++的调试器就能很好的显示）
+    </p>
+    <p>
+     我们继续，如果你sizeof(char[0])或是 sizeof(int[0]) 之类的零长度数组，你会发现sizeof返回了0，这就是说，零长度的数组是存在于结构体内的，但是不占结构体的size。你可以简单的理解为一个没有内容的占位标识，直到我们给结构体分配了内存，这个占位标识才变成了一个有长度的数组。
+    </p>
+    <p>
+     看到这里，你会说，为什么要这样搞啊，把contents声明成一个指针，然后为它再分配一下内存不行么？就像下面一样。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-highlight="3,9" data-enlighter-language="c">struct line {
+   int length;
+   char *contents;
+};
+
+int main(){
+    int this_length=10;
+    struct line *thisline = (struct line *)malloc (sizeof (struct line));
+    thisline-&gt;contents = (char*) malloc( sizeof(char) * this_length );
+    thisline-&gt;length = this_length;
+    memset(thisline-&gt;contents, 'a', this_length);
+    return 0;
+}</pre>
+    <p>
+     这不一样清楚吗？而且也没什么怪异难懂的东西。是的，这也是普遍的编程方式，代码是很清晰，也让人很容易理解。即然这样，那为什么要搞一个零长度的数组？有毛意义？！
+    </p>
+    <p>
+     这个事情出来的原因是——
+     <strong>
+      我们想给一个结构体内的数据分配一个连续的内存！
+     </strong>
+     这样做的意义有两个好处：
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      第一个意义是，方便内存释放
+     </strong>
+     。如果我们的代码是在一个给别人用的函数中，你在里面做了二次内存分配，并把整个结构体返回给用户。用户调用free可以释放结构体，但是用户并不知道这个结构体内的成员也需要free，所以你不能指望用户来发现这个事。所以，如果我们把结构体的内存以及其成员要的内存一次性分配好了，并返回给用户一个结构体指针，用户做一次free就可以把所有的内存也给释放掉。（读到这里，你一定会觉得C++的封闭中的析构函数会让这事容易和干净很多）
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      第二个原因是，这样有利于访问速度
+     </strong>
+     。连续的内存有益于提高访问速度，也有益于减少内存碎片。（其实，我个人觉得也没多高了，反正你跑不了要用做偏移量的加法来寻址）
+    </p>
+    <p>
+     我们来看看是怎么个连续的，用gdb的x命令来查看：(我们知道，用struct line {}中的那个char contents[]不占用结构体的内存，所以，struct line就只有一个int成员，4个字节，而我们还要为contents[]分配10个字节长度，所以，一共是14个字节)
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">(gdb) x /14b thisline
+0x601010:       10      0       0       0       97      97      97      97
+0x601018:       97      97      97      97      97      97</pre>
+    <p>
+     从上面的内存布局我们可以看到，前4个字节是 int length，后10个字节就是char contents[]。
+    </p>
+    <p>
+     如果用指针的话，会变成这个样子：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">(gdb) x /16b thisline
+0x601010:       1       0       0       0       0       0       0       0
+0x601018:       32      16      96      0       0       0       0       0
+(gdb) x /10b this-&gt;contents
+0x601020:       97      97      97      97      97      97      97      97
+0x601028:       97      97</pre>
+    <p>
+     上面一共输出了四行内存，其中，
+    </p>
+    <ul>
+     <li>
+      第一行前四个字节是 int length，第一行的后四个字节是对齐。
+     </li>
+     <li>
+      第二行是char* contents，64位系统指针8个长度，他的值是0x20 0x10 0x60 也就是0x601020。
+     </li>
+     <li>
+      第三行和第四行是char* contents指向的内容。
+     </li>
+    </ul>
+    <p>
+     从这里，我们看到，
+     <strong>
+      其中的差别——数组的原地就是内容，而指针的那里保存的是内容的地址
+     </strong>
+     。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%90%8E%E8%AE%B0">
+     </span>
+     后记
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     好了，我的文章到这里就结束了。但是，请允许我再唠叨两句。
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      1）看过这篇文章，你觉得C复杂吗？我觉得并不简单。某些地方的复杂程度不亚于C++。
+     </strong>
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      2）那些学不好C++的人一定是连C都学不好的人。连C都没学好，你们根本没有资格鄙视C++。
+     </strong>
+    </p>
+    <p style="padding-left: 30px;">
+     <strong>
+      3）当你们在说有坑的时候，你得问一下自己，是真有坑还是自己的学习能力上出了问题。
+     </strong>
+    </p>
+    <p>
+     如果你觉得你的C语言还不错，欢迎你看看《
+     <a href="https://coolshell.cn/articles/945.html" target="_blank" title="C语言的谜题">
+      C语言的谜题
+     </a>
+     》还有《
+     <a href="https://coolshell.cn/articles/873.html" target="_blank" title="谁说C语言很简单？">
+      谁说C语言很简单？
+     </a>
+     》还有《
+     <a href="https://coolshell.cn/articles/830.html" target="_blank">
+      语言的歧义
+     </a>
+     》以及《
+     <a href="https://coolshell.cn/articles/5761.html" rel="bookmark" target="_blank" title="深入理解C语言">
+      深入理解C语言
+     </a>
+     》一文。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11235.html">
+         <img alt="一个浮点数跨平台产生的问题" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/4.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11235.html">
+         一个浮点数跨平台产生的问题
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/873.html">
+         <img alt="谁说C语言很简单？" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/2.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/873.html">
+         谁说C语言很简单？
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/945.html">
+         <img alt="C语言的谜题" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/12.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/945.html">
+         C语言的谜题
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/830.html">
+         <img alt="语言的歧义" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/20.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/830.html">
+         语言的歧义
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5761.html">
+         <img alt="深入理解C语言" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/22.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5761.html">
+         深入理解C语言
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9859.html">
+         <img alt="Alan Cox：单向链表中prev指针的妙用" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9859.html">
+         Alan Cox：单向链表中prev指针的妙用
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="632c23e5af" id="post-ratings-11377" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_11377_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(11377, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_11377_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(11377, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_11377_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(11377, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_11377_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(11377, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_11377_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.6, 5, 0);" onmouseover="current_rating(11377, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      98
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.63
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_11377_text">
+     </span>
+     <meta content="C语言结构体里的成员数组和指针" itemprop="name"/>
+     <meta content="C语言结构体里的成员数组和指针" itemprop="headline"/>
+     <meta content="单看这文章的标题，你可能会觉得好像没什么意思。你先别下这个结论，相信这篇文章会对你理解C语言有帮助。这篇文章产生的背景是在微博上，看到@Laruence同学出了一个关于C语言的题，微博链接。微博截图如下。我觉得好多人对这段代码的理解还不够深入，所以写下了这篇文章。
+
+为了方便你把代码copy过去编译和调试，我把代码列在下面：
+
+[c]#include &lt;stdio.h&gt;
+struct s..." itemprop="description"/>
+     <meta content="2014-04-01T08:17:15+08:00" itemprop="datePublished"/>
+     <meta content="2014-04-02T00:19:50+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/11377.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/11377.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.63" itemprop="ratingValue"/>
+      <meta content="98" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-11377-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

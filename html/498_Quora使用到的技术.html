@@ -1,0 +1,990 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4939.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="Quora使用到的技术 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4939.html" property="og:url"/>
+   <meta content="https://www.quora.com/favicon.ico" property="og:image"/>
+   <meta content="https://www.quora.com/favicon.ico" property="og:image:secure_url"/>
+   <meta content="2011-07-04T00:35:37+00:00" property="article:published_time"/>
+   <meta content="2011-07-04T03:45:25+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Quora使用到的技术 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://www.quora.com/favicon.ico" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4939.html#article","name":"Quora\u4f7f\u7528\u5230\u7684\u6280\u672f | \u9177 \u58f3 - CoolShell","headline":"Quora\u4f7f\u7528\u5230\u7684\u6280\u672f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/www.quora.com\/favicon.ico","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2011-07-04T00:35:37+08:00","dateModified":"2011-07-04T03:45:25+08:00","inLanguage":"zh-CN","commentCount":48,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4939.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4939.html#webpage"},"articleSection":"\u6280\u672f\u65b0\u95fb, \u6742\u9879\u8d44\u6e90, Facebook, MySQL, Nginx, Python, Quora, StackExchange"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4939.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4939.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4939.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4939.html","name":"Quora\u4f7f\u7528\u5230\u7684\u6280\u672f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4939.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2011-07-04T00:35:37+08:00","dateModified":"2011-07-04T03:45:25+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4939';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Quora%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF';
+	window._wp_rp_post_tags = ['python', 'mysql', 'quora', 'nginx', 'facebook', 'stackexchange', '%E6%8A%80%E6%9C%AF%E6%96%B0%E9%97%BB', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', 'css', 'web', 'ec2', 'whelan', 'html', 'free', 'thrift', 'alt', 'write', 'quora', 'technolog', 'javascript', 'comet', 'charli', 'librari'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4939.html/feed" rel="alternate" title="酷 壳 - CoolShell » Quora使用到的技术评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4939" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4939" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4939.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4939.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4939 post type-post status-publish format-standard hentry category-technews category-misc tag-facebook tag-mysql tag-nginx tag-pythondev tag-quora tag-stackexchange" id="post-4939">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Quora使用到的技术
+    </span>
+    <h1 class="entry-title">
+     Quora使用到的技术
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4939.html" rel="bookmark" title="08:35">
+       <time class="entry-date" datetime="2011-07-04T08:35:37+08:00" pubdate="">
+        2011年07月04日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4939.html#comments">
+       48 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      32,755 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     以前向大家介绍过
+     <a href="https://coolshell.cn/articles/3721.html" target="_blank" title="Stack Exchange 的架构">
+      Stack Exchange的系统架构
+     </a>
+     和
+     <a href="https://coolshell.cn/articles/4549.html" target="_blank" title="Facebook 的系统架构">
+      Facebook的系统架构
+     </a>
+     ，今天和大家说说Quora的。本文主要参考了
+     <a href="http://www.philwhln.com/author/admin/" title="Phil Whelan">
+      Phil Whelan
+     </a>
+     的这篇文章《
+     <a href="http://www.philwhln.com/quoras-technology-examined" target="_blank">
+      Quora’s Technology Examined
+     </a>
+     》。关于Quora是个什么网站我就不多说了，国内对他的C2C网站叫“知乎”。呵呵。我们还是来看看Quora的技术吧。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#Search-Box" title="Search-Box">
+         Search-Box
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E5%AE%9E%E6%97%B6%E6%9F%A5%E8%AF%A2" title="实时查询">
+         实时查询
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#Webnode2_%E5%92%8C_LiveNode" title="Webnode2 和 LiveNode">
+         Webnode2 和 LiveNode
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#Amazon_Web_Service" title="Amazon Web Service">
+         Amazon Web Service
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#HAProxy_Load-Balancing" title="HAProxy Load-Balancing">
+         HAProxy Load-Balancing
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#Python" title="Python">
+         Python
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#Thrift" title="Thrift">
+         Thrift
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-8" href="#Tornado" title="Tornado">
+         Tornado
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-9" href="#Long_Polling_Comet" title="Long Polling (Comet)">
+         Long Polling (Comet)
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-10" href="#MySQL" title="MySQL">
+         MySQL
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-11" href="#Memcached" title="Memcached">
+         Memcached
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-12" href="#Git" title="Git">
+         Git
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-13" href="#JavaScript_Placement" title="JavaScript Placement">
+         JavaScript Placement
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-14" href="#Charlie_Cheever_%E9%81%B5%E4%BB%8E_%E2%80%9C14_Rules_for_Faster-Loading_Web_Sites%E2%80%9D" title="Charlie Cheever 遵从 “14 Rules for Faster-Loading Web Sites”">
+         Charlie Cheever 遵从 “14 Rules for Faster-Loading Web Sites”
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="Search-Box">
+     </span>
+     Search-Box
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Quora只能搜索问题，主题标签，用户名，和主题标题。没有全文搜索，所以，你无法搜索问题和答案的内容。而搜索中使用前缀搜索方式，比如你输入mi，则Microsoft会马上出来。其搜索还会有一些非常简单的模糊匹配的算法。另外，如果有重复的问题，其中一个问题会自动跳转到另一个问题，但是在搜索中还是会出现。搜索中没有拼写检查。
+    </p>
+    <p>
+     一开始，他们使用的是一个开源的搜索服务器，叫
+     <a href="http://sphinxsearch.com/">
+      Sphinx
+     </a>
+     。其支持上述的那些功能。现在他们不用这个技术了，因为
+     <a href="https://www.quora.com/What-is-the-best-open-source-solution-for-implementing-fast-auto-complete" target="_blank">
+      受到了一些限制
+     </a>
+     。他们做了一个比较新的解决方案，这个算法由Python实现。
+    </p>
+    <p>
+     <strong>
+      参看
+     </strong>
+     ：
+     <a href="https://www.quora.com/What-libraries-does-Quora-use-for-search">
+      <img alt="" decoding="async" height="16" src="https://www.quora.com/favicon.ico" width="16"/>
+      What libraries does Quora use for search?
+     </a>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%AE%9E%E6%97%B6%E6%9F%A5%E8%AF%A2">
+     </span>
+     实时查询
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Quora的查询是非常高速的，其查询请求是通过AJAX的GET请求发送的，结果返回用的是JSON数据格式，但他们解析JSON是在服务器端，而不是通过浏览器的javascript。这么做的原因可能是他们想高亮搜索关键词，似乎使用Client端的Javascript非常不好做。
+    </p>
+    <p>
+     Quora的即时搜索好像比较暴力，如果你输入Microsoft（一共9个字符），你会看到其会像后端发送9次查询——每按一个键一次，无论你敲这个单词的速底有多快，每输入一个字符都会发一个请求给后台。对于这样的看上去没有效率的对后台的请求，后台的服务器端会来控制相关的前台请求，所以，就算是前台这样做，也不会增加服务器端的负载，因为后台会做相关的处理。
+    </p>
+    <p>
+     Quora的搜索使用HTTP长连接，当你开始敲查询的时候，连接就建立了，这个连接会持续在那里，你下次搜索的时候会继续使用这个连接，除非你60秒没有动作了。
+    </p>
+    <p>
+     <strong>
+      参看
+     </strong>
+     ：
+     <a href="https://www.quora.com/Quora-product/Is-Quora-going-to-implement-full-text-search">
+      <img alt="" decoding="async" height="16" src="https://www.quora.com/favicon.ico" width="16"/>
+      Is Quora going to implement full-text search?
+     </a>
+    </p>
+    <p>
+     <span id="more-4939">
+     </span>
+    </p>
+    <h4 id="webnode2-and-livenode">
+     <span class="ez-toc-section" id="Webnode2_%E5%92%8C_LiveNode">
+     </span>
+     Webnode2 和 LiveNode
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Webnode2 和 LiveNode 是 Quora 内部的系统，其用来管理内容。Webnode2  生成 HTML, CSS 和 JavaScript 并且和 LiveNode 紧紧地耦合在一起，Webnode2主要是用来管理内容在网页上显示的，LiveNode主要是用来做动态网页内容更新的。Charlie Cheever 说，如果他可以从新开始，他
+     <a href="https://www.quora.com/What-limitations-has-Quora-encountered-due-to-LiveNode-WebNode#answers" target="_blank">
+      第一件事要做的就是重写整个LiveNode
+     </a>
+     .
+    </p>
+    <p>
+     Quora的工程师看上去对他们搞的这些东西非常的满意，并且
+     <a href="https://www.quora.com/What-limitations-has-Quora-encountered-due-to-LiveNode-WebNode#answers">
+      他们也在努力地找到这些东西的弱点
+     </a>
+     。有一个有意思的关于LiveNode的问题是，如果A和B同时正在看相当的一个问题，那么用户A的一些交互动作会影响B的页面。例如，如果A顶了一下某个答案，那么这个答案可能会往上移动。这样的一个显示变化会通过AJAX更新B的浏览器。如果B此时展开了评论，可能会受到影响。
+    </p>
+    <p>
+     <a href="https://www.quora.com/What-is-LiveNode-written-in">
+      LiveNode 由这些东西写成：
+     </a>
+     Python, C++, and JavaScript.
+     <a href="http://jquery.com/">
+      jQuery
+     </a>
+     ，
+     <a href="http://cython.org/">
+      Cython
+     </a>
+     也用到了。
+    </p>
+    <p>
+     因为Quora
+     <a href="https://www.quora.com/Is-Quora-planning-on-open-sourcing-LiveNode">
+      想要对他们的LiveNode开源
+     </a>
+     并准备把他们的代码分开，做这个事可能需要太多的工作和时间。
+    </p>
+    <p>
+     Charlie Cheever 指出 WebNode2 和
+     <a href="https://www.quora.com/Quora-Infrastructure/What-is-webnode2">
+      有一个叫做 “free and easy website builder” 的 Webnode 的 webnode.com
+     </a>
+     没有任何的关系。
+    </p>
+    <p>
+     <strong>
+      参考
+     </strong>
+     ：
+     <a href="https://www.quora.com/Quora-product/Is-Quora-going-to-implement-full-text-search">
+      <img alt="" decoding="async" height="16" src="https://www.quora.com/favicon.ico" width="16"/>
+     </a>
+     <a href="https://www.quora.com/Shreyes-Seshasai/Tech-Talk-Webnode2-and-LiveNode" target="_blank">
+      Tech Talk – Webnode2 and LiveNode
+     </a>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Amazon_Web_Service">
+     </span>
+     Amazon Web Service
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Quora全部host在AWS的EC2和S3上，这对于这些刚刚起步的快速发展的公司非常关键，因为你可以省去了很多硬件和维护的成本。（建一个数据中心并不是所有公司都能干的事）。Quora的操作系统使用Ubuntu Linux，这是非常容易部署和管理。
+    </p>
+    <p>
+     其静态页使用了Amazon的CDN的
+     <a href="http://aws.amazon.com/cloudfront/" target="_blank">
+      Cloudfront
+     </a>
+     服务分发，CloudFront用于所有的静态图片, CSS 和JavaScript。
+     <a href="https://www.quora.com/How-is-Quora-doing-image-uploads-to-Amazon-S3" target="_blank">
+      图片先传到 EC2 服务器
+     </a>
+     ，使用
+     <a href="http://aws.amazon.com/code/134" target="_blank">
+      Pyhon S3
+      <acronym title="Application Programming Interface ">
+       API
+      </acronym>
+     </a>
+     处理后后传到 S3。
+    </p>
+    <h4 id="haproxy-load-balancing">
+     <span class="ez-toc-section" id="HAProxy_Load-Balancing">
+     </span>
+     HAProxy Load-Balancing
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://haproxy.1wt.eu/" target="_blank">
+      HAProxy
+     </a>
+     作为前端负载均衡服务器，反向代理服务器是 Nginx，Nginx 后面则是 Pylons (
+     <a href="http://spacepants.org/blog/pylons-paste-stack">
+      Pylons + Paste
+     </a>
+     ) , 承担动态 Web 请求。
+    </p>
+    <p>
+     <a href="http://pylonshq.com/">
+      Pylons
+     </a>
+     ，是一个轻量级的Web框架，通常都是在Nginx后面使用。选用Pylons就像你在春节先饺子当主食一样。他们把Pylons中的template和ORM取走而使用自己的技术（由Python写成），这个地方就是
+     <a href="https://www.quora.com/What-languages-and-frameworks-were-used-to-code-Quora">
+      LiveNode 和 WebNode2的地方
+     </a>
+     。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Python">
+     </span>
+     Python
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     从facebook出来的Charlie 和 Adam选用了Python而不是PHP。正如Adam指出的——“
+     <a href="https://www.quora.com/Why-did-Quora-choose-Python-for-its-development">
+      Facebook is stuck on that for legacy reasons, not because it is the best choice right now
+     </a>
+     ”（Facebook使用PHP并不是因为其好，而是因为历史原因的问题），当然他们也不会使用C#，因为那样一来就会引入一堆微软的东西。当然，也不会是Java，因为Python要比Java更容易写出代码，Scala太年轻了，还需要考验。Ruby看上来很像Python，但是他们对Ruby没有过多的经验。最终还是Python胜出。当然，他们知道Python的弱点是性能和速度，所以，他们在需要速度和性能的地方使用了C/C++。 他们使用Python的版本是2.6。
+    </p>
+    <p>
+     使用Python的另一个原因是Python的数据结构和JSON可以很好的映射起来。代码易读性很高。而且有很多的库，调试器和重载器。Quora的B/S结构几乎完全通过JSON进行数据交互。
+    </p>
+    <p>
+     他们
+     <a href="https://www.quora.com/Adam-DAngelo/What-version-of-Python-are-you-programming-in-and-what-IDE-do-you-use" target="_blank">
+      没有使用IDE
+     </a>
+     ，他们使用得最多的是Emacs，一看就知道这是一个个人的选择，随着他们开发团队的扩大，这个事会得到改变的。
+    </p>
+    <p>
+     另外，他们提到了
+     <a href="http://codespeak.net/pypy/dist/pypy/doc/">
+      PyPy
+     </a>
+     ，一个让 Python更快更灵活的项目。
+    </p>
+    <h4 id="thrift">
+     <span class="ez-toc-section" id="Thrift">
+     </span>
+     Thrift
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://incubator.apache.org/thrift/">
+      Thrift
+     </a>
+     用于后端服务器间的通讯。Thrift  服务由 C++开发。
+     <a href="https://coolshell.cn/articles/4549.html" target="_blank">
+      Facebook同样使用了这个技术
+     </a>
+     。
+    </p>
+    <p>
+     <strong>
+      参考
+     </strong>
+     ：
+     <a href="https://www.quora.com/Why-would-you-write-a-Thrift-service-in-C">
+      <img alt="" decoding="async" height="16" src="https://www.quora.com/favicon.ico" width="16"/>
+      Why would you write a Thrift service in C++?
+     </a>
+    </p>
+    <h4 id="tornado">
+     <span class="ez-toc-section" id="Tornado">
+     </span>
+     Tornado
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://www.tornadoweb.org/">
+      Tornado
+     </a>
+     web 框架用于实时更新，其运行在Comet 服务器上，其用来处理大量的需要长时间poll和push更新的网络连接。
+    </p>
+    <h4 id="long-polling-comet">
+     <span class="ez-toc-section" id="Long_Polling_Comet">
+     </span>
+     Long Polling (Comet)
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Quora的网页并不是简单的显示，每一个页面都需要更新，或是创建问题，答案和评论。所以，他们使用了Long Polling而不是传统的Polling，传统的Polling需要浏览器一端不停地重复地向服务器询问——“有更新吗？”，服务器说没有，于是过一会浏览大再问，现在呢？服务器说，还是没有，浏览器过一会又问，现在呢？服务器说，还没好。这样一来，就好像让我们的客户端放到了驾驶室里，这显然是有问题的，因为只有服务器知道什么时候会有更新。而且浏览器这么干，很快会让服务器的负载加上去。
+    </p>
+    <p>
+     Long polling 也就是我们熟知的
+     <a href="https://en.wikipedia.org/wiki/Comet_(programming)">
+      Comet
+     </a>
+     ，其让服务器来控制这些事，让客服端等在那里听服务器的响应。在client和 server的会话对于两者是是相同的，而不是client需要等着然后向服务器查询。服务器端可以把一个连接打开很长时间（比如：60秒），在这段时间里，服务器会查看是否有相应的东西需要更新，如果有的话，就发给浏览器。如果没有的话，就等下一次的client询问。可见，这种服务器等一会再响应的方法可以让浏览器少发几次查询。
+    </p>
+    <p>
+     对于long-polling 的最好的地方是，可以降低浏览器和客户端间来来回回的次数。让服务器端来控制时间，所以，内容更新可能会只是几个毫秒，或是几十秒。 服务器端也可以积攒一堆更新后，一次发给浏览器。这样做会更有效率。
+    </p>
+    <p>
+     但是，这个方法的黑暗面是——这会让服务器端出现大量的TCP链接，想一想，Quora也是百万级用户的应用了，只需要10%的在线用户，你就需要一个可以处理10万并发量的架构。注意，如果一个用户在其浏览器里打开了多个Quora网页的话，那么，这个链接器会是非常致命的。
+    </p>
+    <p>
+     当然，好的消息是已经有一些技术专门为Long Polling设计，这些技术可以让你在那些等待的连接中只会消耗非常非常少的内存（因为那些等待连接并不需要所有的资源）。例如：Nginx 是一个单线程的事件驱动的小型服务器，每一个链接只花非常小的内存。每一个Nginx的进程只会在一个时候处理一个连接。这意味着其很容易扩展成一个可以处理成千上的并发量的服务架构。
+    </p>
+    <p>
+     <strong>
+      参考
+     </strong>
+     ：
+     <a href="https://www.quora.com/How-do-you-push-messages-back-to-a-web-browser-client-through-AJAX-Is-there-any-way-to-do-this-without-having-the-client-constantly-polling-the-server-for-updates">
+      <img alt="" decoding="async" height="16" src="https://www.quora.com/favicon.ico" width="16"/>
+      How do you push messages back to a web-browser client through AJAX? Is there any way to do this without having the client constantly polling the server for updates?
+     </a>
+    </p>
+    <h4 id="mysql">
+     <span class="ez-toc-section" id="MySQL">
+     </span>
+     MySQL
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     就像Adam D’Angelo 的老东家facebook一样，，Quora重度使用MySQL。对于，把数据库里的数据分区是最需要做的事。他们的行事原则是，尽可能的把数据放在一台机器上，使用hash主键把大规模的数据存放到多个数据库中。坚决不用表连接。Adam参考了FriendFeed的一篇文章
+     <a href="https://bret.appspot.com/entry/how-friendfeed-uses-mysql">
+      How FriendFeed uses MySQL to store schema-less data
+     </a>
+     ，
+     <a href="https://www.quora.com/NoSQL/In-what-parts-of-a-social-site-with-concert-listings-should-one-use-a-NoSQL-DB-versus-a-SQL-DB">
+      并说
+     </a>
+     你不应该在你的社区还没有100万用户的时候使用NoSQL 数据库。
+    </p>
+    <p>
+     并不只是Quora和FriendFeed使用MySQL，Google，Twitter，Facebook都在使用MySQL.
+    </p>
+    <p>
+     参考：
+     <a href="https://www.quora.com/How-does-one-evaluate-if-a-database-is-efficient-enough-to-not-crash-as-its-put-under-increasing-load">
+      <img alt="" decoding="async" height="16" src="https://www.quora.com/favicon.ico" width="16"/>
+      How does one evaluate if a database is efficient enough to not crash as it’s put under increasing load?
+     </a>
+    </p>
+    <h4 id="memcached">
+     <span class="ez-toc-section" id="Memcached">
+     </span>
+     Memcached
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://memcached.org/">
+      Memcached
+     </a>
+     用于 MySQL的前端缓存。
+    </p>
+    <h4 id="git">
+     <span class="ez-toc-section" id="Git">
+     </span>
+     Git
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://git-scm.com/">
+      Git
+     </a>
+     <a href="https://www.quora.com/What-languages-and-frameworks-were-used-to-code-Quora">
+      是他们的源码版本控制工具
+     </a>
+     .
+    </p>
+    <h4 id="javascript-placement">
+     <span class="ez-toc-section" id="JavaScript_Placement">
+     </span>
+     JavaScript Placement
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     如果你看一下Quora的网页源码，你会看到其JavaScript总是在页面的最后。 Charlie Cheever
+     <a href="https://www.quora.com/Why-is-the-Quora-website-so-fast">
+      建议
+     </a>
+     这会让你的页面显得载入得很快，因为其先显示内容，然后在载入Javascript。
+    </p>
+    <h4 id="charlie-cheever-follows-14-rules-for-faster-loading-web-sites">
+     <span class="ez-toc-section" id="Charlie_Cheever_%E9%81%B5%E4%BB%8E_%E2%80%9C14_Rules_for_Faster-Loading_Web_Sites%E2%80%9D">
+     </span>
+     Charlie Cheever 遵从 “14 Rules for Faster-Loading Web Sites”
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Steve Souders,  High Performance Web Sites 和 Even Faster Web Sites的作者，其列了一些
+     <a href="http://stevesouders.com/hpws/rules.php">
+      rules让你网页更快的原则
+     </a>
+     。 Charlie Cheever 的 Quora 创始人提到这些过，这应该也是Quora的速度的原因。
+    </p>
+    <blockquote>
+     <p>
+      “One resource we used as a guide is Steve Souders’ list of rules for high performance websites:
+      <a href="http://stevesouders.com/hpws/rules.php">
+       http://stevesouders.com/hpws/rules.php
+      </a>
+      ”
+      <br/>
+      <small>
+       <a href="https://www.quora.com/Why-is-the-Quora-website-so-fast">
+        – Charlie Cheever, Quora
+       </a>
+      </small>
+     </p>
+    </blockquote>
+    <div>
+     <div>
+      Steve Souders的14条规则是——
+      <a href="https://www.amazon.com/gp/product/0596529309?ie=UTF8&amp;tag=getafil-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596529309">
+       <img alt="" border="0" class="alignright" decoding="async" src="https://images-na.ssl-images-amazon.com/images/I/41COtT-V1UL._SL160_.jpg"/>
+      </a>
+      <a href="https://www.amazon.com/gp/product/0596522304?ie=UTF8&amp;tag=getafil-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596522304">
+       <br/>
+      </a>
+      <ul>
+       <li>
+        Make Fewer HTTP Requests
+       </li>
+       <li>
+        Use a Content Delivery Network
+       </li>
+       <li>
+        Add an Expires Header
+       </li>
+       <li>
+        Gzip Components
+       </li>
+       <li>
+        Put Stylesheets at the Top
+       </li>
+       <li>
+        Put Scripts at the Bottom
+       </li>
+       <li>
+        <a href="https://www.amazon.com/gp/product/0596522304?ie=UTF8&amp;tag=getafil-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596522304">
+         <img alt="" border="0" class="alignright" decoding="async" src="https://images-na.ssl-images-amazon.com/images/I/41vfOvQugoL._SL160_.jpg"/>
+        </a>
+        Avoid CSS Expressions
+       </li>
+       <li>
+        Make JavaScript and CSS External
+       </li>
+       <li>
+        Reduce DNS Lookups
+       </li>
+       <li>
+        Minify JavaScript
+       </li>
+       <li>
+        Avoid Redirects
+       </li>
+       <li>
+        Remove Duplicate Scripts
+       </li>
+       <li>
+        Configure ETags
+       </li>
+       <li>
+        Make AJAX Cacheable
+       </li>
+      </ul>
+     </div>
+    </div>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4549.html">
+         <img alt="Facebook 的系统架构" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/7.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4549.html">
+         Facebook 的系统架构
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18140.html">
+         <img alt="关于Facebook 的 React 专利许可证" height="150" src="https://coolshell.cn/wp-content/uploads/2017/09/react_patent-360x200-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18140.html">
+         关于Facebook 的 React 专利许可证
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11265.html">
+         <img alt="Python修饰器的函数式编程" height="150" src="https://coolshell.cn/wp-content/uploads/2014/03/snake-hat-new-year-schedule-800x960-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11265.html">
+         Python修饰器的函数式编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10822.html">
+         <img alt="函数式编程" height="150" src="https://coolshell.cn/wp-content/uploads/2013/12/yoda-lambda-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10822.html">
+         函数式编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10169.html">
+         <img alt="类型的本质和函数式实现" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/5.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10169.html">
+         类型的本质和函数式实现
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="c1c1978c7a" id="post-ratings-4939" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4939_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(4939, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4939_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(4939, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4939_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(4939, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4939_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(4939, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4939_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(4939, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      13
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.08
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4939_text">
+     </span>
+     <meta content="Quora使用到的技术" itemprop="name"/>
+     <meta content="Quora使用到的技术" itemprop="headline"/>
+     <meta content="以前向大家介绍过Stack Exchange的系统架构和Facebook的系统架构，今天和大家说说Quora的。本文主要参考了Phil Whelan的这篇文章《Quora's Technology Examined》。关于Quora是个什么网站我就不多说了，国内对他的C2C网站叫“知乎”。呵呵。我们还是来看看Quora的技术吧。
+Search-Box
+Quora只能搜索问题，主题标签，用户名，..." itemprop="description"/>
+     <meta content="2011-07-04T08:35:37+08:00" itemprop="datePublished"/>
+     <meta content="2011-07-04T11:45:25+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4939.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4939.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.08" itemprop="ratingValue"/>
+      <meta content="13" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4939-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/technews" rel="category tag">
+        技术新闻
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/facebook" rel="tag">
+        Facebook
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/mysql" rel="tag">
+        MySQL
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/nginx" rel="tag">
+        Nginx
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/pythondev" rel="tag">
+        Python
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/quora" rel="tag">
+        Quora
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/stackexchange" rel="tag">
+        StackExchange
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

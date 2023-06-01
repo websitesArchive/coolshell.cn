@@ -1,0 +1,1088 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4458.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="BT雷人的程序语言（大全） | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4458.html" property="og:url"/>
+   <meta content="https://www.dangermouse.net/esoteric/piet/Piet_hello_big.png" property="og:image"/>
+   <meta content="https://www.dangermouse.net/esoteric/piet/Piet_hello_big.png" property="og:image:secure_url"/>
+   <meta content="2011-04-13T00:34:50+00:00" property="article:published_time"/>
+   <meta content="2011-04-12T17:00:11+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="BT雷人的程序语言（大全） | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://www.dangermouse.net/esoteric/piet/Piet_hello_big.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4458.html#article","name":"BT\u96f7\u4eba\u7684\u7a0b\u5e8f\u8bed\u8a00\uff08\u5927\u5168\uff09 | \u9177 \u58f3 - CoolShell","headline":"BT\u96f7\u4eba\u7684\u7a0b\u5e8f\u8bed\u8a00\uff08\u5927\u5168\uff09","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/www.dangermouse.net\/esoteric\/piet\/Piet_hello_big.png","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2011-04-13T00:34:50+08:00","dateModified":"2011-04-12T17:00:11+08:00","inLanguage":"zh-CN","commentCount":61,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4458.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4458.html#webpage"},"articleSection":"\u7f16\u7a0b\u8bed\u8a00, \u8f76\u4e8b\u8da3\u95fb, Befunge, BIT, brainfuck, Chef, Haifu, INTERCAL, Malbolge, Ook!, PerlYuYan, Piet, Shakespeare, Unlambda"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4458.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4458.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4458.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4458.html","name":"BT\u96f7\u4eba\u7684\u7a0b\u5e8f\u8bed\u8a00\uff08\u5927\u5168\uff09 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4458.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2011-04-13T00:34:50+08:00","dateModified":"2011-04-12T17:00:11+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4458';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'BT%E9%9B%B7%E4%BA%BA%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%EF%BC%88%E5%A4%A7%E5%85%A8%EF%BC%89';
+	window._wp_rp_post_tags = ['befunge', 'intercal', 'shakespeare', 'chef', 'perlyuyan', 'bit', 'malbolge', 'unlambda', 'haifu', 'piet', 'brainfuck', 'ook%21', '%E8%BD%B6%E4%BA%8B%E8%B6%A3%E9%97%BB', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'kevin', 'potato', 'red', 'dijon', 'bowl', 'zucchini', 'salmon', 'mustard', 'bean', 'egg', 'mix', 'oil', 'bake', 'cup', 'gt'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4458.html/feed" rel="alternate" title="酷 壳 - CoolShell » BT雷人的程序语言（大全）评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4458" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4458" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4458.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4458.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4458 post type-post status-publish format-standard hentry category-proglanguage category-story tag-befunge tag-bit tag-brainfuck tag-chef tag-haifu tag-intercal tag-malbolge tag-ook tag-perlyuyan tag-piet tag-shakespeare tag-unlambda" id="post-4458">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     BT雷人的程序语言（大全）
+    </span>
+    <h1 class="entry-title">
+     BT雷人的程序语言（大全）
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4458.html" rel="bookmark" title="08:34">
+       <time class="entry-date" datetime="2011-04-13T08:34:50+08:00" pubdate="">
+        2011年04月13日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4458.html#comments">
+       61 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      63,175 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     还记得以前本站的
+     <a href="https://coolshell.cn/articles/1142.html" target="_blank" title="BT雷人的程序语言">
+      BT雷人的程序语言
+     </a>
+     吗？除了那几个
+     <a href="http://www.muppetlabs.com/~breadbox/bf/" target="_blank">
+      Brainfuck
+     </a>
+     ，
+     <a href="http://lolcode.com/" target="_blank">
+      LOLCODE
+     </a>
+     和
+     <a href="http://compsoc.dur.ac.uk/whitespace/index.php" target="_blank">
+      WhiteSpace
+     </a>
+     ，我以为这些是比较BT的语言，但是自从这两天我在网上看到一些（见文章最后的参考一节），我发现我错了，这个世界上，只有更变态，没有最变态。不相，你看看下面这些，简直变态到了极致啊。（下面的语言变态不分排名）
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#Befunge" title="Befunge">
+         Befunge
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#Ook" title="Ook!">
+         Ook!
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#TMMLPTEALPAITAFNFAL" title="TMMLPTEALPAITAFNFAL">
+         TMMLPTEALPAITAFNFAL
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#INTERCAL" title="INTERCAL">
+         INTERCAL
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#HQ9" title="HQ9++">
+         HQ9++
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#PerlYuYan" title="PerlYuYan">
+         PerlYuYan
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E5%8F%82%E8%80%83%EF%BC%9A" title="参考：">
+         参考：
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="Befunge">
+     </span>
+     Befunge
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     第一个变态语言
+     <a href="http://quadium.net/funge/spec98.html" target="_blank">
+      Befunge
+     </a>
+     。
+     <a href="https://en.wikipedia.org/wiki/Befunge" target="_blank">
+      维基
+     </a>
+     上面说——这门语言由Chris Pressey在1993年创造，本意为设计一种为难编译器的语言……结果马上出现了一批编译器。Befunge的代码是二维的。它用 &lt; &gt; v ^ 这四个符号来控制一个指针在代码中移动，指针经过一个字符或数字则把它压入一个栈，四则运算符号的功能就是弹出栈顶两个元素进行计算后把结果压回去。用 _ 和 | 来表示有条件的方向选择：当栈顶元素为0时向右（上）走，否则向左（下）走。&amp; 和 ~ 分别用于读入数字或字符并压入栈，句号和逗号分别表示将栈顶元素作为整数或字符输出。最后以一个@符号表示程序结束。Befunge代码的注释不需要任何符号标明，你可以把注释写在程序的任何地方，只要运行时指针不会经过它就行了。
+    </p>
+    <p>
+     下面这段Hello World代码：
+    </p>
+    <pre style="padding-left: 30px;">&gt;              v
+v  ,,,,,"Hello"&lt;
+&gt;48*,          v
+v,,,,,,"World!"&lt;
+&gt;25*,@</pre>
+    <p>
+     下面一个是算圆周率的代码，非常的壮观：
+    </p>
+    <p>
+     <span id="more-4458">
+     </span>
+    </p>
+    <pre style="padding-left: 30px;">aa*          v                  +------------------------+
+vp*9920p*9930&lt;                  | Pi generator in Bef-97 |
+&gt;:09a*pa*3/1+19a*p09a*g:09b*v   |                        |
+v_@# g*b90 p*b910        &lt; p&lt;   | 7/2/1997, Kevin Vigor  |
+&gt;19a*g:+1-29b*p19a*g::09v       +------------------------+
+v*a90g*b90*g*b91: _v#p*9&lt;
+&gt;g-#v_ 2a*+\$  v  :$
+&gt;\1-aa*ga*+v  p
+v1:/g*b92p*991:&lt;  *
+&gt;9b*p29b*g*199*g\v9
+v*b92p*aa-1g*990-&lt;9
+&gt;g2-29b*p099*g1-:0^
+v -9p*b92:%ag*991  &lt;
+&gt;#v_ 299*g1+299*p&gt;       ^
+&gt;09b*g:#v_$v
+v93p*b90-1&lt;
+&gt;9*g199*ga/+.v
+v:g*992 &lt;p*9 92-&lt;
+v_29b*g399*p ^
+&gt;09b*g:#v_v      1
+vp*b90-1    &lt; $      g
+&gt;199*g9<code class="EnlighterJSRAW" data-enlighter-language="cb">#v_'9,v      *
+&gt;'0, &gt;' ,299^&lt;/pre&gt;
+通常认为Befunge是第一个基于“二维控制流”的语言，后来衍生出的一大批类似的语言都是受的Befunge影响。例如PingPong语言就是把Befunge的四种箭头符号换成正反斜杠，控制指针移动方向90度旋转，起一个反弹的作用。
+&lt;h4&gt;Chef&lt;/h4&gt;
+&lt;a href="http://www.dangermouse.net/esoteric/chef.html" target="_blank"&gt;Chef&lt;/a&gt;如其名一样“主厨”(&lt;a href="http://en.wikipedia.org/wiki/Chef_(programming_language)" target="_blank"&gt;Wiki link&lt;/a&gt;)，这门语言主要是为了让程序代码看起来像菜谱。这可以使得我们的&lt;a title="食客还是大厨" href="https://coolshell.cn/articles/3589.html" target="_blank"&gt;程序员更像是大厨&lt;/a&gt;了，呵呵。该语言于2002年由David Morgan-Mar推出，核心是栈操作，特征就是——一套完整的Chef代码就是一个菜谱，程序名就是菜名，变量声明就是罗列原材料，后面一系列栈操作，就是菜肴的制作方法。把程序编写比作调和鼎鼐，有点意思，家庭主妇（或者“准家庭主妇”）试试看，权且当作人生预习。
+
+用Chef编写Hello World代码如下：（在其网站上还有一个&lt;a href="http://www.dangermouse.net/esoteric/chef_fib.html" target="_blank"&gt;斐波拉契数的例子&lt;/a&gt;）
+&lt;pre style="padding-left: 30px;"&gt;Hello World Souffle.
+
+Ingredients.
+72 g haricot beans
+101 eggs
+108 g lard
+111 cups oil
+32 zucchinis
+119 ml water
+114 g red salmon
+100 g dijon mustard
+33 potatoes
+
+Method.
+Put potatoes into the mixing bowl.
+Put dijon mustard into the mixing bowl.
+Put lard into the mixing bowl.
+Put red salmon into the mixing bowl.
+Put oil into the mixing bowl.
+Put water into the mixing bowl.
+Put zucchinis into the mixing bowl.
+Put oil into the mixing bowl.
+Put lard into the mixing bowl.
+Put lard into the mixing bowl.
+Put eggs into the mixing bowl.
+Put haricot beans into the mixing bowl.
+Liquefy contents of the mixing bowl.
+Pour contents of the mixing bowl into the baking dish.
+
+Serves 1.&lt;/pre&gt;
+代码解读——原材料名显然可以随便改成别的原料，哪怕用单个字母也可以，不过少了点趣味性，但原料前面代表数量的数字不能改，那是ASCII代码。接下来菜肴制作方法就是把一个个字母和符号（都是ASCII）压入栈（就是代码中的“Put XXX into the mixing bowl”，从最后一个感叹号开始压），最后再把你做的菜托出上桌。
+
+顺便说下，David Morgan-Mar已经设计出8种非主流编程语言了，还有一个变态的操作系统&lt;a href="http://www.dangermouse.net/esoteric/petrovich.html" target="_blank"&gt;Petrovich&lt;/a&gt;。  参看这位大哥的——&lt;a href="http://www.dangermouse.net/esoteric/" target="_blank"&gt;DM's Esoteric Programming Languages&lt;/a&gt;（下面会介绍这位老大搞出来的语言）
+&lt;h4&gt;&lt;strong&gt;Shakespeare&lt;/strong&gt;&lt;/h4&gt;
+&lt;a href="http://shakespearelang.sourceforge.net/" target="_blank"&gt;Shakespeare&lt;/a&gt;语言正如其名，其要让你的程序像“莎士比亚”的剧本一样充满艺术气息。
+
+这个语言于2001年由Karl Hasselstrom和Jon Aslund联合推出，Shakespeare的代码完全模仿莎士比亚的戏剧。它也是一个基于栈的程序语言，程序中出场的每一个人物都代表一个栈。Shakespeare的代码自由度很高，因此同一个程序你可以写出完全不同的代码出来。
+
+Shakespeare的Hello World代码如下（就是一部比较完整的“罗密欧与朱丽叶”的戏剧，作好心理准备）。“剧本”内容很无聊，就是一帮人在莫名其妙地称赞某些东西，里头还有古英语词汇，莎翁要是见了，可能会吐血。这里面Hello World或其ASCII码体现在全剧时不时出现的“The difference between……”句里面，根据各指代物品的好坏（比如鲜花算好的，牛粪算坏的）代表各数字，再进行各种运算最后相减（“The difference”暗指减法），得出一个字母或符号的ASCII码表。发明这个语言的人真是BT啊。
+&lt;pre style="padding-left: 60px;"&gt;Romeo, a young man with a remarkable patience.
+Juliet, a likewise young woman of remarkable grace.
+Ophelia, a remarkable woman much in dispute with Hamlet.
+Hamlet, the flatterer of Andersen Insulting A/S.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Act I: Hamlet's insults and flattery.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Scene I: The insulting of Romeo.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Enter Hamlet and Romeo]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Hamlet:
+You lying stupid fatherless big smelly half-witted coward!
+You are as stupid as the difference between a handsome rich brave hero and thyself! Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;You are as brave as the sum of your fat little stuffed misused dusty old rotten codpiece and a beautiful fair warm peaceful sunny summer's day. You are as healthy as the difference between the sum of the sweetest reddest rose and my father and yourself! Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;You are as cowardly as the sum of yourself and the difference between a big mighty proud kingdom and a horse. Speak your mind.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Exit Romeo]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Scene II: The praising of Juliet.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Enter Juliet]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Hamlet:
+Thou art as sweet as the sum of the sum of Romeo and his horse and his black cat! Speak thy mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Exit Juliet]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Scene III: The praising of Ophelia.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Enter Ophelia]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Hamlet:
+Thou art as lovely as the product of a large rural town and my amazing bottomless embroidered purse. Speak thy mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Thou art as loving as the product of the bluest clearest sweetest sky and the sum of a squirrel and a white horse. Thou art as beautiful as the difference between Juliet and thyself. Speak thy mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Exeunt Ophelia and Hamlet]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Act II: Behind Hamlet's back.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Scene I: Romeo and Juliet's conversation.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Enter Romeo and Juliet]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Romeo:
+Speak your mind. You are as worried as the sum of yourself and the difference between my small smooth hamster and my nose. Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Juliet:
+Speak YOUR mind! You are as bad as Hamlet! You are as small as the difference between the square of the difference between my little pony and your big hairy hound and the cube of your sorry little codpiece. Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Exit Romeo]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Scene II: Juliet and Ophelia's conversation.&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Enter Ophelia]&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Juliet:
+Thou art as good as the quotient between Romeo and the sum of a small furry animal and a leech. Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;Ophelia:
+Thou art as disgusting as the quotient between Romeo and twice the difference between a mistletoe and an oozing infected blister! Speak your mind!&lt;/pre&gt;
+&lt;pre style="padding-left: 30px;"&gt;[Exeunt]&lt;/pre&gt;
+&lt;h4&gt;BIT&lt;/h4&gt;
+&lt;a href="http://www.dangermouse.net/esoteric/bit.html" target="_blank"&gt;BIT语言&lt;/a&gt;也是 David Morgan-Mar 搞出来的。程序员在拥有访问所有数据的全部权限。这是一款强大的编程工具。在高级程序语言中，该工具可以操作这些令人费解的数据。
+
+看看下面这段代码，其展示了BIT的强大之处——代码和注释的完美统一。（很像BASIC）
+&lt;pre style="padding-left: 30px;"&gt;LINE NUMBER ONE CODE READ GOTO ONE ZERO
+LINE NUMBER ONE ZERO CODE VARIABLE ZERO EQUALS THE JUMP REGISTER GOTO ONE ONE
+LINE NUMBER ONE ONE CODE READ GOTO ONE ZERO ZERO
+LINE NUMBER ONE ZERO ZERO CODE VARIABLE ONE EQUALS THE JUMP REGISTER GOTO ONE ZERO ONE
+LINE NUMBER ONE ZERO ONE CODE THE JUMP REGISTER EQUALS OPEN PARENTHESIS VARIABLE ZERO NAND VARIABLE ONE CLOSE PARENTHESIS NAND OPEN PARENTHESIS VARIABLE ZERO NAND VARIABLE ONE CLOSE PARENTHESIS GOTO ONE ONE ZERO IF THE JUMP REGISTER IS EQUAL TO ONE GOTO ONE ZERO ZERO ZERO IF THE JUMP REGISTER IS EQUAL TO ZERO
+LINE NUMBER ONE ONE ZERO CODE PRINT ONE GOTO ONE ONE ONE
+LINE NUMBER ONE ONE ONE CODE PRINT ZERO
+LINE NUMBER ONE ZERO ZERO ZERO CODE THE JUMP REGISTER EQUALS OPEN PARENTHESIS VARIABLE ZERO NAND VARIABLE ZERO CLOSE PARENTHESIS NAND OPEN PARENTHESIS VARIABLE ONE NAND VARIABLE ONE CLOSE PARENTHESIS GOTO ONE ZERO ZERO ONE IF THE JUMP REGISTER IS EQUAL TO ZERO GOTO ONE ZERO ONE ZERO IF THE JUMP REGISTER IS EQUAL TO ONE
+LINE NUMBER ONE ZERO ZERO ONE CODE PRINT ZERO
+LINE NUMBER ONE ZERO ONE ZERO CODE PRINT ONE&lt;/pre&gt;
+当然，对于空格和换行符，显得太冗余了，去掉他们也没有问题。
+&lt;pre style="padding-left: 30px;"&gt;LINENUMBERONECODEREADGOTOONEZEROLINENUMBERONEZEROCODEVARIABLEZEROEQUALSTHEJUMPR
+EGISTERGOTOONEONELINENUMBERONEONECODEREADGOTOONEZEROZEROLINENUMBERONEZEROZEROCO
+DEVARIABLEONEEQUALSTHEJUMPREGISTERGOTOONEZEROONELINENUMBERONEZEROONECODETHEJUMP
+REGISTEREQUALSOPENPARENTHESISVARIABLEZERONANDVARIABLEONECLOSEPARENTHESISNANDOPE
+NPARENTHESISVARIABLEZERONANDVARIABLEONECLOSEPARENTHESISGOTOONEONEZEROIFTHEJUMPR
+EGISTERISEQUALTOONEGOTOONEZEROZEROZEROIFTHEJUMPREGISTERISEQUALTOZEROLINENUMBERO
+NEONEZEROCODEPRINTONEGOTOONEONEONELINENUMBERONEONEONECODEPRINTZEROLINENUMBERONE
+ZEROZEROZEROCODETHEJUMPREGISTEREQUALSOPENPARENTHESISVARIABLEZERONANDVARIABLEZER
+OCLOSEPARENTHESISNANDOPENPARENTHESISVARIABLEONENANDVARIABLEONECLOSEPARENTHESISG
+OTOONEZEROZEROONEIFTHEJUMPREGISTERISEQUALTOZEROGOTOONEZEROONEZEROIFTHEJUMPREGIS
+TERISEQUALTOONELINENUMBERONEZEROZEROONECODEPRINTZEROLINENUMBERONEZEROONEZEROCOD
+EPRINTONE&lt;/pre&gt;
+&lt;h4&gt;Haifu&lt;/h4&gt;
+&lt;a href="http://www.dangermouse.net/esoteric/haifu.html" target="_blank"&gt;Haifu&lt;/a&gt;程序语言也是David Morgan-Mar 搞出来的。从命名上就可以看出来它是一个汉语拼音。正是如此，作者想使用东方的哲学来创造一种编程的语言。其中还有Yin（阴）和 Yang（阳）——相当于布尔变量中的True/False，当然，也有金（Metal）木（Wood）水（Water）火（Fire）土（Earth）。呵呵。
+&lt;ul&gt;
+	&lt;li&gt;Wood: tree, grass, cherry, oak.&lt;/li&gt;
+	&lt;li&gt;Fire: flame, ash, smoke, embers.&lt;/li&gt;
+	&lt;li&gt;Earth: soil, mountain, rock, plain.&lt;/li&gt;
+	&lt;li&gt;Metal: sword, iron, plough, knife.&lt;/li&gt;
+	&lt;li&gt;Water: rain, snow, river, ice.&lt;/li&gt;
+&lt;/ul&gt;
+自然出现了一张关系表：
+&lt;table border="1" cellspacing="0" cellpadding="3"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;元素关系&lt;/th&gt;
+&lt;th&gt;操作&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B 生A&lt;/td&gt;
+&lt;td&gt;A+B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B 克 A&lt;/td&gt;
+&lt;td&gt;A-B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B 怕 A&lt;/td&gt;
+&lt;td&gt;A/B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B 爱 A&lt;/td&gt;
+&lt;td&gt;A*B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B 就是 A&lt;/td&gt;
+&lt;td&gt;如果A和B都是阳，则是阳，否则是阴&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Piet&lt;/h4&gt;
+David Morgan-Mar 发明的用位图编程的&lt;a href="http://www.dangermouse.net/esoteric/piet.html" target="_blank"&gt;Piet语言&lt;/a&gt;也是BT到了极致，你还记得前两的那个“&lt;a title="我有一个Hello World的C++程序编译不过" href="https://coolshell.cn/articles/4170.html" target="_blank"&gt;我的hello world编不过去&lt;/a&gt;”文章中的那个强人用windows的画图程序编程的例子吗？呵呵Piet完全是用位图编程的语言。
+
+下面这个图片就是其Hello World的示例：
+&lt;p style="text-align: center;"&gt;&lt;a href="http://www.topdesignmag.com/wp-content/uploads/2011/04/Piet_hello_big.png"&gt;&lt;img class="aligncenter" title="Piet_hello_big" src="http://www.dangermouse.net/esoteric/piet/Piet_hello_big.png" alt="" width="150" height="145" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style="text-align: left;"&gt;再看看斐波拉契数列的程序示例:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;a href="http://www.dangermouse.net/esoteric/piet/fibbig.gif"&gt;&lt;img class="aligncenter" src="http://www.dangermouse.net/esoteric/piet/fibbig.gif" alt="" width="110" height="121" /&gt;&lt;/a&gt;&lt;/p&gt;
+这里还有更多的示例：&lt;a href="http://www.dangermouse.net/esoteric/piet/samples.html"&gt;http://www.dangermouse.net/esoteric/piet/samples.html&lt;/a&gt;
+&lt;h4&gt;&lt;strong&gt;Malbolge&lt;/strong&gt;&lt;/h4&gt;
+&lt;a href="http://www.lscheffer.com/malbolge.shtml" target="_blank"&gt;Malbolge语言&lt;/a&gt;，是最早的一个以代码丑陋为目标而设计出的程序语言，你几乎不可能读懂Malbolge的代码。它共有8条指令，所有运算都基于3进制，控制程序流的唯一指令是无条件跳转。其是BenOlmstead在1998年引进公共领域的深奥程序语言，名称来源于“the eighth circle of hell in Dante’s Inferno”，之后更名为Malbolge。
+
+这被认为是地狱级的编程语言。
+
+看看它的Hello World程序：
+&lt;pre style="padding-left: 30px;"&gt;&lt;code&gt;('&amp;%:9]!~}|z2Vxwv-,POqponl$Hjig%eB@@&gt;}=&lt;M:9wv6WsU2T|nm-,jcL(I&amp;%$#"
+ </code>]V?Tx&lt;uVtT<code class="EnlighterJSRAW" data-enlighter-language="raw">Rpo3NlF.Jh++FdbCBA@?]!~|4XzyTT43Qsqq(Lnmkj"Fhg${z@&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;Unlambda&lt;/h4&gt;
+关于&lt;a href="http://www.madore.org/~david/programs/unlambda/" target="_blank"&gt;Unlambda语言&lt;/a&gt;，David Madore是这个语言的发明人，他于1976年8月3日生于法国，其是法国-加拿大籍数学家和计算机科学爱好者）。在unlambda里，所有东西都是函数。基本操作就是S， K， 和I三个组合子。当然，unlambda也加入一些扩展，让程序稍微好些一点。
+&lt;pre style="padding-left: 30px;"&gt;</code><code class="EnlighterJSRAW" data-enlighter-language="s"></code><code class="EnlighterJSRAW" data-enlighter-language="sii"></code><code class="EnlighterJSRAW" data-enlighter-language="raw">ki
+ </code><code class="EnlighterJSRAW" data-enlighter-language="raw">s</code><code class="EnlighterJSRAW" data-enlighter-language="ks">s</code>
+     <code class="EnlighterJSRAW" data-enlighter-language="s"></code><code class="EnlighterJSRAW" data-enlighter-language="s"></code><code class="EnlighterJSRAW" data-enlighter-language="raw">ks</code><code class="EnlighterJSRAW" data-enlighter-language="k">s</code><code class="EnlighterJSRAW" data-enlighter-language="kr">s</code>
+               <code class="EnlighterJSRAW" data-enlighter-language="s"></code><code class="EnlighterJSRAW" data-enlighter-language="si">k</code><code class="EnlighterJSRAW" data-enlighter-language="s"></code><code class="EnlighterJSRAW" data-enlighter-language="s">k</code><code class="EnlighterJSRAW" data-enlighter-language="d">k
+                               </code><code class="EnlighterJSRAW" data-enlighter-language="raw"></code><code class="EnlighterJSRAW" data-enlighter-language="raw"></code><code class="EnlighterJSRAW" data-enlighter-language="raw"></code><code class="EnlighterJSRAW" data-enlighter-language="raw"></code><code class="EnlighterJSRAW" data-enlighter-language="raw"></code><code class="EnlighterJSRAW" data-enlighter-language="raw"></code>.H.e.l.l.o.,. .w.o.r.l.d.!
+                        k
+      k
+  <code class="EnlighterJSRAW" data-enlighter-language="raw">k</code><code class="EnlighterJSRAW" data-enlighter-language="raw">s</code><code class="EnlighterJSRAW" data-enlighter-language="ksk">s</code>`k.*</pre>
+    <h4>
+     <span class="ez-toc-section" id="Ook">
+     </span>
+     Ook!
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://www.dangermouse.net/esoteric/ook.html" target="_blank">
+      Ook! 语言
+     </a>
+     也是David Morgan-Mar 发明的，与Brainfuck类似, 但用单词“
+     <code>
+      Ook！”
+     </code>
+     ，“
+     <code>
+      Ook.
+     </code>
+     ” 和“
+     <code>
+      Ook?
+     </code>
+     ”代替。我们来看一个Hello World的一个示例：
+    </p>
+    <pre style="padding-left: 30px;">Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook! Ook? Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook! Ook! Ook? Ook! Ook? Ook.
+Ook! Ook. Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook! Ook? Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook?
+Ook! Ook! Ook? Ook! Ook? Ook. Ook. Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook! Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook! Ook. Ook. Ook? Ook. Ook? Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook? Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook! Ook! Ook? Ook! Ook? Ook. Ook! Ook.
+Ook. Ook? Ook. Ook? Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook? Ook. Ook. Ook.
+Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook. Ook? Ook! Ook! Ook? Ook! Ook? Ook. Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook.
+Ook? Ook. Ook? Ook. Ook? Ook. Ook? Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook.
+Ook! Ook. Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook.
+Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook!
+Ook! Ook. Ook. Ook? Ook. Ook? Ook. Ook. Ook! Ook.</pre>
+    <p>
+     下面是一些转换器和解释器：
+    </p>
+    <ul>
+     <li>
+      <a href="http://www.dangermouse.net/esoteric/Ook.java">
+       Java Ook!-to-BrainF*** 和 BrainF***-to-Ook! 转换器
+      </a>
+      .
+     </li>
+     <li>
+      <a href="http://www.ruby-lang.org/en/raa-list.rhtml?name=RubyOok">
+       Ook! Ruby解释器
+      </a>
+      .
+     </li>
+     <li>
+      <a href="http://www.orakel.ntnu.no/~oyving/code/python/pook.py">
+       Ook! Python解释器
+      </a>
+      .
+     </li>
+     <li>
+      <a href="http://bluesorcerer.net/esoteric/ook.html">
+       Ook!  .Net 编译器叫Ook#
+      </a>
+     </li>
+     <li>
+      <a href="http://search.cpan.org/search?module=Acme::Ook">
+       Ook! perl 解释器
+      </a>
+      .
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="TMMLPTEALPAITAFNFAL">
+     </span>
+     <strong>
+      TMMLPTEALPAITAFNFAL
+     </strong>
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     你没看错，上面这一排毫无意义的字母是一个语言的名称。它是The Multi-Million Language Project To End All Language Projects And Isn’t That A Fine Name For A Language的缩写。
+     <a href="http://p-nand-q.com/humor/programming_languages/tmmlpteal.html" target="_blank">
+      TMMLPTEALPAITAFNFAL语言
+     </a>
+     没有固定的语法规则，每一天都是不同的语法。例如，2000年10月13日你可以使用DIV但不能使用MOD；到了10月14日时你可以使用MOD了但DIV又不能用了。因此，你今天写的程序运行起来完全正常，但是到了明天就无法编译了。下面是一个TMMLPTEALPAITAFNFAL的Hello World程序，当然现在已经无法编译了。
+    </p>
+    <pre style="padding-left: 30px;"><code>DECLARE CELL 100 AS READPOS
+ DECLARE 10 AS NEWLINE
+ WRITE CHAR NEWLINE
+ COPY "Hello, World" TO CELL 0
+ COPY 0 TO READPOS
+ WHILE READPOS INDIRECT DO GOSUB 300
+ WRITE CHAR NEWLINE
+ RETURN
+LINE 300: WRITE CHAR READPOS INDIRECT
+ ADD 1 TO READPOS
+ RETURN</code></pre>
+    <h4>
+     <span class="ez-toc-section" id="INTERCAL">
+     </span>
+     INTERCAL
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://catb.org/~esr/intercal/" target="_blank">
+      INTERCAL语言
+     </a>
+     （
+     <a href="https://en.wikipedia.org/wiki/INTERCAL" target="_blank">
+      Wikipedia
+     </a>
+     ）全称是“Compiler Language With No Pronounceable Acronym”。自认为是“超级黑客”的人可以试试用这个语言写程序。由老牌黑客
+     <a href="https://en.wikipedia.org/wiki/Don_Woods">
+      Don Woods
+     </a>
+     和
+     <a href="https://en.wikipedia.org/wiki/James_M._Lyon">
+      James M. Lyon
+     </a>
+     在1972年发明，其是用来讽刺当时的那些编程语言。今天 这个语言有两个版本，一个是由牛人
+     <a href="https://en.wikipedia.org/wiki/Eric_S._Raymond">
+      Eric S. Raymond
+     </a>
+     维护的C-INTERCAL，另一个是Claudio Calvelli 维护的CLC-INTERCAL。（
+     <strong>
+      注
+     </strong>
+     ：在自由软件启蒙阶段，
+     <a href="https://en.wikipedia.org/wiki/Eric_S._Raymond">
+      Eric S. Raymond
+     </a>
+     以如椽之笔呼啸而出，其核心著作被业界成为”五部曲”：《黑客道简史》（A Brief History of Hackerdom）、 《大教堂和市集》（The Cathedral and the Bazaar）、《如何成为一名黑客》（How To Become A Hacker）、《开拓智域》（Homesteading the Noosphere）、《魔法大锅炉》（The Magic Cauldron）。其中最著名的当然还是《大教堂和市集》，它在自由软件运动中的地位相当于基督教的《圣经》。而用黑客们的话说，这是”黑客藏经阁”的 第一个收藏。）
+    </p>
+    <p>
+     来看看其Hello World的程序：
+    </p>
+    <pre style="padding-left: 30px;">DO ,1 &lt;- #13
+PLEASE DO ,1 SUB #1 &lt;- #238
+DO ,1 SUB #2 &lt;- #108
+DO ,1 SUB #3 &lt;- #112
+DO ,1 SUB #4 &lt;- #0
+DO ,1 SUB #5 &lt;- #64
+DO ,1 SUB #6 &lt;- #194
+DO ,1 SUB #7 &lt;- #48
+PLEASE DO ,1 SUB #8 &lt;- #22
+DO ,1 SUB #9 &lt;- #248
+DO ,1 SUB #10 &lt;- #168
+DO ,1 SUB #11 &lt;- #24
+DO ,1 SUB #12 &lt;- #16
+DO ,1 SUB #13 &lt;- #162
+PLEASE READ OUT ,1
+PLEASE GIVE UP</pre>
+    <h4>
+     <span class="ez-toc-section" id="HQ9">
+     </span>
+     HQ9++
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="http://www.dangermouse.net/esoteric/hq9plusplus.html" target="_blank">
+      HQ9++语言
+     </a>
+     同样是David Morgan-Mar 发明的，其带有四个指令的joke语言。
+    </p>
+    <ul>
+     <li>
+      <strong>
+       H
+      </strong>
+      : 输出
+      <a href="http://www.esolangs.org/wiki/Hello%2C_world%21" title="Hello,world!">
+       “hello,world”
+      </a>
+     </li>
+     <li>
+      <strong>
+       Q
+      </strong>
+      : 输出程序员的源代码
+     </li>
+     <li>
+      <strong>
+       9
+      </strong>
+      : 打印
+      <a href="http://www.esolangs.org/wiki/99_bottles_of_beer" title="99 bottles of beer">
+       “99 Bottles of Beer”
+      </a>
+      的歌词
+     </li>
+     <li>
+      <strong>
+       +
+      </strong>
+      : 累加器
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="PerlYuYan">
+     </span>
+     <strong>
+      PerlYuYan
+     </strong>
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     <a href="https://zh.wikipedia.org/wiki/PerlYuYan" target="_blank">
+      PerlYuYa
+     </a>
+     n语言是一个能令人使用中文文言文开发程式 Perl 程式的 Perl 模块，由
+     <a href="https://zh.wikipedia.org/wiki/%E5%94%90%E9%B3%B3">
+      唐凤
+     </a>
+     于2002年一月发表。它是
+     <a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%96%87%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80">
+      中文编程语言
+     </a>
+     的尝试。作者利用中文的特质，将许多指令改成以一个中国汉字来表示，因而造成了文言语法的感觉。
+    </p>
+    <p>
+     看看下面的这段代码，相当的文言文啊。有兴趣可以
+     <a href="http://search.cpan.org/~autrijus/Lingua-Sinica-PerlYuYan-0.03/" target="_blank">
+      去CPAN上下载
+     </a>
+     回来玩玩。
+    </p>
+    <pre style="padding-left: 30px;">#!/usr/local/bin/perl
+
+use Lingua::Sinica::PerlYuYan;
+
+用警兮用嚴。
+
+印道
+一至一
+哉兮
+
+印編曰雜申雜申矣
+  又纖曰龍鼠矣
+    又曰一矣
+
+亂曰
+國無人莫我知兮    又何懷乎故都
+既莫足與為美政兮  吾將從彭咸之所居</pre>
+    <p>
+     还有下面这个五言。
+    </p>
+    <pre style="padding-left: 30px;"><code># The Sieve of Eratosthenes - 埃拉托斯芬篩法
+use Lingua::Sinica::PerlYuYan;
+
+  用籌兮用嚴。井涸兮無礙
+。印曰最高矣  又道數然哉。
+。截起吾純風  賦小入大合。
+。習予吾陣地  並二至純風。
+。當起段賦取  加陣地合始。
+。陣地賦篩始  繫繫此雜段。
+。終陣地兮印  正道次標哉。
+。輸空接段點  列終註泰來。</code></pre>
+    <p>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83%EF%BC%9A">
+     </span>
+     参考：
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      <a href="https://en.wikipedia.org/wiki/Category:Esoteric_programming_languages">
+       Esoteric_programming_languages
+      </a>
+     </li>
+     <li>
+      <a href="http://www.topdesignmag.com/top-13-most-absurd-programming-languages/" target="_blank">
+       Top 13 Most Absurd Programming Languages
+      </a>
+     </li>
+     <li>
+      <a href="http://wei.si/blog/2011/04/befunge-and-perlyuyan/" target="_blank">
+       Befunge语言和文言文编程
+      </a>
+     </li>
+     <li>
+      <a href="http://hi.baidu.com/namekin/blog/item/9f36f21fc6be296df724e452.html" target="_blank">
+       疯狂的编程语言——ENGLISH，Chef，Shakespeare
+      </a>
+     </li>
+     <li>
+      <a href="http://www.dangermouse.net/esoteric/" target="_blank">
+       DM’s Esoteric Programming Languages
+      </a>
+     </li>
+     <li>
+      <a href="http://www.matrix67.com/blog/archives/253" rel="bookmark" title="Permanent Link to 十大另类程序语言（上）">
+       十大另类程序语言（上）
+      </a>
+     </li>
+     <li>
+      <a href="http://www.matrix67.com/blog/archives/255" rel="bookmark" title="Permanent Link to 十大另类程序语言（下）">
+       十大另类程序语言（下）
+      </a>
+     </li>
+    </ul>
+    <p>
+     看过这些，我我还有什么好说的呢，什么C/C++/Java，神马都是浮云了……
+    </p>
+    <div>
+     <span style="font-family: Simsun; line-height: normal; font-size: medium;">
+      (全文完)
+     </span>
+    </div>
+    <p>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2529.html">
+         <img alt="StackOverflow的404错误页" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/6.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2529.html">
+         StackOverflow的404错误页
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1142.html">
+         <img alt="BT雷人的程序语言" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/21.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1142.html">
+         BT雷人的程序语言
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/656.html">
+         <img alt="Linux 的僵尸(zombie)进程" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/23.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/656.html">
+         Linux 的僵尸(zombie)进程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5625.html">
+         <img alt="“品质在于构建过程”吗？" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/19.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5625.html">
+         “品质在于构建过程”吗？
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4758.html">
+         <img alt="如何写出无法维护的代码" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/30.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4758.html">
+         如何写出无法维护的代码
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1976.html">
+         <img alt="【问题】传球问题" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/30.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1976.html">
+         【问题】传球问题
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="b55f774050" id="post-ratings-4458" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4458_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(4458, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4458_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(4458, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4458_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(4458, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4458_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(4458, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4458_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.5, 5, 0);" onmouseover="current_rating(4458, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      29
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.45
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4458_text">
+     </span>
+     <meta content="BT雷人的程序语言（大全）" itemprop="name"/>
+     <meta content="BT雷人的程序语言（大全）" itemprop="headline"/>
+     <meta content="还记得以前本站的BT雷人的程序语言吗？除了那几个Brainfuck，LOLCODE和WhiteSpace，我以为这些是比较BT的语言，但是自从这两天我在网上看到一些（见文章最后的参考一节），我发现我错了，这个世界上，只有更变态，没有最变态。不相，你看看下面这些，简直变态到了极致啊。（下面的语言变态不分排名）
+Befunge
+第一个变态语言Befunge。维基上面说——这门语言由Chris Pr..." itemprop="description"/>
+     <meta content="2011-04-13T08:34:50+08:00" itemprop="datePublished"/>
+     <meta content="2011-04-13T01:00:11+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4458.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4458.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.45" itemprop="ratingValue"/>
+      <meta content="29" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4458-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/story" rel="category tag">
+        轶事趣闻
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/befunge" rel="tag">
+        Befunge
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/bit" rel="tag">
+        BIT
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/brainfuck" rel="tag">
+        brainfuck
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/chef" rel="tag">
+        Chef
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/haifu" rel="tag">
+        Haifu
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/intercal" rel="tag">
+        INTERCAL
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/malbolge" rel="tag">
+        Malbolge
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/ook" rel="tag">
+        Ook!
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/perlyuyan" rel="tag">
+        PerlYuYan
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/piet" rel="tag">
+        Piet
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/shakespeare" rel="tag">
+        Shakespeare
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/unlambda" rel="tag">
+        Unlambda
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

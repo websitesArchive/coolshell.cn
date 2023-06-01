@@ -1,0 +1,801 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/11454.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="从LongAdder看更高效的无锁实现 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/11454.html" property="og:url"/>
+   <meta content="https://www.liuinsect.com/wp-content/uploads/2014/04/la1.png" property="og:image"/>
+   <meta content="https://www.liuinsect.com/wp-content/uploads/2014/04/la1.png" property="og:image:secure_url"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="从LongAdder看更高效的无锁实现 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://www.liuinsect.com/wp-content/uploads/2014/04/la1.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/11454.html#article","name":"\u4eceLongAdder\u770b\u66f4\u9ad8\u6548\u7684\u65e0\u9501\u5b9e\u73b0 | \u9177 \u58f3 - CoolShell","headline":"\u4eceLongAdder\u770b\u66f4\u9ad8\u6548\u7684\u65e0\u9501\u5b9e\u73b0","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/liuinsect#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/www.liuinsect.com\/wp-content\/uploads\/2014\/04\/la1.png","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2014-04-17T15:11:40+08:00","dateModified":"2014-04-18T09:57:45+08:00","inLanguage":"zh-CN","commentCount":35,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/11454.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/11454.html#webpage"},"articleSection":"Java\u8bed\u8a00, \u7a0b\u5e8f\u8bbe\u8ba1, AtomicLong, cas, Java, LongAdder, Performance"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/11454.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/liuinsect#author","url":"https:\/\/coolshell.cn\/articles\/author\/liuinsect","name":"liuinsect","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/11454.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/a7d0f7275851df8df5312c37513e60d7?s=96&d=mm&r=g","width":96,"height":96,"caption":"liuinsect"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/11454.html#webpage","url":"https:\/\/coolshell.cn\/articles\/11454.html","name":"\u4eceLongAdder\u770b\u66f4\u9ad8\u6548\u7684\u65e0\u9501\u5b9e\u73b0 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/11454.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/liuinsect#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/liuinsect#author"},"datePublished":"2014-04-17T15:11:40+08:00","dateModified":"2014-04-18T09:57:45+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '11454';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E4%BB%8ELongAdder%E7%9C%8B%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E6%97%A0%E9%94%81%E5%AE%9E%E7%8E%B0';
+	window._wp_rp_post_tags = ['atomiclong', 'longadder', 'cas', 'performance', 'java', 'java%E8%AF%AD%E8%A8%80', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'slot', 'base', 'hc', 'null', 'final', 'cell', 'class', 'a', 'ca', 'fals', 'collid', 'doug', 'int', 'true', 'lea'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/11454.html/feed" rel="alternate" title="酷 壳 - CoolShell » 从LongAdder看更高效的无锁实现评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/11454" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=11454" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11454.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11454.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-11454 post type-post status-publish format-standard hentry category-javadev category-progdesign tag-atomiclong tag-cas tag-java tag-longadder tag-performance" id="post-11454">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     从LongAdder看更高效的无锁实现
+    </span>
+    <h1 class="entry-title">
+     从LongAdder看更高效的无锁实现
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/11454.html" rel="bookmark" title="23:11">
+       <time class="entry-date" datetime="2014-04-17T23:11:40+08:00" pubdate="">
+        2014年04月17日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/liuinsect" rel="author" title="View all posts by liuinsect">
+         liuinsect
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/11454.html#comments">
+       35 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      47,935 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      （感谢
+      <a href="http://weibo.com/liuinsect" target="_blank">
+       @jd刘锟洋
+      </a>
+      投稿，更多文章参看他的博客：
+      <a href="http://www.liuinsect.com/" target="_blank">
+       码梦为生
+      </a>
+      ）
+     </strong>
+    </p>
+    <p>
+     <strong>
+      原文链接
+     </strong>
+     ：《
+     <a href="http://www.liuinsect.com/2014/04/15/%E6%AF%94atomiclong%E8%BF%98%E9%AB%98%E6%95%88%E7%9A%84longadder-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" target="_blank">
+      比AtomicLong还高效的LongAdder 源码解析
+     </a>
+     》
+    </p>
+    <p>
+     接触到AtomicLong的原因是在看guava的LoadingCache相关代码时，关于LoadingCache，其实思路也非常简单清晰：用模板模式解决了缓存不命中时获取数据的逻辑，这个思路我早前也正好在项目中使用到。
+    </p>
+    <p>
+     言归正传，为什么说LongAdder引起了我的注意，原因有二：
+    </p>
+    <ol>
+     <li>
+      作者是Doug lea ，地位实在举足轻重。
+     </li>
+     <li>
+      他说这个比AtomicLong高效。
+     </li>
+    </ol>
+    <p>
+     我们知道，AtomicLong已经是非常好的解决方案了，涉及并发的地方都是使用CAS操作，在硬件层次上去做 compare and set操作。效率非常高。
+    </p>
+    <p>
+     因此，我决定研究下，为什么LongAdder比AtomicLong高效。
+    </p>
+    <p>
+     首先，看LongAdder的继承树：
+    </p>
+    <p>
+     <img alt="la1" class="alignnone size-full wp-image-209 aligncenter" decoding="async" height="104" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la1.png" width="431"/>
+    </p>
+    <p>
+     继承自Striped64，这个类包装了一些很重要的内部类和操作。稍候会看到。
+    </p>
+    <p>
+     <span id="more-11454">
+     </span>
+    </p>
+    <p>
+     <strong>
+      正式开始前，强调下，我们知道，AtomicLong的实现方式是内部有个value 变量，当多线程并发自增，自减时，均通过CAS 指令从机器指令级别操作保证并发的原子性。
+     </strong>
+    </p>
+    <p>
+     再看看LongAdder的方法：
+    </p>
+    <p>
+     <img alt="la2" class="alignnone size-full wp-image-210 aligncenter" decoding="async" height="436" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la2.png" width="472"/>
+     <br/>
+     怪不得可以和AtomicLong作比较，连API都这么像。我们随便挑一个API入手分析，这个API通了，其他API都大同小异，因此，我选择了add这个方法。事实上,其他API也都依赖这个方法。
+    </p>
+    <p>
+     <img alt="la3" class="alignnone size-full wp-image-211 aligncenter" decoding="async" height="281" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la3.png" width="701"/>
+     <br/>
+     LongAdder中包含了一个Cell 数组，Cell是Striped64的一个内部类，顾名思义，Cell 代表了一个最小单元，这个单元有什么用，稍候会说道。先看定义：
+    </p>
+    <p>
+     <img alt="la4" class="alignnone size-full wp-image-212 aligncenter" decoding="async" height="649" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la4.png" width="686"/>
+     <br/>
+     Cell内部有一个非常重要的value变量，并且提供了一个CAS更新其值的方法。
+    </p>
+    <p>
+     回到add方法：
+    </p>
+    <p>
+     <img alt="la3" class="alignnone size-full wp-image-211 aligncenter" decoding="async" height="281" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la3.png" width="701"/>
+    </p>
+    <p>
+     这里，我有个疑问，AtomicLong已经使用CAS指令，非常高效了（比起各种锁），LongAdder如果还是用CAS指令更新值，怎么可能比AtomicLong高效了？ 何况内部还这么多判断！！！
+    </p>
+    <p>
+     这是我开始时最大的疑问，所以，我猜想，难道有比CAS指令更高效的方式出现了？ 带着这个疑问，继续。
+    </p>
+    <p>
+     第一if 判断，第一次调用的时候cells数组肯定为null,因此，进入casBase方法：
+    </p>
+    <p>
+     <img alt="la5" class="alignnone size-full wp-image-213 aligncenter" decoding="async" height="81" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la5.png" width="772"/>
+     <br/>
+     原子更新base没啥好说的，如果更新成功，本地调用开始返回，否则进入分支内部。
+    </p>
+    <p>
+     什么时候会更新失败？ 没错，并发的时候，好戏开始了，AtomicLong的处理方式是死循环尝试更新，直到成功才返回，而LongAdder则是进入这个分支。
+    </p>
+    <p>
+     分支内部，通过一个Threadlocal变量threadHashCode 获取一个HashCode对象，该HashCode对象依然是Striped64类的内部类，看定义：
+    </p>
+    <p>
+     <img alt="la6" class="alignnone size-full wp-image-214 aligncenter" decoding="async" height="203" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la6.png" width="734"/>
+     <br/>
+     有个code变量，保存了一个非0的随机数随机值。
+    </p>
+    <p>
+     回到add方法：
+    </p>
+    <p>
+     <img alt="la3" class="alignnone size-full wp-image-211 aligncenter" decoding="async" height="281" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la3.png" width="701"/>
+    </p>
+    <p>
+     拿到该线程相关的HashCode对象后，获取它的code变量，as[(n-1)&amp;h] 这句话相当于对h取模，只不过比起取模，因为是 与 的运算所以效率更高。
+    </p>
+    <p>
+     计算出一个在Cells 数组中当先线程的HashCode对应的 索引位置，并将该位置的Cell 对象拿出来用CAS更新它的value值。
+    </p>
+    <p>
+     当然，如果as 为null 并且更新失败，才会进入retryUpdate方法。
+    </p>
+    <p>
+     看到这里我想应该有很多人明白为什么LongAdder会比AtomicLong更高效了，没错，唯一会制约AtomicLong高效的原因是高并发，高并发意味着CAS的失败几率更高， 重试次数更多，越多线程重试，CAS失败几率又越高，变成恶性循环，AtomicLong效率降低。 那怎么解决？
+     <strong>
+      LongAdder给了我们一个非常容易想到的解决方案：减少并发，将单一value的更新压力分担到多个value中去，降低单个value的 “热度”，分段更新！！！
+     </strong>
+    </p>
+    <p>
+     这样，线程数再多也会分担到多个value上去更新，只需要增加value就可以降低 value的 “热度”  AtomicLong中的 恶性循环不就解决了吗？ cells 就是这个 “段” cell中的value 就是存放更新值的， 这样，
+     <strong>
+      当我需要总数时，把cells 中的value都累加一下不就可以了么！！
+     </strong>
+    </p>
+    <p>
+     <strong>
+      当然，聪明之处远远不仅仅这里，在看看add方法中的代码，casBase方法可不可以不要，直接分段更新,上来就计算 索引位置，然后更新value？
+     </strong>
+    </p>
+    <p>
+     答案是不好，不是不行，因为，casBase操作等价于AtomicLong中的CAS操作，要知道，LongAdder这样的处理方式是有坏处的，分段操作必然带来空间上的浪费，可以空间换时间，但是，
+     <strong>
+      能不换就不换，看空间时间都节约~！
+     </strong>
+     所以，
+     <strong>
+      casBase操作保证了在低并发时，不会立即进入分支做分段更新操作
+     </strong>
+     ，因为低并发时，casBase操作基本都会成功，只有并发高到一定程度了，才会进入分支，所以，Doug Lea对该类的说明是：
+     <strong>
+      低并发时LongAdder和AtomicLong性能差不多，高并发时LongAdder更高效！
+     </strong>
+    </p>
+    <p style="text-align: center;">
+     <img alt="la7" class="wp-image-215 aligncenter" decoding="async" height="331" loading="lazy" src="http://www.liuinsect.com/wp-content/uploads/2014/04/la7.png" width="750"/>
+    </p>
+    <p>
+     但是，Doung Lea 还是没这么简单，聪明之处还没有结束……
+    </p>
+    <p>
+     如此，retryUpdate中做了什么事，也基本略知一二了，因为cell中的value都更新失败(说明该索引到这个cell的线程也很多，并发也很高时) 或者cells数组为空时才会调用retryUpdate,
+    </p>
+    <p>
+     因此，
+     <strong>
+      retryUpdate里面应该会做两件事：
+     </strong>
+    </p>
+    <ol>
+     <li>
+      <strong>
+       扩容，将cells数组扩大
+      </strong>
+      ，降低每个cell的并发量，同样，这也意味着cells数组的rehash动作。
+     </li>
+     <li>
+      <strong>
+       给空的cells变量赋一个新的Cell数组
+      </strong>
+      。
+     </li>
+    </ol>
+    <p>
+     是不是这样呢？ 继续看代码：
+    </p>
+    <p>
+     代码比较长，变成文本看看，为了方便大家看if else 分支，对应的  { } 我用相同的颜色标注出来。可以看到，这个时候Doug Lea才愿意使用死循环保证更新成功~！
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">
+  final void retryUpdate(long x, HashCode hc, boolean wasUncontended) {
+        int h = hc.code;
+        boolean collide = false;                // True if last slot nonempty
+        for (;;) {
+            Cell[] as; Cell a; int n; long v;
+            if ((as = cells) != null &amp;&amp; (n = as.length) &gt; 0) {// 分支1
+                if ((a = as[(n - 1) &amp; h]) == null) {
+                    if (busy == 0) {            // Try to attach new Cell
+                        Cell r = new Cell(x);   // Optimistically create
+                        if (busy == 0 &amp;&amp; casBusy()) {
+                            boolean created = false;
+                            try {               // Recheck under lock
+                                Cell[] rs; int m, j;
+                                if ((rs = cells) != null &amp;&amp;
+                                        (m = rs.length) &gt; 0 &amp;&amp;
+                                        rs[j = (m - 1) &amp; h] == null) {
+                                    rs[j] = r;
+                                    created = true;
+                                }
+                            } finally {
+                                busy = 0;
+                            }
+                            if (created)
+                                break;
+                            continue;           // Slot is now non-empty
+                        }
+                    }
+                    collide = false;
+                }
+                else if (!wasUncontended)       // CAS already known to fail
+                    wasUncontended = true;      // Continue after rehash
+                else if (a.cas(v = a.value, fn(v, x)))
+                    break;
+                else if (n &gt;= NCPU || cells != as)
+                    collide = false;            // At max size or stale
+                else if (!collide)
+                    collide = true;
+                else if (busy == 0 &amp;&amp; casBusy()) {
+                    try {
+                        if (cells == as) {      // Expand table unless stale
+                            Cell[] rs = new Cell[n &lt;&lt; 1];
+                            for (int i = 0; i &lt; n; ++i)
+                                rs[i] = as[i];
+                            cells = rs;
+                        }
+                    } finally {
+                        busy = 0;
+                    }
+                    collide = false;
+                    continue;                   // Retry with expanded table
+                }
+                h ^= h &lt;&lt; 13;                   // Rehash  h ^= h &gt;&gt;&gt; 17;
+                h ^= h &lt;&lt; 5;
+            }
+            else if (busy == 0 &amp;&amp; cells == as &amp;&amp; casBusy()) {//分支2
+                boolean init = false;
+                try {                           // Initialize table
+                    if (cells == as) {
+                        Cell[] rs = new Cell[2];
+                        rs[h &amp; 1] = new Cell(x);
+                        cells = rs;
+                        init = true;
+                    }
+                } finally {
+                    busy = 0;
+                }
+                if (init)
+                    break;
+            }
+            else if (casBase(v = base, fn(v, x)))
+                break;                          // Fall back on using base
+        }
+        hc.code = h;                            // Record index for next time
+    }
+
+</pre>
+    <p>
+     分支2中，为cells为空的情况，需要new 一个Cell数组。
+    </p>
+    <p>
+     分支1分支中，略复杂一点点：
+    </p>
+    <p>
+     注意，几个分支中都提到了busy这个方法，这个可以理解为一个CAS实现的锁，只有在需要更新cells数组的时候才会更新该值为1，如果更新失败，则说明当前有线程在更新cells数组，当前线程需要等待。重试。
+    </p>
+    <p>
+     回到分支1中，这里首先判断当前cells数组中的索引位置的cell元素是否为空，如果为空，则添加一个cell到数组中。
+    </p>
+    <p>
+     否则更新 标示冲突的标志位wasUncontended 为 true ，重试。
+    </p>
+    <p>
+     否则，再次更新cell中的value,如果失败，重试。
+    </p>
+    <p>
+     。。。。。。。一系列的判断后
+     <span style="line-height: 1.5em;">
+      ，如果还是失败，下下下策，reHash,直接将cells数组扩容一倍，并更新当前线程的hash值，保证下次更新能尽可能成功。
+     </span>
+    </p>
+    <p>
+     <strong>
+      可以看到，LongAdder确实用了很多心思减少并发量，并且，每一步都是在”没有更好的办法“的时候才会选择更大开销的操作，从而尽可能的用最最简单的办法去完成操作。追求简单，但是绝对不粗暴。
+     </strong>
+    </p>
+    <p>
+     ———————
+     <strong>
+      陈皓注————————
+     </strong>
+    </p>
+    <p>
+     最后留给大家思考的两个问题：
+    </p>
+    <p style="padding-left: 30px;">
+     1）是不是AtomicLong可以被废了？
+    </p>
+    <p style="padding-left: 30px;">
+     2）如果cell被创建后，原来的casBase就不走了，会不会性能更差？
+    </p>
+    <p>
+     ———————liuinsect
+     <strong>
+      注————————
+     </strong>
+    </p>
+    <p>
+     昨天和左耳朵耗子简单讨论了下，发现左耳朵耗子,耗哥对读者思维的引导还是非常不错的，在第一次发现这个类后，对里面的实现又提出了更多的问题，引导大家思考，值得学习。
+    </p>
+    <p>
+     我们 发现的问题有这么几个（包括以上的问题），自己简单总结下，欢迎大家讨论：
+    </p>
+    <p>
+     1. jdk 1.7中是不是有这个类？
+     <br/>
+     我确认后，结果如下：    jdk-7u51 版本上还没有  但是jdk-8u20版本上已经有了。代码基本一样 ，增加了对double类型的支持和删除了一些冗余的代码。有兴趣的同学可以去下载下JDK 1.8看看
+    </p>
+    <p>
+     2. base有没有参与汇总？
+     <br/>
+     base在调用intValue等方法的时候是会汇总的：
+    </p>
+    <p>
+     <a href="http://www.liuinsect.com/wp-content/uploads/2014/04/LA101.bmp">
+      <img alt="LA10" decoding="async" src="http://www.liuinsect.com/wp-content/uploads/2014/04/LA101.bmp"/>
+     </a>
+    </p>
+    <p>
+     3. 如果cell被创建后，原来的casBase就不走了，会不会性能更差？ base的顺序可不可以调换?
+     <br/>
+     <span style="line-height: 1.5em;">
+      刚开始我想可不可以调换add方法中的判断顺序，比如，先做casBase的判断？ 仔细思考后认为还是 不调换可能更好，调换后每次都要CAS一下，在高并发时，失败几率非常高，并且是恶性循环，比起一次判断，后者的开销明显小很多，还没有副作用（上一个问题，base变量在sum时base是会被统计的，并不会丢掉base的值）。因此，不调换可能会更好。
+     </span>
+    </p>
+    <p>
+     4. AtomicLong可不可以废掉？
+     <br/>
+     我的想法是可以废掉了，因为，虽然LongAdder在空间上占用略大，但是，它的性能已经足以说明一切了,无论是从节约空的角度还是执行效率上，AtomicLong基本没有优势了，具体看这个测试（感谢
+     <a href="http://lianming.info/" id="commentauthor-1431785" rel="external nofollow">
+      Lemon
+     </a>
+     的回复）:http://blog.palominolabs.com/2014/02/10/java-8-performance-improvements-longadder-vs-atomiclong/
+    </p>
+    <p style="padding-left: 30px;">
+     <p>
+      （全文完）
+     </p>
+     <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+      <p align="center">
+       <strong>
+        （转载本站文章请注明作者和出处
+        <a href="https://coolshell.cn/">
+         酷 壳 – CoolShell
+        </a>
+        ，请勿用于任何商业用途）
+       </strong>
+      </p>
+     </div>
+     <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+      <div class="wp_rp_content">
+       <h3 class="related_post_title">
+        相关文章
+       </h3>
+       <ul class="related_post wp_rp">
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8239.html">
+          <img alt="无锁队列的实现" height="150" src="https://coolshell.cn/wp-content/uploads/2012/09/lock_free_bicycle-150x150.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/8239.html">
+          无锁队列的实现
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9703.html">
+          <img alt="无锁HashMap的原理与实现" height="150" src="https://coolshell.cn/wp-content/uploads/2013/05/图1-3-150x150.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/9703.html">
+          无锁HashMap的原理与实现
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9169.html">
+          <img alt="并发框架Disruptor译文" height="150" src="https://coolshell.cn/wp-content/uploads/2013/02/Disruptor-150x150.png" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/9169.html">
+          并发框架Disruptor译文
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9606.html">
+          <img alt="疫苗：Java HashMap的死循环" height="150" src="https://coolshell.cn/wp-content/uploads/2013/05/race_condition-150x150.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/9606.html">
+          疫苗：Java HashMap的死循环
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6424.html">
+          <img alt="Hash Collision DoS 问题" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/18.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/6424.html">
+          Hash Collision DoS 问题
+         </a>
+        </li>
+        <li>
+         <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11175.html">
+          <img alt="Java中的CopyOnWrite容器" height="150" src="https://coolshell.cn/wp-content/uploads/2014/03/cow-copy-150x150.jpg" width="150"/>
+         </a>
+         <a class="wp_rp_title" href="https://coolshell.cn/articles/11175.html">
+          Java中的CopyOnWrite容器
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="post-ratings" data-nonce="bc407384e4" id="post-ratings-11454" itemscope="" itemtype="https://schema.org/Article">
+      <img alt="好烂啊" id="rating_11454_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(11454, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+      <img alt="有点差" id="rating_11454_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(11454, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+      <img alt="凑合看看" id="rating_11454_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(11454, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+      <img alt="还不错" id="rating_11454_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(11454, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+      <img alt="很精彩" id="rating_11454_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(11454, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+      (
+      <strong>
+       25
+      </strong>
+      人打了分，平均分：
+      <strong>
+       3.84
+      </strong>
+      )
+      <br/>
+      <span class="post-ratings-text" id="ratings_11454_text">
+      </span>
+      <meta content="从LongAdder看更高效的无锁实现" itemprop="name"/>
+      <meta content="从LongAdder看更高效的无锁实现" itemprop="headline"/>
+      <meta content="（感谢 @jd刘锟洋 投稿，更多文章参看他的博客：码梦为生）
+
+原文链接：《比AtomicLong还高效的LongAdder 源码解析》
+
+接触到AtomicLong的原因是在看guava的LoadingCache相关代码时，关于LoadingCache，其实思路也非常简单清晰：用模板模式解决了缓存不命中时获取数据的逻辑，这个思路我早前也正好在项目中使用到。
+
+言归正传，为什么说Lon..." itemprop="description"/>
+      <meta content="2014-04-17T23:11:40+08:00" itemprop="datePublished"/>
+      <meta content="2014-04-18T17:57:45+08:00" itemprop="dateModified"/>
+      <meta content="https://coolshell.cn/articles/11454.html" itemprop="url"/>
+      <meta content="liuinsect" itemprop="author"/>
+      <meta content="https://coolshell.cn/articles/11454.html" itemprop="mainEntityOfPage"/>
+      <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+       <meta content="酷 壳 - CoolShell" itemprop="name"/>
+       <meta content="https://coolshell.cn" itemprop="url"/>
+       <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+        <meta content="" itemprop="url"/>
+       </div>
+      </div>
+      <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+       <meta content="5" itemprop="bestRating"/>
+       <meta content="1" itemprop="worstRating"/>
+       <meta content="3.84" itemprop="ratingValue"/>
+       <meta content="25" itemprop="ratingCount"/>
+      </div>
+     </div>
+     <div class="post-ratings-loading" id="post-ratings-11454-loading">
+      <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+      Loading...
+     </div>
+    </p>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/javadev" rel="category tag">
+        Java语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/atomiclong" rel="tag">
+        AtomicLong
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/cas" rel="tag">
+        cas
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/java" rel="tag">
+        Java
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/longadder" rel="tag">
+        LongAdder
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/performance" rel="tag">
+        Performance
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,749 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/22422.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="是微服务架构不香还是云不香？ | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/22422.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices.png" property="og:image:secure_url"/>
+   <meta content="800" property="og:image:width"/>
+   <meta content="533" property="og:image:height"/>
+   <meta content="2023-05-08T09:52:06+00:00" property="article:published_time"/>
+   <meta content="2023-05-09T04:25:32+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="是微服务架构不香还是云不香？ | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/22422.html#article","name":"\u662f\u5fae\u670d\u52a1\u67b6\u6784\u4e0d\u9999\u8fd8\u662f\u4e91\u4e0d\u9999\uff1f | \u9177 \u58f3 - CoolShell","headline":"\u662f\u5fae\u670d\u52a1\u67b6\u6784\u4e0d\u9999\u8fd8\u662f\u4e91\u4e0d\u9999\uff1f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2023\/05\/monolith.microservices.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":800,"height":533},"datePublished":"2023-05-08T09:52:06+08:00","dateModified":"2023-05-09T04:25:32+08:00","inLanguage":"zh-CN","commentCount":396,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/22422.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/22422.html#webpage"},"articleSection":"\u4e1a\u754c\u65b0\u95fb, \u6742\u9879\u8d44\u6e90, \u7cfb\u7edf\u67b6\u6784, AWS, Lambda, Microservice, Serverless, Step Function"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/22422.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/22422.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/22422.html#webpage","url":"https:\/\/coolshell.cn\/articles\/22422.html","name":"\u662f\u5fae\u670d\u52a1\u67b6\u6784\u4e0d\u9999\u8fd8\u662f\u4e91\u4e0d\u9999\uff1f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/22422.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2023-05-08T09:52:06+08:00","dateModified":"2023-05-09T04:25:32+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '22422';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E4%B8%8D%E9%A6%99%E8%BF%98%E6%98%AF%E4%BA%91%E4%B8%8D%E9%A6%99%EF%BC%9F';
+	window._wp_rp_post_tags = ['lambda', 'step+function', 'microservice', 'aws', 'serverless', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84', '%E4%B8%9A%E7%95%8C%E6%96%B0%E9%97%BB', 'prime', 'media', 'ec2', 'ol', 'video', 'amazon', 'servic', 'nginx', 'alt', 'sn', 'lambda', 'spring', 'li', 's3', 'lia'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/22422.html/feed" rel="alternate" title="酷 壳 - CoolShell » 是微服务架构不香还是云不香？评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/22422" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=22422" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22422.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22422.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-22422 post type-post status-publish format-standard hentry category-itnews category-misc category-602 tag-aws tag-lambda tag-microservice tag-serverless tag-step-function" id="post-22422">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     是微服务架构不香还是云不香？
+    </span>
+    <h1 class="entry-title">
+     是微服务架构不香还是云不香？
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/22422.html" rel="bookmark" title="17:52">
+       <time class="entry-date" datetime="2023-05-08T17:52:06+08:00" pubdate="">
+        2023年05月08日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/22422.html#comments">
+       396 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      66,995 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright size-medium wp-image-22424" decoding="async" height="200" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices-300x200.png" srcset="https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices-300x200.png 300w, https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices-768x512.png 768w, https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices-405x270.png 405w, https://coolshell.cn/wp-content/uploads/2023/05/monolith.microservices.png 800w" width="300"/>
+     这两天技术圈里热议的一件事就是Amazon的流媒体平台Prime Video在2023年3月22日发布了一篇技术博客《
+     <a href="https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90" rel="noopener" target="_blank" title="Scaling up the Prime Video audio/video monitoring service and reducing costs by 90%">
+      规模化Prime Video的音视频监控服务，成本降低90%
+     </a>
+     》，副标题：“
+     <strong>
+      从分布式微服务架构到单体应用程序的转变有助于实现更高的规模、弹性和降低成本
+     </strong>
+     ”，有人把这篇文章在五一期间转到了
+     <a href="https://www.reddit.com/r/programming/comments/137alxn/prime_video_switched_from_serverless_to_ec2_and/" rel="noopener" target="_blank">
+      reddit
+     </a>
+     和
+     <a href="https://news.ycombinator.com/item?id=35811741" rel="noopener" target="_blank">
+      hacker news
+     </a>
+     上，在Reddit上热议。这种话题与业内推崇的微服务架构形成了鲜明的对比。从“微服务架构”转“单体架构”，还是Amazon干的，这个话题足够劲爆。然后DHH在刚
+     <a href="https://twitter.com/dhh/status/1655076668787097607" rel="noopener" target="_blank">
+      喷完Typescript
+     </a>
+     后继续发文《
+     <a href="https://world.hey.com/dhh/even-amazon-can-t-make-sense-of-serverless-or-microservices-59625580" rel="noopener" target="_blank">
+      即便是亚马逊也无法理解Servless或微服务
+     </a>
+     》，继续抨击微服务架构，于是，瞬间引爆技术圈，登上技术圈热搜。
+    </p>
+    <p>
+     今天上午有好几个朋友在微信里转了三篇文章给我，如下所示：
+    </p>
+    <ul>
+     <li>
+      《
+      <a href="https://mp.weixin.qq.com/s/mEmz8pviahEAWy1-SA8vcg" rel="noopener" target="_blank">
+       微服务是不是个蠢主意？
+      </a>
+      》
+     </li>
+     <li>
+      《
+      <a href="https://mp.weixin.qq.com/s/7zm5YyeZhQ2mu2TJvOK5tQ" rel="noopener" target="_blank">
+       单体回归？亚马逊放弃用于视频监控的微服务
+      </a>
+      》
+     </li>
+     <li>
+      《
+      <a href="https://mp.weixin.qq.com/s/fQtAMf4BfJxdBPWDE5ygwg" rel="noopener" target="_blank">
+       从微服务转为单体架构、成本降低 90%，亚马逊内部案例引发轰动
+      </a>
+      》
+     </li>
+    </ul>
+    <p>
+     看看这些标题就知道这些文章要的是流量而不是好好写篇文章。看到第二篇，你还真当 Prime Video 就是 Amazon 的全部么？然后，再看看这些文章后面的跟风评论，我觉得有 80%的人只看标题，而且是连原文都不看的。所以，我想我得写篇文章了……
+    </p>
+    <p>
+     <span id="more-22422">
+     </span>
+    </p>
+    <h4>
+     原文解读
+    </h4>
+    <p>
+     要认清这个问题首先是要认认真真读一读原文，Amazon Prime Video 技术团队的这篇文章并不难读，也没有太多的技术细节，但核心意思如下：
+    </p>
+    <p>
+     1）
+     <strong>
+      这个系统是一个监控系统，用于监控数据千条用户的点播视频流
+     </strong>
+     。主要是监控整个视频流运作的质量和效果（比如：视频损坏或是音频不同步等问题），这个监控主要是处理视频帧，所以，他们有一个微服务主要是用来把视频拆分成帧，并临时存在 S3 上，就是下图中的 Media Conversion 服务。
+    </p>
+    <p>
+     2）
+     <strong>
+      为了快速搭建系统，Prime Video团队使用了Serverless 架构，也就是著名的 AWS Lambda 和 AWS Step Functions
+     </strong>
+     。前置 Lambda 用来做用户请求的网关，Step Function 用来做监控（探测器），有问题后，就发 SNS 上，Step Function 从 S3 获取 Media Conversion 的数据，然后把运行结果再汇总给一个后置的 Lambda ，并存在 S3 上。
+    </p>
+    <p>
+     <img alt="" class="aligncenter wp-image-22423" decoding="async" height="496" loading="lazy" sizes="(max-width: 624px) 100vw, 624px" src="https://coolshell.cn/wp-content/uploads/2023/05/prime.01.webp" srcset="https://coolshell.cn/wp-content/uploads/2023/05/prime.01.webp 1011w, https://coolshell.cn/wp-content/uploads/2023/05/prime.01-300x238.webp 300w, https://coolshell.cn/wp-content/uploads/2023/05/prime.01-768x610.webp 768w, https://coolshell.cn/wp-content/uploads/2023/05/prime.01-340x270.webp 340w" width="624"/>
+    </p>
+    <p>
+     整个架构看上去非常简单 ，一点也不复杂，而且使用了 Serverless 的架构，一点服务器的影子都看不见。
+     <strong>
+      实话实说，这样的开发不香吗？我觉得很香啊，方便快捷，完全不理那些无聊的基础设施，直接把代码转成服务，然后用 AWS 的 Lamda + Step Function + SNS + S3 分分钟就搭出一个有模有样的监控系统了，哪里不好了？！
+     </strong>
+    </p>
+    <p>
+     但是他们遇到了一个比较大的问题，就是 AWS Step Function 的伸缩问题，从文章中我看到了两个问题（注意前方高能）：
+    </p>
+    <ol>
+     <li>
+      需要很多很多的并发的 AWS Step Function ，于是达到了帐户的 hard limit。
+     </li>
+     <li>
+      AWS Step Function 按状态转换收费，所以，贵得受不了了。
+     </li>
+    </ol>
+    <p>
+     注意，这里有两个关键点：1）
+     <strong>
+      帐户对 Step Function 有限制
+     </strong>
+     ，2）
+     <strong>
+      Step Function 太贵了用不起
+     </strong>
+     。
+    </p>
+    <p>
+     然后，Prime Video 的团队开始解决问题，下面是解决的手段：
+    </p>
+    <p>
+     1） 把 Media Conversion  和 Step Function 全部写在一个程序里，Media Conversion 跟 Step Function 里的东西通过内存通信，不再走S3了。结果汇总到一个线程中，然后写到 S3.
+    </p>
+    <p>
+     2）把上面这个单体架构进行分布式部署，还是用之前的 AWS Lambda 来做入门调度。
+    </p>
+    <p>
+     EC2 的水平扩展没有限制，而且你想买多少 CPU/MEM 的机器由你说了算，而这些视频转码，监控分析的功能感觉就不复杂，本来就应该写在一起，这么做不更香吗？当然更香，比前面的 Serverless 的确更香，因为如下的几个原因：
+    </p>
+    <ol>
+     <li>
+      不再受 Step Function 的限制了，技术在自己手里，有更大的自由度。
+     </li>
+     <li>
+      没有昂贵的 Step Function 云成本的确变得更低了，如果你把 Lambda 换成 Nginx 或 Spring Gateway 或是我司的
+      <a href="https://github.com/megaease/easegress" rel="noopener" target="_blank">
+       Easegress
+      </a>
+      ，你把 S3 换成 MinIO，你把 SNS 换成 Kafka，你的成本 还能再低。
+     </li>
+    </ol>
+    <h4>
+     独立思考
+    </h4>
+    <p>
+     好了，原文解读完了，你有自己的独立思考了吗？下面是我的独立思考，供你参考：
+    </p>
+    <p>
+     1）
+     <strong>
+      AWS 的 Serverless 也好， 微服务也好，单体也好，在合适的场景也都很香
+     </strong>
+     。这就跟汽车一样，跑车，货车，越野车各有各的场景，你用跑车拉货，还是用货车泡妞都不是一个很好的决定。
+    </p>
+    <p>
+     2）
+     <strong>
+      这篇文章中的这个例子中的业务太过简单了，本来就是一两个服务就可以干完的事。
+     </strong>
+     就是一个转码加分析的事，要分开的话，就两个微服务就好了（一个转码一个分析），做成流式的。如果不想分，合在一起也没问题了，这个粒度是微服务没毛病。微服务的划分有好些原则，我这里只罗列几个比较重要的原则：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       边界上下文
+      </strong>
+      。微服务的粒度不能大于领域驱动里的 Bounded Context（具体是什么 大家自行 Google），也就是一个业务域。
+     </li>
+     <li>
+      <strong>
+       单一职责，高内聚，低耦合
+      </strong>
+      。把因为相同原因变化的合在一起（内聚），把不同原因变化的分开（解耦）
+     </li>
+     <li>
+      <strong>
+       事务和一致性
+      </strong>
+      。对于两个重度依赖的功能，需要完成一个事务和要保证强一致性的，最好不要拆开，要放在一起。
+     </li>
+     <li>
+      <strong>
+       跟组织架构匹配
+      </strong>
+      。把同一个团队的东西放在一起，不同团队的分开。
+     </li>
+    </ul>
+    <p>
+     3）
+     <strong>
+      Prime Video 遇到的问题不是技术问题，而是 AWS  Step Function 处理能力不足，而且收费还很贵的问题
+     </strong>
+     。这个是 AWS 的产品问题，不是技术问题。或者说，这个是Prime Video滥用了Step Function的问题（本来这种大量的数据分析处理就不适合Step Function）。所以，大家不要用一个产品问题来得到微服务架构有问题的结论，这个没有因果关系。
+     <strong>
+      试问，如果 Step Funciton 可以无限扩展，性能也很好，而且白菜价，那么 Prime Video 团队还会有动力改成单体吗？他们不会反过来吹爆 Serverless 吗？
+     </strong>
+    </p>
+    <p>
+     4）Prime Video 跟 AWS 是两个独立核算的公司，就像 Amazon 的电商和 AWS 一样，也是两个公司。Amazon 的电商和 AWS 对服务化或是微服务架构的理解和运维，我个人认为这个世界上再也找不到另外一家公司了，包括 Google 或 Microsoft。你有空可以看看本站以前的这篇文章《
+     <a href="https://coolshell.cn/articles/5701.html" title="SteveY对Amazon和Google平台的吐槽">
+      Steve Yegg对Amazon和Google平台的吐槽
+     </a>
+     》你会了解的更多。
+    </p>
+    <p>
+     5）
+     <strong>
+      Prime Video 这个案例本质上是“下云”，下了 AWS Serverless 的云
+     </strong>
+     。云上的成本就是高，一个是费用问题，另一个是被锁定的问题。Prime Video 团队应该很庆幸这个监控系统并不复杂，重写起来也很快，所以，可以很快使用一个更传统的“服务化”+“云计算”的分布式架构，不然，就得像 DHH 那样咬牙下云——《
+     <a href="https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0" rel="noopener" target="_blank">
+      Why We’re Leaving the Cloud
+     </a>
+     》（他们的 SRE 的这篇博文
+     <a href="https://dev.37signals.com/our-cloud-spend-in-2022/" rel="noopener" target="_blank">
+      Our Cloud Spend in 2022
+     </a>
+     说明了下云的困难和节约了多少成本）
+    </p>
+    <h4>
+     后记
+    </h4>
+    <p>
+     最后让我做个我自己的广告。我在过去几年的创业中，帮助了很多公司解决了这些 分布式，微服务，云原生以及云计算成本的问题，如果你也有类似问题。欢迎，跟我联系：
+     <a href="/cdn-cgi/l/email-protection#3a525b555f567a52554e575b535614595557">
+      <span class="__cf_email__" data-cfemail="91f9f0fef4fdd1f9fee5fcf0f8fdbff2fefc">
+       [email protected]
+      </span>
+     </a>
+    </p>
+    <p>
+     另外，我们今年发布了一个平台 MegaEase Cloud，
+     <strong>
+      就是想让用户在不失去云计算体验的同时，通过自建高可用基础架构的方式来获得更低的成本（至少降 50%的云计算成本）。
+     </strong>
+     目前可以降低成本的方式：
+    </p>
+    <ol>
+     <li>
+      基础软件：通过开源软件自建，
+     </li>
+     <li>
+      内容分发：MinIO + Cloudflare 的免费 CDN，
+     </li>
+     <li>
+      马上准备发布的直接与底层IDC合作的廉价GPU计算资源…
+     </li>
+    </ol>
+    <p>
+     <strong>
+      欢迎大家试用。
+     </strong>
+    </p>
+    <p>
+     <strong>
+      如何访问
+     </strong>
+    </p>
+    <ul>
+     <li>
+      中国区:
+      <a href="https://cloud.megaease.cn" rel="noopener" target="_blank">
+       https://cloud.megaease.cn
+      </a>
+     </li>
+     <li>
+      国际区：
+      <a href="https://cloud.megaease.com" rel="noopener" target="_blank">
+       https://cloud.megaease.com
+      </a>
+     </li>
+    </ul>
+    <p>
+     <strong>
+      注：这两个区完全独立，帐号不互通。因为网络的不可抗力，千万不要跨区使用。
+     </strong>
+    </p>
+    <p>
+     <strong>
+      产品演示
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <a href="https://www.bilibili.com/video/BV17v4y1R7mA/" rel="noopener" target="_blank">
+       https://www.bilibili.com/video/BV17v4y1R7mA/
+      </a>
+     </li>
+    </ul>
+    <p>
+     <strong>
+      介绍文章
+     </strong>
+    </p>
+    <ul>
+     <li>
+      <a href="https://megaease.cn/zh/blog/2023/02/15/welcome-to-megaease-cloud/" rel="noopener" target="_blank">
+       欢迎使用 MegaEase Cloud
+      </a>
+     </li>
+     <li>
+      <a href="https://megaease.cn/zh/blog/2023/04/06/megaease-cloud-2023.03-significant-update/" rel="noopener" target="_blank">
+       2023 年 03 月重大更新
+      </a>
+     </li>
+    </ul>
+    <p>
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17737.html">
+         <img alt="AWS 的 S3 故障回顾和思考" height="150" src="https://coolshell.cn/wp-content/uploads/2017/03/Amazon-Web-Services-Down-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17737.html">
+         AWS 的 S3 故障回顾和思考
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10476.html">
+         <img alt="C++11的Lambda使用一例：华容道求解" height="150" src="https://coolshell.cn/wp-content/uploads/2013/10/huarong-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10476.html">
+         C++11的Lambda使用一例：华容道求解
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4601.html">
+         <img alt="关于Amazon云宕机的网贴收集" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/9.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4601.html">
+         关于Amazon云宕机的网贴收集
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/2724.html">
+         <img alt="计算机编程简史图" height="150" src="https://coolshell.cn/wp-content/uploads/2010/07/aboutprogramming04.eng_-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/2724.html">
+         计算机编程简史图
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/172.html">
+         <img alt="幽默：程序员的进化" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/21.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/172.html">
+         幽默：程序员的进化
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9229.html">
+         <img alt="实例分析Java Class的文件结构" height="150" src="https://coolshell.cn/wp-content/uploads/2013/03/1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9229.html">
+         实例分析Java Class的文件结构
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="b097827a34" id="post-ratings-22422" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_22422_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(22422, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_22422_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(22422, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_22422_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(22422, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_22422_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(22422, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_22422_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.4, 5, 0);" onmouseover="current_rating(22422, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      245
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.42
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_22422_text">
+     </span>
+     <meta content="是微服务架构不香还是云不香？" itemprop="name"/>
+     <meta content="是微服务架构不香还是云不香？" itemprop="headline"/>
+     <meta content="这两天技术圈里热议的一件事就是Amazon的流媒体平台Prime Video在2023年3月22日发布了一篇技术博客《规模化Prime Video的音视频监控服务，成本降低90%》，副标题：“从分布式微服务架构到单体应用程序的转变有助于实现更高的规模、弹性和降低成本”，有人把这篇文章在五一期间转到了reddit 和 hacker news 上，在Reddit上热议。这种话题与业内推崇的微服务架构形..." itemprop="description"/>
+     <meta content="2023-05-08T17:52:06+08:00" itemprop="datePublished"/>
+     <meta content="2023-05-09T12:25:32+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/22422.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/22422.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.42" itemprop="ratingValue"/>
+      <meta content="245" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-22422-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/itnews" rel="category tag">
+        业界新闻
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84" rel="category tag">
+        系统架构
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/aws" rel="tag">
+        AWS
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/lambda" rel="tag">
+        Lambda
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/microservice" rel="tag">
+        Microservice
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/serverless" rel="tag">
+        Serverless
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/step-function" rel="tag">
+        Step Function
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

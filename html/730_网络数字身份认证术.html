@@ -1,0 +1,764 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/21708.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="网络数字身份认证术 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/21708.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114.png" property="og:image:secure_url"/>
+   <meta content="800" property="og:image:width"/>
+   <meta content="535" property="og:image:height"/>
+   <meta content="2022-01-02T08:38:13+00:00" property="article:published_time"/>
+   <meta content="2022-02-12T05:10:15+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="网络数字身份认证术 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/21708.html#article","name":"\u7f51\u7edc\u6570\u5b57\u8eab\u4efd\u8ba4\u8bc1\u672f | \u9177 \u58f3 - CoolShell","headline":"\u7f51\u7edc\u6570\u5b57\u8eab\u4efd\u8ba4\u8bc1\u672f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2022\/01\/iStock-1175502114.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":800,"height":535},"datePublished":"2022-01-02T08:38:13+08:00","dateModified":"2022-02-12T05:10:15+08:00","inLanguage":"zh-CN","commentCount":15,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/21708.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/21708.html#webpage"},"articleSection":"\u7a0b\u5e8f\u8bbe\u8ba1, \u7f51\u7edc\u5b89\u5168, mTLS, Security, TLS, \u5b89\u5168, \u7f51\u7edc\u5b89\u5168"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/21708.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/21708.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/21708.html#webpage","url":"https:\/\/coolshell.cn\/articles\/21708.html","name":"\u7f51\u7edc\u6570\u5b57\u8eab\u4efd\u8ba4\u8bc1\u672f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/21708.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2022-01-02T08:38:13+08:00","dateModified":"2022-02-12T05:10:15+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '21708';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E7%BD%91%E7%BB%9C%E6%95%B0%E5%AD%97%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%9C%AF';
+	window._wp_rp_post_tags = ['security', '%E5%AE%89%E5%85%A8', '%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8', 'mtls', 'tls', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', '%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8', 'lili', 'li', 'ca', 'bob', 'hack', 'alt', 'csr', 'digest', 'dn', 'api', 'chad', 'jwt', 'alic', 'authent', '365'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/21708.html/feed" rel="alternate" title="酷 壳 - CoolShell » 网络数字身份认证术评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/21708" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=21708" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21708.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21708.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-21708 post type-post status-publish format-standard hentry category-progdesign category-netsecurity tag-mtls tag-security tag-tls tag-318 tag-863" id="post-21708">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     网络数字身份认证术
+    </span>
+    <h1 class="entry-title">
+     网络数字身份认证术
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/21708.html" rel="bookmark" title="16:38">
+       <time class="entry-date" datetime="2022-01-02T16:38:13+08:00" pubdate="">
+        2022年01月02日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/21708.html#comments">
+       15 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      34,571 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright size-medium wp-image-21716" decoding="async" height="201" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114-300x201.png" srcset="https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114-300x201.png 300w, https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114-768x514.png 768w, https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114-404x270.png 404w, https://coolshell.cn/wp-content/uploads/2022/01/iStock-1175502114.png 800w" width="300"/>
+     这篇文章是《
+     <a href="https://coolshell.cn/articles/19395.html" rel="noopener" target="_blank" title="HTTP API 认证授权术">
+      HTTP API 认证授权术
+     </a>
+     》的姊妹篇，在那篇文章中，主要介绍了 HTTP API 认证和授权技术中用到的 HTTP Basic, Digest Access, HMAC, OAuth, JWT 等各种方式，主要是 API 上用到的一些技术，这篇文章主要想说的是另一个话题——身份认证。也就是说，怎么确认这个数据就是这个人发出来的？
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81" title="用户密码">
+         用户密码
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E5%AF%86%E9%92%A5%E5%AF%B9%E5%92%8C%E8%AF%81%E4%B9%A6" title="密钥对和证书">
+         密钥对和证书
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E8%BF%87%E7%A8%8B%E6%BC%94%E7%A4%BA" title="证书生成过程演示">
+         证书生成过程演示
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81_mTLS" title="双向认证 mTLS">
+         双向认证 mTLS
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81">
+     </span>
+     用户密码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     要解决这个问题，我们先来看一个最简单的解——使用密码，通常来说，在网络上要证明一个人的身份的话，都需要这个人的一些私密而唯一的东西。比如，像密码这样的东西，很多地方，只要你提供了你的用户名+密码，就可以确定这个人是你（注明：关于密码管理，强密码设定，密码泄漏，密码破解以及密码哄骗不在这篇文章的话题中），也就是说，这个密码是非常私密的事，我们可以假设，这个事全世界只能有当事人一个人知道，所以，当事人得供正确的密码，我们就可以认证这个人了。
+    </p>
+    <p>
+     为了加强密码的安全程度，一般会使用 2FA（Two-factor authentication）或 MFA（Multi-factor authentication），双因认证或多因认证，这需要用户提供一个唯一的可信设备，比如用户的手机，然后通过验证手机短信，或是像
+     <a href="https://en.wikipedia.org/wiki/Google_Authenticator" rel="noopener" target="_blank">
+      Google Authenticator
+     </a>
+     这样的动态口令来完成。这样的安全级别已经算是比较高了。如果能够再加上经常性的变更密码，那么安全级别就更好了。
+    </p>
+    <p>
+     <span id="more-21708">
+     </span>
+    </p>
+    <p>
+     另外，一些公司还使用了生物密码来进行用户的身份验证，比如人脸识别。但是，我个人觉得人脸识别或是生物识别是比较糟糕的方式，因为：
+    </p>
+    <ul>
+     <li>
+      目前能被验证的生物信息（如人脸和指纹）太容易被别人获得和伪造了。
+     </li>
+     <li>
+      这样东西不能被变更和吊销，密码可以被吊销和重置，人脸则不能。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E5%AF%86%E9%92%A5%E5%AF%B9%E5%92%8C%E8%AF%81%E4%B9%A6">
+     </span>
+     密钥对和证书
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     密码可以解决身证认证的问题有很多问题，最重要的一个问题就是，你要把你的密码提供给对方，对方才能验证你的身份。你不可能把你的密码提供给全世界的人吧，这样的话，全世界的人都有你的密码了，那么任何人都能变成你了。所以，用户密码这个事只能存在于权威机构和普通用户之间，不能存在于普遍应用中。所以，这里需要使用更好的解决方案。
+    </p>
+    <p>
+     使用 ECC（
+     <a href="https://en.wikipedia.org/wiki/Elliptic-curve_cryptography" rel="noopener" target="_blank" title="Elliptic-Curve Cryptography">
+      Elliptic-Curve Cryptography
+     </a>
+     ）椭圆曲线密码术，可以通过一个“密钥对”进行非对称加密。这种技术，在对信息进行加密和解密时，使用两个不同的密钥，其中一个用来做加密，另一个做解密。这样一来，我们就可以把其中一个密钥公布出去，称之为公钥，另一个密钥私密地保管好，称之为私钥。
+    </p>
+    <p>
+     比如，我用我的私钥加密信息，然后，我把这个私钥所配对的公钥发布给所有人，大家都用公钥解密信息，不用我的公钥你解密不了这个信息。这样一来，就可以保证这个信息是我发出来的，不但保证了信息安全，还完成了身份认证。
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-large wp-image-21710" decoding="async" height="244" loading="lazy" sizes="(max-width: 640px) 100vw, 640px" src="https://coolshell.cn/wp-content/uploads/2022/01/key.pair_-1024x390.png" srcset="https://coolshell.cn/wp-content/uploads/2022/01/key.pair_-1024x390.png 1024w, https://coolshell.cn/wp-content/uploads/2022/01/key.pair_-300x114.png 300w, https://coolshell.cn/wp-content/uploads/2022/01/key.pair_-768x293.png 768w, https://coolshell.cn/wp-content/uploads/2022/01/key.pair_-604x230.png 604w, https://coolshell.cn/wp-content/uploads/2022/01/key.pair_.png 1304w" width="640"/>
+    </p>
+    <p>
+     这样的现实案例一般用于网站，也就是用户得要知道我访问的这个网站是真实的，不是别人做的。因为 DNS 很容易被 hack，你连上一个不可信的网络，这个网络里的 DNS 把这个网站的 IP 地址解析成什么 就是什么了。但是有了这个加密的机制后，网站把自己的信息加密后连同公钥给到访问者，访问解密后就知道是不是这个网站了。
+    </p>
+    <p>
+     但是，这里还是会有一个很严重的问题，那就是中间人攻击。如下图所示：
+    </p>
+    <p>
+     <img alt="" class="aligncenter wp-image-21712 size-full" decoding="async" height="252" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2022/01/middle.man_-e1641105543137.png" width="600"/>
+    </p>
+    <p>
+     中间人 Chad 把自己伪装成 Bob 向 Alice 要信息，然后，再伪装成 Alice 对 Bob 说，这就是 Alice 的公钥，于是 Bob 也无法验证是不是 Alice 的公钥，因为公钥里就是一堆乱七八糟的数据，我们完全不能分辨哪个公钥属于 Alice 的。试想，如果我们收到声称属于银行的密钥。我们怎么知道它确实属于你的银行？
+    </p>
+    <p>
+     这里的答案就是
+     <strong>
+      使用数字证书
+     </strong>
+     。证书跟我们的身份证非常类似，其需要一个可信机构来颁发和验证的。这个证书机构 CA（Certificate Authority）是一个是大家都相信的权威机构，他用他的人品保证（当然一般会被严格管理和审计），CA 机构同样使用这样的非对称加密的技术来完成颁发和验证的事。下图展示了这一过程。
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-large wp-image-21713" decoding="async" height="333" loading="lazy" sizes="(max-width: 640px) 100vw, 640px" src="https://coolshell.cn/wp-content/uploads/2022/01/certificate-1024x532.png" srcset="https://coolshell.cn/wp-content/uploads/2022/01/certificate-1024x532.png 1024w, https://coolshell.cn/wp-content/uploads/2022/01/certificate-300x156.png 300w, https://coolshell.cn/wp-content/uploads/2022/01/certificate-768x399.png 768w, https://coolshell.cn/wp-content/uploads/2022/01/certificate-519x270.png 519w, https://coolshell.cn/wp-content/uploads/2022/01/certificate.png 1362w" width="640"/>
+    </p>
+    <p>
+     说明一下上面这个图：
+    </p>
+    <ol>
+     <li>
+      为了解决公钥认证的问题的，我们需要一个权威的CA 机构。
+     </li>
+     <li>
+      Alice 把自己的信息（姓名、组织，地址，电邮，网址等）和自己的公钥打包成一个 CSR 的文件，发给 CA 机构，
+     </li>
+     <li>
+      CA 机构会来找 Alice 做物理世界的认证，如果通过后，就会用自己的机构私钥，把CSR 变成一个签名证书。
+     </li>
+     <li>
+      Bob 同学拿到 Alice 的证书，用 CA 机构的公钥解密后，得到 Alice 的公钥
+     </li>
+     <li>
+      后面就可以签证 信息是否来自 Alice 了。
+     </li>
+    </ol>
+    <p>
+     是的，这个过程就是在“套娃”，这种证书机构还可以给下级的证书机构发证，于是就会一层套一层地，形成一个证书链，顶层的叫根证书，你得绝对信任之。对于验证证书真实性的客户端，它需要能够验证链中所有 CA 的签名，这意味着客户端需要访问链中所有 CA 的证书。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E8%BF%87%E7%A8%8B%E6%BC%94%E7%A4%BA">
+     </span>
+     证书生成过程演示
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     并不是所有的场景都需要向这些大型的 CA 机构申请公钥证书，在任何一个企业，组织或是团体内都可以自己形这样的“小王国”，也就是说，你可以自行生成这样的证书，只需要你自己保证自己的生成证书的私钥的安全，以及不需要扩散到整个互联网。下面，我们用
+     <code>
+      openssl
+     </code>
+     命令来演示这个过程。
+    </p>
+    <p>
+     1）生成 CA 的证书（公钥）
+     <code>
+      ca.crt
+     </code>
+     和私钥
+     <code>
+      ca.key
+     </code>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">openssl req -newkey rsa:2048 \
+    -new -nodes -x509 \
+    -days 365 \
+    -out ca.crt \
+    -keyout ca.key \
+    -subj "/C=SO/ST=Earth/L=Mountain/O=CoolShell/OU=HQ/CN=localhost"</pre>
+    <p>
+     2)  生成 alice 的私钥
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">openssl genrsa -out alice.key 2048</pre>
+    <p>
+     3）生成 Alice 的 CSR – Certificate Signing Request
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">openssl req -new -key alice.key 365 -out alice.csr \
+    -subj "/C=CN/ST=Beijing/L=Haidian/O=CoolShell/OU=Test/CN=localhost.alice"</pre>
+    <p>
+     4）使用 CA 给 Alice 签名证书
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">openssl x509  -req -in alice.csr \
+    -extfile &lt;(printf "subjectAltName=DNS:localhost.alice") \ 
+    -CA ca.crt -CAkey ca.key  \
+    -days 365 -sha256 -CAcreateserial \
+    -out alice.crt</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81_mTLS">
+     </span>
+     双向认证 mTLS
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     上面，我们说的基本上都是单向认证，大量的场景都是确保用户方访问的是真正的服务方，如：银行，电商网站，等。这样可以保证用户不会被钓鱼网站或是中间人攻击。但是，很多时候，我们也是需要双向认证的。下面是一个典型的场景——微信支付和商户间交互
+    </p>
+    <ul>
+     <li>
+      用户到商家那边买东西，商家要求用户进行支付。
+     </li>
+     <li>
+      用户选择了微信支付，于是，界面从商户侧切到了微信侧
+     </li>
+     <li>
+      微信那边支付完成后，商户这边收到微信那边支付完成的通知，于是开始发货。
+     </li>
+    </ul>
+    <p>
+     这个过程中有件事非常重要——就是微信通知商户支付完成的时候。
+    </p>
+    <ul>
+     <li>
+      微信得确保通知到的就是用户所支付商户，而不是别个。
+     </li>
+     <li>
+      商户也得要能确认，来通知我的就是微信，不是别人。
+     </li>
+    </ul>
+    <p>
+     一般来说，微信会给商户一个 AppID和一个 AppSerct，用这个来确保是我认证过的商户来调用我，然后，需要商户在自己的系统里填一个回调的 URL，并通过平台设置的 key来做 MD5/HMAC的签名来确保是官方的回调。这都是在《
+     <a href="https://coolshell.cn/articles/19395.html" rel="noopener" target="_blank" title="HTTP API 认证授权术">
+      HTTP API 认证授权术
+     </a>
+     》中提到过的技术，是相对传统的技术。
+    </p>
+    <p>
+     如今，
+     <b>
+      mTLS是
+     </b>
+     确保云原生应用程序中服务之间的通信安全的首选协议。 也就是双向认证。
+    </p>
+    <p>
+     传统的 TLS 认证过程是：
+    </p>
+    <ol dir="auto">
+     <li>
+      客户端连接到服务器
+     </li>
+     <li>
+      服务器提供其 TLS 证书
+     </li>
+     <li>
+      客户端验证服务器的证书
+     </li>
+     <li>
+      客户端和服务器通过加密的 TLS 连接交换信息
+     </li>
+    </ol>
+    <p dir="auto">
+     在 mTLS 中，客户端和服务器都有一个证书，双方都使用他们的公钥/私钥对进行身份验证。与常规 TLS 相比，mTLS 中有额外的步骤来验证双方（以
+     <strong>
+      粗体显示的
+     </strong>
+     额外步骤）：
+    </p>
+    <ol dir="auto">
+     <li>
+      客户端连接到服务器
+     </li>
+     <li>
+      服务器提供其 TLS 证书
+     </li>
+     <li>
+      客户端验证服务器的证书
+     </li>
+     <li>
+      <strong>
+       客户端出示其 TLS 证书
+      </strong>
+     </li>
+     <li>
+      <strong>
+       服务器验证客户端的证书
+      </strong>
+     </li>
+     <li>
+      <strong>
+       服务器授予访问权限
+      </strong>
+     </li>
+     <li>
+      客户端和服务器通过加密的 TLS 连接交换信息
+     </li>
+    </ol>
+    <p>
+     mTLS 需要“根”TLS 证书；这我们自己来完成证书颁发机构的职责。授权客户端和服务器使用的证书必须与此根证书相对应。根证书是自签名的，这意味着我们需要自己创建它。（注：此方法不适用于公共 Internet 上的单向 TLS，因为外部证书颁发机构必须颁发这些证书）
+    </p>
+    <p>
+     那么，为什么整个互联网上都用了 TLS 了，为什么 不升级一下使用 mTLS？这里有两方面的原因：
+    </p>
+    <ul>
+     <li>
+      公共互联网上要解决的问题是：A) 确保用户访问到的是正确的网站，而不是钓鱼网站。B）网站传输的内容是安全和私密且不会被篡改的。
+     </li>
+     <li>
+      将 TLS 证书分发到所有最终用户设备将非常困难。生成、管理和验证为此所需的数十亿个证书几乎是不可能的任务。
+     </li>
+    </ul>
+    <p>
+     在较小的范围内，mTLS 对于单个组织非常有用且非常实用，尤其是当这些组织采用零信任方法来确保网络安全时。由于默认情况下零信任方法不信任任何用户、设备或请求，因此组织必须能够在每次尝试访问网络中的任何点时对每个用户、设备和请求进行身份验证。mTLS 通过对用户进行身份验证和设备验证来帮助实现这一目标。
+    </p>
+    <p>
+     关于 mTLS，这里有一个我用 Golang 写的示例 –
+     <a href="https://github.com/haoel/mTLS" rel="noopener" target="_blank">
+      https://github.com/haoel/mTLS
+     </a>
+     ，大家可以参考一下。
+    </p>
+    <p>
+     P.S. 本文图版中的卡司来自安全圈的标准 Cast，参看
+     <a href="https://en.wikipedia.org/wiki/Alice_and_Bob" rel="noopener" target="_blank">
+      Alice and Bob
+     </a>
+     。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19395.html">
+         <img alt="HTTP API 认证授权术" height="150" src="https://coolshell.cn/wp-content/uploads/2019/05/Authorization-360x200-1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19395.html">
+         HTTP API 认证授权术
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21003.html">
+         <img alt="计时攻击 Timing Attacks" height="150" src="https://coolshell.cn/wp-content/uploads/2020/06/time-bomb-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21003.html">
+         计时攻击 Timing Attacks
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19840.html">
+         <img alt="HTTP的前世今生" height="150" src="https://coolshell.cn/wp-content/uploads/2019/10/HTTP-770x513-300x200-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19840.html">
+         HTTP的前世今生
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18094.html">
+         <img alt="如何免费的让网站启用HTTPS" height="150" src="https://coolshell.cn/wp-content/uploads/2017/08/enable-https-banner-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18094.html">
+         如何免费的让网站启用HTTPS
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17607.html">
+         <img alt="从 MongoDB “赎金事件” 看安全问题" height="150" src="https://coolshell.cn/wp-content/uploads/2017/01/MongoDB-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17607.html">
+         从 MongoDB “赎金事件” 看安全问题
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17066.html">
+         <img alt="关于移动端的钓鱼式攻击" height="150" src="https://coolshell.cn/wp-content/uploads/2015/04/phishing-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17066.html">
+         关于移动端的钓鱼式攻击
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="81fca591de" id="post-ratings-21708" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_21708_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(21708, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_21708_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(21708, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_21708_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(21708, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_21708_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(21708, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_21708_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.2, 0, 0);" onmouseover="current_rating(21708, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      31
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.23
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_21708_text">
+     </span>
+     <meta content="网络数字身份认证术" itemprop="name"/>
+     <meta content="网络数字身份认证术" itemprop="headline"/>
+     <meta content="这篇文章是《HTTP API 认证授权术》的姊妹篇，在那篇文章中，主要介绍了 HTTP API 认证和授权技术中用到的 HTTP Basic, Digest Access, HMAC, OAuth, JWT 等各种方式，主要是 API 上用到的一些技术，这篇文章主要想说的是另一个话题——身份认证。也就是说，怎么确认这个数据就是这个人发出来的？
+
+用户密码
+
+要解决这个问题，我们先来看一个最简单的解..." itemprop="description"/>
+     <meta content="2022-01-02T16:38:13+08:00" itemprop="datePublished"/>
+     <meta content="2022-02-12T13:10:15+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/21708.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/21708.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.23" itemprop="ratingValue"/>
+      <meta content="31" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-21708-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/netsecurity" rel="category tag">
+        网络安全
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/mtls" rel="tag">
+        mTLS
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/security" rel="tag">
+        Security
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/tls" rel="tag">
+        TLS
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e5%ae%89%e5%85%a8" rel="tag">
+        安全
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8" rel="tag">
+        网络安全
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

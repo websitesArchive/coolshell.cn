@@ -1,0 +1,1236 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/6441.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="Javascript 面向对象编程 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/6441.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2012-01-09T00:16:27+00:00" property="article:published_time"/>
+   <meta content="2012-01-09T10:12:39+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Javascript 面向对象编程 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/6441.html#article","name":"Javascript \u9762\u5411\u5bf9\u8c61\u7f16\u7a0b | \u9177 \u58f3 - CoolShell","headline":"Javascript \u9762\u5411\u5bf9\u8c61\u7f16\u7a0b","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2012-01-09T00:16:27+08:00","dateModified":"2012-01-09T10:12:39+08:00","inLanguage":"zh-CN","commentCount":108,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/6441.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/6441.html#webpage"},"articleSection":"Web\u5f00\u53d1, \u7f16\u7a0b\u8bed\u8a00, ECMAScript, Javascript, OOP"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/6441.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/6441.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/6441.html#webpage","url":"https:\/\/coolshell.cn\/articles\/6441.html","name":"Javascript \u9762\u5411\u5bf9\u8c61\u7f16\u7a0b | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/6441.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2012-01-09T00:16:27+08:00","dateModified":"2012-01-09T10:12:39+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '6441';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Javascript+%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B';
+	window._wp_rp_post_tags = ['javascript', 'oop', 'ecmascript', 'web%E5%BC%80%E5%8F%91', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'aa', 'titl', 'chen', 'email', 'javascript', 'im', 'websit', 'function', 'quot', 'person'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/6441.html/feed" rel="alternate" title="酷 壳 - CoolShell » Javascript 面向对象编程评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/6441" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=6441" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F6441.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F6441.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-6441 post type-post status-publish format-standard hentry category-webdev category-proglanguage tag-ecmascript tag-javascript tag-oop" id="post-6441">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Javascript 面向对象编程
+    </span>
+    <h1 class="entry-title">
+     Javascript 面向对象编程
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/6441.html" rel="bookmark" title="08:16">
+       <time class="entry-date" datetime="2012-01-09T08:16:27+08:00" pubdate="">
+        2012年01月09日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/6441.html#comments">
+       108 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      95,681 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     Javascript是一个类C的语言，他的面向对象的东西相对于C++/Java比较奇怪，但是其的确相当的强大，在
+     <a href="http://www.cnblogs.com/weidagang2046/" target="_blank">
+      Todd 同学
+     </a>
+     的“
+     <a href="https://coolshell.cn/articles/5202.html" rel="bookmark" target="_blank" title="对象的消息模型">
+      对象的消息模型
+     </a>
+     ”一文中我们已经可以看到一些端倪了。这两天有个前同事总在问我Javascript面向对象的东西，所以，索性写篇文章让他看去吧，这里这篇文章主要想从一个整体的角度来说明一下Javascript的面向对象的编程。（
+     <strong>
+      成文比较仓促，应该有不准确或是有误的地方，请大家批评指正
+     </strong>
+     ）
+    </p>
+    <p>
+     另，这篇文章主要基于
+     <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">
+      ECMAScript 5
+     </a>
+     ， 旨在介绍新技术。关于兼容性的东西，请看最后一节。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E5%88%9D%E6%8E%A2" title="初探">
+         初探
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE_%E2%80%93_ObjectdefineProperty" title="属性配置 – Object.defineProperty">
+         属性配置 – Object.defineProperty
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#GetSet_%E8%AE%BF%E9%97%AE%E5%99%A8" title="Get/Set 访问器">
+         Get/Set 访问器
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE" title="查看对象属性配置">
+         查看对象属性配置
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#call%EF%BC%8Capply%EF%BC%8C_bind_%E5%92%8C_this" title="call，apply， bind 和 this">
+         call，apply， bind 和 this
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E7%BB%A7%E6%89%BF_%E5%92%8C_%E9%87%8D%E8%BD%BD" title="继承 和 重载">
+         继承 和 重载
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E7%BB%84%E5%90%88" title="组合">
+         组合
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-8" href="#Prototype_%E5%92%8C_%E7%BB%A7%E6%89%BF" title="Prototype 和 继承">
+         Prototype 和 继承
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-9" href="#%E5%85%BC%E5%AE%B9%E6%80%A7" title="兼容性">
+         兼容性
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-10" href="#Objectcreate%E5%87%BD%E6%95%B0" title="Object.create()函数">
+           Object.create()函数
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-11" href="#defineProperty%E5%87%BD%E6%95%B0" title="defineProperty()函数">
+           defineProperty()函数
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-12" href="#keys%E5%87%BD%E6%95%B0" title="keys()函数">
+           keys()函数
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-13" href="#ObjectgetPrototypeOf_%E5%87%BD%E6%95%B0" title="Object.getPrototypeOf() 函数">
+           Object.getPrototypeOf() 函数
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-14" href="#bind_%E5%87%BD%E6%95%B0" title="bind 函数">
+           bind 函数
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-15" href="#%E5%8F%82%E8%80%83" title="参考">
+         参考
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E5%88%9D%E6%8E%A2">
+     </span>
+     初探
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我们知道Javascript中的变量定义基本如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var name = 'Chen Hao';;
+var email = 'haoel(@)hotmail.com';
+var website = 'https://coolshell.cn';</pre>
+    <p>
+     如果要用对象来写的话，就是下面这个样子：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var chenhao = {
+    name :'Chen Hao',
+    email : 'haoel(@)hotmail.com',
+    website : 'https://coolshell.cn'
+};</pre>
+    <p>
+     于是，我就可以这样访问：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+//以成员的方式
+chenhao.name;
+chenhao.email;
+chenhao.website;
+
+//以hash map的方式
+chenhao["name"];
+chenhao["email"];
+chenhao["website"];
+</pre>
+    <p>
+     关于函数，我们知道Javascript的函数是这样的：
+    </p>
+    <p>
+     <span id="more-6441">
+     </span>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var doSomething = function(){
+   alert('Hello World.');
+};</pre>
+    <p>
+     于是，我们可以这么干：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+var sayHello = function(){
+   var hello = "Hello, I'm "+ this.name
+                + ", my email is: " + this.email
+                + ", my website is: " + this.website;
+   alert(hello);
+};
+
+//直接赋值，这里很像C/C++的函数指针
+chenhao.Hello = sayHello;
+
+chenhao.Hello();
+</pre>
+    <p>
+     相信这些东西都比较简单，大家都明白了。 可以看到javascript对象函数是直接声明，直接赋值，直接就用了。runtime的动态语言。
+    </p>
+    <p>
+     还有一种比较规范的写法是：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+//我们可以看到， 其用function来做class。
+var Person = function(name, email, website){
+    this.name = name;
+    this.email = email;
+    this.website = website;
+
+    this.sayHello = function(){
+        var hello = "Hello, I'm "+ this.name  + ", \n" +
+                    "my email is: " + this.email + ", \n" +
+                    "my website is: " + this.website;
+        alert(hello);
+    };
+};
+
+var chenhao = new Person("Chen Hao", "<a class="__cf_email__" data-cfemail="533b323c363f133b3c273e323a3f7d303c3e" href="/cdn-cgi/l/email-protection">[email protected]</a>",
+                                     "https://coolshell.cn");
+chenhao.sayHello(); </pre>
+    <p>
+     顺便说一下，要删除对象的属性，很简单：
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="js">
+      delete chenhao['email']
+     </code>
+    </p>
+    <p>
+     上面的这些例子，我们可以看到这样几点：
+    </p>
+    <ol>
+     <li>
+      Javascript的数据和成员封装很简单。没有类完全是对象操作。纯动态！
+     </li>
+     <li>
+      Javascript function中的this指针很关键，如果没有的话，那就是局部变量或局部函数。
+     </li>
+     <li>
+      Javascript对象成员函数可以在使用时临时声明，并把一个全局函数直接赋过去就好了。
+     </li>
+     <li>
+      Javascript的成员函数可以在实例上进行修改，也就是说不同实例相同函数名的行为不一定一样。
+     </li>
+    </ol>
+    <h4>
+     <span class="ez-toc-section" id="%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE_%E2%80%93_ObjectdefineProperty">
+     </span>
+     属性配置 – Object.defineProperty
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     先看下面的代码：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+//创建对象
+var chenhao = Object.create(null);
+
+//设置一个属性
+ Object.defineProperty( chenhao,
+                'name', { value:  'Chen Hao',
+                          writable:     true,
+                          configurable: true,
+                          enumerable:   true });
+
+//设置多个属性
+Object.defineProperties( chenhao,
+    {
+        'email'  : { value:  '<a class="__cf_email__" data-cfemail="197178767c755971766d74787075377a7674" href="/cdn-cgi/l/email-protection">[email protected]</a>',
+                     writable:     true,
+                     configurable: true,
+                     enumerable:   true },
+        'website': { value: 'https://coolshell.cn',
+                     writable:     true,
+                     configurable: true,
+                     enumerable:   true }
+    }
+);
+</pre>
+    <p>
+     下面就说说这些属性配置是什么意思。
+    </p>
+    <ul>
+     <li>
+      writable：这个属性的值是否可以改。
+     </li>
+     <li>
+      configurable：这个属性的配置是否可以改。
+     </li>
+     <li>
+      enumerable：这个属性是否能在for…in循环中遍历出来或在Object.keys中列举出来。
+     </li>
+     <li>
+      value：属性值。
+     </li>
+     <li>
+      get()/set(_value)：get和set访问器。
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="GetSet_%E8%AE%BF%E9%97%AE%E5%99%A8">
+     </span>
+     Get/Set 访问器
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     关于get/set访问器，它的意思就是用get/set来取代value（其不能和value一起使用），示例如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var  age = 0;
+Object.defineProperty( chenhao,
+            'age', {
+                      get: function() {return age+1;},
+                      set: function(value) {age = value;}
+                      enumerable : true,
+                      configurable : true
+                    }
+);
+chenhao.age = 100; //调用set
+alert(chenhao.age); //调用get 输出101（get中+1了）;
+</pre>
+    <p>
+     我们再看一个更为实用的例子——利用已有的属性(age)通过get和set构造新的属性(birth_year)：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+Object.defineProperty( chenhao,
+            'birth_year',
+            {
+                get: function() {
+                    var d = new Date();
+                    var y = d.getFullYear();
+                    return ( y - this.age );
+                },
+                set: function(year) {
+                    var d = new Date();
+                    var y = d.getFullYear();
+                    this.age = y - year;
+                }
+            }
+);
+
+alert(chenhao.birth_year);
+chenhao.birth_year = 2000;
+alert(chenhao.age);
+</pre>
+    <p>
+     这样做好像有点麻烦，你说，我为什么不写成下面这个样子：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+var chenhao = {
+    name: "Chen Hao",
+    email: "<a class="__cf_email__" data-cfemail="a1c9c0cec4cde1c9ced5ccc0c8cd8fc2cecc" href="/cdn-cgi/l/email-protection">[email protected]</a>",
+    website: "https://coolshell.cn",
+    age: 100,
+    get birth_year() {
+        var d = new Date();
+        var y = d.getFullYear();
+        return ( y - this.age );
+    },
+    set birth_year(year) {
+        var d = new Date();
+        var y = d.getFullYear();
+        this.age = y - year;
+    }
+
+};
+alert(chenhao.birth_year);
+chenhao.birth_year = 2000;
+alert(chenhao.age);
+</pre>
+    <p>
+     是的，你的确可以这样的，不过通过defineProperty()你可以干这些事：
+     <br/>
+     1）设置如 writable，configurable，enumerable 等这类的属性配置。
+     <br/>
+     2）动态地为一个对象加属性。比如：一些HTML的DOM对像。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE">
+     </span>
+     查看对象属性配置
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     如果查看并管理对象的这些配置，下面有个程序可以输出对象的属性和配置等东西：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">//列出对象的属性.
+function listProperties(obj)
+{
+    var newLine = "&lt;br /&gt;";
+    var names = Object.getOwnPropertyNames(obj);
+    for (var i = 0; i &lt; names.length; i++) {
+        var prop = names[i];
+        document.write(prop + newLine);
+
+        // 列出对象的属性配置（descriptor）动用getOwnPropertyDescriptor函数。
+        var descriptor = Object.getOwnPropertyDescriptor(obj, prop);
+        for (var attr in descriptor) {
+            document.write("..." + attr + ': ' + descriptor[attr]);
+            document.write(newLine);
+        }
+        document.write(newLine);
+    }
+}
+
+listProperties(chenhao);</pre>
+    <h4>
+     <span class="ez-toc-section" id="call%EF%BC%8Capply%EF%BC%8C_bind_%E5%92%8C_this">
+     </span>
+     call，apply， bind 和 this
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     关于Javascript的this指针，和C++/Java很类似。 我们来看个示例：（这个示例很简单了，我就不多说了）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">function print(text){
+    document.write(this.value + ' - ' + text+ '&lt;br&gt;');
+}
+
+var a = {value: 10, print : print};
+var b = {value: 20, print : print};
+
+print('hello');// this =&gt; global, output "undefined - hello"
+
+a.print('a');// this =&gt; a, output "10 - a"
+b.print('b'); // this =&gt; b, output "20 - b"
+
+a['print']('a'); // this =&gt; a, output "10 - a"
+</pre>
+    <p>
+     我们再来看看call 和 apply，这两个函数的差别就是参数的样子不一样，另一个就是性能不一样，apply的性能要差很多。（关于性能，可到
+     <a href="http://jsperf.com/" target="_blank">
+      JSPerf
+     </a>
+     上去跑跑看看）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">print.call(a, 'a'); // this =&gt; a, output "10 - a"
+print.call(b, 'b'); // this =&gt; b, output "20 - b"
+
+print.apply(a, ['a']); // this =&gt; a, output "10 - a"
+print.apply(b, ['b']); // this =&gt; b, output "20 - b"</pre>
+    <p>
+     但是在bind后，this指针，可能会有不一样，但是因为Javascript是动态的。如下面的示例
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var p = print.bind(a);
+p('a');             // this =&gt; a, output "10 - a"
+p.call(b, 'b');     // this =&gt; a, output "10 - b"
+p.apply(b, ['b']);  // this =&gt; a, output "10 - b"</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BB%A7%E6%89%BF_%E5%92%8C_%E9%87%8D%E8%BD%BD">
+     </span>
+     继承 和 重载
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     通过上面的那些示例，我们可以通过Object.create()来实际继承，请看下面的代码，Student继承于Object。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-highlight="20" data-enlighter-language="js">
+var Person = Object.create(null);
+
+Object.defineProperties
+(
+    Person,
+    {
+        'name'  : {  value: 'Chen Hao'},
+        'email'  : { value : '<a class="__cf_email__" data-cfemail="d8b0b9b7bdb498b0b7acb5b9b1b4f6bbb7b5" href="/cdn-cgi/l/email-protection">[email protected]</a>'},
+        'website': { value: 'https://coolshell.cn'}
+    }
+);
+
+Person.sayHello = function () {
+    var hello = "&lt;p&gt;Hello, I am "+ this.name  + ", &lt;br&gt;" +
+                "my email is: " + this.email + ", &lt;br&gt;" +
+                "my website is: " + this.website;
+    document.write(hello + "&lt;br&gt;");
+}
+
+var Student = Object.create(Person);
+Student.no = "1234567"; //学号
+Student.dept = "Computer Science"; //系
+
+//使用Person的属性
+document.write(Student.name + ' ' + Student.email + ' ' + Student.website +'&lt;br&gt;');
+
+//使用Person的方法
+Student.sayHello();
+
+//重载SayHello方法
+Student.sayHello = function (person) {
+    var hello = "&lt;p&gt;Hello, I am "+ this.name  + ", &lt;br&gt;" +
+                "my email is: " + this.email + ", &lt;br&gt;" +
+                "my website is: " + this.website + ", &lt;br&gt;" +
+                "my student no is: " + this. no + ", &lt;br&gt;" +
+                "my departent is: " + this. dept;
+    document.write(hello + '&lt;br&gt;');
+}
+//再次调用
+Student.sayHello();
+
+//查看Student的属性（只有 no 、 dept 和 重载了的sayHello）
+document.write('&lt;p&gt;' + Object.keys(Student) + '&lt;br&gt;');
+</pre>
+    <p>
+     通用上面这个示例，我们可以看到，Person里的属性并没有被真正复制到了Student中来，但是我们可以去存取。这是因为Javascript用委托实现了这一机制。其实，这就是Prototype，Person是Student的Prototype。
+    </p>
+    <p>
+     当我们的代码需要一个属性的时候，Javascript的引擎会先看当前的这个对象中是否有这个属性，如果没有的话，就会查找他的Prototype对象是否有这个属性，一直继续下去，直到找到或是直到没有Prototype对象。
+    </p>
+    <p>
+     为了证明这个事，我们可以使用Object.getPrototypeOf()来检验一下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">Student.name = 'aaa';
+
+//输出 aaa
+document.write('&lt;p&gt;' + Student.name + '&lt;/p&gt;');
+
+//输出 Chen Hao
+document.write('&lt;p&gt;' +Object.getPrototypeOf(Student).name + '&lt;/p&gt;');</pre>
+    <p>
+     于是，你还可以在子对象的函数里调用父对象的函数，就好像C++里的 Base::func() 一样。于是，我们重载hello的方法就可以使用父类的代码了，如下所示：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-highlight="3" data-enlighter-language="js">//新版的重载SayHello方法
+Student.sayHello = function (person) {
+    Object.getPrototypeOf(this).sayHello.call(this);
+    var hello = "my student no is: " + this. no + ", &lt;br&gt;" +
+                "my departent is: " + this. dept;
+    document.write(hello + '&lt;br&gt;');
+}</pre>
+    <p>
+     这个很强大吧。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BB%84%E5%90%88">
+     </span>
+     组合
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     上面的那个东西还不能满足我们的要求，我们可能希望这些对象能真正的组合起来。为什么要组合？因为我们都知道是这是OO设计的最重要的东西。不过，这对于Javascript来并没有支持得特别好，不好我们依然可以搞定个事。
+    </p>
+    <p>
+     首先，我们需要定义一个Composition的函数：（target是作用于是对象，source是源对象），下面这个代码还是很简单的，就是把source里的属性一个一个拿出来然后定义到target中。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+function Composition(target, source)
+{
+    var desc  = Object.getOwnPropertyDescriptor;
+    var prop  = Object.getOwnPropertyNames;
+    var def_prop = Object.defineProperty;
+
+    prop(source).forEach(
+        function(key) {
+            def_prop(target, key, desc(source, key))
+        }
+    )
+    return target;
+}
+</pre>
+    <p>
+     有了这个函数以后，我们就可以这来玩了：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-highlight="19,23" data-enlighter-language="js">
+//艺术家
+var Artist = Object.create(null);
+Artist.sing = function() {
+    return this.name + ' starts singing...';
+}
+Artist.paint = function() {
+    return this.name + ' starts painting...';
+}
+
+//运动员
+var Sporter = Object.create(null);
+Sporter.run = function() {
+    return this.name + ' starts running...';
+}
+Sporter.swim = function() {
+    return this.name + ' starts swimming...';
+}
+
+Composition(Person, Artist);
+document.write(Person.sing() + '&lt;br&gt;');
+document.write(Person.paint() + '&lt;br&gt;');
+
+Composition(Person, Sporter);
+document.write(Person.run() + '&lt;br&gt;');
+document.write(Person.swim() + '&lt;br&gt;');
+
+//看看 Person中有什么？（输出：sayHello,sing,paint,swim,run）
+document.write('&lt;p&gt;' + Object.keys(Person) + '&lt;br&gt;');
+</pre>
+    <h4>
+     <span class="ez-toc-section" id="Prototype_%E5%92%8C_%E7%BB%A7%E6%89%BF">
+     </span>
+     Prototype 和 继承
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我们先来说说Prototype。我们先看下面的例程，这个例程不需要解释吧，很像C语言里的函数指针，在C语言里这样的东西见得多了。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var plus = function(x,y){
+    document.write( x + ' + ' + y + ' = ' + (x+y) + '&lt;br&gt;');
+    return x + y;
+};
+
+var minus = function(x,y){
+    document.write(x + ' - ' + y + ' = ' + (x-y) + '&lt;br&gt;');
+    return x - y;
+};
+
+var operations = {
+    '+': plus,
+    '-': minus
+};
+
+var calculate = function(x, y, operation){
+    return operations[operation](x, y);
+};
+
+calculate(12, 4, '+');
+calculate(24, 3, '-');
+</pre>
+    <p>
+     那么，我们能不能把这些东西封装起来呢，我们需要使用prototype。看下面的示例：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-highlight="6,11" data-enlighter-language="js">var Cal = function(x, y){
+    this.x = x;
+    this.y = y;
+}
+
+Cal.prototype.operations = {
+    '+': function(x, y) { return x+y;},
+    '-': function(x, y) { return x-y;}
+};
+
+Cal.prototype.calculate = function(operation){
+    return this.operations[operation](this.x, this.y);
+};
+
+var c = new Cal(4, 5);
+
+c.calculate('+');
+c.calculate('-');</pre>
+    <p>
+     这就是prototype的用法，prototype 是javascript这个语言中最重要的内容。网上有太多的文章介始这个东西了。说白了，prototype就是对一对象进行扩展，其特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的（当然，这里没有真正的复制，实际只是委托）。上面的这个例子中，我们扩展了实例Cal，让其有了一个operations的属性和一个calculate的方法。
+    </p>
+    <p>
+     这样，我们可以通过这一特性来实现继承。还记得我们最最前面的那个Person吧， 下面的示例是创建一个Student来继承Person。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">
+function Person(name, email, website){
+    this.name = name;
+    this.email = email;
+    this.website = website;
+};
+
+Person.prototype.sayHello = function(){
+    var hello = "Hello, I am "+ this.name  + ", &lt;br&gt;" +
+                "my email is: " + this.email + ", &lt;br&gt;" +
+                "my website is: " + this.website;
+    return hello;
+};
+
+function Student(name, email, website, no, dept){
+    var proto = Object.getPrototypeOf;
+    proto(Student.prototype).constructor.call(this, name, email, website);
+    this.no = no;
+    this.dept = dept;
+}
+
+// 继承prototype
+Student.prototype = Object.create(Person.prototype);
+
+//重置构造函数
+Student.prototype.constructor = Student;
+
+//重载sayHello()
+Student.prototype.sayHello = function(){
+    var proto = Object.getPrototypeOf;
+    var hello = proto(Student.prototype).sayHello.call(this) + '&lt;br&gt;';
+    hello += "my student no is: " + this. no + ", &lt;br&gt;" +
+             "my departent is: " + this. dept;
+    return hello;
+};
+
+var me = new Student(
+    "Chen Hao",
+    "<a class="__cf_email__" data-cfemail="fb939a949e97bb93948f969a9297d5989496" href="/cdn-cgi/l/email-protection">[email protected]</a>",
+    "https://coolshell.cn",
+    "12345678",
+    "Computer Science"
+);
+document.write(me.sayHello());</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%85%BC%E5%AE%B9%E6%80%A7">
+     </span>
+     兼容性
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     上面的这些代码并不一定能在所有的浏览器下都能运行，因为上面这些代码遵循 ECMAScript 5 的规范，关于ECMAScript 5 的浏览器兼容列表，你可以看这里“
+     <a href="https://kangax.github.com/es5-compat-table/" target="_blank">
+      ES5浏览器兼容表
+     </a>
+     ”。
+    </p>
+    <p>
+     本文中的所有代码都在Chrome最新版中测试过了。
+    </p>
+    <p>
+     下面是一些函数，可以用在不兼容ES5的浏览器中：
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Objectcreate%E5%87%BD%E6%95%B0">
+     </span>
+     Object.create()函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">function clone(proto) {
+    function Dummy() { }
+
+    Dummy.prototype             = proto;
+    Dummy.prototype.constructor = Dummy;
+
+    return new Dummy(); //等价于Object.create(Person);
+}
+
+var me = clone(Person);
+</pre>
+    <h5>
+     <span class="ez-toc-section" id="defineProperty%E5%87%BD%E6%95%B0">
+     </span>
+     defineProperty()函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">function defineProperty(target, key, descriptor) {
+    if (descriptor.value){
+        target[key] = descriptor.value;
+    }else {
+        descriptor.get &amp;&amp; target.__defineGetter__(key, descriptor.get);
+        descriptor.set &amp;&amp; target.__defineSetter__(key, descriptor.set);
+    }
+
+    return target
+}</pre>
+    <h5>
+     <span class="ez-toc-section" id="keys%E5%87%BD%E6%95%B0">
+     </span>
+     keys()函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">function keys(object) { var result, key
+    result = [];
+    for (key in object){
+        if (object.hasOwnProperty(key))  result.push(key)
+    }
+
+    return result;
+}</pre>
+    <h5>
+     <span class="ez-toc-section" id="ObjectgetPrototypeOf_%E5%87%BD%E6%95%B0">
+     </span>
+     Object.getPrototypeOf() 函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">function proto(object) {
+    return !object?                null
+         : '__proto__' in object?  object.__proto__
+         : /* not exposed? */      object.constructor.prototype
+}</pre>
+    <h5>
+     <span class="ez-toc-section" id="bind_%E5%87%BD%E6%95%B0">
+     </span>
+     bind 函数
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="js">var slice = [].slice
+
+function bind(fn, bound_this) { var bound_args
+    bound_args = slice.call(arguments, 2)
+    return function() { var args
+        args = bound_args.concat(slice.call(arguments))
+        return fn.apply(bound_this, args) }
+}
+</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83">
+     </span>
+     参考
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      W3CSchool
+     </li>
+     <li>
+      MDN (Mozilla Developer Network)
+     </li>
+     <li>
+      MSDN (Microsoft Software Development Network)
+     </li>
+     <li>
+      <a href="https://killdream.github.com/blog/2011/10/understanding-javascript-oop/" target="_blank">
+       Understanding Javascript OOP
+      </a>
+      .
+     </li>
+    </ul>
+    <p>
+     <span style="color: #cc0000;">
+      <strong>
+       （转载时请注明作者和出处，请勿用于任何商业用途）
+      </strong>
+     </span>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6731.html">
+         <img alt="理解Javascript的闭包" height="150" src="https://coolshell.cn/wp-content/uploads/2012/03/closure-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6731.html">
+         理解Javascript的闭包
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6668.html">
+         <img alt="再谈javascript面向对象编程 " height="150" src="https://coolshell.cn/wp-content/uploads/2012/02/joo_1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6668.html">
+         再谈javascript面向对象编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5202.html">
+         <img alt="对象的消息模型" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/14.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5202.html">
+         对象的消息模型
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17634.html">
+         <img alt="Chrome开发者工具的小技巧" height="150" src="https://coolshell.cn/wp-content/uploads/2017/01/pretty-code-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17634.html">
+         Chrome开发者工具的小技巧
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17524.html">
+         <img alt="如何读懂并写出装逼的函数式代码" height="150" src="https://coolshell.cn/wp-content/uploads/2016/10/drawing-recursive-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17524.html">
+         如何读懂并写出装逼的函数式代码
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="560e9ef630" id="post-ratings-6441" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_6441_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(6441, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_6441_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(6441, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_6441_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(6441, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_6441_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(6441, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_6441_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(6441, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      31
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.29
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_6441_text">
+     </span>
+     <meta content="Javascript 面向对象编程" itemprop="name"/>
+     <meta content="Javascript 面向对象编程" itemprop="headline"/>
+     <meta content="Javascript是一个类C的语言，他的面向对象的东西相对于C++/Java比较奇怪，但是其的确相当的强大，在 Todd 同学的“对象的消息模型”一文中我们已经可以看到一些端倪了。这两天有个前同事总在问我Javascript面向对象的东西，所以，索性写篇文章让他看去吧，这里这篇文章主要想从一个整体的角度来说明一下Javascript的面向对象的编程。（成文比较仓促，应该有不准确或是有误的地方，请..." itemprop="description"/>
+     <meta content="2012-01-09T08:16:27+08:00" itemprop="datePublished"/>
+     <meta content="2012-01-09T18:12:39+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/6441.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/6441.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.29" itemprop="ratingValue"/>
+      <meta content="31" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-6441-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/webdev" rel="category tag">
+        Web开发
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/ecmascript" rel="tag">
+        ECMAScript
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/javascript" rel="tag">
+        Javascript
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/oop" rel="tag">
+        OOP
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

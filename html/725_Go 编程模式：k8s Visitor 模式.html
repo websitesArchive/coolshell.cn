@@ -1,0 +1,1206 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/21263.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="Go 编程模式：k8s Visitor 模式 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/21263.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s.png" property="og:image:secure_url"/>
+   <meta content="1333" property="og:image:width"/>
+   <meta content="1507" property="og:image:height"/>
+   <meta content="2020-12-26T11:25:46+00:00" property="article:published_time"/>
+   <meta content="2020-12-27T02:39:39+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Go 编程模式：k8s Visitor 模式 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/21263.html#article","name":"Go \u7f16\u7a0b\u6a21\u5f0f\uff1ak8s Visitor \u6a21\u5f0f | \u9177 \u58f3 - CoolShell","headline":"Go \u7f16\u7a0b\u6a21\u5f0f\uff1ak8s Visitor \u6a21\u5f0f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/12\/go.k8s.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":1333,"height":1507},"datePublished":"2020-12-26T11:25:46+08:00","dateModified":"2020-12-27T02:39:39+08:00","inLanguage":"zh-CN","commentCount":19,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/21263.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/21263.html#webpage"},"articleSection":"Go \u8bed\u8a00, \u7a0b\u5e8f\u8bbe\u8ba1, \u7f16\u7a0b\u8bed\u8a00, design pattern, Go, golang, Kubernetes, Visitor Pattern, Go\u7f16\u7a0b\u6a21\u5f0f"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/21263.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/21263.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/21263.html#webpage","url":"https:\/\/coolshell.cn\/articles\/21263.html","name":"Go \u7f16\u7a0b\u6a21\u5f0f\uff1ak8s Visitor \u6a21\u5f0f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/21263.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2020-12-26T11:25:46+08:00","dateModified":"2020-12-27T02:39:39+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '21263';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Go+%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F%EF%BC%9Ak8s+Visitor+%E6%A8%A1%E5%BC%8F';
+	window._wp_rp_post_tags = ['go', 'kubernetes', 'design+pattern', 'golang', 'visitor+pattern', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'go+%E8%AF%AD%E8%A8%80', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', 'li', 'alt', 'interfac', 'circl', 'rectangl', 'main', 'byte', 'seri', 'rang', 'radiu', 'nil', 'visitor', 'shape', 'width', '200'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/21263.html/feed" rel="alternate" title="酷 壳 - CoolShell » Go 编程模式：k8s Visitor 模式评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/21263" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=21263" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21263.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F21263.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-21263 post type-post status-publish format-standard hentry category-go- category-progdesign category-proglanguage tag-design-pattern tag-go tag-golang tag-kubernetes tag-visitor-pattern series-go" id="post-21263">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Go 编程模式：k8s Visitor 模式
+    </span>
+    <h1 class="entry-title">
+     Go 编程模式：k8s Visitor 模式
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/21263.html" rel="bookmark" title="19:25">
+       <time class="entry-date" datetime="2020-12-26T19:25:46+08:00" pubdate="">
+        2020年12月26日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/21263.html#comments">
+       19 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      66,261 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright size-medium wp-image-21270" decoding="async" height="300" sizes="(max-width: 265px) 100vw, 265px" src="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-265x300.png" srcset="https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-265x300.png 265w, https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-906x1024.png 906w, https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-768x868.png 768w, https://coolshell.cn/wp-content/uploads/2020/12/go.k8s-239x270.png 239w, https://coolshell.cn/wp-content/uploads/2020/12/go.k8s.png 1333w" width="265"/>
+     本篇文章主要想讨论一下，Kubernetes 的
+     <code>
+      kubectl
+     </code>
+     命令中的使用到到的一个编程模式 – Visitor（注：其实，
+     <code>
+      kubectl
+     </code>
+     主要使用到了两个一个是Builder，另一个是Visitor）。本来，Visitor 是面向对象设计模英中一个很重要的设计模款（参看Wikipedia
+     <a href="https://en.wikipedia.org/wiki/Visitor_pattern" rel="noopener" target="_blank">
+      Visitor Pattern词条
+     </a>
+     ），这个模式是一种将算法与操作对象的结构分离的一种方法。这种分离的实际结果是能够在不修改结构的情况下向现有对象结构添加新操作，是遵循开放/封闭原则的一种方法。这篇文章我们重点看一下
+     <code>
+      kubelet
+     </code>
+     中是怎么使用函数式的方法来实现这个模式的。
+    </p>
+    <section class="post-series">
+     <h3 class="post-series-title">
+      本文是全系列中第9 / 10篇：
+      <a href="https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f">
+       Go编程模式
+      </a>
+     </h3>
+     <ul class="post-series-list">
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21128.html">
+         Go编程模式：切片，接口，时间和性能
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21140.html">
+         Go 编程模式：错误处理
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21146.html">
+         Go 编程模式：Functional Options
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21214.html">
+         Go编程模式：委托和反转控制
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21164.html">
+         Go编程模式：Map-Reduce
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21179.html">
+         Go 编程模式：Go Generation
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/17929.html">
+         Go编程模式：修饰器
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21228.html">
+         Go编程模式：Pipeline
+        </a>
+       </span>
+      </li>
+      <li class="post-series-item-current post-series-item">
+       <span class="post-series-item-title">
+        Go 编程模式：k8s Visitor 模式
+       </span>
+      </li>
+      <li class="post-series-item">
+       <span class="post-series-item-title">
+        <a href="https://coolshell.cn/articles/21615.html">
+         Go编程模式 ： 泛型编程
+        </a>
+       </span>
+      </li>
+     </ul>
+     <nav class="post-series-nav">
+      <span class="post-series-nav-prev">
+       «
+       <a href="https://coolshell.cn/articles/21228.html" rel="prev" title="Go编程模式：Pipeline">
+        上一篇文章
+       </a>
+      </span>
+      <span class="post-series-nav-next">
+       <a href="https://coolshell.cn/articles/21615.html" rel="next" title="Go编程模式 ： 泛型编程">
+        下一篇文章
+       </a>
+       »
+      </span>
+     </nav>
+    </section>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B" title="一个简单示例">
+         一个简单示例
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#k8s%E7%9B%B8%E5%85%B3%E8%83%8C%E6%99%AF" title="k8s相关背景">
+         k8s相关背景
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#kubectl%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95" title="kubectl的实现方法">
+         kubectl的实现方法
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-4" href="#Visitor%E6%A8%A1%E5%BC%8F%E5%AE%9A%E4%B9%89" title="Visitor模式定义">
+           Visitor模式定义
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-5" href="#Name_Visitor" title="Name Visitor">
+           Name Visitor
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-6" href="#Other_Visitor" title="Other Visitor">
+           Other Visitor
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#Log_Visitor" title="Log Visitor">
+           Log Visitor
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-8" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E4%BB%A3%E7%A0%81" title="使用方代码">
+           使用方代码
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-9" href="#Visitor%E4%BF%AE%E9%A5%B0%E5%99%A8" title="Visitor修饰器">
+           Visitor修饰器
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B">
+     </span>
+     一个简单示例
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     我们还是先来看一个简单设计模式的Visitor的示例。
+    </p>
+    <ul>
+     <li>
+      我们的代码中有一个
+      <code>
+       Visitor
+      </code>
+      的函数定义，还有一个
+      <code>
+       Shape
+      </code>
+      接口，其需要使用
+      <code>
+       Visitor
+      </code>
+      函数做为参数。
+     </li>
+     <li>
+      我们的实例的对象
+      <code>
+       Circle
+      </code>
+      和
+      <code>
+       Rectangle
+      </code>
+      实现了
+      <code>
+       Shape
+      </code>
+      的接口的
+      <code>
+       accept()
+      </code>
+      方法，这个方法就是等外面给我传递一个Visitor。
+     </li>
+    </ul>
+    <p>
+     <span id="more-21263">
+     </span>
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">package main
+
+import (
+    "encoding/json"
+    "encoding/xml"
+    "fmt"
+)
+
+type Visitor func(shape Shape)
+
+type Shape interface {
+    accept(Visitor)
+}
+
+type Circle struct {
+    Radius int
+}
+
+func (c Circle) accept(v Visitor) {
+    v(c)
+}
+
+type Rectangle struct {
+    Width, Heigh int
+}
+
+func (r Rectangle) accept(v Visitor) {
+    v(r)
+}
+</pre>
+    <p>
+     然后，我们实现两个Visitor，一个是用来做JSON序列化的，另一个是用来做XML序列化的
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func JsonVisitor(shape Shape) {
+    bytes, err := json.Marshal(shape)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(string(bytes))
+}
+
+func XmlVisitor(shape Shape) {
+    bytes, err := xml.Marshal(shape)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(string(bytes))
+}
+</pre>
+    <p>
+     下面是我们的使用Visitor这个模式的代码
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func main() {
+  c := Circle{10}
+  r :=  Rectangle{100, 200}
+  shapes := []Shape{c, r}
+
+  for _, s := range shapes {
+    s.accept(JsonVisitor)
+    s.accept(XmlVisitor)
+  }
+
+}</pre>
+    <p>
+     其实，这段代码的目的就是想解耦 数据结构和 算法，使用 Strategy 模式也是可以完成的，而且会比较干净。
+     <strong>
+      但是在有些情况下，多个Visitor是来访问一个数据结构的不同部分，这种情况下，数据结构有点像一个数据库，而各个Visitor会成为一个个小应用。
+     </strong>
+     <code>
+      kubectl
+     </code>
+     就是这种情况。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="k8s%E7%9B%B8%E5%85%B3%E8%83%8C%E6%99%AF">
+     </span>
+     k8s相关背景
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     接下来，我们再来了解一下相关的知识背景：
+    </p>
+    <ul>
+     <li>
+      对于Kubernetes，其抽象了很多种的Resource，比如：Pod, ReplicaSet, ConfigMap, Volumes, Namespace, Roles …. 种类非常繁多，这些东西构成为了Kubernetes的数据模型（点击
+      <a href="https://github.com/kubernauts/practical-kubernetes-problems/blob/master/images/k8s-resources-map.png" rel="noopener" target="_blank">
+       Kubernetes Resources 地图
+      </a>
+      查看其有多复杂）
+     </li>
+     <li>
+      <code>
+       kubectl
+      </code>
+      是Kubernetes中的一个客户端命令，操作人员用这个命令来操作Kubernetes。
+      <code>
+       kubectl
+      </code>
+      会联系到 Kubernetes 的API Server，API Server会联系每个节点上的
+      <code>
+       kubelet
+      </code>
+      ，从而达到控制每个结点。
+     </li>
+     <li>
+      <code>
+       kubectl
+      </code>
+      主要的工作是处理用户提交的东西（包括，命令行参数，yaml文件等），然后其会把用户提交的这些东西组织成一个数据结构体，然后把其发送给 API Server。
+     </li>
+     <li>
+      相关的源代码在
+      <code>
+       src/k8s.io/cli-runtime/pkg/resource/visitor.go
+      </code>
+      中（
+      <a href="https://github.com/kubernetes/kubernetes/blob/cea1d4e20b4a7886d8ff65f34c6d4f95efcb4742/staging/src/k8s.io/cli-runtime/pkg/resource/visitor.go" rel="noopener" target="_blank">
+       源码链接
+      </a>
+      ）
+     </li>
+    </ul>
+    <p>
+     <code>
+      kubectl
+     </code>
+     的代码比较复杂，不过，其本原理简单来说，
+     <strong>
+      它从命令行和yaml文件中获取信息，通过Builder模式并把其转成一系列的资源，最后用 Visitor 模式模式来迭代处理这些Reources
+     </strong>
+     。
+    </p>
+    <p>
+     下面我们来看看
+     <code>
+      kubectl
+     </code>
+     的实现，为了简化，我用一个小的示例来表明 ，而不是直接分析复杂的源码。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="kubectl%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95">
+     </span>
+     kubectl的实现方法
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <h5>
+     <span class="ez-toc-section" id="Visitor%E6%A8%A1%E5%BC%8F%E5%AE%9A%E4%B9%89">
+     </span>
+     Visitor模式定义
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     首先，
+     <code>
+      kubectl
+     </code>
+     主要是用来处理
+     <code>
+      Info
+     </code>
+     结构体，下面是相关的定义：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type VisitorFunc func(*Info, error) error
+
+type Visitor interface {
+    Visit(VisitorFunc) error
+}
+
+type Info struct {
+    Namespace   string
+    Name        string
+    OtherThings string
+}
+func (info *Info) Visit(fn VisitorFunc) error {
+  return fn(info, nil)
+}</pre>
+    <p>
+     我们可以看到，
+    </p>
+    <ul>
+     <li>
+      有一个
+      <code>
+       VisitorFunc
+      </code>
+      的函数类型的定义
+     </li>
+     <li>
+      一个
+      <code>
+       Visitor
+      </code>
+      的接口，其中需要
+      <code>
+       Visit(VisitorFunc) error
+      </code>
+      的方法（这就像是我们上面那个例子的
+      <code>
+       Shape
+      </code>
+      ）
+     </li>
+     <li>
+      最后，为
+      <code>
+       Info
+      </code>
+      实现
+      <code>
+       Visitor
+      </code>
+      接口中的
+      <code>
+       Visit()
+      </code>
+      方法，实现就是直接调用传进来的方法（与前面的例子相仿）
+     </li>
+    </ul>
+    <p>
+     我们再来定义几种不同类型的 Visitor。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Name_Visitor">
+     </span>
+     Name Visitor
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     这个Visitor 主要是用来访问
+     <code>
+      Info
+     </code>
+     结构中的
+     <code>
+      Name
+     </code>
+     和
+     <code>
+      NameSpace
+     </code>
+     成员
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type NameVisitor struct {
+  visitor Visitor
+}
+
+func (v NameVisitor) Visit(fn VisitorFunc) error {
+  return v.visitor.Visit(func(info *Info, err error) error {
+    fmt.Println("NameVisitor() before call function")
+    err = fn(info, err)
+    if err == nil {
+      fmt.Printf("==&gt; Name=%s, NameSpace=%s\n", info.Name, info.Namespace)
+    }
+    fmt.Println("NameVisitor() after call function")
+    return err
+  })
+}</pre>
+    <p>
+     我们可以看到，上面的代码：
+    </p>
+    <ul>
+     <li>
+      声明了一个
+      <code>
+       NameVisitor
+      </code>
+      的结构体，这个结构体里有一个
+      <code>
+       Visitor
+      </code>
+      接口成员，这里意味着多态。
+     </li>
+     <li>
+      在实现
+      <code>
+       Visit()
+      </code>
+      方法时，其调用了自己结构体内的那个
+      <code>
+       Visitor
+      </code>
+      的
+      <code>
+       Visitor()
+      </code>
+      方法，这其实是一种修饰器的模式，用另一个Visitor修饰了自己（关于修饰器模式，参看《
+      <a href="https://coolshell.cn/articles/17929.html" rel="noopener" target="_blank" title="Go编程模式：修饰器">
+       Go编程模式：修饰器
+      </a>
+      》）
+     </li>
+    </ul>
+    <h5>
+     <span class="ez-toc-section" id="Other_Visitor">
+     </span>
+     Other Visitor
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     这个Visitor主要用来访问
+     <code>
+      Info
+     </code>
+     结构中的
+     <code>
+      OtherThings
+     </code>
+     成员
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type OtherThingsVisitor struct {
+  visitor Visitor
+}
+
+func (v OtherThingsVisitor) Visit(fn VisitorFunc) error {
+  return v.visitor.Visit(func(info *Info, err error) error {
+    fmt.Println("OtherThingsVisitor() before call function")
+    err = fn(info, err)
+    if err == nil {
+      fmt.Printf("==&gt; OtherThings=%s\n", info.OtherThings)
+    }
+    fmt.Println("OtherThingsVisitor() after call function")
+    return err
+  })
+}</pre>
+    <p>
+     实现逻辑同上，我就不再重新讲了
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Log_Visitor">
+     </span>
+     Log Visitor
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type LogVisitor struct {
+  visitor Visitor
+}
+
+func (v LogVisitor) Visit(fn VisitorFunc) error {
+  return v.visitor.Visit(func(info *Info, err error) error {
+    fmt.Println("LogVisitor() before call function")
+    err = fn(info, err)
+    fmt.Println("LogVisitor() after call function")
+    return err
+  })
+}</pre>
+    <h5>
+     <span class="ez-toc-section" id="%E4%BD%BF%E7%94%A8%E6%96%B9%E4%BB%A3%E7%A0%81">
+     </span>
+     使用方代码
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     现在我们看看如果使用上面的代码：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">func main() {
+  info := Info{}
+  var v Visitor = &amp;info
+  v = LogVisitor{v}
+  v = NameVisitor{v}
+  v = OtherThingsVisitor{v}
+
+  loadFile := func(info *Info, err error) error {
+    info.Name = "Hao Chen"
+    info.Namespace = "MegaEase"
+    info.OtherThings = "We are running as remote team."
+    return nil
+  }
+  v.Visit(loadFile)
+}</pre>
+    <p>
+     上面的代码，我们可以看到
+    </p>
+    <ul>
+     <li>
+      Visitor们一层套一层
+     </li>
+     <li>
+      我用
+      <code>
+       loadFile
+      </code>
+      假装从文件中读如数据
+     </li>
+     <li>
+      最后一条
+      <code>
+       v.Visit(loadfile)
+      </code>
+      我们上面的代码就全部开始激活工作了。
+     </li>
+    </ul>
+    <p>
+     上面的代码输出如下的信息，你可以看到代码的执行顺序是怎么执行起来了
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">LogVisitor() before call function
+NameVisitor() before call function
+OtherThingsVisitor() before call function
+==&gt; OtherThings=We are running as remote team.
+OtherThingsVisitor() after call function
+==&gt; Name=Hao Chen, NameSpace=MegaEase
+NameVisitor() after call function
+LogVisitor() after call function</pre>
+    <p>
+     我们可以看到，上面的代码有以下几种功效：
+    </p>
+    <ul>
+     <li>
+      解耦了数据和程序。
+     </li>
+     <li>
+      使用了修饰器模式
+     </li>
+     <li>
+      还做出来pipeline的模式
+     </li>
+    </ul>
+    <p>
+     所以，其实，我们是可以把上面的代码重构一下的。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Visitor%E4%BF%AE%E9%A5%B0%E5%99%A8">
+     </span>
+     Visitor修饰器
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     下面，我们用
+     <a href="https://coolshell.cn/articles/17929.html" rel="noopener" target="_blank" title="Go编程模式：修饰器">
+      修饰器模式
+     </a>
+     来重构一下上面的代码。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="golang">type DecoratedVisitor struct {
+  visitor    Visitor
+  decorators []VisitorFunc
+}
+
+func NewDecoratedVisitor(v Visitor, fn ...VisitorFunc) Visitor {
+  if len(fn) == 0 {
+    return v
+  }
+  return DecoratedVisitor{v, fn}
+}
+
+// Visit implements Visitor
+func (v DecoratedVisitor) Visit(fn VisitorFunc) error {
+  return v.visitor.Visit(func(info *Info, err error) error {
+    if err != nil {
+      return err
+    }
+    if err := fn(info, nil); err != nil {
+      return err
+    }
+    for i := range v.decorators {
+      if err := v.decorators[i](info, nil); err != nil {
+        return err
+      }
+    }
+    return nil
+  })
+}</pre>
+    <p>
+     上面的代码并不复杂，
+    </p>
+    <ul>
+     <li>
+      用一个
+      <code>
+       DecoratedVisitor
+      </code>
+      的结构来存放所有的
+      <code>
+       VistorFunc
+      </code>
+      函数
+     </li>
+     <li>
+      <code>
+       NewDecoratedVisitor
+      </code>
+      可以把所有的
+      <code>
+       VisitorFunc
+      </code>
+      转给它，构造
+      <code>
+       DecoratedVisitor
+      </code>
+      对象。
+     </li>
+     <li>
+      <code>
+       DecoratedVisitor
+      </code>
+      实现了
+      <code>
+       Visit()
+      </code>
+      方法，里面就是来做一个for-loop，顺着调用所有的
+      <code>
+       VisitorFunc
+      </code>
+     </li>
+    </ul>
+    <p>
+     于是，我们的代码就可以这样运作了：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="generic">info := Info{}
+var v Visitor = &amp;info
+v = NewDecoratedVisitor(v, NameVisitor, OtherVisitor)
+
+v.Visit(LoadFile)</pre>
+    <p>
+     是不是比之前的那个简单？注意，这个
+     <code>
+      DecoratedVisitor
+     </code>
+     同样可以成为一个Visitor来使用。
+    </p>
+    <p>
+     好，上面的这些代码全部存在于
+     <code>
+      kubectl
+     </code>
+     的代码中，你看懂了这里面的代码逻辑，相信你也能够看懂
+     <code>
+      kubectl
+     </code>
+     的代码了。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21615.html">
+         <img alt="Go编程模式 ： 泛型编程" height="150" src="https://coolshell.cn/wp-content/uploads/2021/09/go-generics-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21615.html">
+         Go编程模式 ： 泛型编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21228.html">
+         <img alt="Go编程模式：Pipeline" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.line_.-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21228.html">
+         Go编程模式：Pipeline
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21214.html">
+         <img alt="Go编程模式：委托和反转控制" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.pair_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21214.html">
+         Go编程模式：委托和反转控制
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21179.html">
+         <img alt="Go 编程模式：Go Generation" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.generate-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21179.html">
+         Go 编程模式：Go Generation
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21164.html">
+         <img alt="Go编程模式：Map-Reduce" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.map_.reduce-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21164.html">
+         Go编程模式：Map-Reduce
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/21146.html">
+         <img alt="Go 编程模式：Functional Options" height="150" src="https://coolshell.cn/wp-content/uploads/2020/12/go.options-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/21146.html">
+         Go 编程模式：Functional Options
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="7f615f3934" id="post-ratings-21263" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_21263_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(21263, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_21263_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(21263, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_21263_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(21263, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_21263_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(21263, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_21263_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.1, 0, 0);" onmouseover="current_rating(21263, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      59
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.10
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_21263_text">
+     </span>
+     <meta content="Go 编程模式：k8s Visitor 模式" itemprop="name"/>
+     <meta content="Go 编程模式：k8s Visitor 模式" itemprop="headline"/>
+     <meta content="本篇文章主要想讨论一下，Kubernetes 的 kubectl 命令中的使用到到的一个编程模式 - Visitor（注：其实，kubectl 主要使用到了两个一个是Builder，另一个是Visitor）。本来，Visitor 是面向对象设计模英中一个很重要的设计模款（参看Wikipedia Visitor Pattern词条），这个模式是一种将算法与操作对象的结构分离的一种方法。这种分离的实际..." itemprop="description"/>
+     <meta content="2020-12-26T19:25:46+08:00" itemprop="datePublished"/>
+     <meta content="2020-12-27T10:39:39+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/21263.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/21263.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.1" itemprop="ratingValue"/>
+      <meta content="59" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-21263-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/go-%e8%af%ad%e8%a8%80" rel="category tag">
+        Go 语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/design-pattern" rel="tag">
+        design pattern
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/go" rel="tag">
+        Go
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/golang" rel="tag">
+        golang
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/kubernetes" rel="tag">
+        Kubernetes
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/visitor-pattern" rel="tag">
+        Visitor Pattern
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

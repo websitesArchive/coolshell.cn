@@ -1,0 +1,917 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/8052.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="K Nearest Neighbor 算法 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/8052.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2012/08/220px-KnnClassification.svg_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2012/08/220px-KnnClassification.svg_.png" property="og:image:secure_url"/>
+   <meta content="220" property="og:image:width"/>
+   <meta content="199" property="og:image:height"/>
+   <meta content="2012-08-17T00:15:30+00:00" property="article:published_time"/>
+   <meta content="2012-08-17T16:38:57+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="K Nearest Neighbor 算法 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2012/08/220px-KnnClassification.svg_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/8052.html#article","name":"K Nearest Neighbor \u7b97\u6cd5 | \u9177 \u58f3 - CoolShell","headline":"K Nearest Neighbor \u7b97\u6cd5","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2012\/08\/220px-KnnClassification.svg_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":220,"height":199},"datePublished":"2012-08-17T00:15:30+08:00","dateModified":"2012-08-17T16:38:57+08:00","inLanguage":"zh-CN","commentCount":51,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/8052.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/8052.html#webpage"},"articleSection":"\u6742\u9879\u8d44\u6e90, \u7a0b\u5e8f\u8bbe\u8ba1, Algorithm, Data Mining, KNN, Max Heap"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/8052.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/8052.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/8052.html#webpage","url":"https:\/\/coolshell.cn\/articles\/8052.html","name":"K Nearest Neighbor \u7b97\u6cd5 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/8052.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2012-08-17T00:15:30+08:00","dateModified":"2012-08-17T16:38:57+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '8052';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'K+Nearest+Neighbor+%E7%AE%97%E6%B3%95';
+	window._wp_rp_post_tags = ['data+mining', 'knn', 'algorithm', 'max+heap', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'auto', '3', 'x1', '65', 'alt', '7', 'x2', 'neighbor', 'center', 'classif'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/8052.html/feed" rel="alternate" title="酷 壳 - CoolShell » K Nearest Neighbor 算法评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/8052" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=8052" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F8052.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F8052.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-8052 post type-post status-publish format-standard hentry category-misc category-progdesign tag-algorithm tag-data-mining tag-knn tag-max-heap" id="post-8052">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     K Nearest Neighbor 算法
+    </span>
+    <h1 class="entry-title">
+     K Nearest Neighbor 算法
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/8052.html" rel="bookmark" title="08:15">
+       <time class="entry-date" datetime="2012-08-17T08:15:30+08:00" pubdate="">
+        2012年08月17日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/8052.html#comments">
+       51 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      67,481 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     K Nearest Neighbor算法又叫KNN算法，这个算法是机器学习里面一个比较经典的算法， 总体来说KNN算法是相对比较容易理解的算法。其中的K表示最接近自己的K个数据样本。KNN算法和
+     <a href="https://coolshell.cn/articles/7779.html" target="_blank" title="K-Means 算法">
+      K-Means算法
+     </a>
+     不同的是，K-Means算法用来聚类，用来判断哪些东西是一个比较相近的类型，而KNN算法是用来做归类的，也就是说，有一个样本空间里的样本分成很几个类型，然后，给定一个待分类的数据，通过计算接近自己最近的K个样本来判断这个待分类数据属于哪个分类。
+     <strong>
+      你可以简单的理解为由那离自己最近的K个点来投票决定待分类数据归为哪一类
+     </strong>
+     。
+    </p>
+    <p style="text-align: left;">
+     Wikipedia上的
+     <a href="https://en.wikipedia.org/wiki/K-nearest_neighbor_algorithm" target="_blank">
+      KNN词条
+     </a>
+     中有一个比较经典的图如下：
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="size-full wp-image-8053 aligncenter" decoding="async" height="199" src="https://coolshell.cn/wp-content/uploads/2012/08/220px-KnnClassification.svg_.png" title="KNN Classification" width="220"/>
+    </p>
+    <p style="text-align: left;">
+     从上图中我们可以看到，图中的有两个类型的样本数据，一类是蓝色的正方形，另一类是红色的三角形。而那个绿色的圆形是我们待分类的数据。
+    </p>
+    <ul>
+     <li>
+      如果K=3，那么离绿色点最近的有2个红色三角形和1个蓝色的正方形，这3个点投票，于是绿色的这个待分类点属于红色的三角形。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      如果K=5，那么离绿色点最近的有2个红色三角形和3个蓝色的正方形，这5个点投票，于是绿色的这个待分类点属于蓝色的正方形。
+     </li>
+    </ul>
+    <p>
+     我们可以看到，机器学习的本质——
+     <strong>
+      是基于一种数据统计的方法
+     </strong>
+     ！那么，这个算法有什么用呢？我们来看几个示例。
+    </p>
+    <p>
+     <span id="more-8052">
+     </span>
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E4%BA%A7%E5%93%81%E8%B4%A8%E9%87%8F%E5%88%A4%E6%96%AD" title="产品质量判断">
+         产品质量判断
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E9%A2%84%E6%B5%8B" title="预测">
+         预测
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E6%8F%92%E5%80%BC%EF%BC%8C%E5%B9%B3%E6%BB%91%E6%9B%B2%E7%BA%BF" title="插值，平滑曲线">
+         插值，平滑曲线
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%90%8E%E8%AE%B0" title="后记">
+         后记
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E4%BA%A7%E5%93%81%E8%B4%A8%E9%87%8F%E5%88%A4%E6%96%AD">
+     </span>
+     产品质量判断
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     假设我们需要判断纸巾的品质好坏，纸巾的品质好坏可以抽像出两个向量，一个是“酸腐蚀的时间”，一个是“能承受的压强”。如果我们的样本空间如下：（所谓样本空间，又叫Training Data，也就是用于机器学习的数据）
+    </p>
+    <table border="1" cellpadding="3" cellspacing="3" style="margin: auto;">
+     <tbody>
+      <tr>
+       <td valign="top" width="33%">
+        <p align="center">
+         <strong>
+          向量X1
+         </strong>
+        </p>
+        <p align="center">
+         <strong>
+          耐酸时间（秒）
+         </strong>
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         <strong>
+          向量X2
+         </strong>
+        </p>
+        <p align="center">
+         <strong>
+          圧强(公斤/平方米)
+         </strong>
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         <strong>
+          品质Y
+         </strong>
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="33%">
+        <p align="center">
+         7
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         7
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         坏
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="33%">
+        <p align="center">
+         7
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         4
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         坏
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="33%">
+        <p align="center">
+         3
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         4
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         好
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="33%">
+        <p align="center">
+         1
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         4
+        </p>
+       </td>
+       <td valign="top" width="33%">
+        <p align="center">
+         好
+        </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     那么，如果 X1 = 3 和 X2 = 7， 这个毛巾的品质是什么呢？这里就可以用到KNN算法来判断了。
+    </p>
+    <p>
+     假设K=3，K应该是一个奇数，这样可以保证不会有平票，下面是我们计算（3，7）到所有点的距离。（关于那些距离公式，可以参看
+     <a href="https://coolshell.cn/articles/7779.html" target="_blank" title="K-Means 算法">
+      K-Means算法中的距离公式
+     </a>
+     ）
+    </p>
+    <table border="1" cellpadding="3" cellspacing="3" style="margin: auto;">
+     <tbody>
+      <tr>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          向量X1
+         </strong>
+        </p>
+        <p align="center">
+         <strong>
+          耐酸时间（秒）
+         </strong>
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          向量X2
+         </strong>
+        </p>
+        <p align="center">
+         <strong>
+          圧强(公斤/平方米)
+         </strong>
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          计算到 (3, 7)的距离
+         </strong>
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          向量Y
+         </strong>
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="25%">
+        <p align="center">
+         7
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         7
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          <img alt="" decoding="async" height="24" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_Numerical-example_clip_image004.gif" width="144"/>
+         </strong>
+        </p>
+       </td>
+       <td style="text-align: center;" valign="top" width="25%">
+        坏
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="25%">
+        <p align="center">
+         7
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         4
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          <img alt="" decoding="async" height="24" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_Numerical-example_clip_image006.gif" width="145"/>
+         </strong>
+        </p>
+       </td>
+       <td style="text-align: center;" valign="top" width="25%">
+        N/A
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="25%">
+        <p align="center">
+         3
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         4
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          <img alt="" decoding="async" height="24" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_Numerical-example_clip_image008.gif" width="136"/>
+         </strong>
+        </p>
+       </td>
+       <td style="text-align: center;" valign="top" width="25%">
+        好
+       </td>
+      </tr>
+      <tr>
+       <td valign="top" width="25%">
+        <p align="center">
+         1
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         4
+        </p>
+       </td>
+       <td valign="top" width="25%">
+        <p align="center">
+         <strong>
+          <img alt="" decoding="async" height="24" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_Numerical-example_clip_image010.gif" width="140"/>
+         </strong>
+        </p>
+       </td>
+       <td style="text-align: center;" valign="top" width="25%">
+        好
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     所以，最后的投票，好的有2票，坏的有1票，最终需要测试的（3，7）是合格品。（当然，你还可以使用权重——可以把距离值做为权重，越近的权重越大，这样可能会更准确一些）
+    </p>
+    <p>
+     <strong>
+      注：
+      <a href="http://people.revoledu.com/kardi/tutorial/KNN/KNN_Numerical-example.html" target="_blank">
+       示例来自这里
+      </a>
+      ，
+      <a href="https://coolshell.cn/wp-content/uploads/2012/08/K-NearestNeighbors.xls">
+       K-NearestNeighbors Excel表格下载
+      </a>
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%A2%84%E6%B5%8B">
+     </span>
+     预测
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     假设我们有下面一组数据，假设X是流逝的秒数，Y值是随时间变换的一个数值（你可以想像是股票值）
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="187" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image004.jpg" title="KNN_TimeSeries_clip_image004" width="191"/>
+    </p>
+    <p>
+     那么，当时间是6.5秒的时候，Y值会是多少呢？我们可以用KNN算法来预测之。
+    </p>
+    <p>
+     这里，让我们假设K=2，于是我们可以计算所有X点到6.5的距离，如：X=5.1，距离是 | 6.5 – 5.1 | = 1.4， X = 1.2 那么距离是 | 6.5 – 1.2 | = 5.3 。于是我们得到下面的表：
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="120" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image006.jpg" title="KNN_TimeSeries_clip_image006" width="312"/>
+    </p>
+    <p>
+     注意，上图中因为K=2，所以得到X=4 和 X =5.1的点最近，得到的Y的值分别为27和8，在这种情况下，我们可以简单的使用平均值来计算：
+     <img alt="" decoding="async" height="41" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image008.gif" title="KNN_TimeSeries_clip_image008" width="87"/>
+    </p>
+    <p>
+     于是，最终预测的数值为：17.5
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-8072" decoding="async" height="305" loading="lazy" sizes="(max-width: 402px) 100vw, 402px" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image010.jpg" srcset="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image010.jpg 402w, https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image010-300x227.jpg 300w" title="KNN_TimeSeries_clip_image010" width="402"/>
+    </p>
+    <p>
+     <strong>
+      注：
+      <a href="http://people.revoledu.com/kardi/tutorial/KNN/KNN_TimeSeries.htm" target="_blank">
+       示例来自这里
+      </a>
+      ，
+      <a href="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries.xls">
+       KNN_TimeSeries Excel表格下载
+      </a>
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%8F%92%E5%80%BC%EF%BC%8C%E5%B9%B3%E6%BB%91%E6%9B%B2%E7%BA%BF">
+     </span>
+     插值，平滑曲线
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     KNN算法还可以用来做平滑曲线用，这个用法比较另类。假如我们的样本数据如下（和上面的一样）：
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="35" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image012.jpg" title="KNN_TimeSeries_clip_image012" width="335"/>
+    </p>
+    <p>
+     要平滑这些点，我们需要在其中插入一些值，比如我们用步长为0.1开始插值，从0到6开始，计算到所有X点的距离（绝对值），下图给出了从0到0.5 的数据：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-8074" decoding="async" height="152" loading="lazy" sizes="(max-width: 334px) 100vw, 334px" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image014.jpg" srcset="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image014.jpg 334w, https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image014-300x136.jpg 300w" title="KNN_TimeSeries_clip_image014" width="334"/>
+    </p>
+    <p>
+     下图给出了从2.5到3.5插入的11个值，然后计算他们到各个X的距离，假值K=4，那么我们就用最近4个X的Y值，然后求平均值，得到下面的表：
+    </p>
+    <p>
+     <img alt="" class="aligncenter" decoding="async" height="206" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image016.jpg" title="KNN_TimeSeries_clip_image016" width="576"/>
+    </p>
+    <p>
+     于是可以从0.0, 0.1, 0.2, 0.3 …. 1.1, 1.2, 1.3…..3.1, 3.2…..5.8, 5.9, 6.0 一个大表，跟据K的取值不同，得到下面的图：
+    </p>
+    <table style="border: 0px; margin: auto;">
+     <tbody>
+      <tr>
+       <td>
+        <img alt="" class="aligncenter size-full wp-image-8080" decoding="async" height="246" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image026.jpg" title="KNN_TimeSeries_clip_image026" width="262"/>
+       </td>
+       <td>
+        <img alt="" class="aligncenter size-full wp-image-8079" decoding="async" height="249" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image024.jpg" title="KNN_TimeSeries_clip_image024" width="270"/>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <img alt="" class="aligncenter size-full wp-image-8078" decoding="async" height="244" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image022.jpg" title="KNN_TimeSeries_clip_image022" width="262"/>
+       </td>
+       <td>
+        <img alt="" class="aligncenter size-full wp-image-8077" decoding="async" height="234" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image020.jpg" title="KNN_TimeSeries_clip_image020" width="251"/>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <img alt="" class="aligncenter size-full wp-image-8076" decoding="async" height="228" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/08/KNN_TimeSeries_clip_image018.jpg" title="KNN_TimeSeries_clip_image018" width="246"/>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     <strong>
+      注：
+      <a href="http://people.revoledu.com/kardi/tutorial/KNN/KNN_TimeSeries.htm" target="_blank">
+       示例来自这里
+      </a>
+      ，
+      <a href="https://coolshell.cn/wp-content/uploads/2012/08/KNN_Smoothing.xls">
+       KNN_Smoothing Excel表格下载
+      </a>
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%90%8E%E8%AE%B0">
+     </span>
+     后记
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     最后，我想再多说两个事，
+    </p>
+    <p>
+     1） 一个是机器学习，算法基本上都比较简单，最难的是数学建模，把那些业务中的特性抽象成向量的过程，另一个是选取适合模型的数据样本。这两个事都不是简单的事。算法反而是比较简单的事。
+    </p>
+    <p>
+     2）对于KNN算法中找到离自己最近的K个点，是一个很经典的算法面试题，需要使用到的数据结构是“
+     <a href="https://en.wikipedia.org/wiki/Binary_heap" target="_blank">
+      最大堆——Max Heap
+     </a>
+     ”，一种二叉树。你可以看看相关的算法。
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7779.html">
+         <img alt="K-Means 算法" height="150" src="https://coolshell.cn/wp-content/uploads/2012/06/K-Means-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7779.html">
+         K-Means 算法
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17225.html">
+         <img alt="Cuckoo Filter：设计与实现" height="150" src="https://coolshell.cn/wp-content/uploads/2015/08/cuckoo-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17225.html">
+         Cuckoo Filter：设计与实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/12052.html">
+         <img alt="Leetcode 编程训练" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/12052.html">
+         Leetcode 编程训练
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11847.html">
+         <img alt="谜题的答案和活动的心得体会" height="150" src="https://coolshell.cn/wp-content/uploads/2014/08/puzzle-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11847.html">
+         谜题的答案和活动的心得体会
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11832.html">
+         <img alt="【活动】解迷题送礼物" height="150" src="https://coolshell.cn/wp-content/uploads/2014/08/538efefbgw1eiz9cvx78fj20rm0fmdi8-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11832.html">
+         【活动】解迷题送礼物
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10590.html">
+         <img alt="二维码的生成细节和原理" height="150" src="https://coolshell.cn/wp-content/uploads/2013/10/QR-Code-Overview-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10590.html">
+         二维码的生成细节和原理
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="67b153b415" id="post-ratings-8052" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_8052_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(8052, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_8052_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(8052, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_8052_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(8052, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_8052_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(8052, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_8052_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.8, 4, 0);" onmouseover="current_rating(8052, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      24
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.83
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_8052_text">
+     </span>
+     <meta content="K Nearest Neighbor 算法" itemprop="name"/>
+     <meta content="K Nearest Neighbor 算法" itemprop="headline"/>
+     <meta content="K Nearest Neighbor算法又叫KNN算法，这个算法是机器学习里面一个比较经典的算法， 总体来说KNN算法是相对比较容易理解的算法。其中的K表示最接近自己的K个数据样本。KNN算法和K-Means算法不同的是，K-Means算法用来聚类，用来判断哪些东西是一个比较相近的类型，而KNN算法是用来做归类的，也就是说，有一个样本空间里的样本分成很几个类型，然后，给定一个待分类的数据，通过计算..." itemprop="description"/>
+     <meta content="2012-08-17T08:15:30+08:00" itemprop="datePublished"/>
+     <meta content="2012-08-18T00:38:57+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/8052.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/8052.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.83" itemprop="ratingValue"/>
+      <meta content="24" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-8052-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/algorithm" rel="tag">
+        Algorithm
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/data-mining" rel="tag">
+        Data Mining
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/knn" rel="tag">
+        KNN
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/max-heap" rel="tag">
+        Max Heap
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

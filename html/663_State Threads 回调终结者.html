@@ -1,0 +1,948 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/12012.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="State Threads 回调终结者 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/12012.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/10/edsm.gif" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/10/edsm.gif" property="og:image:secure_url"/>
+   <meta content="433" property="og:image:width"/>
+   <meta content="222" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="State Threads 回调终结者 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/10/edsm.gif" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/12012.html#article","name":"State Threads \u56de\u8c03\u7ec8\u7ed3\u8005 | \u9177 \u58f3 - CoolShell","headline":"State Threads \u56de\u8c03\u7ec8\u7ed3\u8005","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2014\/10\/edsm.gif","@id":"https:\/\/coolshell.cn\/#articleImage","width":433,"height":222},"datePublished":"2014-10-12T14:48:57+08:00","dateModified":"2014-10-12T14:48:57+08:00","inLanguage":"zh-CN","commentCount":50,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/12012.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/12012.html#webpage"},"articleSection":"C\/C++\u8bed\u8a00, Unix\/Linux, Web\u5f00\u53d1, \u7a0b\u5e8f\u8bbe\u8ba1, C++, coroutine, EDSM, IA, process, thread, Web, \u534f\u7a0b"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/12012.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author","url":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull","name":"Leo","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/12012.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/a6e9e679d4d308a570b1e74705c026de?s=96&d=mm&r=g","width":96,"height":96,"caption":"Leo"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/12012.html#webpage","url":"https:\/\/coolshell.cn\/articles\/12012.html","name":"State Threads \u56de\u8c03\u7ec8\u7ed3\u8005 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/12012.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/full_of_bull#author"},"datePublished":"2014-10-12T14:48:57+08:00","dateModified":"2014-10-12T14:48:57+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '12012';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'State+Threads+%E5%9B%9E%E8%B0%83%E7%BB%88%E7%BB%93%E8%80%85';
+	window._wp_rp_post_tags = ['ia', 'coroutine', 'web', 'process', 'edsm', '%E5%8D%8F%E7%A8%8B', 'c%2B%2B', 'thread', 'web%E5%BC%80%E5%8F%91', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', 'unix%2Flinux', 'portabl', 'program', 'perform', 'multithread', 'machin', 'thought', 'graphic', 'save', 'a', 'state', 'linear', 'simplic', 'thread', 'librari', 'paradigm'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/12012.html/feed" rel="alternate" title="酷 壳 - CoolShell » State Threads 回调终结者评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/12012" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=12012" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F12012.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F12012.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-12012 post type-post status-publish format-standard hentry category-cplusplus category-unixlinux category-webdev category-progdesign tag-c tag-coroutine tag-edsm tag-ia tag-process-2 tag-thread tag-web tag-707" id="post-12012">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     State Threads 回调终结者
+    </span>
+    <h1 class="entry-title">
+     State Threads 回调终结者
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/12012.html" rel="bookmark" title="22:48">
+       <time class="entry-date" datetime="2014-10-12T22:48:57+08:00" pubdate="">
+        2014年10月12日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/full_of_bull" rel="author" title="View all posts by Leo">
+         Leo
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/12012.html#comments">
+       50 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      55,224 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      （感谢网友
+     </strong>
+     <a href="http://weibo.com/fullofbull" target="_blank">
+      <strong>
+       @我的上铺叫路遥
+      </strong>
+     </a>
+     <strong>
+      投稿）
+     </strong>
+    </p>
+    <p>
+     上回写了篇
+     <a href="https://coolshell.cn/articles/10975.html" target="_blank" title="一个“蝇量级” C 语言协程库">
+      《一个“蝇量级”C语言协程库》
+     </a>
+     ，推荐了一下
+     <a href="http://dunkels.com/adam/pt/" target="_blank" title="Protothreads">
+      Protothreads
+     </a>
+     ，通过coroutine模拟了用户级别的multi-threading模型，虽然本身足够“轻”，杜绝了系统开销，但这个库本身应用场合主要是内存限制的嵌入式领域，提供原生态组件太少，使用限制太多，比如依赖其它调用产生阻塞等。
+    </p>
+    <p>
+     这回又替大家在开源界淘了个宝，推荐一个轻量级网络应用框架
+     <strong>
+      State Threads
+     </strong>
+     （以下简称ST），总共也就3000行C代码，跟Protothreads不同在于ST针对的就是
+     <strong>
+      高性能可扩展服务器
+     </strong>
+     领域（值得一提的是Protothreads官网
+     <a href="http://dunkels.com/adam/pt/links.html" target="_blank" title="参考链接">
+      参考链接
+     </a>
+     上第一条就是ST的官网）。在其
+     <a href="http://state-threads.sourceforge.net/docs/faq.html" target="_blank" title="FAQ">
+      FAQ
+     </a>
+     页面上一句引用”Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.”可以视为开发人员对ST源码质量的自信。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E5%8E%86%E5%8F%B2%E6%B8%8A%E6%BA%90" title="历史渊源">
+         历史渊源
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E5%9F%BA%E4%BA%8E%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%8A%B6%E6%80%81%E6%9C%BA%EF%BC%88EDSM%EF%BC%89" title="基于事件驱动状态机（EDSM）">
+         基于事件驱动状态机（EDSM）
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E5%9F%BA%E4%BA%8EMult-Threading%E8%8C%83%E5%BC%8F" title="基于Mult-Threading范式">
+         基于Mult-Threading范式
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E5%9F%BA%E4%BA%8E%E5%A4%9A%E6%A0%B8%E7%8E%AF%E5%A2%83" title="基于多核环境">
+         基于多核环境
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6" title="使用限制">
+         使用限制
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E6%80%BB%E7%BB%93" title="总结">
+         总结
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E5%8F%82%E8%80%83" title="参考">
+         参考
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8E%86%E5%8F%B2%E6%B8%8A%E6%BA%90">
+     </span>
+     历史渊源
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     首先介绍一下这个库的历史渊源，从代码贡献者来看，ST不是个人作品，而是有着雄厚的商业支持和应用背景，比如服务器领域，在
+     <a href="http://state-threads.sourceforge.net/news.html" target="_blank">
+      这里
+     </a>
+     你可以看到ST曾作为Apache的多核应用模块发布。其诞生最初是由网景（Netscape）公司的MSPR（Netscape Portable Runtime library）项目中剥离出来，后由SGI（Silicon Graphic Inc）还有Yahoo!公司（前者是主力）开发维护的独立线程库。历史版本方面，作为
+     <a href="http://sourceforge.net/projects/state-threads/files/" target="_blank" title="SourceForge">
+      SourceForge
+     </a>
+     上开源项目，由2001年发布v1.0以来一直到2009年v1.9稳定版后未再变动。在平台移植方面，从Makefile的配置选项中可知ST支持多种Unix-like平台，还有专门针对Win32的源码改写。源码例子中，提供了web server、proxy以及dns三种编程实例供参考。可以说代码质量应该是相当的稳定和可靠的。
+    </p>
+    <p>
+     <span id="more-12012">
+     </span>
+    </p>
+    <p>
+     至于许可证方面，有必要略作说明。出于历史原因，网景最初发布时选择了MPL1.1许可证，而后SGI在维护中又混进了GPLv2许可证，照理说这两种许可证是互不兼容的（MPL1.1后续版本是GPL兼容的），也就是说用双许可证打包发布理论上是非法无效的，见GNU官网上
+     <a href="http://www.gnu.org/licenses/license-list.html#MPL" target="_blank" title="GPL兼容">
+      MPL兼容性
+     </a>
+     一节。但这里有值得商榷的地方，因为文中又提及，根据MPL1.1中某条款第13节，如果整段或部分代码允许采用另一许可证作为备用（alternate）选择，比如GPL及其兼容，那么整个库的许可证就可视为GPL兼容的。如此一来所谓GPL兼容性一般解释为你不能在GPLv2的代码中混入MPL1.1，而不是说你不能在MPL1.1代码中混入GPLv2，也就是说GPLv2在MPL1.1之后是可以接受的，事实上SGI就采用了后面的做法，尚未引起版权上的纠纷。为此我还考证了一下FAQ上
+     <a href="http://state-threads.sourceforge.net/docs/faq.html" target="_blank" title="license">
+      license
+     </a>
+     一节的说法，说ST既可以在MPL和GPL之间选择一种，也可以继续用双许可证，还补了一句在non-free项目使用上也没有限制，但对ST源码所做改动必须对用户可见。在源码文件中的SGI的附加声明还解释了将ST转为GPL代码的做法，就是可以删除前面MPL的声明，否则后续用户仍可以在两者之间二选一。个人觉得既然SGI都这样发话了，那么可解释为反之删除GPL的声明继续采用MPL也是可以接受的，如果你对双许可证承诺仍不放心的话。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%9F%BA%E4%BA%8E%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%8A%B6%E6%80%81%E6%9C%BA%EF%BC%88EDSM%EF%BC%89">
+     </span>
+     基于事件驱动状态机（EDSM）
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     好了，下面该进入技术性话题了。前面说了ST的目标是
+     <strong>
+      高性能可扩展
+     </strong>
+     ，其技术特征一言以蔽之就是
+    </p>
+    <blockquote>
+     <p>
+      <strong>
+       “It combines the simplicity of the multi-threaded programming paradigm, in which one thread supports each simultaneous connection, with the performance and scalability of an event-driven state machine (EDSM) architecture.”
+      </strong>
+     </p>
+    </blockquote>
+    <p>
+     我们先来纵向比较ST与传统的EDSM区别，再来横向比较与其它线程库（比如Pthread）的区别（注：以下图片全部来自
+     <a href="http://state-threads.sourceforge.net/docs/faq.html" target="_blank" title="ST FAQ">
+      State Threads Library FAQ
+     </a>
+     ）。
+    </p>
+    <p>
+     传统EDSM最常见的方式就是I/O事件的
+     <strong>
+      异步回调
+     </strong>
+     。基本上都会有一个叫做dispatcher的单线程主循环（又叫event loop），用户通过向dispatcher注册回调函数（又叫event handler）来实现异步通知，从而不必在原地空耗资源干等，在dispatcher主循环中通过select()/poll()系统调用来等待各种I/O事件的发生，当内核检测到事件触发并且数据可达或可用时，select()/poll()会返回从而使dispatcher调用相应的回调函数来对处理用户的请求。所以异步回调与其说是通知，不如说用委托更恰当。
+    </p>
+    <p>
+     整个过程都是单线程的。
+     <strong>
+      这种处理本质上就是将一堆互不相交（disjoint）的回调实现同步控制，就像串联在一个顺序链表上。
+     </strong>
+     见图1，黑色的双箭头表示I/O事件复用，回调是个筐，里面装着对各种请求的处理（当然不是每个请求都有回调，一个请求也可以对应不同的回调），每个回调被串联起来由dispatcher激活。这里请求等价于thread的概念（不是操作系统的线程），只不过“上下文切换”（context switch）发生在每个回调结束之时（假设不同请求对应不同回调），注册下一个回调以待事件触发时恢复其它请求的处理。至于dispatcher的执行状态（execute state）可作为回调函数的参数保存和传递。
+    </p>
+    <p>
+     <img alt="EDSM" class="aligncenter" decoding="async" src="https://coolshell.cn/wp-content/uploads/2014/10/edsm.gif"/>
+    </p>
+    <p>
+     异步回调的缺陷在于
+     <strong>
+      难以实现和扩展
+     </strong>
+     ，虽然已经有libevent这样的通用库，以及其它actor/reacotor的设计模式及其框架，但正如Dean Gaudet（Apache开发者）所说：“其内在的复杂性——
+     <strong>
+      将线性思维分解成一堆回调的负担
+     </strong>
+     （breaking up linear thought into a bucketload of callbacks）——仍然存在”。从上图可见，
+     <strong>
+      回调之间请求例程不是连续的，比如回调之间的切换会打断部分请求，又比如有新的请求需要重新注册。
+     </strong>
+    </p>
+    <p>
+     <strong>
+      ST本质上仍然是基于EDSM模型，但旨在取代传统的异步回调方式。
+     </strong>
+     ST将请求抽象为thread概念以更接近自然编程模式（所谓的linear thought吧，就像操作系统的线程之间切换那样自然）。ST的调度器（scheduler）对于用户来说是透明的，不像dispatcher那种将执行状态（execute state）暴露给回调方式。每个thread的现场环境可以保存在栈上（一段连续的大小确定的内存空间），由C的运行环境管理。从图2看到，
+     <strong>
+      ST的threads可以并发地线性地处理I/O事件，模型比异步回调简单得多。
+     </strong>
+    </p>
+    <p>
+     <img alt="State Threads" class="aligncenter" decoding="async" src="https://coolshell.cn/wp-content/uploads/2014/10/st_edsm.gif"/>
+    </p>
+    <p>
+     这里稍微解释一下ST调度工作原理，ST运行环境维护了四种队列，分别是IOQ、RUNQ、SLEEPQ以及ZOMBIEQ，
+     <strong>
+      当每个thread处于不同队列中对应不同的状态（ST顾名思义所谓thread状态机）。
+     </strong>
+     比如polling请求的时候，当前thread就加入IOQ表示等待事件（如果有timeout同时会被放到SLEEPQ中），当事件触发时，thread就从IOQ（如果有timeout同时会从SLEEPQ）移除并转移到RUNQ等待被调度，成为当前的running thread，相当于操作系统的就绪队列，跟传统EDSM对应起来就是注册回调以及激活回调。再比如模拟同步控制wait/sleep/lock的时候，当前thread会被放入SLEEPQ，直到被唤醒或者超时再次进入RUNQ以待调度。
+    </p>
+    <p>
+     <strong>
+      ST的调度具备性能与内存双重优点
+     </strong>
+     ：在性能上，ST实现自己的setjmp/longjmp来模拟调度，无任何系统开销，并且context（就是jmp_buf）针对不同平台和架构用底层语言实现的，可移植性媲美libc。下面放一段代码解释一下调度实现：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">/*
+ * Switch away from the current thread context by saving its state 
+ * and calling the thread scheduler
+ */
+#define _ST_SWITCH_CONTEXT(_thread)       \
+    ST_BEGIN_MACRO                        \
+    if (!MD_SETJMP((_thread)-&gt;context)) { \
+      _st_vp_schedule();                  \
+    }                                     \
+    ST_END_MACRO
+
+/*
+ * Restore a thread context that was saved by _ST_SWITCH_CONTEXT 
+ * or initialized by _ST_INIT_CONTEXT
+ */
+#define _ST_RESTORE_CONTEXT(_thread)   \
+    ST_BEGIN_MACRO                     \
+    _ST_SET_CURRENT_THREAD(_thread);   \
+    MD_LONGJMP((_thread)-&gt;context, 1); \
+    ST_END_MACRO
+
+void _st_vp_schedule(void)
+{
+    _st_thread_t *thread;
+
+    if (_ST_RUNQ.next != &amp;_ST_RUNQ) {
+        /* Pull thread off of the run queue */
+        thread = _ST_THREAD_PTR(_ST_RUNQ.next);
+        _ST_DEL_RUNQ(thread);
+    } else {
+        /* If there are no threads to run, switch to the idle thread */
+        thread = _st_this_vp.idle_thread;
+    }
+    ST_ASSERT(thread-&gt;state == _ST_ST_RUNNABLE);
+
+    /* Resume the thread */
+    thread-&gt;state = _ST_ST_RUNNING;
+    _ST_RESTORE_CONTEXT(thread);
+}
+</pre>
+    <p>
+     如果你熟悉setjmp/longjmp的用法，你就知道当前thread在调用MD_SETJMP将现场上下文保存在jmp_buf中并返回返回0，然后自己调用_st_vp_schedule()将自己调度出去。调度器先从RUNQ上找，如果队列为空就找idle thread，这是在整个ST初始化时创建的一个特殊thread，然后将当前线程设为自己，再调用MD_LONGJMP切换到其上次调用MD_SETJMP的地方，从thread-&gt;context恢复现场并返回1，该thread就接着往下执行了。
+     <strong>
+      整个过程就同EDSM一样发生在操作系统单线程下，所以没有任何系统开销与阻塞。
+     </strong>
+    </p>
+    <p>
+     <strong>
+      其实真正的阻塞是发生在等待I/O事件复用上，也就是select()/poll()，这是整个ST唯一的系统调用。
+     </strong>
+     ST当前的状态是，整个环境处于空闲状态，所有threads的请求处理都已经完成，也就是RUNQ为空。这时在_st_idle_thread_start维护了一个主循环（类似于event loop），主要负责三种任务：1.对IOQ所有thread进行I/O复用检测；2.对SLEEPQ进行超时检查；3.将idle thread调度出去，代码如下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">
+void *_st_idle_thread_start(void *arg)
+{
+    _st_thread_t *me = _ST_CURRENT_THREAD();
+
+    while (_st_active_count &gt; 0) {
+        /* Idle vp till I/O is ready or the smallest timeout expired */
+        _ST_VP_IDLE();
+
+        /* Check sleep queue for expired threads */
+        _st_vp_check_clock();
+
+        me-&gt;state = _ST_ST_RUNNABLE;
+        _ST_SWITCH_CONTEXT(me);
+    }
+
+    /* No more threads */
+    exit(0);
+
+    /* NOTREACHED */
+    return NULL;
+}</pre>
+    <p>
+     这里的me就是idle thread，因为_st_idle_thread_start就是创建idle thread的启动点，每从上次_ST_SWITCH_CONTEXT()切换回来的时候，接着在_ST_VP_IDLE()里轮询I/O事件的发生，一旦检测到发生了别的thread事件或者SLEEPQ里面发生超时，再用_ST_SWITCH_CONTEXT()把自己切换出去，如果此时RUNQ中非空的话就切换到队列第一个thread。这里主循环是不会退出的。
+    </p>
+    <p>
+     在内存方面，
+     <strong>
+      ST的执行状态作为局部变量保存在栈上，而不是像回调需要动态分配，
+     </strong>
+     用户可能分别这样使用thread模式和callback模式：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="c">/* thread land */
+int foo()
+{
+    int local1;
+    int local2;
+    do_some_io();
+}
+
+/* callback land */
+struct foo_data {
+    int local1;
+    int local2;
+};
+
+void foo_cb(void *arg)
+{
+    struct foo_data *locals = arg;
+    ...
+}
+
+void foo()
+{
+    struct foo_data *locals = malloc(sizeof(struct foo_data));
+    register(foo_cb, locals);
+}
+</pre>
+    <h4>
+     <span class="ez-toc-section" id="%E5%9F%BA%E4%BA%8EMult-Threading%E8%8C%83%E5%BC%8F">
+     </span>
+     基于Mult-Threading范式
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     同样基于multi-threading编程范式，ST同其它线程库又有和有点呢？比如Posix Thread（以下简称PThread）是个通用的线程库，它是
+     <strong>
+      将用户级线程（thread）同内核执行对象（kernel execution entity，有些书又叫lightweight processes）做了1:1或m:n映射，
+     </strong>
+     从而实现multi-threading模式。
+     <strong>
+      而ST是单线程（n:1映射），它的thread实际上就是协程（coroutine）。
+     </strong>
+     通常的网络应用上，多线程范式绕不开操作系统，但在某些特定的服务器领域，线程间的共享资源会带来额外复杂度，锁、竞态、并发、文件句柄、全局变量、管道、信号等，面对这些Pthread的灵活性会大打折扣。
+     <strong>
+      而ST的调度是精确的，它只会在明确的I/O和同步函数调用点上发生上下文切换，这正是协程的特性，如此一来ST就不需要互斥保护了，进而也可以放心使用任何静态变量和不可重入库函数了
+     </strong>
+     （这在同样作为协程的Protothreads里是不允许的，因为那是stack-less的，无法保存上下文），极大的简化了编程和调试同时增加了性能。
+    </p>
+    <p>
+     对于同样用户级线程如GNU Pth和MIT Phread比起来呢？有两点，一是ST的thread是
+     <strong>
+      无优先级的非抢占式调度
+     </strong>
+     ，也就是说ST基于EDSM的，每个thread都是事件或数据驱动，迟早会把自己调度出去，而且调度点是明确的，并非按时间片来的，从而简化了thread管理；二是ST会
+     <strong>
+      忽略所有信号处理
+     </strong>
+     ，在_st_io_init中会把sigact.sa_handler设为SIG_IGN，这样做是因为将thread资源最小化，避免了signal mask及其系统调用（在ucontext上是避免不了的）。但这并不意味着ST就不能处理信号，实际上ST建议将信号写入pipe的方式转化为普通I/O事件处理，示例详见
+     <a href="http://state-threads.sourceforge.net/docs/notes.html#signals" target="_blank" title="signal handling">
+      这里
+     </a>
+     。
+    </p>
+    <p>
+     这里顺便说一句，
+     <strong>
+      C语言实现的协程据我所知只有三种方式
+     </strong>
+     ：Protothread为代表利用switch-case语义跳转，以ST为代表不依赖libc的setjmp/longjmp上下文切换，以及依赖glibc的ucontext接口（
+     <a href="https://github.com/cloudwu/coroutine" target="_blank" title="云风的coroutine">
+      云风的coroutine
+     </a>
+     ）。第一种最轻，但受限最大，第三种耗资源性能慢（陈皓注：glibc的ucontext接口的实现中有一个和信号有关的系统调用，所以会慢，估计在一些情况下会比pthread还慢），目前看来ST是最好使的。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%9F%BA%E4%BA%8E%E5%A4%9A%E6%A0%B8%E7%8E%AF%E5%A2%83">
+     </span>
+     基于多核环境
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面来聊聊ST在多核环境下的应用。服务器领域多核的优势在于实现了物理上真正的并发，所以如何充分利用系统优势也是线程库的一大难点。这对ST来说也许正是它的拿手好戏，前面提及ST曾作为Apache的多核引擎模块发布。这里要补充一下前面漏掉的ST的一个重要概念——
+     <strong>
+      虚拟处理器
+     </strong>
+     （virtual processor，简称vp），见图3，多个cpu通过内核的SMP模拟出多个“核”（core），一个core对应一个内核任务（kernel task），同时对应一个用户进程（process），一个process对应ST的一个vp，每个vp下就是ST的thread（是协程不是线程），结合前面所述，vp初始化先创建idle thread，然后根据I/O事件驱动其它threads，这就是ST的多核架构。
+    </p>
+    <p>
+     <img alt="multi-core" class="aligncenter" decoding="async" src="https://coolshell.cn/wp-content/uploads/2014/10/st_app.gif"/>
+    </p>
+    <p>
+     这里要指出的是，
+     <strong>
+      ST只负责自身thread调度，进程管理是应用程序的事情，
+     </strong>
+     也就是说由用户来决定fork多少进程，每个进程分配多少资源，如何进行IPC等。这种架构的好处就是每个vp有自己独立的空间，避免了资源同步竞态（比如杜绝了多进程里的多线程这样混乱的模型）。我们知道这种
+     <strong>
+      基于进程的架构是非常健壮的，一个进程奔溃不会影响到其它进程，同时充分利用多核硬件的高并发。
+     </strong>
+     同时对于具体逻辑业务使用vp里的thread处理，这是基于EDSM的，如此一来做到了
+     <strong>
+      逻辑业务与内核执行对象之间的解耦
+     </strong>
+     ，没必要因为1K个连接去创建1K的进程。这就是ST的扩展性和灵活性。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6">
+     </span>
+     使用限制
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     ST的主要限制在于，应用程序所有I/O操作必须使用ST提供的API，因为只有这样thread才能被调度器管理，并且避免阻塞。
+    </p>
+    <p>
+     另一个限制在于thread调试，这本身不容易，好在v1.9的ST提供了DEBUG参数，使用TREADQ以及_st_iterate_threads接口检测thread调度情况，用户还可自定义_st_show_thread_stack接口dump每个thread的栈，在GDB使能_st_iterate_threads_flag变量，这些都在Readme中对调试方法有具体说明。按下不表。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%80%BB%E7%BB%93">
+     </span>
+     总结
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     这篇文章写得有点短了，主要是通过对比来介绍ST的，其实还有大段原理可以讲，大段源码以及实战用例可以贴，但这一下子又写不过来，ST还是有点技术含量的。说白了，
+     <strong>
+      ST的核心思想就是利用multi-threading的简单优雅范式胜过传统异步回调的复杂晦涩实现，又利用EDSM的性能和解耦架构避免了multi-threading在系统上的开销和暗礁。
+     </strong>
+     学习ST告诉我们一个道理：
+     <strong>
+      未来技术的趋势永远都是融合的。
+     </strong>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83">
+     </span>
+     参考
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <ul>
+     <li>
+      在
+      <a href="http://sourceforge.net/projects/state-threads/files/" target="_blank" title="sourceforge源码">
+       SourceForge
+      </a>
+      以及
+      <a href="https://github.com/winlinvip/state-threads" target="_blank" title="github源码">
+       github
+      </a>
+      上的源码：前者有历史版本及win32版本，后者只有v1.9。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="http://state-threads.sourceforge.net/docs/st.html" target="_blank" title="State Threads for Internet Applications">
+       State Threads for Internet Applications
+      </a>
+      ：介绍原理的，值得一看，
+      <a href="http://blog.csdn.net/win_lin/article/details/8242653" target="_blank" title="中文翻译">
+       这里
+      </a>
+      有篇中文翻译附加单元测试（在单CPU 512M内存上创建数万个thread，CPU占用率约5%，内存约4.3K/thread）。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="http://state-threads.sourceforge.net/docs/faq.html" target="_blank" title="State Threads Library FAQ">
+       State Threads Library FAQ
+      </a>
+      ：本文基于此而写。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="http://state-threads.sourceforge.net/docs/reference.html" target="_blank" title="API手册">
+       Complete reference
+      </a>
+      ：API完全手册。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="http://state-threads.sourceforge.net/docs/notes.html" target="_blank" title="注意事项">
+       Programing Notes
+      </a>
+      ：编程注意事项，包括信号处理，IPC，非网络I/O事件等。
+     </li>
+    </ul>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/10975.html">
+         <img alt="一个“蝇量级” C 语言协程库" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/9.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/10975.html">
+         一个“蝇量级” C 语言协程库
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8711.html">
+         <img alt="程序员疫苗：代码注入" height="150" src="https://coolshell.cn/wp-content/uploads/2012/12/200906020837401710-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8711.html">
+         程序员疫苗：代码注入
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5987.html">
+         <img alt="如何设计“找回用户帐号”功能" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/2.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5987.html">
+         如何设计“找回用户帐号”功能
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8309.html">
+         <img alt="C/C++语言中闭包的探究及比较" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/10.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8309.html">
+         C/C++语言中闭包的探究及比较
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8239.html">
+         <img alt="无锁队列的实现" height="150" src="https://coolshell.cn/wp-content/uploads/2012/09/lock_free_bicycle-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8239.html">
+         无锁队列的实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7965.html">
+         <img alt="一个fork的面试题" height="150" src="https://coolshell.cn/wp-content/uploads/2012/07/fork01jpg-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7965.html">
+         一个fork的面试题
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="57e383bbbc" id="post-ratings-12012" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_12012_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(12012, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_12012_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(12012, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_12012_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(12012, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_12012_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(12012, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_12012_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(12012, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      31
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.00
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_12012_text">
+     </span>
+     <meta content="State Threads 回调终结者" itemprop="name"/>
+     <meta content="State Threads 回调终结者" itemprop="headline"/>
+     <meta content="（感谢网友 @我的上铺叫路遥 投稿）
+
+上回写了篇《一个“蝇量级”C语言协程库》，推荐了一下Protothreads，通过coroutine模拟了用户级别的multi-threading模型，虽然本身足够“轻”，杜绝了系统开销，但这个库本身应用场合主要是内存限制的嵌入式领域，提供原生态组件太少，使用限制太多，比如依赖其它调用产生阻塞等。
+
+这回又替大家在开源界淘了个宝，推荐一个轻量级网络应..." itemprop="description"/>
+     <meta content="2014-10-12T22:48:57+08:00" itemprop="datePublished"/>
+     <meta content="2014-10-12T22:48:57+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/12012.html" itemprop="url"/>
+     <meta content="Leo" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/12012.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4" itemprop="ratingValue"/>
+      <meta content="31" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-12012-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem/unixlinux" rel="category tag">
+        Unix/Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage/webdev" rel="category tag">
+        Web开发
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/c" rel="tag">
+        C++
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/coroutine" rel="tag">
+        coroutine
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/edsm" rel="tag">
+        EDSM
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/ia" rel="tag">
+        IA
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/process-2" rel="tag">
+        process
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/thread" rel="tag">
+        thread
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/web" rel="tag">
+        Web
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/%e5%8d%8f%e7%a8%8b" rel="tag">
+        协程
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

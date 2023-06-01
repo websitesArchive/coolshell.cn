@@ -1,0 +1,907 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/17200.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="Docker基础技术：DeviceMapper | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/17200.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin.jpg" property="og:image:secure_url"/>
+   <meta content="600" property="og:image:width"/>
+   <meta content="300" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Docker基础技术：DeviceMapper | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/17200.html#article","name":"Docker\u57fa\u7840\u6280\u672f\uff1aDeviceMapper | \u9177 \u58f3 - CoolShell","headline":"Docker\u57fa\u7840\u6280\u672f\uff1aDeviceMapper","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2015\/08\/how_to_set_up_an_iSCSI_LUN_with_thin.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":600,"height":300},"datePublished":"2015-08-26T00:21:09+08:00","dateModified":"2015-08-27T01:21:11+08:00","inLanguage":"zh-CN","commentCount":25,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/17200.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/17200.html#webpage"},"articleSection":"Unix\/Linux, \u64cd\u4f5c\u7cfb\u7edf, \u6742\u9879\u8d44\u6e90, Device Mapper, Docker, Linux, Thin Provisioning"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/17200.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/17200.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/17200.html#webpage","url":"https:\/\/coolshell.cn\/articles\/17200.html","name":"Docker\u57fa\u7840\u6280\u672f\uff1aDeviceMapper | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/17200.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2015-08-26T00:21:09+08:00","dateModified":"2015-08-27T01:21:11+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '17200';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Docker%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF%EF%BC%9ADeviceMapper';
+	window._wp_rp_post_tags = ['linux', 'device+mapper', 'thin+provisioning', 'docker', 'unix%2Flinux', '%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', 'root', '16', 'linux', 'target', '10', 'tabl', 'devic', 'byte', 'dd', 'record', 'snapshot', 'io', 'ls', 'driver', 'map'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/17200.html/feed" rel="alternate" title="酷 壳 - CoolShell » Docker基础技术：DeviceMapper评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/17200" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=17200" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F17200.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F17200.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-17200 post type-post status-publish format-standard hentry category-unixlinux category-operatingsystem category-misc tag-device-mapper tag-docker tag-linux tag-thin-provisioning" id="post-17200">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Docker基础技术：DeviceMapper
+    </span>
+    <h1 class="entry-title">
+     Docker基础技术：DeviceMapper
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/17200.html" rel="bookmark" title="08:21">
+       <time class="entry-date" datetime="2015-08-26T08:21:09+08:00" pubdate="">
+        2015年08月26日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/17200.html#comments">
+       25 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      74,430 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="how_to_set_up_an_iSCSI_LUN_with_thin" class="alignright size-medium wp-image-17217" decoding="async" height="150" sizes="(max-width: 300px) 100vw, 300px" src="https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin-300x150.jpg" srcset="https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin-300x150.jpg 300w, https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin-540x270.jpg 540w, https://coolshell.cn/wp-content/uploads/2015/08/how_to_set_up_an_iSCSI_LUN_with_thin.jpg 600w" width="300"/>
+     在上一篇
+     <a href="https://coolshell.cn/articles/17061.html" target="_blank">
+      介绍AUFS的文章
+     </a>
+     中，大家可以看到，Docker的分层镜像是怎么通过UnionFS这种文件系统做到的，但是，因为Docker首选的AUFS并不在Linux的内核主干里，所以，对于非Ubuntu的Linux分发包，比如CentOS，就无法使用AUFS作为Docker的文件系统了。于是作为第二优先级的DeviceMapper就被拿出来做分层镜像的一个实现。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#Device_Mapper_%E7%AE%80%E4%BB%8B" title="Device Mapper 简介">
+         Device Mapper 简介
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#Thin_Provisioning_%E7%AE%80%E4%BB%8B" title="Thin Provisioning 简介">
+         Thin Provisioning 简介
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#Thin_Provisioning_Snapshot_%E6%BC%94%E7%A4%BA" title="Thin Provisioning Snapshot 演示">
+         Thin Provisioning Snapshot 演示
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#Docker%E7%9A%84DeviceMapper" title="Docker的DeviceMapper">
+         Docker的DeviceMapper
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#Device_Mapper_%E8%A1%8C%E4%B8%8D%E8%A1%8C%EF%BC%9F" title="Device Mapper 行不行？">
+         Device Mapper 行不行？
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="Device_Mapper_%E7%AE%80%E4%BB%8B">
+     </span>
+     Device Mapper 简介
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     DeviceMapper自Linux 2.6被引入成为了Linux最重要的一个技术。它在内核中支持逻辑卷管理的通用设备映射机制，它为实现用于存储资源管理的块设备驱动提供了一个高度模块化的内核架构，它包含三个重要的对象概念，Mapped Device、Mapping Table、Target device。
+    </p>
+    <p>
+     Mapped Device 是一个逻辑抽象，可以理解成为内核向外提供的逻辑设备，它通过Mapping Table描述的映射关系和 Target Device 建立映射。Target device 表示的是 Mapped Device 所映射的物理空间段，对 Mapped Device 所表示的逻辑设备来说，就是该逻辑设备映射到的一个物理设备。
+    </p>
+    <p>
+     Mapping Table里有 Mapped Device 逻辑的起始地址、范围、和表示在 Target Device 所在物理设备的地址偏移量以及Target 类型等信息（注：这些地址和偏移量都是以磁盘的扇区为单位的，即 512 个字节大小，所以，当你看到128的时候，其实表示的是128*512=64K）。
+    </p>
+    <p>
+     <span id="more-17200">
+     </span>
+    </p>
+    <p>
+     DeviceMapper 中的逻辑设备Mapped Device不但可以映射一个或多个物理设备Target Device，还可以映射另一个Mapped Device，于是，就是构成了一个迭代或递归的情况，就像文件系统中的目录里除了文件还可以有目录，理论上可以无限嵌套下去。
+    </p>
+    <p>
+     DeviceMapper在内核中通过一个一个模块化的 Target Driver 插件实现对 IO 请求的过滤或者重新定向等工作，当前已经实现的插件包括软 Raid、加密、多路径、镜像、快照等，这体现了在 Linux 内核设计中策略和机制分离的原则。如下图所示。从图中，我们可以
+     <strong>
+      看到DeviceMapper只是一个框架，在这个框架上，我们可以插入各种各样的策略
+     </strong>
+     （让我不自然地想到了面向对象中的策略模式），在这诸多“插件”中，
+     <strong>
+      有一个东西叫Thin Provisioning Snapshot，这是Docker使用DeviceMapper中最重要的模块
+     </strong>
+     。
+    </p>
+    <figure aria-describedby="caption-attachment-17204" class="wp-caption aligncenter" id="attachment_17204" style="width: 640px">
+     <img alt="图片来源：http://people.redhat.com/agk/talks/FOSDEM_2005/" class="size-full wp-image-17204" decoding="async" height="494" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2015/08/device.mapper.2.gif" width="640"/>
+     <figcaption class="wp-caption-text" id="caption-attachment-17204">
+      图片来源：
+      <a href="http://people.redhat.com/agk/talks/FOSDEM_2005/" target="_blank">
+       http://people.redhat.com/agk/talks/FOSDEM_2005/
+      </a>
+     </figcaption>
+    </figure>
+    <h4>
+     <span class="ez-toc-section" id="Thin_Provisioning_%E7%AE%80%E4%BB%8B">
+     </span>
+     <strong>
+      Thin Provisioning 简介
+     </strong>
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Thin Provisioning要怎么翻译成中文，真是一件令人头痛的事，我就不翻译了。这个技术是虚拟化技术中的一种。它是什么意思呢？
+     <strong>
+      你可以联想一下我们计算机中的内存管理中用到的——“虚拟内存技术”
+     </strong>
+     ——操作系统给每个进程N多N多用不完的内址地址（32位下，每个进程可以有最多2GB的内存空间），但是呢，我们知道，物理内存是没有那么多的，如果按照进程内存和物理内存一一映射来玩的话，那么，我们得要多少的物理内存啊。所以，操作系统引入了虚拟内存的设计，
+     <strong>
+      意思是，我逻辑上给你无限多的内存，但是实际上是实报实销
+     </strong>
+     ，因为我知道你一定用不了那么多，于是，达到了内存使用率提高的效果。（今天云计算中很多所谓的虚拟化其实完全都是在用和“虚拟内存”相似的Thin Provisioning的技术，所谓的超配，或是超卖）
+    </p>
+    <p>
+    </p>
+    <p>
+     好了，话题拉回来，我们这里说的是存储。看下面两个图（
+     <a href="http://www.architecting.it/2009/06/04/enterprise-computing-why-thin-provisioning-is-not-the-holy-grail-for-utilisation/" target="_blank">
+      图片来源
+     </a>
+     ），第一个是Fat Provisioning，第二个是Thin Provisioning，其很好的说明了是个怎么一回事（和虚拟内存是一个概念）
+    </p>
+    <p>
+     <img alt="thin-provisioning-1" class="aligncenter size-full wp-image-17206" decoding="async" height="399" loading="lazy" sizes="(max-width: 606px) 100vw, 606px" src="https://coolshell.cn/wp-content/uploads/2015/08/thin-provisioning-1.jpg" srcset="https://coolshell.cn/wp-content/uploads/2015/08/thin-provisioning-1.jpg 606w, https://coolshell.cn/wp-content/uploads/2015/08/thin-provisioning-1-300x198.jpg 300w" width="606"/>
+     <img alt="thin-provisioning-2" class="aligncenter size-full wp-image-17207" decoding="async" height="389" loading="lazy" sizes="(max-width: 606px) 100vw, 606px" src="https://coolshell.cn/wp-content/uploads/2015/08/thin-provisioning-2.jpg" srcset="https://coolshell.cn/wp-content/uploads/2015/08/thin-provisioning-2.jpg 606w, https://coolshell.cn/wp-content/uploads/2015/08/thin-provisioning-2-300x193.jpg 300w" width="606"/>
+    </p>
+    <p>
+     那么，Docker是怎么使用Thin Provisioning这个技术做到像UnionFS那样的分层镜像的呢？答案是，Docker使用了Thin Provisioning的Snapshot的技术。下面我们来介绍一下Thin Provisioning的Snapshot。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Thin_Provisioning_Snapshot_%E6%BC%94%E7%A4%BA">
+     </span>
+     Thin Provisioning Snapshot 演示
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下面，我们用一系列的命令来演示一下Device Mapper的Thin Provisioning Snapshot是怎么玩的。
+    </p>
+    <p>
+     首先，我们需要先建两个文件，一个是data.img，一个是meta.data.img：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo dd if=/dev/zero of=/tmp/data.img bs=1K count=1 seek=10M
+1+0 records in
+1+0 records out
+1024 bytes (1.0 kB) copied, 0.000621428 s, 1.6 MB/s
+
+~hchen$ sudo dd if=/dev/zero of=/tmp/meta.data.img bs=1K count=1 seek=1G
+1+0 records in
+1+0 records out
+1024 bytes (1.0 kB) copied, 0.000140858 s, 7.3 MB/s</pre>
+    <p>
+     注意命令中
+     <code>
+      seek
+     </code>
+     选项，其表示为略过
+     <code>
+      of
+     </code>
+     选项指定的输出文件的前10G个output的bloksize的空间后再写入内容。因为bs是1个字节，所以也就是10G的尺寸，但其实在硬盘上是没有占有空间的，占有空间只有1k的内容。当向其写入内容时，才会在硬盘上为其分配空间。我们可以用ls命令看一下，实际分配了12K和4K。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo ls -lsh /tmp/data.img
+12K -rw-r--r--. 1 root root 11G Aug 25 23:01 /tmp/data.img
+
+~hchen$ sudo ls -slh /tmp/meta.data.img
+4.0K -rw-r--r--. 1 root root 101M Aug 25 23:17 /tmp/meta.data.img</pre>
+    <p>
+     然后，我们为这个文件创建一个loopback设备。（loop2015和loop2016是我乱取的两个名字）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo losetup /dev/loop2015 /tmp/data.img
+~hchen$ sudo losetup /dev/loop2016 /tmp/meta.data.img
+
+~hchen$ sudo losetup -a
+/dev/loop2015: [64768]:103991768 (/tmp/data.img)
+/dev/loop2016: [64768]:103991765 (/tmp/meta.data.img)</pre>
+    <p>
+     现在，我们为这个设备建一个Thin Provisioning的Pool，用dmsetup命令：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo dmsetup create hchen-thin-pool \
+                  --table "0 20971522 thin-pool /dev/loop2016 /dev/loop2015 \
+                           128 65536 1 skip_block_zeroing"</pre>
+    <p>
+     其中的参数解释如下（更多信息可参看
+     <a href="https://github.com/torvalds/linux/blob/master/Documentation/device-mapper/thin-provisioning.txt" target="_blank">
+      Thin Provisioning的man page
+     </a>
+     ）：
+    </p>
+    <ul>
+     <li>
+      dmsetup create是用来创建thin pool的命令
+     </li>
+     <li>
+      hchen-thin-pool 是自定义的一个pool名，不冲突就好。
+     </li>
+     <li>
+      –table是这个pool的参数设置
+      <ul>
+       <li>
+        0代表起的sector位置
+       </li>
+       <li>
+        20971522代码结句的sector号，前面说过，一个sector是512字节，所以，20971522个正好是10GB
+       </li>
+       <li>
+        /dev/loop2016是meta文件的设备（前面我们建好了）
+       </li>
+       <li>
+        /dev/loop2015是data文件的设备（前面我们建好了）
+       </li>
+       <li>
+        128是最小的可分配的sector数
+       </li>
+       <li>
+        65536是最少可用sector的water mark，也就是一个threshold
+       </li>
+       <li>
+        1 代表有一个附加参数
+       </li>
+       <li>
+        skip_block_zeroing是个附加参数，表示略过用0填充的块
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p>
+     然后，我们就可以看到一个Device Mapper的设备了：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo ll /dev/mapper/hchen-thin-pool
+lrwxrwxrwx. 1 root root 7 Aug 25 23:24 /dev/mapper/hchen-thin-pool -&gt; ../dm-4</pre>
+    <p>
+     接下来，我们的初始还没有完成，还要创建一个Thin Provisioning 的 Volume：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo dmsetup message /dev/mapper/hchen-thin-pool 0 "create_thin 0"
+~hchen$ sudo dmsetup create hchen-thin-volumn-001 \
+            --table "0 2097152 thin /dev/mapper/hchen-thin-pool 0"</pre>
+    <p>
+     其中：
+    </p>
+    <ul>
+     <li>
+      第一个命令中的create_thin是关键字，后面的0表示这个Volume的device 的 id
+     </li>
+     <li>
+      第二个命令，是真正的为这个Volumn创建一个可以mount的设备，名字叫hchen-thin-volumn-001。2097152只有1GB
+     </li>
+    </ul>
+    <p>
+     好了，在mount前，我们还要格式化一下：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo mkfs.ext4 /dev/mapper/hchen-thin-volumn-001
+mke2fs 1.42.9 (28-Dec-2013)
+Discarding device blocks: done
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=16 blocks, Stripe width=16 blocks
+65536 inodes, 262144 blocks
+13107 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=268435456
+8 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks:
+32768, 98304, 163840, 229376
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: done</pre>
+    <p>
+     好了，我们可以mount了（下面的命令中，我还创建了一个文件）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo mkdir -p /mnt/base
+~hchen$ sudo mount /dev/mapper/hchen-thin-volumn-001 /mnt/base
+~hchen$ sudo echo "hello world, I am a base" &gt; /mnt/base/id.txt
+~hchen$ sudo cat /mnt/base/id.txt
+hello world, I am a base</pre>
+    <p>
+     好了，接下来，我们来看看snapshot怎么搞：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo dmsetup message /dev/mapper/hchen-thin-pool 0 "create_snap 1 0"
+~hchen$ sudo dmsetup create mysnap1 \
+                   --table "0 2097152 thin /dev/mapper/hchen-thin-pool 1"
+
+~hchen$ sudo ll /dev/mapper/mysnap1
+lrwxrwxrwx. 1 root root 7 Aug 25 23:49 /dev/mapper/mysnap1 -&gt; ../dm-5</pre>
+    <p>
+     上面的命令中：
+    </p>
+    <ul>
+     <li>
+      第一条命令是向hchen-thin-pool发一个create_snap的消息，后面跟两个id，第一个是新的dev id，第二个是要从哪个已有的dev id上做snapshot（0这个dev id是我们前面就创建了了）
+     </li>
+    </ul>
+    <ul>
+     <li>
+      第二条命令是创建一个mysnap1的device，并可以被mount。
+     </li>
+    </ul>
+    <p>
+     下面我们来看看：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo mkdir -p /mnt/mysnap1
+~hchen$ sudo mount /dev/mapper/mysnap1 /mnt/mysnap1
+
+~hchen$ sudo ll /mnt/mysnap1/
+total 20
+-rw-r--r--. 1 root root 25 Aug 25 23:46 id.txt
+drwx------. 2 root root 16384 Aug 25 23:43 lost+found
+
+~hchen$ sudo cat /mnt/mysnap1/id.txt
+hello world, I am a base</pre>
+    <p>
+     我们来修改一下/mnt/mysnap1/id.txt，并加上一个snap1.txt的文件：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo echo "I am snap1" &gt;&gt; /mnt/mysnap1/id.txt
+~hchen$ sudo echo "I am snap1" &gt; /mnt/mysnap1/snap1.txt
+
+~hchen$ sudo cat /mnt/mysnap1/id.txt
+hello world, I am a base
+I am snap1
+
+~hchen$ sudo cat /mnt/mysnap1/snap1.txt
+I am snap1</pre>
+    <p>
+     我们再看一下/mnt/base，你会发现没有什么变化：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo ls /mnt/base
+id.txt      lost+found
+~hchen$ sudo cat /mnt/base/id.txt
+hello world, I am a base</pre>
+    <p>
+     你是不是已经看到了分层镜像的样子了？
+    </p>
+    <p>
+     你还要吧继续在刚才的snapshot上再建一个snapshot
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo dmsetup message /dev/mapper/hchen-thin-pool 0 "create_snap 2 1"
+~hchen$ sudo dmsetup create mysnap2 \
+                   --table "0 2097152 thin /dev/mapper/hchen-thin-pool 2"
+
+~hchen$ sudo ll /dev/mapper/mysnap2
+lrwxrwxrwx. 1 root root 7 Aug 25 23:52 /dev/mapper/mysnap1 -&gt; ../dm-7
+
+~hchen$ sudo mkdir -p /mnt/mysnap2
+~hchen$ sudo mount /dev/mapper/mysnap2 /mnt/mysnap2
+~hchen$ sudo  ls /mnt/mysnap2
+id.txt  lost+found  snap1.txt </pre>
+    <p>
+     好了，我相信你看到了分层镜像的样子了。
+    </p>
+    <p>
+     看完演示，我们再来补点理论知识吧：
+    </p>
+    <ul>
+     <li>
+      Snapshot来自LVM（Logic Volumn Manager），它可以在不中断服务的情况下为某个device打一个快照。
+     </li>
+     <li>
+      Snapshot是Copy-On-Write的，也就是说，只有发生了修改，才会对对应的内存进行拷贝。
+     </li>
+    </ul>
+    <p>
+     另外，这里有篇文章
+     <a href="http://searchstorage.techtarget.com/tip/Storage-thin-provisioning-benefits-and-challenges" target="_blank">
+      Storage thin provisioning benefits and challenges
+     </a>
+     可以前往一读。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Docker%E7%9A%84DeviceMapper">
+     </span>
+     Docker的DeviceMapper
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     上面基本上就是Docker的玩法了，我们可以看一下docker的loopback设备：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen $ sudo losetup -a
+/dev/loop0: [64768]:38050288 (/var/lib/docker/devicemapper/devicemapper/data)
+/dev/loop1: [64768]:38050289 (/var/lib/docker/devicemapper/devicemapper/metadata)</pre>
+    <p>
+     其中data 100GB，metadata 2.0GB
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen $ sudo ls -alhs /var/lib/docker/devicemapper/devicemapper
+506M -rw-------. 1 root root 100G Sep 10 20:15 data
+1.1M -rw-------. 1 root root 2.0G Sep 10 20:15 metadata </pre>
+    <p>
+     下面是相关的thin-pool。其中，有个当一大串hash串的device是正在启动的容器：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen $ sudo ll /dev/mapper/dock*
+lrwxrwxrwx. 1 root root 7 Aug 25 07:57 /dev/mapper/docker-253:0-104108535-pool -&gt; ../dm-2
+lrwxrwxrwx. 1 root root 7 Aug 25 11:13 /dev/mapper/docker-253:0-104108535-deefcd630a60aa5ad3e69249f58a68e717324be4258296653406ff062f605edf -&gt; ../dm-3</pre>
+    <p>
+     我们可以看一下它的device id（Docker都把它们记下来了）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen $ sudo cat /var/lib/docker/devicemapper/metadata/deefcd630a60aa5ad3e69249f58a68e717324be4258296653406ff062f605edf
+{"device_id":24,"size":10737418240,"transaction_id":26,"initialized":false}</pre>
+    <p>
+     device_id是24，size是10737418240，除以512，就是20971520 个 sector，我们用这些信息来做个snapshot看看（注：我用了一个比较大的dev id – 1024）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">~hchen$ sudo dmsetup message "/dev/mapper/docker-253:0-104108535-pool" 0 \
+                                    "create_snap 1024 24"
+~hchen$ sudo dmsetup create dockersnap --table \
+                    "0 20971520 thin /dev/mapper/docker-253:0-104108535-pool 1024"
+~hchen$ sudo mkdir /mnt/docker
+~hchen$ sudo mount /dev/mapper/dockersnap /mnt/docker/
+~hchen$ sudo ls /mnt/docker/
+id lost+found rootfs
+~hchen$ sudo ls /mnt/docker/rootfs/
+bin dev etc home lib lib64 lost+found media mnt opt proc root run sbin srv sys tmp usr var</pre>
+    <p>
+     我们在docker的容器里用findmnt命令也可以看到相关的mount的情况（因为太长，下面只是摘要）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell"># findmnt
+TARGET                SOURCE               
+/                 /dev/mapper/docker-253:0-104108535-deefcd630a60[/rootfs]
+/etc/resolv.conf  /dev/mapper/centos-root[/var/lib/docker/containers/deefcd630a60/resolv.conf]
+/etc/hostname     /dev/mapper/centos-root[/var/lib/docker/containers/deefcd630a60/hostname]
+/etc/hosts        /dev/mapper/centos-root[/var/lib/docker/containers/deefcd630a60/hosts]</pre>
+    <h4>
+     <span class="ez-toc-section" id="Device_Mapper_%E8%A1%8C%E4%B8%8D%E8%A1%8C%EF%BC%9F">
+     </span>
+     Device Mapper 行不行？
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Thin Provisioning的文档中说，这还处理实验阶段，不要上Production.
+    </p>
+    <blockquote>
+     <p>
+      These targets are very much still in the EXPERIMENTAL state. Please do not yet rely on them in production.
+     </p>
+    </blockquote>
+    <p>
+     另外，Jeff Atwood在Twitter上发过这样的一推
+    </p>
+    <p>
+     <a href="https://twitter.com/codinghorror/status/604096348682485760">
+      <img alt="Jeff.Atwood.DeviceMapper" class="aligncenter size-full wp-image-17214" decoding="async" height="311" loading="lazy" sizes="(max-width: 607px) 100vw, 607px" src="https://coolshell.cn/wp-content/uploads/2015/08/Jeff.Atwood.DeviceMapper.png" srcset="https://coolshell.cn/wp-content/uploads/2015/08/Jeff.Atwood.DeviceMapper.png 607w, https://coolshell.cn/wp-content/uploads/2015/08/Jeff.Atwood.DeviceMapper-300x154.png 300w" width="607"/>
+     </a>
+    </p>
+    <p>
+     这个推指向的
+     <a href="https://forums.docker.com/t/rmi-not-freeing-disk-space-in-devicemapper-sparse-file-centos-6-6/1640/3" target="_blank">
+      这个讨论
+     </a>
+     中，其中指向了这个
+     <a href="https://github.com/discourse/discourse_docker/commit/48f22d14f39496c8df446cbc65ee04b258c5a1a0" target="_blank">
+      code diff
+     </a>
+     ，基本上就是说，DeviceMapper这种东西问题太多了，我们应该把其加入黑名单。Doker的Founder也这样回复到：
+    </p>
+    <p>
+     <a href="https://twitter.com/solomonstre/status/604055267303636992">
+      <img alt="" class="aligncenter size-full wp-image-17215" decoding="async" height="229" loading="lazy" sizes="(max-width: 620px) 100vw, 620px" src="https://coolshell.cn/wp-content/uploads/2015/08/Solomon.Hykeys.DeviceMapper.png" srcset="https://coolshell.cn/wp-content/uploads/2015/08/Solomon.Hykeys.DeviceMapper.png 620w, https://coolshell.cn/wp-content/uploads/2015/08/Solomon.Hykeys.DeviceMapper-300x111.png 300w" width="620"/>
+     </a>
+    </p>
+    <p>
+     所以，如果你在使用loopback的devicemapper的话，当你的存储出现了问题后，正确的解决方案是：
+    </p>
+    <p style="text-align: center;">
+     rm -rf /var/lib/docker
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18654.html">
+         <img alt="记一次Kubernetes/Docker网络排障" height="150" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18654.html">
+         记一次Kubernetes/Docker网络排障
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17061.html">
+         <img alt="Docker基础技术：AUFS" height="150" src="https://coolshell.cn/wp-content/uploads/2015/08/docker-filesystems-busyboxrw-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17061.html">
+         Docker基础技术：AUFS
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17049.html">
+         <img alt="Docker基础技术：Linux CGroup" height="150" src="https://coolshell.cn/wp-content/uploads/2015/04/filter-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17049.html">
+         Docker基础技术：Linux CGroup
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17010.html">
+         <img alt="Docker基础技术：Linux Namespace（上）" height="150" src="https://coolshell.cn/wp-content/uploads/2015/04/isolation-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17010.html">
+         Docker基础技术：Linux Namespace（上）
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17029.html">
+         <img alt="Docker基础技术：Linux Namespace（下）" height="150" src="https://coolshell.cn/wp-content/uploads/2015/04/jail_cell-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17029.html">
+         Docker基础技术：Linux Namespace（下）
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/22320.html">
+         <img alt="eBPF 介绍" height="150" src="https://coolshell.cn/wp-content/uploads/2022/12/eBPF-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/22320.html">
+         eBPF 介绍
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="4ebfd6c730" id="post-ratings-17200" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_17200_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 4, 0);" onmouseover="current_rating(17200, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_17200_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 4, 0);" onmouseover="current_rating(17200, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_17200_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 4, 0);" onmouseover="current_rating(17200, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_17200_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 4, 0);" onmouseover="current_rating(17200, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_17200_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 4, 0);" onmouseover="current_rating(17200, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      40
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.95
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_17200_text">
+     </span>
+     <meta content="Docker基础技术：DeviceMapper" itemprop="name"/>
+     <meta content="Docker基础技术：DeviceMapper" itemprop="headline"/>
+     <meta content="在上一篇介绍AUFS的文章中，大家可以看到，Docker的分层镜像是怎么通过UnionFS这种文件系统做到的，但是，因为Docker首选的AUFS并不在Linux的内核主干里，所以，对于非Ubuntu的Linux分发包，比如CentOS，就无法使用AUFS作为Docker的文件系统了。于是作为第二优先级的DeviceMapper就被拿出来做分层镜像的一个实现。
+Device Mapper 简介..." itemprop="description"/>
+     <meta content="2015-08-26T08:21:09+08:00" itemprop="datePublished"/>
+     <meta content="2015-08-27T09:21:11+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/17200.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/17200.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.95" itemprop="ratingValue"/>
+      <meta content="40" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-17200-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/operatingsystem/unixlinux" rel="category tag">
+        Unix/Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem" rel="category tag">
+        操作系统
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/device-mapper" rel="tag">
+        Device Mapper
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/docker" rel="tag">
+        Docker
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/linux" rel="tag">
+        Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/thin-provisioning" rel="tag">
+        Thin Provisioning
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

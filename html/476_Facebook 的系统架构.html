@@ -1,0 +1,793 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4549.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="Facebook 的系统架构 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4549.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2011-04-25T05:39:26+00:00" property="article:published_time"/>
+   <meta content="2011-04-25T06:12:07+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="Facebook 的系统架构 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4549.html#article","name":"Facebook \u7684\u7cfb\u7edf\u67b6\u6784 | \u9177 \u58f3 - CoolShell","headline":"Facebook \u7684\u7cfb\u7edf\u67b6\u6784","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2011-04-25T05:39:26+08:00","dateModified":"2011-04-25T06:12:07+08:00","inLanguage":"zh-CN","commentCount":49,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4549.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4549.html#webpage"},"articleSection":"\u6280\u672f\u65b0\u95fb, \u6742\u9879\u8d44\u6e90, Facebook, StackExchange"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4549.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4549.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4549.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4549.html","name":"Facebook \u7684\u7cfb\u7edf\u67b6\u6784 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4549.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2011-04-25T05:39:26+08:00","dateModified":"2011-04-25T06:12:07+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4549';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Facebook+%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84';
+	window._wp_rp_post_tags = ['stackexchange', 'facebook', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E6%8A%80%E6%9C%AF%E6%96%B0%E9%97%BB', 'a3', 'pad', 'a4', 'cassandra', 'architectur', 'php', 'hadoop', 'messag', 'facebook', 'a', 'a1'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4549.html/feed" rel="alternate" title="酷 壳 - CoolShell » Facebook 的系统架构评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4549" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4549" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4549.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4549.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4549 post type-post status-publish format-standard hentry category-technews category-misc tag-facebook tag-stackexchange" id="post-4549">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     Facebook 的系统架构
+    </span>
+    <h1 class="entry-title">
+     Facebook 的系统架构
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4549.html" rel="bookmark" title="13:39">
+       <time class="entry-date" datetime="2011-04-25T13:39:26+08:00" pubdate="">
+        2011年04月25日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4549.html#comments">
+       49 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      43,131 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <strong>
+      来源
+     </strong>
+     ：
+     <a href="https://www.quora.com/What-is-Facebooks-architecture" target="_blank" title="What is Facebook's Architecture?">
+      http://www.quora.com/What-is-Facebooks-architecture
+     </a>
+     （由
+     <a href="https://www.quora.com/Micha%C3%ABl-Figui%C3%A8re">
+      Micha?l Figuière
+     </a>
+     回答）
+    </p>
+    <p>
+     根据我现有的阅读和谈话，我所理解的今天Facebook的架构如下：
+    </p>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      Web 前端是由 PHP 写的。Facebook 的
+      <a href=" http://developers.facebook.com/blog/post/358" target="_blank">
+       HipHop
+      </a>
+      [1] 会把PHP转成 C++ 并用 g++编译，这样就可以为模板和Web逻贺业务层提供高的性能。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      业务逻辑以Service的形式存在，其使用
+      <a href="http://thrift.apache.org/" target="_blank">
+       Thrift
+      </a>
+      [2]。这些Service根据需求的不同由PHP，C++或Java实现（也可以用到了其它的一些语言……）
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      用Java写的Services没有用到任何一个企业级的应用服务器，但用到了Facebook自己的定制的应用服务器。看上去好像是重新发明轮子，但是这些Services只被暴露给Thrift使用（绝大所数是这样），Tomcat太重量级了，即使是Jetty也可能太过了点，其附加值对Facebook所需要的没有意义。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      持久化由MySQL,
+      <a href="http://memcached.org/" target="_blank">
+       Memcached
+      </a>
+      [3], Facebook 的
+      <a href="http://cassandra.apache.org/" target="_blank">
+       Cassandra
+      </a>
+      [4], Hadoop 的
+      <a href="http://hbase.apache.org/" target="_blank">
+       HBase
+      </a>
+      [5] 完成。Memcached 使用了MySQL的内存Cache。Facebook 工程师承认他们的Cassandra 使用正在减少，因为他们更喜欢HBase，因为它的更简单的一致性模型，以到其MapReduce能力。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      离线处理使用Hadoop 和 Hive。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      日志，点击，feeds数据使用
+      <a href="https://github.com/facebook/scribe" target="_blank">
+       Scribe
+      </a>
+      [6]，把其聚合并存在 HDFS，其使用
+      <a href="https://hadoopblog.blogspot.com/2009/06/hdfs-scribe-integration.html" target="_blank">
+       Scribe-HDFS
+      </a>
+      [7]，因而允许使用MapReduce进行扩展分析。
+     </li>
+    </ul>
+    <p>
+     <span id="more-4549">
+     </span>
+    </p>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      <a href="https://www.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919" target="_blank">
+       BigPipe
+      </a>
+      [8] 是他们的定制技术，用来加速页面显示。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      <a href="http://www.varnish-cache.org/" target="_blank">
+       Varnish Cache
+      </a>
+      [9]用作HTTP代理。他们用这个的原因是
+      <a href="http://www.varnish-software.com/customers/facebook" target="_blank">
+       高速和有效率
+      </a>
+      。 [10].
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      用来搞定用户
+      <a href="https://www.facebook.com/note.php?note_id=76191543919" target="_blank">
+       上传的十亿张照片的存储
+      </a>
+      ，其由Haystack处理，Facebook自己开发了一个Ad-Hoc存储方案，其主要做了一些低层优化和“仅追加”写技术 [11].
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      Facebook Messages 使用了自己的架构，其明显地构建在了一个动态集群的基础架构上。业务逻辑和持久化被封装在一个所谓的’Cell’。每个‘Cell’都处理一部分用户，新的‘Cell’可以因为访问热度被添加[12]。 持久化归档使用HBase [13]。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      Facebook Messages 的搜索引擎由存储在HBase中的一个倒置索引的构建。 [14]
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      Facebook 搜索引擎实现细节据我所知目前是未知状态。
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      Typeahead 搜索使用了一个定制的存储和检索逻辑。 [15]
+     </li>
+    </ul>
+    <ul style="margin: 5px 0px 0px 1.6em; padding: 0px; list-style-type: disc;">
+     <li>
+      Chat 基于一个Epoll 服务器，这个服务器由Erlang 开发，由Thrift存取 [16]
+     </li>
+    </ul>
+    <p>
+     关于那些供给给上述组件的资源，下面是一些信息和数量，但是有一些是未知的：
+    </p>
+    <ul>
+     <li>
+      Facebook估计有超过60,000 台服务器[16]。他们最新的数据中心在俄勒冈州的Prineville，其基于完全自定设计的硬件[17] 那是最近才公开的
+      <a href="http://opencompute.org" target="_blank">
+       Open Compute 项目
+      </a>
+      [18]。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      300 TB 的数据存在 Memcached 中处理 [19]
+     </li>
+    </ul>
+    <ul>
+     <li>
+      他们的Hadoop 和 Hive 集群由3000 服务器组成，每台服务器有8个核，32GB的内存，12TB的硬盘，全部有2万4千个CPU的核，96TB内存和36PB的硬盘。 [20]
+     </li>
+    </ul>
+    <ul>
+     <li>
+      每天有1000亿的点击量，500亿张照片， 3 万亿个对象被 Cache，每天130TB的日志（
+      <a href="https://www.facebook.com/note.php?note_id=409881258919" target="_blank">
+       2010年7月的数据
+      </a>
+      ） [21]
+     </li>
+    </ul>
+    <p>
+     <strong>
+      参考引用
+     </strong>
+    </p>
+    <p>
+     [1]
+     <em style="margin: 0px; padding: 0px;">
+      HipHop for PHP
+     </em>
+     :
+     <a href="https://developers.facebook.com/blog/post/358">
+      http://developers.facebook.com/blog/post/358
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [2]
+     <em style="margin: 0px; padding: 0px;">
+      Thrift
+     </em>
+     :
+     <a href="http://thrift.apache.org/">
+      http://thrift.apache.org/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [3]
+     <em style="margin: 0px; padding: 0px;">
+      Memcached
+     </em>
+     :
+     <a href="http://memcached.org/">
+      http://memcached.org/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [4]
+     <em style="margin: 0px; padding: 0px;">
+      Cassandra
+     </em>
+     :
+     <a href="http://cassandra.apache.org/">
+      http://cassandra.apache.org/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [5]
+     <em style="margin: 0px; padding: 0px;">
+      HBase
+     </em>
+     :
+     <a href="http://hbase.apache.org/">
+      http://hbase.apache.org/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [6]
+     <em style="margin: 0px; padding: 0px;">
+      Scribe
+     </em>
+     :
+     <a href="https://github.com/facebook/scribe">
+      https://github.com/facebook/scribe
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [7]
+     <em style="margin: 0px; padding: 0px;">
+      Scribe-HDFS
+     </em>
+     :
+     <a href="https://hadoopblog.blogspot.com/2009/06/hdfs-scribe-integration.html">
+      http://hadoopblog.blogspot.com/2009/06/hdfs-scribe-integration.html
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [8]
+     <em style="margin: 0px; padding: 0px;">
+      BigPipe
+     </em>
+     :
+     <a href="https://www.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919">
+      http://www.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [9]
+     <em style="margin: 0px; padding: 0px;">
+      Varnish Cache
+     </em>
+     :
+     <a href="http://www.varnish-cache.org/">
+      http://www.varnish-cache.org/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [10]
+     <em style="margin: 0px; padding: 0px;">
+      Facebook goes for Varnish
+     </em>
+     :
+     <a href="http://www.varnish-software.com/customers/facebook">
+      http://www.varnish-software.com/customers/facebook
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [11]
+     <em style="margin: 0px; padding: 0px;">
+      Needle in a haystack
+     </em>
+     : efficient storage of billions of photos:
+     <a href="https://www.facebook.com/note.php?note_id=76191543919">
+      http://www.facebook.com/note.php?note_id=76191543919
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [12]
+     <em style="margin: 0px; padding: 0px;">
+      Scaling the Messages Application Back End
+     </em>
+     :
+     <a href="https://www.facebook.com/note.php?note_id=10150148835363920">
+      http://www.facebook.com/note.php?note_id=10150148835363920
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [13]
+     <em style="margin: 0px; padding: 0px;">
+      The Underlying Technology of Messages
+     </em>
+     :
+     <a href="https://www.facebook.com/note.php?note_id=454991608919">
+      https://www.facebook.com/note.php?note_id=454991608919
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [14]
+     <em style="margin: 0px; padding: 0px;">
+      The Underlying Technology of Messages Tech Talk
+     </em>
+     :
+     <a href="https://www.facebook.com/video/video.php?v=690851516105">
+      http://www.facebook.com/video/video.php?v=690851516105
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [15]
+     <em style="margin: 0px; padding: 0px;">
+      Facebook’s typeahead search architecture
+     </em>
+     :
+     <a href="https://www.facebook.com/video/video.php?v=432864835468">
+      http://www.facebook.com/video/video.php?v=432864835468
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [16]
+     <em style="margin: 0px; padding: 0px;">
+      Facebook Chat
+     </em>
+     :
+     <a href="https://www.facebook.com/note.php?note_id=14218138919">
+      http://www.facebook.com/note.php?note_id=14218138919
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [17]
+     <em style="margin: 0px; padding: 0px;">
+      Who has the most Web Servers?
+     </em>
+     :
+     <a href="http://www.datacenterknowledge.com/archives/2009/05/14/whos-got-the-most-web-servers/">
+      http://www.datacenterknowledge.com/archives/2009/05/14/whos-got-the-most-web-servers/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [18] B
+     <em style="margin: 0px; padding: 0px;">
+      uilding Efficient Data Centers with the Open Compute Project
+     </em>
+     :
+     <a href="https://www.facebook.com/note.php?note_id=10150144039563920">
+      http://www.facebook.com/note.php?note_id=10150144039563920
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [19]
+     <em style="margin: 0px; padding: 0px;">
+      Open Compute Project
+     </em>
+     :
+     <a href="http://opencompute.org/">
+      http://opencompute.org/
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [20]
+     <em style="margin: 0px; padding: 0px;">
+      Facebook’s architecture presentation at Devoxx 2010
+     </em>
+     :
+     <a href="http://www.devoxx.com">
+      http://www.devoxx.com
+     </a>
+     <br style="margin: 0px; padding: 0px;"/>
+     [21]
+     <em style="margin: 0px; padding: 0px;">
+      Scaling Facebook to 500 millions users and beyond
+     </em>
+     :
+     <a href="https://www.facebook.com/note.php?note_id=409881258919">
+      http://www.facebook.com/note.php?note_id=409881258919
+     </a>
+    </p>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4939.html">
+         <img alt="Quora使用到的技术" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4939.html">
+         Quora使用到的技术
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18140.html">
+         <img alt="关于Facebook 的 React 专利许可证" height="150" src="https://coolshell.cn/wp-content/uploads/2017/09/react_patent-360x200-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18140.html">
+         关于Facebook 的 React 专利许可证
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7448.html">
+         <img alt="扎克伯格的一封信：关于Facebook IPO" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/15.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7448.html">
+         扎克伯格的一封信：关于Facebook IPO
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3721.html">
+         <img alt="Stack Exchange 的架构" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/13.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3721.html">
+         Stack Exchange 的架构
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/3396.html">
+         <img alt="Facebook全球关系网" height="150" src="https://coolshell.cn/wp-content/uploads/2010/12/Visualizing-Friendships-on-Facebook-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/3396.html">
+         Facebook全球关系网
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5709.html">
+         <img alt="API设计：用流畅接口构造内部DSL" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/29.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5709.html">
+         API设计：用流畅接口构造内部DSL
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="bd86875006" id="post-ratings-4549" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4549_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(4549, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4549_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(4549, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4549_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(4549, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4549_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(4549, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4549_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4, 0, 0);" onmouseover="current_rating(4549, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      12
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.00
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4549_text">
+     </span>
+     <meta content="Facebook 的系统架构" itemprop="name"/>
+     <meta content="Facebook 的系统架构" itemprop="headline"/>
+     <meta content="来源：http://www.quora.com/What-is-Facebooks-architecture （由Micha?l Figuière回答）
+
+根据我现有的阅读和谈话，我所理解的今天Facebook的架构如下：
+
+	Web 前端是由 PHP 写的。Facebook 的 HipHop [1] 会把PHP转成 C++ 并用 g++编译，这样就可以为模板和Web逻贺业务层提供高的性能..." itemprop="description"/>
+     <meta content="2011-04-25T13:39:26+08:00" itemprop="datePublished"/>
+     <meta content="2011-04-25T14:12:07+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4549.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4549.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4" itemprop="ratingValue"/>
+      <meta content="12" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4549-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/technews" rel="category tag">
+        技术新闻
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/facebook" rel="tag">
+        Facebook
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/stackexchange" rel="tag">
+        StackExchange
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

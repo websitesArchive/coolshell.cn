@@ -1,0 +1,754 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/1218.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="简单实用的Code Review工具 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/1218.html" property="og:url"/>
+   <meta content="https://www.review-board.org/media/rbsite/images/logo.png?1238930581" property="og:image"/>
+   <meta content="https://www.review-board.org/media/rbsite/images/logo.png?1238930581" property="og:image:secure_url"/>
+   <meta content="2009-08-04T09:09:13+00:00" property="article:published_time"/>
+   <meta content="2012-09-21T02:29:19+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="简单实用的Code Review工具 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="http://www.review-board.org/media/rbsite/images/logo.png?1238930581" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/1218.html#article","name":"\u7b80\u5355\u5b9e\u7528\u7684Code Review\u5de5\u5177 | \u9177 \u58f3 - CoolShell","headline":"\u7b80\u5355\u5b9e\u7528\u7684Code Review\u5de5\u5177","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"http:\/\/www.review-board.org\/media\/rbsite\/images\/logo.png?1238930581","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2009-08-04T09:09:13+08:00","dateModified":"2012-09-21T02:29:19+08:00","inLanguage":"zh-CN","commentCount":21,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/1218.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/1218.html#webpage"},"articleSection":"\u6742\u9879\u8d44\u6e90, \u7f16\u7a0b\u5de5\u5177, Code Review, Codestriker, Coding, Groogle, JCR, Jupiter, Review board, Rietveld"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/1218.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/1218.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/1218.html#webpage","url":"https:\/\/coolshell.cn\/articles\/1218.html","name":"\u7b80\u5355\u5b9e\u7528\u7684Code Review\u5de5\u5177 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/1218.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2009-08-04T09:09:13+08:00","dateModified":"2012-09-21T02:29:19+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '1218';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8%E7%9A%84Code+Review%E5%B7%A5%E5%85%B7';
+	window._wp_rp_post_tags = ['code+review', 'jupiter', 'groogle', 'codestriker', 'review+board', 'jcr', 'coding', 'rietveld', '%E6%9D%82%E9%A1%B9%E8%B5%84%E6%BA%90', '%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7', 'cv', 'code', 'a', 'rossum', 'height', 'van', 'app', 'guido', 'alt', 'review', 'web', 'yahoo', 'googl', 'jason', 'visual'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/1218.html/feed" rel="alternate" title="酷 壳 - CoolShell » 简单实用的Code Review工具评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/1218" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=1218" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F1218.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F1218.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-1218 post type-post status-publish format-standard hentry category-misc category-tools tag-code-review tag-codestriker tag-coding tag-groogle tag-jcr tag-jupiter tag-review-board tag-rietveld" id="post-1218">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     简单实用的Code Review工具
+    </span>
+    <h1 class="entry-title">
+     简单实用的Code Review工具
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/1218.html" rel="bookmark" title="17:09">
+       <time class="entry-date" datetime="2009-08-04T17:09:13+08:00" pubdate="">
+        2009年08月04日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/1218.html#comments">
+       21 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      54,550 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright" decoding="async" height="123" src="http://www.review-board.org/media/rbsite/images/logo.png?1238930581" title="Code Review" width="130"/>
+     Code Review中文应该译作“代码审查”或是“代码评审”，这是一个流程，当开发人员写好代码后，需要让别人来review一下他的代码，这是一种有效发现BUG的方法。由此，我们可以审查代码的风格、逻辑、思路……，找出问题，以及改进代码。因为这是代码刚刚出炉的时候，所以，这也是代码重构，代码调整，代码修改的最佳时候。所以，Code Review是编码实现中最最重要的一个环节。
+    </p>
+    <p>
+     长时间以来，Code Review需要有一些有效的工具来支持，这样我们就可以更容易，更有效率地来进行代码审查工作。下面是5个开源的代码审查工具，他们可以帮助你更容易地进行这项活动。
+    </p>
+    <p>
+     <strong>
+      1.
+      <a href="http://www.review-board.org/" target="_blank">
+       Review board
+      </a>
+      :
+     </strong>
+     <br/>
+     <a href="http://www.review-board.org/" target="_blank">
+      Review board
+     </a>
+     是一个 基于web 的工具，是由
+     <a href="https://www.djangoproject.com/" target="_blank">
+      django
+     </a>
+     和
+     <a href="https://www.python.org/" target="_blank">
+      python
+     </a>
+     设计的。
+     <a href="http://www.review-board.org/" target="_blank">
+      Review board
+     </a>
+     可以帮助我们追踪待决代码的改动，并可以让Code-Review更为容易和简练。尽管
+     <a href="http://www.review-board.org/" target="_blank">
+      Review board
+     </a>
+     最初被设计在
+     <a href="http://www.vmware.com/" target="_blank">
+      VMware
+     </a>
+     项目中使用，但现在其足够地通用。当前，其支持这些代码版本管理软件：
+     <a href="http://subversion.tigris.org/" target="_blank">
+      SVN
+     </a>
+     , CVS,
+     <a href="http://www.perforce.com/" target="_blank">
+      Perforce
+     </a>
+     ,
+     <a href="http://git-scm.com/" target="_blank">
+      Git
+     </a>
+     ,
+     <a href="http://bazaar-vcs.org/" target="_blank">
+      Bazaar
+     </a>
+     , 和
+     <a href="http://www.selenic.com/mercurial/wiki/" target="_blank">
+      Mercurial
+     </a>
+     .
+    </p>
+    <p>
+     <span id="more-1218">
+     </span>
+    </p>
+    <p>
+     Yahoo 是
+     <a href="http://www.review-board.org/" target="_blank">
+      review-board
+     </a>
+     的其中一个用户。
+    </p>
+    <p style="padding-left: 30px;">
+     “
+     <a href="http://www.review-board.org/" target="_blank">
+      Review board
+     </a>
+     已经改变了代码评审的方式，其可以强迫高质量的代码标准和风格，并可以成为程序员编程的指导者。每一次，当你访问search.yahoo.com 时，其代码都是使用
+     <a href="http://www.review-board.org/" target="_blank">
+      Review board
+     </a>
+     工具Review过的。 We’re great fans of your work!” – Yahoo! Web Search
+    </p>
+    <h3>
+     <a href="http://www.review-board.org/media/screenshots/2009/02/02/review-requests.png">
+      <img alt="Detailed review requests" class="aligncenter" decoding="async" src="http://www.review-board.org/media/screenshots/2009/02/02/review-requests_thumb.png"/>
+     </a>
+    </h3>
+    <div>
+     <a href="http://www.review-board.org/media/screenshots/2009/02/02/diffviewer.png">
+      <img alt="Powerful diff viewer" class="aligncenter" decoding="async" src="http://www.review-board.org/media/screenshots/2009/02/02/diffviewer_thumb.png"/>
+     </a>
+    </div>
+    <p>
+     <strong>
+      2.
+      <a href="http://codestriker.sourceforge.net/" target="_blank">
+       Codestriker
+      </a>
+      :
+     </strong>
+     <br/>
+     <a href="http://codestriker.sourceforge.net/" target="_blank">
+      Codestriker
+     </a>
+     也是一个基于Web的应用，其主要使用 GCI-Perl 脚本支持在线的代码审查。
+     <a href="http://codestriker.sourceforge.net/" target="_blank">
+      Codestriker
+     </a>
+     可以集成于CVS,
+     <a href="http://subversion.tigris.org/" target="_blank">
+      Subversion
+     </a>
+     ,
+     <a href="http://www-01.ibm.com/software/awdtools/clearcase/" target="_blank">
+      ClearCase
+     </a>
+     ,
+     <a href="http://www.perforce.com/" target="_blank">
+      Perforce
+     </a>
+     和Visual SourceSafe。并有一些插件可以提供支持其它的源码管理工具。
+    </p>
+    <p>
+     David Sitsky 是
+     <a href="http://codestriker.sourceforge.net/" target="_blank">
+      Codestriker
+     </a>
+     的作者，并也是最活跃的开发人员之一。 Jason Remillard 是另一个活路的开发者，并给这个项目提供了最深远最有意义的贡献。大量的程序员贡献他们的代码给
+     <a href="http://codestriker.sourceforge.net/" target="_blank">
+      Codestriker
+     </a>
+     项目，导致了这个项目空前的繁荣。
+    </p>
+    <p>
+     <img alt="http://codestriker.sourceforge.net/viewtopicdetail.png" class="aligncenter" decoding="async" height="544" loading="lazy" src="http://codestriker.sourceforge.net/viewtopicdetail.png" width="686"/>
+    </p>
+    <p>
+     <strong>
+      3.
+      <a href="http://groogle.sourceforge.net/" target="_blank">
+       Groogle
+      </a>
+      :
+     </strong>
+     <br/>
+     <a href="http://groogle.sourceforge.net/" target="_blank">
+      Groogle
+     </a>
+     是一个基于WEB的代码评审工具。
+     <a href="http://groogle.sourceforge.net/" target="_blank">
+      Groogle
+     </a>
+     支持和
+     <a href="http://subversion.tigris.org/" target="_blank">
+      Subversion
+     </a>
+     集成。它主要提供如下的功能：
+    </p>
+    <ul>
+     <li>
+      各式各样语言的语法高亮。
+     </li>
+     <li>
+      支持整个版本树的比较。
+     </li>
+     <li>
+      支持当个文件不同版本的diff功能，并有一个图形的版本树。
+     </li>
+     <li>
+      邮件通知所有的Reivew的人当前的状态。
+     </li>
+     <li>
+      认证机制。
+     </li>
+    </ul>
+    <p>
+     <img alt="Screenshot" border="1" class="aligncenter" decoding="async" height="480" loading="lazy" src="http://sourceforge.net/dbimage.php?id=218190" width="598"/>
+    </p>
+    <p>
+     <strong>
+      4.
+      <a href="https://code.google.com/p/rietveld/" target="_blank">
+       Rietveld
+      </a>
+      :
+     </strong>
+     <br/>
+     <a href="https://code.google.com/p/rietveld/" target="_blank">
+      Rietveld
+     </a>
+     由Guido van Rossum 开发（他是Python的创造者，现在是Google的员工），这个工具是基于Mondrian 工具，作者一开始是为了Google 开发的，并且，它在很多方面和
+     <a href="http://www.review-board.org/" target="_blank">
+      Review board
+     </a>
+     很像。它也是一个基于Web的应用，并在
+     <a href="https://code.google.com/appengine/" target="_blank">
+      Google App Engine
+     </a>
+     上。它使用了目前最流行的Web开发框架
+     <a href="https://www.djangoproject.com/" target="_blank">
+      django
+     </a>
+     并支持
+     <a href="http://subversion.tigris.org/" target="_blank">
+      Subversion
+     </a>
+     。当前，任何一个使用 Google Code 的项目都可以使用
+     <a href="https://code.google.com/p/rietveld/" target="_blank">
+      Rietveld
+     </a>
+     并且使用
+     <a href="https://www.python.org/" target="_blank">
+      python
+     </a>
+     <a href="http://subversion.tigris.org/" target="_blank">
+      Subversion
+     </a>
+     服务器。当然，它同样支持其它的Subversion服务器。
+    </p>
+    <p>
+     <span style="position: relative;">
+      <a href="javascript:dyn.onClickNextTbn()">
+       <img alt="" class="aligncenter" decoding="async" id="imgb" src="http://info-database.csdn.net/Upload/2008-11-13/Reviewboard.jpg" style="width: 497px; height: 375px;" title="下一张"/>
+      </a>
+     </span>
+    </p>
+    <p>
+     <span style="position: relative;">
+     </span>
+    </p>
+    <p>
+     <strong>
+      5.
+      <a href="http://jcodereview.sourceforge.net/" target="_blank">
+       JCR
+      </a>
+     </strong>
+     <br/>
+     <a href="http://jcodereview.sourceforge.net/" target="_blank">
+      JCR
+     </a>
+     或者叫做 JCodeReview 也是一个基于WEB界面的最初设计给Reivew Java 语言的一个工具。当然，现在，它可以被用于其它的非Java的代码。
+    </p>
+    <p>
+     <a href="http://jcodereview.sourceforge.net/" target="_blank">
+      JCR
+     </a>
+     主要想协助：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       审查者
+      </strong>
+      。所有的代码更改都会被高亮，以及大多数语言的语法高亮。Code extracts 可以显示代码评审意见。如果你正在Review Java的代码，你可以点击代码中的类名来查看相关的类的声明。
+     </li>
+     <li>
+      <strong>
+       项目所有者
+      </strong>
+      。可以 轻松创建并配置需要Review的项目，并不需要集成任何的软件配置管理系统（SCM）。
+     </li>
+     <li>
+      <strong>
+       流程信仰者
+      </strong>
+      。 所有的评语都会被记录在数据库中，并且会有状态报告，以及各种各样的统计。
+     </li>
+     <li>
+      <strong>
+       架构师和开发者
+      </strong>
+      。 这个系统也可以让我们查看属于单个文件的评语，这样有利于我们重构代码。
+     </li>
+    </ul>
+    <p>
+     <a href="http://jcodereview.sourceforge.net/" target="_blank">
+      JCR
+     </a>
+     主要面对的是大型的项目，或是非常正式的代码评审，从这方面看来，他并不像上面的那些工具。
+    </p>
+    <p>
+     <img alt="Screenshot" border="1" class="aligncenter" decoding="async" src="http://sourceforge.net/projects/jcodereview/screenshots/242251" style="border: 1px solid black;"/>
+    </p>
+    <p>
+     <strong>
+      <a href="https://code.google.com/p/jupiter-eclipse-plugin/" target="_blank">
+       Jupiter
+      </a>
+     </strong>
+     ：最后我们要提一下
+     <a href="https://code.google.com/p/jupiter-eclipse-plugin/" target="_blank">
+      Jupiter
+     </a>
+     ，这是另一个代码review的工具你可以去考虑使用的，它是一个Eclipse IDE 的插件。
+    </p>
+    <p>
+     文章：
+     <a href="http://open-tube.com/easy-code-review-tools/" target="_blank">
+      来源
+     </a>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4875.html">
+         <img alt="一个空格引发的惨剧" height="150" src="https://coolshell.cn/wp-content/uploads/2011/06/20110620115951113-150x150.gif" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4875.html">
+         一个空格引发的惨剧
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18024.html">
+         <img alt="API设计原则 – Qt官网的设计实践总结" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/api-design-300x278-2-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18024.html">
+         API设计原则 – Qt官网的设计实践总结
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17757.html">
+         <img alt="如何重构“箭头型”代码" height="150" src="https://coolshell.cn/wp-content/uploads/2017/04/IMG_7411-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17757.html">
+         如何重构“箭头型”代码
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11432.html">
+         <img alt="从Code Review 谈如何做技术" height="150" src="https://coolshell.cn/wp-content/uploads/2014/04/code_review-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11432.html">
+         从Code Review 谈如何做技术
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8990.html">
+         <img alt="Linus：利用二级指针删除单向链表" height="150" src="https://coolshell.cn/wp-content/uploads/2013/02/linus_pointer_to_pointer-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8990.html">
+         Linus：利用二级指针删除单向链表
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8745.html">
+         <img alt="如此理解面向对象编程" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/8.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8745.html">
+         如此理解面向对象编程
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="595711820a" id="post-ratings-1218" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_1218_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1218, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_1218_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1218, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_1218_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1218, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_1218_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1218, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_1218_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.3, 4, 0);" onmouseover="current_rating(1218, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      7
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.29
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_1218_text">
+     </span>
+     <meta content="简单实用的Code Review工具" itemprop="name"/>
+     <meta content="简单实用的Code Review工具" itemprop="headline"/>
+     <meta content="Code Review中文应该译作“代码审查”或是“代码评审”，这是一个流程，当开发人员写好代码后，需要让别人来review一下他的代码，这是一种有效发现BUG的方法。由此，我们可以审查代码的风格、逻辑、思路……，找出问题，以及改进代码。因为这是代码刚刚出炉的时候，所以，这也是代码重构，代码调整，代码修改的最佳时候。所以，Code Review是编码实现中最最重要的一个环节。
+
+长时间以来，C..." itemprop="description"/>
+     <meta content="2009-08-04T17:09:13+08:00" itemprop="datePublished"/>
+     <meta content="2012-09-21T10:29:19+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/1218.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/1218.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.29" itemprop="ratingValue"/>
+      <meta content="7" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-1218-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/misc" rel="category tag">
+        杂项资源
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/tools" rel="category tag">
+        编程工具
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/code-review" rel="tag">
+        Code Review
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/codestriker" rel="tag">
+        Codestriker
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/coding" rel="tag">
+        Coding
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/groogle" rel="tag">
+        Groogle
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/jcr" rel="tag">
+        JCR
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/jupiter" rel="tag">
+        Jupiter
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/review-board" rel="tag">
+        Review board
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/rietveld" rel="tag">
+        Rietveld
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

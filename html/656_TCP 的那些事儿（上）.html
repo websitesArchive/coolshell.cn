@@ -1,0 +1,1124 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/11564.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="activity" property="og:type"/>
+   <meta content="TCP 的那些事儿（上） | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/11564.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone.jpg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone.jpg" property="og:image:secure_url"/>
+   <meta content="495" property="og:image:width"/>
+   <meta content="353" property="og:image:height"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="TCP 的那些事儿（上） | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone.jpg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/11564.html#article","name":"TCP \u7684\u90a3\u4e9b\u4e8b\u513f\uff08\u4e0a\uff09 | \u9177 \u58f3 - CoolShell","headline":"TCP \u7684\u90a3\u4e9b\u4e8b\u513f\uff08\u4e0a\uff09","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2014\/05\/tin-can-phone.jpg","@id":"https:\/\/coolshell.cn\/#articleImage","width":495,"height":353},"datePublished":"2014-05-28T00:15:36+08:00","dateModified":"2015-11-21T06:16:34+08:00","inLanguage":"zh-CN","commentCount":237,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/11564.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/11564.html#webpage"},"articleSection":"\u7a0b\u5e8f\u8bbe\u8ba1, \u7f16\u7a0b\u8bed\u8a00, \u7f51\u7edc\u5b89\u5168, ACK, ISN, MSL, SACK, SYN, TCP, TIME_WAIT"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/11564.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/11564.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/11564.html#webpage","url":"https:\/\/coolshell.cn\/articles\/11564.html","name":"TCP \u7684\u90a3\u4e9b\u4e8b\u513f\uff08\u4e0a\uff09 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/11564.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2014-05-28T00:15:36+08:00","dateModified":"2015-11-21T06:16:34+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '11564';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'TCP+%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF%EF%BC%88%E4%B8%8A%EF%BC%89';
+	window._wp_rp_post_tags = ['msl', 'ack', 'tcp', 'sack', 'isn', 'time_wait', 'syn', '%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1', '%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80', '%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8', 'protect', 'design', 'sequenc', 'technic', 'tabl', '4s', 'protocol', 'server', '16', '32', 'alt', 'graph', 'a', 'bucket', 'wrap'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/11564.html/feed" rel="alternate" title="酷 壳 - CoolShell » TCP 的那些事儿（上）评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/11564" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=11564" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11564.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F11564.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-11564 post type-post status-publish format-standard hentry category-progdesign category-proglanguage category-netsecurity tag-ack tag-isn tag-msl tag-sack tag-syn tag-tcp tag-time_wait" id="post-11564">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     TCP 的那些事儿（上）
+    </span>
+    <h1 class="entry-title">
+     TCP 的那些事儿（上）
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/11564.html" rel="bookmark" title="08:15">
+       <time class="entry-date" datetime="2014-05-28T08:15:36+08:00" pubdate="">
+        2014年05月28日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/11564.html#comments">
+       237 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      493,746 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright wp-image-11654" decoding="async" height="257" sizes="(max-width: 360px) 100vw, 360px" src="https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone.jpg 495w, https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone-300x214.jpg 300w, https://coolshell.cn/wp-content/uploads/2014/05/tin-can-phone-379x270.jpg 379w" width="360"/>
+     TCP是一个巨复杂的协议，因为他要解决很多问题，而这些问题又带出了很多子问题和阴暗面。所以学习TCP本身是个比较痛苦的过程，但对于学习的过程却能让人有很多收获。关于TCP这个协议的细节，我还是推荐你去看
+     <a href="http://www.kohala.com/start/" target="_blank">
+      W.Richard Stevens
+     </a>
+     的《
+     <a href="http://book.douban.com/subject/1088054/" target="_blank">
+      TCP/IP 详解 卷1：协议
+     </a>
+     》（当然，你也可以去读一下
+     <a href="http://tools.ietf.org/html/rfc793" target="_blank">
+      RFC793
+     </a>
+     以及后面N多的RFC）。另外，本文我会使用英文术语，这样方便你通过这些英文关键词来查找相关的技术文档。
+    </p>
+    <p>
+     之所以想写这篇文章，目的有三个，
+    </p>
+    <ul>
+     <li>
+      一个是想锻炼一下自己是否可以用简单的篇幅把这么复杂的TCP协议描清楚的能力。
+     </li>
+     <li>
+      另一个是觉得现在的好多程序员基本上不会认认真真地读本书，喜欢快餐文化，所以，希望这篇快餐文章可以让你对TCP这个古典技术有所了解，并能体会到软件设计中的种种难处。并且你可以从中有一些软件设计上的收获。
+     </li>
+     <li>
+      最重要的希望这些基础知识可以让你搞清很多以前一些似是而非的东西，并且你能意识到基础的重要。
+     </li>
+    </ul>
+    <p>
+     所以，本文不会面面俱到，只是对TCP协议、算法和原理的科普。
+    </p>
+    <p>
+     <span id="more-11564">
+     </span>
+    </p>
+    <p>
+     我本来只想写一个篇幅的文章的，但是TCP真TMD的复杂，比C++复杂多了，这30多年来，各种优化变种争论和修改。所以，写着写着就发现只有砍成两篇。
+    </p>
+    <ul>
+     <li>
+      上篇中，主要向你介绍TCP协议的定义和丢包时的重传机制。
+     </li>
+     <li>
+      下篇中，重点介绍TCP的流迭、拥塞处理。
+     </li>
+    </ul>
+    <p>
+     废话少说，首先，我们需要知道TCP在网络OSI的七层模型中的第四层——Transport层，IP在第三层——Network层，ARP在第二层——Data Link层，在第二层上的数据，我们叫Frame，在第三层上的数据叫Packet，第四层的数据叫Segment。
+    </p>
+    <p>
+     首先，我们需要知道，我们程序的数据首先会打到TCP的Segment中，然后TCP的Segment会打到IP的Packet中，然后再打到以太网Ethernet的Frame中，传到对端后，各个层解析自己的协议，然后把数据交给更高层的协议处理。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#TCP%E5%A4%B4%E6%A0%BC%E5%BC%8F" title="TCP头格式">
+         TCP头格式
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#TCP%E7%9A%84%E7%8A%B6%E6%80%81%E6%9C%BA" title="TCP的状态机">
+         TCP的状态机
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84Sequence_Number" title="数据传输中的Sequence Number">
+         数据传输中的Sequence Number
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#TCP%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6" title="TCP重传机制">
+         TCP重传机制
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-5" href="#%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6" title="超时重传机制">
+           超时重传机制
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-6" href="#%E5%BF%AB%E9%80%9F%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6" title="快速重传机制">
+           快速重传机制
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#SACK_%E6%96%B9%E6%B3%95" title="SACK 方法">
+           SACK 方法
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-8" href="#Duplicate_SACK_%E2%80%93_%E9%87%8D%E5%A4%8D%E6%94%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E7%9A%84%E9%97%AE%E9%A2%98" title="Duplicate SACK – 重复收到数据的问题">
+           Duplicate SACK – 重复收到数据的问题
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="TCP%E5%A4%B4%E6%A0%BC%E5%BC%8F">
+     </span>
+     TCP头格式
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     接下来，我们来看一下TCP头的格式
+    </p>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-11572" decoding="async" height="284" loading="lazy" sizes="(max-width: 700px) 100vw, 700px" src="https://coolshell.cn/wp-content/uploads/2014/05/TCP-Header-01.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/05/TCP-Header-01.jpg 800w, https://coolshell.cn/wp-content/uploads/2014/05/TCP-Header-01-300x121.jpg 300w" width="700"/>
+     TCP头格式（
+     <a href="http://nmap.org/book/tcpip-ref.html" target="_blank">
+      图片来源
+     </a>
+     ）
+    </p>
+    <p>
+     你需要注意这么几点：
+    </p>
+    <ul>
+     <li>
+      TCP的包是没有IP地址的，那是IP层上的事。但是有源端口和目标端口。
+     </li>
+     <li>
+      一个TCP连接需要四个元组来表示是同一个连接（src_ip, src_port, dst_ip, dst_port）准确说是五元组，还有一个是协议。但因为这里只是说TCP协议，所以，这里我只说四元组。
+     </li>
+     <li>
+      注意上图中的四个非常重要的东西：
+      <ul>
+       <li>
+        <strong>
+         Sequence Number
+        </strong>
+        是包的序号，
+        <strong>
+         用来解决网络包乱序（reordering）问题。
+        </strong>
+       </li>
+       <li>
+        <strong>
+         Acknowledgement Number
+        </strong>
+        就是ACK——用于确认收到，
+        <strong>
+         用来解决不丢包的问题
+        </strong>
+        。
+       </li>
+       <li>
+        <strong>
+         Window又叫Advertised-Window
+        </strong>
+        ，也就是著名的滑动窗口（Sliding Window），
+        <strong>
+         用于解决流控的
+        </strong>
+        。
+       </li>
+       <li>
+        <strong>
+         TCP Flag
+        </strong>
+        ，也就是包的类型，
+        <strong>
+         主要是用于操控TCP的状态机的
+        </strong>
+        。
+       </li>
+      </ul>
+     </li>
+    </ul>
+    <p>
+     关于其它的东西，可以参看下面的图示
+    </p>
+    <p>
+     <img alt="" class="aligncenter wp-image-11573" decoding="async" height="214" loading="lazy" sizes="(max-width: 700px) 100vw, 700px" src="https://coolshell.cn/wp-content/uploads/2014/05/TCP-Header-02.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/05/TCP-Header-02.jpg 800w, https://coolshell.cn/wp-content/uploads/2014/05/TCP-Header-02-300x91.jpg 300w" width="700"/>
+    </p>
+    <p style="text-align: center;">
+     （
+     <a href="http://nmap.org/book/tcpip-ref.html" target="_blank">
+      图片来源
+     </a>
+     ）
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="TCP%E7%9A%84%E7%8A%B6%E6%80%81%E6%9C%BA">
+     </span>
+     TCP的状态机
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     其实，
+     <strong>
+      网络上的传输是没有连接的，包括TCP也是一样的
+     </strong>
+     。而TCP所谓的“连接”，其实只不过是在通讯的双方维护一个“连接状态”，让它看上去好像有连接一样。所以，TCP的状态变换是非常重要的。
+    </p>
+    <p>
+     下面是：“
+     <strong>
+      TCP协议的状态机
+     </strong>
+     ”（
+     <a href="http://www.tcpipguide.com/free/t_TCPOperationalOverviewandtheTCPFiniteStateMachineF-2.htm" target="_blank">
+      图片来源
+     </a>
+     ） 和 “
+     <strong>
+      TCP建链接
+     </strong>
+     ”、“
+     <strong>
+      TCP断链接
+     </strong>
+     ”、“
+     <strong>
+      传数据
+     </strong>
+     ” 的对照图，我把两个图并排放在一起，这样方便在你对照着看。另外，下面这两个图非常非常的重要，你一定要记牢。（吐个槽：看到这样复杂的状态机，就知道这个协议有多复杂，复杂的东西总是有很多坑爹的事情，所以TCP协议其实也挺坑爹的）
+    </p>
+    <p>
+     <img align="top" alt="" decoding="async" height="550" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2014/05/tcpfsm.png" width="386"/>
+     <img alt="" decoding="async" height="520" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2014/05/tcp_open_close.jpg" width="370"/>
+    </p>
+    <p>
+     很多人会问，为什么建链接要3次握手，断链接需要4次挥手？
+    </p>
+    <ul>
+     <li>
+      <strong>
+       对于建链接的3次握手，
+      </strong>
+      主要是要初始化Sequence Number 的初始值。通信的双方要互相通知对方自己的初始化的Sequence Number（缩写为ISN：Inital Sequence Number）——所以叫SYN，全称Synchronize Sequence Numbers。也就上图中的 x 和 y。这个号要作为以后的数据通信的序号，以保证应用层接收到的数据不会因为网络上的传输的问题而乱序（TCP会用这个序号来拼接数据）。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       对于4次挥手，
+      </strong>
+      其实你仔细看是2次，因为TCP是全双工的，所以，发送方和接收方都需要Fin和Ack。只不过，有一方是被动的，所以看上去就成了所谓的4次挥手。如果两边同时断连接，那就会就进入到CLOSING状态，然后到达TIME_WAIT状态。下图是双方同时断连接的示意图（你同样可以对照着TCP状态机看）：
+     </li>
+    </ul>
+    <p style="text-align: center;">
+     <img alt="" class="aligncenter wp-image-11586" decoding="async" height="395" loading="lazy" sizes="(max-width: 500px) 100vw, 500px" src="https://coolshell.cn/wp-content/uploads/2014/05/tcpclosesimul.png" srcset="https://coolshell.cn/wp-content/uploads/2014/05/tcpclosesimul.png 666w, https://coolshell.cn/wp-content/uploads/2014/05/tcpclosesimul-300x236.png 300w" width="500"/>
+     <br/>
+     两端同时断连接（
+     <a href="http://www.tcpipguide.com/free/t_TCPConnectionTermination-4.htm" target="_blank">
+      图片来源
+     </a>
+     ）
+    </p>
+    <p>
+    </p>
+    <p>
+     另外，有几个事情需要注意一下：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       关于建连接时SYN超时
+      </strong>
+      。试想一下，如果server端接到了clien发的SYN后回了SYN-ACK后client掉线了，server端没有收到client回来的ACK，那么，这个连接处于一个中间状态，即没成功，也没失败。于是，server端如果在一定时间内没有收到的TCP会重发SYN-ACK。在Linux下，默认重试次数为5次，重试的间隔时间从1s开始每次都翻售，5次的重试时间间隔为1s, 2s, 4s, 8s, 16s，总共31s，第5次发出后还要等32s都知道第5次也超时了，所以，总共需要 1s + 2s + 4s+ 8s+ 16s + 32s = 2^6 -1 = 63s，TCP才会把断开这个连接。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       关于SYN Flood攻击
+      </strong>
+      。一些恶意的人就为此制造了SYN Flood攻击——给服务器发了一个SYN后，就下线了，于是服务器需要默认等63s才会断开连接，这样，攻击者就可以把服务器的syn连接的队列耗尽，让正常的连接请求不能处理。于是，Linux下给了一个叫
+      <strong>
+       tcp_syncookies
+      </strong>
+      的参数来应对这个事——当SYN队列满了后，TCP会通过源地址端口、目标地址端口和时间戳打造出一个特别的Sequence Number发回去（又叫cookie），如果是攻击者则不会有响应，如果是正常连接，则会把这个 SYN Cookie发回来，然后服务端可以通过cookie建连接（即使你不在SYN队列中）。请注意，
+      <strong>
+       请先千万别用tcp_syncookies来处理正常的大负载的连接的情况
+      </strong>
+      。因为，synccookies是妥协版的TCP协议，并不严谨。对于正常的请求，你应该调整三个TCP参数可供你选择，第一个是：tcp_synack_retries 可以用他来减少重试次数；第二个是：tcp_max_syn_backlog，可以增大SYN连接数；第三个是：tcp_abort_on_overflow 处理不过来干脆就直接拒绝连接了。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       关于ISN的初始化
+      </strong>
+      。ISN是不能hard code的，不然会出问题的——比如：如果连接建好后始终用1来做ISN，如果client发了30个segment过去，但是网络断了，于是 client重连，又用了1做ISN，但是之前连接的那些包到了，于是就被当成了新连接的包，此时，client的Sequence Number 可能是3，而Server端认为client端的这个号是30了。全乱了。
+      <a href="http://tools.ietf.org/html/rfc793" target="_blank">
+       RFC793
+      </a>
+      中说，ISN会和一个假的时钟绑在一起，这个时钟会在每4微秒对ISN做加一操作，直到超过2^32，又从0开始。这样，一个ISN的周期大约是4.55个小时。因为，我们假设我们的TCP Segment在网络上的存活时间不会超过Maximum Segment Lifetime（缩写为MSL –
+      <a href="https://en.wikipedia.org/wiki/Maximum_Segment_Lifetime" target="_blank">
+       Wikipedia语条
+      </a>
+      ），所以，只要MSL的值小于4.55小时，那么，我们就不会重用到ISN。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       关于 MSL 和 TIME_WAIT
+      </strong>
+      。通过上面的ISN的描述，相信你也知道MSL是怎么来的了。我们注意到，在TCP的状态图中，从TIME_WAIT状态到CLOSED状态，有一个超时设置，这个超时设置是 2*MSL（
+      <a href="http://tools.ietf.org/html/rfc793" target="_blank">
+       RFC793
+      </a>
+      定义了MSL为2分钟，Linux设置成了30s）为什么要这有TIME_WAIT？为什么不直接给转成CLOSED状态呢？主要有两个原因：1）TIME_WAIT确保有足够的时间让对端收到了ACK，如果被动关闭的那方没有收到Ack，就会触发被动端重发Fin，一来一去正好2个MSL，2）有足够的时间让这个连接不会跟后面的连接混在一起（你要知道，有些自做主张的路由器会缓存IP数据包，如果连接被重用了，那么这些延迟收到的包就有可能会跟新连接混在一起）。你可以看看这篇文章《
+      <a href="http://www.serverframework.com/asynchronousevents/2011/01/time-wait-and-its-design-implications-for-protocols-and-scalable-servers.html" target="_blank">
+       TIME_WAIT and its design implications for protocols and scalable client server systems
+      </a>
+      》
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       关于TIME_WAIT数量太多
+      </strong>
+      。从上面的描述我们可以知道，TIME_WAIT是个很重要的状态，但是如果在大并发的短链接下，TIME_WAIT 就会太多，这也会消耗很多系统资源。只要搜一下，你就会发现，十有八九的处理方式都是教你设置两个参数，一个叫
+      <strong>
+       tcp_tw_reuse
+      </strong>
+      ，另一个叫
+      <strong>
+       tcp_tw_recycle
+      </strong>
+      的参数，这两个参数默认值都是被关闭的，后者recyle比前者resue更为激进，resue要温柔一些。另外，如果使用tcp_tw_reuse，必需设置tcp_timestamps=1，否则无效。这里，你一定要注意，
+      <strong>
+       打开这两个参数会有比较大的坑——可能会让TCP连接出一些诡异的问题
+      </strong>
+      （因为如上述一样，如果不等待超时重用连接的话，新的连接可能会建不上。正如
+      <a href="https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt" target="_blank">
+       官方文档
+      </a>
+      上说的一样“
+      <strong>
+       It should not be changed without advice/request of technical experts
+      </strong>
+      ”）。
+     </li>
+    </ul>
+    <ul>
+     <ul style="padding-left: 30px;">
+      <li>
+       <strong>
+        关于tcp_tw_reuse
+       </strong>
+       。官方文档上说tcp_tw_reuse 加上tcp_timestamps（又叫PAWS, for Protection Against Wrapped Sequence Numbers）可以保证协议的角度上的安全，但是你需要tcp_timestamps在两边都被打开（你可以读一下
+       <a href="http://lxr.free-electrons.com/ident?i=tcp_twsk_unique">
+        tcp_twsk_unique
+       </a>
+       的源码
+       <span style="color: #000000;">
+       </span>
+       ）。我个人估计还是有一些场景会有问题。
+      </li>
+     </ul>
+    </ul>
+    <ul style="padding-left: 30px;">
+     <ul>
+      <li>
+       <strong>
+        关于tcp_tw_recycle
+       </strong>
+       。如果是tcp_tw_recycle被打开了话，会假设对端开启了tcp_timestamps，然后会去比较时间戳，如果时间戳变大了，就可以重用。但是，如果对端是一个NAT网络的话（如：一个公司只用一个IP出公网）或是对端的IP被另一台重用了，这个事就复杂了。建链接的SYN可能就被直接丢掉了（你可能会看到connection time out的错误）（如果你想观摩一下Linux的内核代码，请参看源码
+       <a href="http://lxr.free-electrons.com/ident?i=tcp_timewait_state_process">
+        tcp_timewait_state_process
+       </a>
+       ）。
+      </li>
+     </ul>
+    </ul>
+    <ul style="padding-left: 30px;">
+     <ul>
+      <li>
+       <strong style="color: #373737;">
+        关于tcp_max_tw_buckets
+       </strong>
+       。这个是控制并发的TIME_WAIT的数量，默认值是180000，如果超限，那么，系统会把多的给destory掉，然后在日志里打一个警告（如：
+       <span style="color: #373737;">
+        time wait bucket table overflow
+       </span>
+       ），官网文档说这个参数是用来对抗DDoS攻击的。也说的默认值180000并不小。这个还是需要根据实际情况考虑。
+      </li>
+     </ul>
+    </ul>
+    <p>
+     <strong>
+      Again，使用tcp_tw_reuse和tcp_tw_recycle来解决TIME_WAIT的问题是非常非常危险的，因为这两个参数违反了TCP协议（
+      <a href="http://tools.ietf.org/html/rfc1122" target="_blank">
+       RFC 1122
+      </a>
+      ）
+     </strong>
+    </p>
+    <p>
+     其实，TIME_WAIT表示的是你主动断连接，所以，这就是所谓的“不作死不会死”。试想，如果让对端断连接，那么这个破问题就是对方的了，呵呵。另外，如果你的服务器是于HTTP服务器，那么设置一个
+     <a href="https://en.wikipedia.org/wiki/HTTP_persistent_connection" target="_blank">
+      HTTP的KeepAlive
+     </a>
+     有多重要（浏览器会重用一个TCP连接来处理多个HTTP请求），然后让客户端去断链接（你要小心，浏览器可能会非常贪婪，他们不到万不得已不会主动断连接）。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84Sequence_Number">
+     </span>
+     数据传输中的Sequence Number
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     下图是我从Wireshark中截了个我在访问coolshell.cn时的有数据传输的图给你看一下，SeqNum是怎么变的。（使用Wireshark菜单中的Statistics -&gt;Flow Graph… ）
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-11595" decoding="async" height="361" loading="lazy" sizes="(max-width: 381px) 100vw, 381px" src="https://coolshell.cn/wp-content/uploads/2014/05/tcp_data_seq_num.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/05/tcp_data_seq_num.jpg 381w, https://coolshell.cn/wp-content/uploads/2014/05/tcp_data_seq_num-300x284.jpg 300w" width="381"/>
+    </p>
+    <p>
+     你可以看到，
+     <strong>
+      SeqNum的增加是和传输的字节数相关的
+     </strong>
+     。上图中，三次握手后，来了两个Len:1440的包，而第二个包的SeqNum就成了1441。然后第一个ACK回的是1441，表示第一个1440收到了。
+    </p>
+    <p>
+     <strong>
+      注意
+     </strong>
+     ：如果你用Wireshark抓包程序看3次握手，你会发现SeqNum总是为0，不是这样的，Wireshark为了显示更友好，使用了Relative SeqNum——相对序号，你只要在右键菜单中的protocol preference 中取消掉就可以看到“Absolute SeqNum”了
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="TCP%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6">
+     </span>
+     TCP重传机制
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     TCP要保证所有的数据包都可以到达，所以，必需要有重传机制。
+    </p>
+    <p>
+     注意，接收端给发送端的Ack确认只会确认最后一个连续的包，比如，发送端发了1,2,3,4,5一共五份数据，接收端收到了1，2，于是回ack 3，然后收到了4（注意此时3没收到），此时的TCP会怎么办？我们要知道，因为正如前面所说的，
+     <strong>
+      SeqNum和Ack是以字节数为单位，所以ack的时候，不能跳着确认，只能确认最大的连续收到的包
+     </strong>
+     ，不然，发送端就以为之前的都收到了。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6">
+     </span>
+     超时重传机制
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     一种是不回ack，死等3，当发送方发现收不到3的ack超时后，会重传3。一旦接收方收到3后，会ack 回 4——意味着3和4都收到了。
+    </p>
+    <p>
+     但是，这种方式会有比较严重的问题，那就是因为要死等3，所以会导致4和5即便已经收到了，而发送方也完全不知道发生了什么事，因为没有收到Ack，所以，发送方可能会悲观地认为也丢了，所以有可能也会导致4和5的重传。
+    </p>
+    <p>
+     对此有两种选择：
+    </p>
+    <ul>
+     <li>
+      一种是仅重传timeout的包。也就是第3份数据。
+     </li>
+     <li>
+      另一种是重传timeout后所有的数据，也就是第3，4，5这三份数据。
+     </li>
+    </ul>
+    <p>
+     这两种方式有好也有不好。第一种会节省带宽，但是慢，第二种会快一点，但是会浪费带宽，也可能会有无用功。但总体来说都不好。因为都在等timeout，timeout可能会很长（在下篇会说TCP是怎么动态地计算出timeout的）
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="%E5%BF%AB%E9%80%9F%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6">
+     </span>
+     快速重传机制
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     于是，TCP引入了一种叫
+     <strong>
+      Fast Retransmit
+     </strong>
+     的算法，
+     <strong>
+      不以时间驱动，而以数据驱动重传
+     </strong>
+     。也就是说，如果，包没有连续到达，就ack最后那个可能被丢了的包，如果发送方连续收到3次相同的ack，就重传。Fast Retransmit的好处是不用等timeout了再重传。
+    </p>
+    <p>
+     比如：如果发送方发出了1，2，3，4，5份数据，第一份先到送了，于是就ack回2，结果2因为某些原因没收到，3到达了，于是还是ack回2，后面的4和5都到了，但是还是ack回2，因为2还是没有收到，于是发送端收到了三个ack=2的确认，知道了2还没有到，于是就马上重转2。然后，接收端收到了2，此时因为3，4，5都收到了，于是ack回6。示意图如下：
+    </p>
+    <p>
+     <img alt="" class="aligncenter size-full wp-image-11599" decoding="async" height="291" loading="lazy" sizes="(max-width: 450px) 100vw, 450px" src="https://coolshell.cn/wp-content/uploads/2014/05/FASTIncast021.png" srcset="https://coolshell.cn/wp-content/uploads/2014/05/FASTIncast021.png 450w, https://coolshell.cn/wp-content/uploads/2014/05/FASTIncast021-300x194.png 300w" width="450"/>
+    </p>
+    <p>
+     Fast Retransmit只解决了一个问题，就是timeout的问题，它依然面临一个艰难的选择，就是，是重传之前的一个还是重传所有的问题。对于上面的示例来说，是重传#2呢还是重传#2，#3，#4，#5呢？因为发送端并不清楚这连续的3个ack(2)是谁传回来的？也许发送端发了20份数据，是#6，#10，#20传来的呢。这样，发送端很有可能要重传从2到20的这堆数据（这就是某些TCP的实际的实现）。可见，这是一把双刃剑。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="SACK_%E6%96%B9%E6%B3%95">
+     </span>
+     SACK 方法
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     另外一种更好的方式叫：
+     <strong>
+      Selective Acknowledgment (SACK)
+     </strong>
+     （参看
+     <a href="http://tools.ietf.org/html/rfc2018" target="_blank">
+      RFC 2018
+     </a>
+     ），这种方式需要在TCP头里加一个SACK的东西，ACK还是Fast Retransmit的ACK，SACK则是汇报收到的数据碎版。参看下图：
+    </p>
+    <p>
+     <img alt="" class="aligncenter wp-image-11600" decoding="async" height="338" loading="lazy" sizes="(max-width: 600px) 100vw, 600px" src="https://coolshell.cn/wp-content/uploads/2014/05/tcp_sack_example-1024x577.jpg" srcset="https://coolshell.cn/wp-content/uploads/2014/05/tcp_sack_example-1024x577.jpg 1024w, https://coolshell.cn/wp-content/uploads/2014/05/tcp_sack_example-300x169.jpg 300w, https://coolshell.cn/wp-content/uploads/2014/05/tcp_sack_example-900x507.jpg 900w, https://coolshell.cn/wp-content/uploads/2014/05/tcp_sack_example.jpg 1437w" width="600"/>
+    </p>
+    <p>
+     这样，在发送端就可以根据回传的SACK来知道哪些数据到了，哪些没有到。于是就优化了Fast Retransmit的算法。当然，这个协议需要两边都支持。在 Linux下，可以通过
+     <strong>
+      tcp_sack
+     </strong>
+     参数打开这个功能（Linux 2.4后默认打开）。
+    </p>
+    <p>
+     这里还需要注意一个问题——
+     <strong>
+      接收方Reneging，所谓Reneging的意思就是接收方有权把已经报给发送端SACK里的数据给丢了
+     </strong>
+     。这样干是不被鼓励的，因为这个事会把问题复杂化了，但是，接收方这么做可能会有些极端情况，比如要把内存给别的更重要的东西。
+     <strong>
+      所以，发送方也不能完全依赖SACK，还是要依赖ACK，并维护Time-Out，如果后续的ACK没有增长，那么还是要把SACK的东西重传，另外，接收端这边永远不能把SACK的包标记为Ack。
+     </strong>
+    </p>
+    <p>
+     注意：SACK会消费发送方的资源，试想，如果一个攻击者给数据发送方发一堆SACK的选项，这会导致发送方开始要重传甚至遍历已经发出的数据，这会消耗很多发送端的资源。详细的东西请参看《
+     <a href="http://www.ibm.com/developerworks/cn/linux/l-tcp-sack/" target="_blank">
+      TCP SACK的性能权衡
+     </a>
+     》
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="Duplicate_SACK_%E2%80%93_%E9%87%8D%E5%A4%8D%E6%94%B6%E5%88%B0%E6%95%B0%E6%8D%AE%E7%9A%84%E9%97%AE%E9%A2%98">
+     </span>
+     Duplicate SACK – 重复收到数据的问题
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Duplicate SACK又称D-SACK，
+     <strong>
+      其主要使用了SACK来告诉发送方有哪些数据被重复接收了
+     </strong>
+     。
+     <a href="http://www.ietf.org/rfc/rfc2883.txt" target="_blank">
+      RFC-2883
+     </a>
+     里有详细描述和示例。下面举几个例子（来源于
+     <a href="http://www.ietf.org/rfc/rfc2883.txt" target="_blank">
+      RFC-2883
+     </a>
+     ）
+    </p>
+    <p>
+     D-SACK使用了SACK的第一个段来做标志，
+    </p>
+    <ul>
+     <li>
+      如果SACK的第一个段的范围被ACK所覆盖，那么就是D-SACK
+     </li>
+    </ul>
+    <ul>
+     <li>
+      如果SACK的第一个段的范围被SACK的第二个段覆盖，那么就是D-SACK
+     </li>
+    </ul>
+    <p>
+     <strong>
+      示例一：ACK丢包
+     </strong>
+    </p>
+    <p>
+     下面的示例中，丢了两个ACK，所以，发送端重传了第一个数据包（3000-3499），于是接收端发现重复收到，于是回了一个SACK=3000-3500，因为ACK都到了4000意味着收到了4000之前的所有数据，所以这个SACK就是D-SACK——旨在告诉发送端我收到了重复的数据，而且我们的发送端还知道，数据包没有丢，丢的是ACK包。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+	Transmitted  Received    ACK Sent
+	Segment      Segment     (Including SACK Blocks)
+
+	3000-3499    3000-3499   3500 (ACK dropped)
+	3500-3999    3500-3999   4000 (ACK dropped)
+	3000-3499    3000-3499   4000, SACK=3000-3500
+                                        ---------</pre>
+    <p>
+     <strong>
+      示例二，网络延误
+     </strong>
+    </p>
+    <p>
+     下面的示例中，网络包（1000-1499）被网络给延误了，导致发送方没有收到ACK，而后面到达的三个包触发了“Fast Retransmit算法”，所以重传，但重传时，被延误的包又到了，所以，回了一个SACK=1000-1500，因为ACK已到了3000，所以，这个SACK是D-SACK——标识收到了重复的包。
+    </p>
+    <p>
+     这个案例下，发送端知道之前因为“Fast Retransmit算法”触发的重传不是因为发出去的包丢了，也不是因为回应的ACK包丢了，而是因为网络延时了。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">
+    Transmitted    Received    ACK Sent
+    Segment        Segment     (Including SACK Blocks)
+
+    500-999        500-999     1000
+    1000-1499      (delayed)
+    1500-1999      1500-1999   1000, SACK=1500-2000
+    2000-2499      2000-2499   1000, SACK=1500-2500
+    2500-2999      2500-2999   1000, SACK=1500-3000
+    1000-1499      1000-1499   3000
+                   1000-1499   3000, SACK=1000-1500
+                                          ---------</pre>
+    <p>
+    </p>
+    <p>
+     可见，引入了D-SACK，有这么几个好处：
+    </p>
+    <p style="padding-left: 30px;">
+     1）可以让发送方知道，是发出去的包丢了，还是回来的ACK包丢了。
+    </p>
+    <p style="padding-left: 30px;">
+     2）是不是自己的timeout太小了，导致重传。
+    </p>
+    <p style="padding-left: 30px;">
+     3）网络上出现了先发的包后到的情况（又称reordering）
+    </p>
+    <p style="padding-left: 30px;">
+     4）网络上是不是把我的数据包给复制了。
+    </p>
+    <p>
+     <strong>
+      知道这些东西可以很好得帮助TCP了解网络情况，从而可以更好的做网络上的流控
+     </strong>
+     。
+    </p>
+    <p>
+     Linux下的tcp_dsack参数用于开启这个功能（Linux 2.4后默认打开）
+    </p>
+    <p>
+     好了，上篇就到这里结束了。如果你觉得我写得还比较浅显易懂，那么，欢迎移步看下篇《
+     <a href="https://coolshell.cn/articles/11609.html" target="_blank">
+      TCP的那些事（下）
+     </a>
+     》
+    </p>
+    <p style="text-align: right;">
+     <strong>
+      <a href="https://coolshell.cn/articles/11609.html" target="_blank">
+       TCP的那些事儿（下）&gt;&gt;&gt;
+      </a>
+     </strong>
+    </p>
+    <p style="text-align: left;">
+     （上篇完）
+    </p>
+    <p>
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/22263.html">
+         <img alt="从一次经历谈 TIME_WAIT 的那些事" height="150" src="https://coolshell.cn/wp-content/uploads/2022/07/wall_clock-300x167-1-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/22263.html">
+         从一次经历谈 TIME_WAIT 的那些事
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19840.html">
+         <img alt="HTTP的前世今生" height="150" src="https://coolshell.cn/wp-content/uploads/2019/10/HTTP-770x513-300x200-1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19840.html">
+         HTTP的前世今生
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11609.html">
+         <img alt="TCP 的那些事儿（下）" height="150" src="https://coolshell.cn/wp-content/uploads/2014/05/xin_2001040422167711230318-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11609.html">
+         TCP 的那些事儿（下）
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9859.html">
+         <img alt="Alan Cox：单向链表中prev指针的妙用" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9859.html">
+         Alan Cox：单向链表中prev指针的妙用
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7490.html">
+         <img alt="性能调优攻略" height="150" src="https://coolshell.cn/wp-content/uploads/2012/06/f1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7490.html">
+         性能调优攻略
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1484.html">
+         <img alt="TCP网络关闭的状态变换时序图" height="150" src="https://coolshell.cn/wp-content/uploads/2009/09/tcp1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1484.html">
+         TCP网络关闭的状态变换时序图
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="811cfa8467" id="post-ratings-11564" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_11564_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(11564, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_11564_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(11564, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_11564_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(11564, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_11564_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(11564, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_11564_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.8, 5, 0);" onmouseover="current_rating(11564, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      129
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.82
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_11564_text">
+     </span>
+     <meta content="TCP 的那些事儿（上）" itemprop="name"/>
+     <meta content="TCP 的那些事儿（上）" itemprop="headline"/>
+     <meta content="TCP是一个巨复杂的协议，因为他要解决很多问题，而这些问题又带出了很多子问题和阴暗面。所以学习TCP本身是个比较痛苦的过程，但对于学习的过程却能让人有很多收获。关于TCP这个协议的细节，我还是推荐你去看W.Richard Stevens的《TCP/IP 详解 卷1：协议》（当然，你也可以去读一下RFC793以及后面N多的RFC）。另外，本文我会使用英文术语，这样方便你通过这些英文关键词来查找相关的..." itemprop="description"/>
+     <meta content="2014-05-28T08:15:36+08:00" itemprop="datePublished"/>
+     <meta content="2015-11-21T14:16:34+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/11564.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/11564.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.82" itemprop="ratingValue"/>
+      <meta content="129" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-11564-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/progdesign" rel="category tag">
+        程序设计
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage" rel="category tag">
+        编程语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/netsecurity" rel="category tag">
+        网络安全
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/ack" rel="tag">
+        ACK
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/isn" rel="tag">
+        ISN
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/msl" rel="tag">
+        MSL
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/sack" rel="tag">
+        SACK
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/syn" rel="tag">
+        SYN
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/tcp" rel="tag">
+        TCP
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/time_wait" rel="tag">
+        TIME_WAIT
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

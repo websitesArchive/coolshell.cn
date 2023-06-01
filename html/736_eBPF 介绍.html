@@ -1,0 +1,1306 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/22320.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="eBPF 介绍 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/22320.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.jpeg" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.jpeg" property="og:image:secure_url"/>
+   <meta content="301" property="og:image:width"/>
+   <meta content="167" property="og:image:height"/>
+   <meta content="2022-12-10T02:38:51+00:00" property="article:published_time"/>
+   <meta content="2022-12-12T02:56:31+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="eBPF 介绍 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.jpeg" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/22320.html#article","name":"eBPF \u4ecb\u7ecd | \u9177 \u58f3 - CoolShell","headline":"eBPF \u4ecb\u7ecd","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2022\/12\/eBPF.jpeg","@id":"https:\/\/coolshell.cn\/#articleImage","width":301,"height":167},"datePublished":"2022-12-10T02:38:51+08:00","dateModified":"2022-12-12T02:56:31+08:00","inLanguage":"zh-CN","commentCount":18,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/22320.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/22320.html#webpage"},"articleSection":"C\/C++\u8bed\u8a00, Unix\/Linux, \u64cd\u4f5c\u7cfb\u7edf, \u7f51\u7edc\u5b89\u5168, Debug, eBPF, Linux"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/22320.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/22320.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/22320.html#webpage","url":"https:\/\/coolshell.cn\/articles\/22320.html","name":"eBPF \u4ecb\u7ecd | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/22320.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2022-12-10T02:38:51+08:00","dateModified":"2022-12-12T02:56:31+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '22320';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'eBPF+%E4%BB%8B%E7%BB%8D';
+	window._wp_rp_post_tags = ['debug', 'linux', 'ebpf', 'c%2Fc%2B%2B%E8%AF%AD%E8%A8%80', '%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F', 'unix%2Flinux', '%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8', 'packet', 'solari', 'alt', 'probe', 'linux', '44', 'berkelei', 'a'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/22320.html/feed" rel="alternate" title="酷 壳 - CoolShell » eBPF 介绍评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/22320" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=22320" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22320.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F22320.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-22320 post type-post status-publish format-standard hentry category-cplusplus category-unixlinux category-operatingsystem category-netsecurity tag-debug tag-ebpf tag-linux" id="post-22320">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     eBPF 介绍
+    </span>
+    <h1 class="entry-title">
+     eBPF 介绍
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/22320.html" rel="bookmark" title="10:38">
+       <time class="entry-date" datetime="2022-12-10T10:38:51+08:00" pubdate="">
+        2022年12月10日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/22320.html#comments">
+       18 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      43,883 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     <img alt="" class="alignright wp-image-22329 size-full" decoding="async" height="167" src="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.jpeg" width="301"/>
+     很早前就想写一篇关于eBPF的文章，但是迟迟没有动手，这两天有点时间，所以就来写一篇，这文章主要还是简单的介绍eBPF 是用来干什么的，并通过几个示例来介绍是怎么玩的，这个技术非常非常之强，Linux 操作系统的观测性实在是太强大了，并在 BCC 加持下变得一览无余。这个技术不是一般的运维人员或是系统管理员可以驾驭的，这个还是要有底层系统知识并有一定开发能力的技术人员才能驾驭的了的。
+     <strong>
+      我在这篇文章的最后给了个彩蛋。
+     </strong>
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#%E4%BB%8B%E7%BB%8D" title="介绍">
+         介绍
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E7%94%A8%E9%80%94" title="用途">
+         用途
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" title="工作原理">
+         工作原理
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#%E7%A4%BA%E4%BE%8B" title="示例">
+         示例
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB" title="延伸阅读">
+         延伸阅读
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E5%BD%A9%E8%9B%8B" title="彩蛋">
+         彩蛋
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E4%BB%8B%E7%BB%8D">
+     </span>
+     介绍
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     eBPF（extened Berkeley Packet Filter）是一种内核技术，它允许开发人员在不修改内核代码的情况下运行特定的功能。eBPF 的概念源自于 Berkeley Packet Filter（BPF），后者是由贝尔实验室开发的一种网络过滤器，可以捕获和过滤网络数据包。
+    </p>
+    <p>
+     出于对更好的 Linux 跟踪工具的需求，eBPF 从
+     <a href="https://illumos.org/books/dtrace/chp-intro.html">
+      dtrace
+     </a>
+     中汲取灵感，dtrace 是一种主要用于 Solaris 和 BSD 操作系统的动态跟踪工具。与 dtrace 不同，Linux 无法全面了解正在运行的系统，因为它仅限于系统调用、库调用和函数的特定框架。
+     <a href="https://www.kernel.org/doc/html/latest/bpf/index.html">
+      在Berkeley Packet Filter
+     </a>
+     (BPF)（一种使用内核 VM 编写打包过滤代码的工具）的基础上，一小群工程师开始扩展 BPF 后端以提供与 dtrace 类似的功能集。 eBPF 诞生了。
+     <strong>
+      2014 年随 Linux 3.18 首次限量发布，充分利用 eBPF 至少需要 Linux 4.4 以上版本
+     </strong>
+     。
+    </p>
+    <p>
+     <span id="more-22320">
+     </span>
+    </p>
+    <p>
+     eBPF 比起传统的 BPF 来说，传统的 BPF 只能用于网络过滤，而 eBPF 则可以用于更多的应用场景，包括网络监控、安全过滤和性能分析等。另外，eBPF 允许常规用户空间应用程序将要在 Linux 内核中执行的逻辑打包为字节码，当某些事件（称为挂钩）发生时，内核会调用 eBPF 程序。此类挂钩的示例包括系统调用、网络事件等。用于编写和调试 eBPF 程序的最流行的工具链称为
+     <a href="https://github.com/iovisor/bcc">
+      BPF 编译器集合
+     </a>
+     (BCC)，它基于 LLVM 和 CLang。
+    </p>
+    <p>
+     eBPF 有一些类似的工具。例如，SystemTap 是一种开源工具，可以帮助用户收集 Linux 内核的运行时数据。它通过动态加载内核模块来实现这一功能，类似于 eBPF。另外，DTrace 是一种动态跟踪和分析工具，可以用于收集系统的运行时数据，类似于 eBPF 和 SystemTap。
+     <code>
+      [1]
+     </code>
+    </p>
+    <p>
+     以下是一个简单的比较表格，可以帮助您更好地了解 eBPF、SystemTap 和 DTrace 这三种工具的不同之处：
+     <code>
+      [1]
+     </code>
+    </p>
+    <table>
+     <thead>
+      <tr>
+       <th>
+        工具
+       </th>
+       <th>
+        eBPF
+       </th>
+       <th>
+        SystemTap
+       </th>
+       <th>
+        DTrace
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        定位
+       </td>
+       <td>
+        内核技术，可用于多种应用场景
+       </td>
+       <td>
+        内核模块
+       </td>
+       <td>
+        动态跟踪和分析工具
+       </td>
+      </tr>
+      <tr>
+       <td>
+        工作原理
+       </td>
+       <td>
+        动态加载和执行无损编译过的代码
+       </td>
+       <td>
+        动态加载内核模块
+       </td>
+       <td>
+        动态插接分析器，通过 probe 获取数据并进行分析
+       </td>
+      </tr>
+      <tr>
+       <td>
+        常见用途
+       </td>
+       <td>
+        网络监控、安全过滤、性能分析等
+       </td>
+       <td>
+        系统性能分析、故障诊断等
+       </td>
+       <td>
+        系统性能分析、故障诊断等
+       </td>
+      </tr>
+      <tr>
+       <td>
+        优点
+       </td>
+       <td>
+        灵活、安全、可用于多种应用场景
+       </td>
+       <td>
+        功能强大、可视化界面
+       </td>
+       <td>
+        功能强大、高性能、支持多种编程语言
+       </td>
+      </tr>
+      <tr>
+       <td>
+        缺点
+       </td>
+       <td>
+        学习曲线高，安全性依赖于编译器的正确性
+       </td>
+       <td>
+        学习曲线高，安全性依赖于内核模块的正确性
+       </td>
+       <td>
+        配置复杂，对系统性能影响较大
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p style="text-align: center;">
+     对比表格
+     <code>
+      [1]
+     </code>
+    </p>
+    <p>
+     从上表可以看出，eBPF、SystemTap 和 DTrace 都是非常强大的工具，可以用于收集和分析系统的运行情况。
+     <code>
+      [1]
+     </code>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%94%A8%E9%80%94">
+     </span>
+     用途
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     eBPF 是一种非常灵活和强大的内核技术，可以用于多种应用场景。下面是 eBPF 的一些常见用途：
+     <code>
+      [1]
+     </code>
+    </p>
+    <ul>
+     <li>
+      网络监控：eBPF 可以用于捕获网络数据包，并执行特定的逻辑来分析网络流量。例如，可以使用 eBPF 程序来监控网络流量，并在发现异常流量时进行警报。
+      <code>
+       [1]
+      </code>
+     </li>
+     <li>
+      安全过滤：eBPF 可以用于对网络数据包进行安全过滤。例如，可以使用 eBPF 程序来阻止恶意流量的传播，或者在发现恶意流量时对其进行拦截。
+      <code>
+       [1]
+      </code>
+     </li>
+     <li>
+      性能分析：eBPF 可以用于对内核的性能进行分析。例如，可以使用 eBPF 程序来收集内核的性能指标，并通过特定的接口将其可视化。这样，可以更好地了解内核的性能瓶颈，并进行优化。
+      <code>
+       [1]
+      </code>
+     </li>
+     <li>
+      虚拟化：eBPF 可以用于虚拟化技术。例如，可以使用 eBPF 程序来收集虚拟机的性能指标，并进行负载均衡。这样，可以更好地利用虚拟化环境的资源，提高系统的性能和稳定性。
+      <code>
+       [1]
+      </code>
+     </li>
+    </ul>
+    <p>
+     总之，eBPF 的常见用途非常广泛，可以用于网络监控、安全过滤、性能分析和虚拟化等多种应用场景。
+     <code>
+      [1]
+     </code>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">
+     </span>
+     工作原理
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     eBPF 的工作原理主要分为三个步骤：加载、编译和执行。
+    </p>
+    <p>
+     eBPF 需要在内核中运行。这通常是由用户态的应用程序完成的，它会通过系统调用来加载 eBPF 程序。在加载过程中，内核会将 eBPF 程序的代码复制到内核空间。
+    </p>
+    <p>
+     eBPF 程序需要经过编译和执行。这通常是由Clang/LLVM的编译器完成，然后形成字节码后，将用户态的字节码装载进内核，Verifier会对要注入内核的程序进行一些内核安全机制的检查,这是为了确保 eBPF 程序不会破坏内核的稳定性和安全性。在检查过程中，内核会对 eBPF 程序的代码进行分析，以确保它不会进行恶意操作，如系统调用、内存访问等。如果 eBPF 程序通过了内核安全机制的检查，它就可以在内核中正常运行了，其会通过通过一个JIT编译步骤将程序的通用字节码转换为机器特定指令集，以优化程序的执行速度。
+    </p>
+    <p>
+     下图是其架构图。
+    </p>
+    <p>
+     <img class="aligncenter" decoding="async" src="https://imgopt.infoq.com/fit-in/1200x2400/filters:quality(80)/filters:no_upscale()/articles/gentle-linux-ebpf-introduction/en/resources/47image005-1619704397592.jpg"/>
+    </p>
+    <p style="text-align: center;">
+     （图片来自：
+     <a href="https://www.infoq.com/articles/gentle-linux-ebpf-introduction/" rel="noopener" target="_blank">
+      https://www.infoq.com/articles/gentle-linux-ebpf-introduction/
+     </a>
+     ）
+    </p>
+    <p>
+     在内核中运行时，eBPF 程序通常会挂载到一个内核钩子（hook）上，以便在特定的事件发生时被执行。例如，
+    </p>
+    <ul>
+     <li>
+      <span>
+       系统调用——当用户空间函数将执行转移到内核时插入
+      </span>
+     </li>
+     <li>
+      <span>
+       函数进入和退出——拦截对预先存在的函数的调用
+      </span>
+     </li>
+     <li>
+      <span>
+       网络事件 – 在收到数据包时执行
+      </span>
+     </li>
+     <li>
+      <span>
+       Kprobes 和 uprobes – 附加到内核或用户函数的探测器
+      </span>
+     </li>
+    </ul>
+    <p>
+     最后 eBPF Maps，允许eBPF程序在调用之间保持状态，以便进行相关的数据统计，并与用户空间的应用程序共享数据。一个eBPF映射基本上是一个键值存储，其中的值通常被视为任意数据的二进制块。它们是通过带有BPF_MAP_CREATE参数的
+     <code>
+      bpf_cmd
+     </code>
+     系统调用来创建的，和Linux世界中的其他东西一样，它们是通过文件描述符来寻址。与地图的交互是通过查找/更新/删除系统调用进行的
+    </p>
+    <p>
+     总之，eBPF 的工作原理是通过动态加载、执行和检查
+     <strong>
+      无损编译
+     </strong>
+     过的代码来实现的。
+     <code>
+      [1]
+     </code>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E7%A4%BA%E4%BE%8B">
+     </span>
+     示例
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     eBPF 可以用于对内核的性能进行分析。下面是一个基于 eBPF 的性能分析的 step-by-step 示例：
+    </p>
+    <p>
+     第一步：准备工作：首先，需要确保内核已经支持 eBPF 功能。这通常需要在内核配置文件中启用 eBPF 相关的选项，并重新编译内核。检查是否支持 eBPF，你可以用这两个命令查看
+     <code>
+      ls /sys/fs/bpf
+     </code>
+     和
+     <code>
+      lsmod | grep bpf
+     </code>
+    </p>
+    <p>
+     第二步：写 eBPF 程序：接下来，需要编写 eBPF 程序，用于收集内核的性能指标。eBPF 程序的语言可以选择 C 或者 Python，它需要通过特定的接口访问内核的数据结构，并将收集到的数据保存到指定的位置。
+    </p>
+    <p>
+     下面是一个Python 示例（其实还是C语言，用python来加载一段C程序到Linux内核）
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="python">#!/usr/bin/python3
+
+from bcc import BPF
+from time import sleep
+
+# 定义 eBPF 程序
+bpf_text = """
+#include &lt;uapi/linux/ptrace.h&gt;
+
+BPF_HASH(stats, u32);
+
+int count(struct pt_regs *ctx) {
+    u32 key = 0;
+    u64 *val, zero=0;
+    val = stats.lookup_or_init(&amp;key, &amp;zero);
+    (*val)++;
+    return 0;
+}
+"""
+
+# 编译 eBPF 程序
+b = BPF(text=bpf_text, cflags=["-Wno-macro-redefined"])
+
+# 加载 eBPF 程序
+b.attach_kprobe(event="tcp_sendmsg", fn_name="count")
+
+name = {
+  0: "tcp_sendmsg"
+}
+# 输出统计结果
+while True:
+    try:
+        #print("Total packets: %d" % b["stats"][0].value)
+        for k, v in b["stats"].items():
+           print("{}: {}".format(name[k.value], v.value))
+        sleep(1)
+    except KeyboardInterrupt:
+        exit()</pre>
+    <p>
+     这个 eBPF 程序的功能是统计网络中传输的数据包数量。它通过定义一个
+     <code>
+      BPF_HASH
+     </code>
+     数据结构来保存统计结果（eBPF Maps），并通过捕获
+     <code>
+      tcp_sendmsg
+     </code>
+     事件来实现实时统计。最后，它通过每秒输出一次统计结果来展示数据。这个 eBPF 程序只是一个简单的示例，实际应用中可能需要进行更复杂的统计和分析。
+    </p>
+    <p>
+     第三步：运行 eBPF 程序：接下来，需要使用 eBPF 编译器将 eBPF 程序编译成内核可执行的格式（这个在上面的Python程序里你可以看到——Python引入了一个bcc的包，然后用这个包，把那段 C语言的程序编译成字节码加载在内核中并把某个函数 attach 到某个事件上）。这个过程可以使用 BPF Compiler Collection（BCC）工具来完成。BCC 工具可以通过命令行的方式将 eBPF 程序编译成内核可执行的格式，并将其加载到内核中。
+    </p>
+    <p>
+     下面是运行上面的 Python3 程序的步骤：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">sudo apt install python3-bpfcc</pre>
+    <p>
+     注：在Python3下请不要使用
+     <code>
+      pip3 install bcc
+     </code>
+     （参看：
+     <a href="https://github.com/iovisor/bcc/issues/2278#issuecomment-825356087" rel="noopener" target="_blank">
+      这里
+     </a>
+     ）
+    </p>
+    <p>
+     如果你是 Ubuntu 20.10 以上的版本，最好通过源码安装（否则程序会有编译问题），参看：
+     <a href="https://github.com/iovisor/bcc/issues/3993#issuecomment-1228217609" rel="noopener" target="_blank">
+      这里
+     </a>
+     ：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="bash">apt purge bpfcc-tools libbpfcc python3-bpfcc
+wget https://github.com/iovisor/bcc/releases/download/v0.25.0/bcc-src-with-submodule.tar.gz
+tar xf bcc-src-with-submodule.tar.gz
+cd bcc/
+apt install -y python-is-python3
+apt install -y bison build-essential cmake flex git libedit-dev   libllvm11 llvm-11-dev libclang-11-dev zlib1g-dev libelf-dev libfl-dev python3-distutils
+apt install -y checkinstall
+mkdir build
+cd build/
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DPYTHON_CMD=python3 ..
+make
+checkinstall</pre>
+    <p>
+     接下来，需要将上面的 Python 程序保存到本地，例如保存到文件 netstat.py。运行程序：最后，可以通过执行以下命令来运行 Python 程序：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="shell">$ chmod +x ./netstat.py
+$ sudo ./netstat.py
+tcp_sendmsg: 29
+tcp_sendmsg: 216
+tcp_sendmsg: 277
+tcp_sendmsg: 379
+tcp_sendmsg: 419
+tcp_sendmsg: 468
+tcp_sendmsg: 574
+tcp_sendmsg: 645
+tcp_sendmsg: 29
+</pre>
+    <p>
+     程序开始运行后，会在控制台输出网络数据包的统计信息。可以通过按 Ctrl+C 组合键来结束程序的运行。
+    </p>
+    <p>
+     下面我们再看一个比较复杂的示例，这个示例会计算TCP的发包时间（示例参考于Github上
+     <a href="https://github.com/iovisor/bcc/issues/2972" rel="noopener" target="_blank">
+      这个issue
+     </a>
+     里的程序）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="python">#!/usr/bin/python3
+
+from bcc import BPF
+import time
+
+# 定义 eBPF 程序
+bpf_text = """
+#include &lt;uapi/linux/ptrace.h&gt;
+#include &lt;net/sock.h&gt;
+#include &lt;net/inet_sock.h&gt;
+#include &lt;bcc/proto.h&gt;
+
+struct packet_t {
+    u64 ts, size;
+    u32 pid;
+    u32 saddr, daddr;
+    u16 sport, dport;
+};
+
+BPF_HASH(packets, u64, struct packet_t);
+
+int on_send(struct pt_regs *ctx, struct sock *sk, struct msghdr *msg, size_t size)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id;
+
+    // 记录数据包的时间戳和信息
+    struct packet_t pkt = {}; // 结构体一定要初始化，可以使用下面的方法
+                              //__builtin_memset(&amp;pkt, 0, sizeof(pkt)); 
+    pkt.ts = bpf_ktime_get_ns();
+    pkt.size = size;
+    pkt.pid = pid;
+    pkt.saddr = sk-&gt;__sk_common.skc_rcv_saddr;
+    pkt.daddr = sk-&gt;__sk_common.skc_daddr;
+    struct inet_sock *sockp = (struct inet_sock *)sk;
+    pkt.sport = sockp-&gt;inet_sport;
+    pkt.dport = sk-&gt;__sk_common.skc_dport;
+
+    packets.update(&amp;id, &amp;pkt);
+    return 0;
+}
+
+int on_recv(struct pt_regs *ctx, struct sock *sk)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id;
+
+    // 获取数据包的时间戳和编号
+    struct packet_t *pkt = packets.lookup(&amp;id);
+    if (!pkt) {
+        return 0;
+    }
+
+    // 计算传输时间
+    u64 delta = bpf_ktime_get_ns() - pkt-&gt;ts;
+
+    // 统计结果
+    bpf_trace_printk("tcp_time: %llu.%llums, size: %llu\\n", 
+       delta/1000, delta%1000%100, pkt-&gt;size);
+
+    // 删除统计结果
+    packets.delete(&amp;id);
+
+    return 0;
+}
+"""
+
+# 编译 eBPF 程序
+b = BPF(text=bpf_text, cflags=["-Wno-macro-redefined"])
+
+# 注册 eBPF 程序
+b.attach_kprobe(event="tcp_sendmsg", fn_name="on_send")
+b.attach_kprobe(event="tcp_v4_do_rcv", fn_name="on_recv")
+
+# 输出统计信息
+print("Tracing TCP latency... Hit Ctrl-C to end.")
+while True:
+    try:
+        (task, pid, cpu, flags, ts, msg) = b.trace_fields()
+        print("%-18.9f %-16s %-6d %s" % (ts, task, pid, msg))
+    except KeyboardInterrupt:
+        exit()</pre>
+    <p>
+     上面这个程序通过捕获每个数据包的时间戳来统计传输时间。在捕获
+     <code>
+      tcp_sendmsg
+     </code>
+     事件时，记录数据包的发送时间；在捕获
+     <code>
+      tcp_v4_do_rcv
+     </code>
+     事件时，记录数据包的接收时间；最后，通过比较两个时间戳来计算传输时间。
+    </p>
+    <p>
+     从上面的两个程序我们可以看到，eBPF 的一个编程的基本方法，这样的在Python里向内核的某些事件挂载一段 “C语言” 的方式就是 eBPF 的编程方式。实话实说，这样的代码很不好写，而且有很多非常诡异的东西，一般人是很难驾驭的（上面的代码我也不是很容易都能写通的，把 Google 都用了个底儿掉，读了很多晦涩的文档……）好在这样的代码已经有人写了，我们不必再写了，在
+     <a href="https://github.com/iovisor/bcc/tree/master/tools" rel="noopener" target="_blank">
+      Github 上的 bcc 库下的 tools 目录
+     </a>
+     有很多……
+    </p>
+    <p>
+     BCC（
+     <a href="https://github.com/iovisor/bcc" rel="noopener" target="_blank">
+      BPF Compiler Collection
+     </a>
+     ）是一套开源的工具集，可以在 Linux 系统中使用 BPF（Berkeley Packet Filter）程序进行系统级性能分析和监测。BCC 包含了许多实用工具，如：
+    </p>
+    <ol>
+     <li>
+      bcc-tools：一个包含许多常用的 BCC 工具的软件包。
+     </li>
+     <li>
+      bpftrace：一个高级语言，用于编写和执行 BPF 程序。
+     </li>
+     <li>
+      tcptop：一个实时监控和分析 TCP 流量的工具。
+     </li>
+     <li>
+      execsnoop：一个用于监控进程执行情况的工具。
+     </li>
+     <li>
+      filetop：一个实时监控和分析文件系统流量的工具。
+     </li>
+     <li>
+      trace：一个用于跟踪和分析函数调用的工具。
+     </li>
+     <li>
+      funccount：一个用于统计函数调用次数的工具。
+     </li>
+     <li>
+      opensnoop：一个用于监控文件打开操作的工具。
+     </li>
+     <li>
+      pidstat：一个用于监控进程性能的工具。
+     </li>
+     <li>
+      profile：一个用于分析系统 CPU 使用情况的工具。
+     </li>
+    </ol>
+    <p>
+     下面这张图你可能见过多次了，你可以看看他可以干多少事，内核里发生什么事一览无余。
+    </p>
+    <p>
+     <img decoding="async" src="https://github.com/iovisor/bcc/raw/master/images/bcc_tracing_tools_2019.png"/>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB">
+     </span>
+     延伸阅读
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     一些经典的文章和书籍关于 eBPF 包括：
+    </p>
+    <ul>
+     <li>
+      Brendan Gregg 的《
+      <a href="https://book.douban.com/subject/34467459/" rel="noopener" target="_blank">
+       BPF Performance Tools: Linux System and Application Observability
+      </a>
+      》一书是一个全面的指南，涵盖了 eBPF 的基础知识和实践应用。
+     </li>
+     <li>
+      eBPF 的官网：
+      <a href="https://ebpf.io/" rel="noopener" target="_blank">
+       https://ebpf.io/
+      </a>
+      由
+      <a href="https://cilium.io/" rel="nofollow">
+       Cilium
+      </a>
+      建立
+     </li>
+     <li>
+      <a href="http://docs.cilium.io/en/latest/bpf/" rel="nofollow">
+       Cilium’s BPF and XDP Reference Guide
+      </a>
+     </li>
+     <li>
+      <a href="https://www.kernel.org/doc/html/latest/bpf/index.html" rel="nofollow">
+       BPF Documentation
+      </a>
+     </li>
+     <li>
+      <a href="https://www.kernel.org/doc/html/latest/bpf/bpf_design_QA.html" rel="nofollow">
+       BPF Design Q&amp;A
+      </a>
+     </li>
+     <li>
+      还有 Github 上的
+      <a href="https://github.com/zoidbergwill/awesome-ebpf" rel="noopener" target="_blank">
+       Awesome eBPF
+      </a>
+     </li>
+    </ul>
+    <h4>
+     <span class="ez-toc-section" id="%E5%BD%A9%E8%9B%8B">
+     </span>
+     彩蛋
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     最后来到彩蛋环节。因为最近 ChatGPT 很火，于是，我想通过 ChatGPT 来帮助我书写这篇文章，一开始我让ChatGPT 帮我列提纲，并根据提纲生成文章内容，并查找相关的资料，非常之顺利，包括生成的代码，我以为我们以很快地完成这篇文章。
+    </p>
+    <p>
+     但是，到了代码生成的时候，我发现，ChatGPT 生成的代码的思路和方法都是对的，但是是比较老的，而且是跑不起来的，
+     <strong>
+      出现了好些低级错误，如：使用了未声明的变量，没有引用完整的C语言的头文件，没有正确地初始化变量，错误地获取数据，类型没有匹配……等等
+     </strong>
+     ，在程序调试上，挖了很多的坑，C语言本来就不好搞，挖的很多运行时的坑很难察觉，所以，耗费了我大量的时间来排除各种各样的问题，其中有环境上的问题，还有代码上的问题，这些问题即便是通过 Google 也不容易找到解决方案，我找到的解决方案都放在文章中了，尤其是第二个示例，让我调试了3个多小时，读了很多 bcc 上的issue和相关的晦涩的手册和文档，才让程序跑通。
+    </p>
+    <p>
+     到了文章收关的阶段，我让ChatGPT 给我几个延伸阅读，也是很好的，但是没有给出链接，于是我只得人肉 Google 了一下，然后让我吃惊的是，
+     <strong>
+      好多ChatGPT给出来的文章是根本不存在的，完全是它伪造的
+     </strong>
+     。我连让它干了两次都是这样，这个让我惊掉大牙。这让我开始怀疑它之前生成的内容，于是，我不得我返回仔细Review我的文章，尤其是“介绍”、“用途”和“工作原理”这三个章节，基本都是ChatGPT生成的，在Review完后，我发现了ChatGPT 给我生造了一个叫 “无损编译器”的术语，这个术语简直了，于是我开始重写我的文章。我把一些段落重写了，有一些没有，保留下来的我都标记上了
+     <code>
+      [1]
+     </code>
+     ，大家读的时候要小心阅读。
+    </p>
+    <p>
+     最后，
+     <strong>
+      我的结论是，ChatGPT只是一个不成熟的玩具，只能回答一些没有价值的日常聊天的问题，要说能取代Google，我觉得不可能，因为Google会基于基本的事实，而ChatGPT会基于内容生成的算法，在造假方面称得上是高手，可以列为电信诈骗的范畴了，我以后不会再使用ChatGPT生成文章内容或是作我的帮手了。StackOverflow把其ban了真是不能太赞了！
+     </strong>
+    </p>
+    <p>
+     <strong>
+      附件一：ChatGPT的造假载图和样本
+     </strong>
+    </p>
+    <table width="100%">
+     <tbody>
+      <tr>
+       <td>
+        <p>
+         <figure aria-describedby="caption-attachment-22325" class="wp-caption aligncenter" id="attachment_22325" style="width: 195px">
+          <a href="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1.png">
+           <img alt="" class="wp-image-22325 size-medium" decoding="async" height="300" loading="lazy" sizes="(max-width: 195px) 100vw, 195px" src="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-195x300.png" srcset="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-195x300.png 195w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-665x1024.png 665w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-768x1183.png 768w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-997x1536.png 997w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-175x270.png 175w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1.png 1096w" width="195"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-22325">
+           点击看大图
+          </figcaption>
+         </figure>
+        </p>
+       </td>
+       <td>
+        <p>
+         <figure aria-describedby="caption-attachment-22326" class="wp-caption aligncenter" id="attachment_22326" style="width: 286px">
+          <a href="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2.png">
+           <img alt="" class="wp-image-22326 size-medium" decoding="async" height="300" loading="lazy" sizes="(max-width: 286px) 100vw, 286px" src="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2-286x300.png" srcset="https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2-286x300.png 286w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2-978x1024.png 978w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2-768x804.png 768w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2-258x270.png 258w, https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2.png 1096w" width="286"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-22326">
+           点击看大图
+          </figcaption>
+         </figure>
+        </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     <strong>
+      ChatGPT 生成的样本一
+     </strong>
+    </p>
+    <ul>
+     <li>
+      Brendan Gregg 的《BPF Performance Tools: Linux System and Application Observability》一书是一个全面的指南，涵盖了 eBPF 的基础知识和实践应用。
+     </li>
+     <li>
+      Alexei Starovoitov 在 2015 年的 LPC 大会上发表的《eBPF and XDP: fast programmable datapath in the Linux kernel》一文，是一个介绍 eBPF 和 XDP（eXpress Data Path）的综述。
+     </li>
+     <li>
+      谷歌的《BPF: The Future of Linux Monitoring and Observability》一文介绍了 eBPF 的基本概念，并探讨了它对于 Linux 监控和可观察性的影响。
+     </li>
+     <li>
+      微软的《A Survey of Techniques for Hardware Acceleration of BPF》一文，介绍了 eBPF 在硬件加速方面的研究现状。
+     </li>
+     <li>
+      Daniel Borkmann 的《Linux kernel networking: implementation and theory》一书涵盖了 eBPF 的实现和理论。
+     </li>
+     <li>
+      Martin KaFai Lau 在 2015 年的 SOSP 大会上发表的《eBPF: a new execution environment for the Linux kernel》一文，介绍了 eBPF 在 Linux 内核中的新执行环境。
+     </li>
+     <li>
+      来自两名谷歌工程师的《eBPF: A New Frontier in Performance Analysis》一文，探讨了 eBPF 对性能分析的影响。
+     </li>
+     <li>
+      《BPF Performance Tools: Linux System and Application Observability》一书中的第三章，讨论了 eBPF 的编译器和运行时系统。
+     </li>
+     <li>
+      来自三名谷歌工程师的《eBPF: The New Solaris DTrace》一文，比较了 eBPF 和 Solaris DTrace 系统的区别。
+     </li>
+    </ul>
+    <p>
+     <strong>
+      ChatGPT 生成的样本二
+     </strong>
+    </p>
+    <ol>
+     <li>
+      eBPF 程序开发指南（
+      <a href="https://cilium.io/doc/ebpf/ebpf-guide/" rel="noopener" target="_new">
+       https://cilium.io/doc/ebpf/ebpf-guide/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 官方文档（
+      <a href="https://www.kernel.org/doc/Documentation/networking/filter.txt" rel="noopener" target="_new">
+       https://www.kernel.org/doc/Documentation/networking/filter.txt
+      </a>
+      ）
+     </li>
+     <li>
+      Linux 内核 eBPF 介绍（
+      <a href="https://www.ibm.com/developerworks/cn/linux/kernel/ebpf/index.html" rel="noopener" target="_new">
+       https://www.ibm.com/developerworks/cn/linux/kernel/ebpf/index.html
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 性能优化技巧（
+      <a href="https://www.infoq.com/cn/news/2018/08/ebpf-performance-tips/" rel="noopener" target="_new">
+       https://www.infoq.com/cn/news/2018/08/ebpf-performance-tips/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 实战经验分享（
+      <a href="https://blog.cloudflare.com/ebpf-in-practice/" rel="noopener" target="_new">
+       https://blog.cloudflare.com/ebpf-in-practice/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 在网络安全中的应用（
+      <a href="https://www.zdnet.com/article/ebpf-how-to-use-it-for-network-security/" rel="noopener" target="_new">
+       https://www.zdnet.com/article/ebpf-how-to-use-it-for-network-security/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 实现 Linux 系统性能监控（
+      <a href="https://www.percona.com/blog/2017/08/15/how-to-use-ebpf-to-monitor-linux-system-performance/" rel="noopener" target="_new">
+       https://www.percona.com/blog/2017/08/15/how-to-use-ebpf-to-monitor-linux-system-performance/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 入门教程（
+      <a href="https://sysdig.com/blog/ebpf-getting-started/" rel="noopener" target="_new">
+       https://sysdig.com/blog/ebpf-getting-started/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 与 BPF 比较（
+      <a href="https://lwn.net/Articles/724647/" rel="noopener" target="_new">
+       https://lwn.net/Articles/724647/
+      </a>
+      ）
+     </li>
+     <li>
+      eBPF 提高课程（
+      <a href="https://www.pluralsight.com/courses/ebpf-advanced" rel="noopener" target="_new">
+       https://www.pluralsight.com/courses/ebpf-advanced
+      </a>
+      ）
+     </li>
+    </ol>
+    <p>
+     <strong>
+      附件二：发明的术语：无损编译器
+     </strong>
+    </p>
+    <table width="100%">
+     <tbody>
+      <tr>
+       <td>
+        <p>
+         <figure aria-describedby="caption-attachment-22328" class="wp-caption aligncenter" id="attachment_22328" style="width: 180px">
+          <a href="https://coolshell.cn/wp-content/uploads/2022/12/fake.png">
+           <img alt="" class="wp-image-22328 size-medium" decoding="async" height="300" loading="lazy" sizes="(max-width: 180px) 100vw, 180px" src="https://coolshell.cn/wp-content/uploads/2022/12/fake-180x300.png" srcset="https://coolshell.cn/wp-content/uploads/2022/12/fake-180x300.png 180w, https://coolshell.cn/wp-content/uploads/2022/12/fake-616x1024.png 616w, https://coolshell.cn/wp-content/uploads/2022/12/fake-768x1277.png 768w, https://coolshell.cn/wp-content/uploads/2022/12/fake-924x1536.png 924w, https://coolshell.cn/wp-content/uploads/2022/12/fake-162x270.png 162w, https://coolshell.cn/wp-content/uploads/2022/12/fake.png 1080w" width="180"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-22328">
+           点击看大图
+          </figcaption>
+         </figure>
+        </p>
+       </td>
+       <td>
+        <p>
+         <figure aria-describedby="caption-attachment-22335" class="wp-caption aligncenter" id="attachment_22335" style="width: 223px">
+          <a href="https://coolshell.cn/wp-content/uploads/2022/12/fake.term_.png">
+           <img alt="" class="wp-image-22335 size-medium" decoding="async" height="300" loading="lazy" sizes="(max-width: 223px) 100vw, 223px" src="https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-223x300.png" srcset="https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-223x300.png 223w, https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-761x1024.png 761w, https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-768x1033.png 768w, https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-1142x1536.png 1142w, https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-201x270.png 201w, https://coolshell.cn/wp-content/uploads/2022/12/fake.term_.png 1176w" width="223"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-22335">
+           点击看大图
+          </figcaption>
+         </figure>
+        </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1379.html">
+         <img alt="如何调试bash脚本" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/13.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1379.html">
+         如何调试bash脚本
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/19219.html">
+         <img alt="打造高效的工作环境 – Shell 篇" height="150" src="https://coolshell.cn/wp-content/uploads/2019/03/linux.ninja_-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/19219.html">
+         打造高效的工作环境 – Shell 篇
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18654.html">
+         <img alt="记一次Kubernetes/Docker网络排障" height="150" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18654.html">
+         记一次Kubernetes/Docker网络排障
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17998.html">
+         <img alt="Linux PID 1 和 Systemd" height="150" src="https://coolshell.cn/wp-content/uploads/2017/07/systemd-1-150x150.jpeg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17998.html">
+         Linux PID 1 和 Systemd
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/17416.html">
+         <img alt="缓存更新的套路" height="150" src="https://coolshell.cn/wp-content/uploads/2016/07/cache-150x150.png" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/17416.html">
+         缓存更新的套路
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="7ed8eb80d9" id="post-ratings-22320" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_22320_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22320, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_22320_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22320, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_22320_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22320, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_22320_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22320, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_22320_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(4.3, 5, 0);" onmouseover="current_rating(22320, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      23
+     </strong>
+     人打了分，平均分：
+     <strong>
+      4.26
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_22320_text">
+     </span>
+     <meta content="eBPF 介绍" itemprop="name"/>
+     <meta content="eBPF 介绍" itemprop="headline"/>
+     <meta content="很早前就想写一篇关于eBPF的文章，但是迟迟没有动手，这两天有点时间，所以就来写一篇，这文章主要还是简单的介绍eBPF 是用来干什么的，并通过几个示例来介绍是怎么玩的，这个技术非常非常之强，Linux 操作系统的观测性实在是太强大了，并在 BCC 加持下变得一览无余。这个技术不是一般的运维人员或是系统管理员可以驾驭的，这个还是要有底层系统知识并有一定开发能力的技术人员才能驾驭的了的。我在这篇文章的..." itemprop="description"/>
+     <meta content="2022-12-10T10:38:51+08:00" itemprop="datePublished"/>
+     <meta content="2022-12-12T10:56:31+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/22320.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/22320.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="4.26" itemprop="ratingValue"/>
+      <meta content="23" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-22320-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/cplusplus" rel="category tag">
+        C/C++语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem/unixlinux" rel="category tag">
+        Unix/Linux
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/operatingsystem" rel="category tag">
+        操作系统
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/netsecurity" rel="category tag">
+        网络安全
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/debug" rel="tag">
+        Debug
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/ebpf" rel="tag">
+        eBPF
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/linux" rel="tag">
+        Linux
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

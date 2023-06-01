@@ -1,0 +1,783 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/4261.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="JavaMail使用 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/4261.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" property="og:image:secure_url"/>
+   <meta content="306" property="og:image:width"/>
+   <meta content="306" property="og:image:height"/>
+   <meta content="2011-04-06T15:05:39+00:00" property="article:published_time"/>
+   <meta content="2011-04-10T13:57:38+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="JavaMail使用 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2020/04/mini.logo_.png" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/4261.html#article","name":"JavaMail\u4f7f\u7528 | \u9177 \u58f3 - CoolShell","headline":"JavaMail\u4f7f\u7528","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/jjzhx_1211#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#articleImage","width":306,"height":306},"datePublished":"2011-04-06T15:05:39+08:00","dateModified":"2011-04-10T13:57:38+08:00","inLanguage":"zh-CN","commentCount":6,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/4261.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/4261.html#webpage"},"articleSection":"Java\u8bed\u8a00, Web\u5f00\u53d1, Java, JavaMail"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/4261.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/jjzhx_1211#author","url":"https:\/\/coolshell.cn\/articles\/author\/jjzhx_1211","name":"jjzhx_1211","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/4261.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/dcd77fbee7c52668a23d96ae37f6fed0?s=96&d=mm&r=g","width":96,"height":96,"caption":"jjzhx_1211"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/4261.html#webpage","url":"https:\/\/coolshell.cn\/articles\/4261.html","name":"JavaMail\u4f7f\u7528 | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/4261.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/jjzhx_1211#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/jjzhx_1211#author"},"datePublished":"2011-04-06T15:05:39+08:00","dateModified":"2011-04-10T13:57:38+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '4261';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'JavaMail%E4%BD%BF%E7%94%A8';
+	window._wp_rp_post_tags = ['javamail', 'java', 'java%E8%AF%AD%E8%A8%80', 'web%E5%BC%80%E5%8F%91', 'header', 'content', 'session', 'text', 'prop', 'messag', 'folder', 'properti', 'data', 'null', 'store', 'authent', 'se', 'transport', 'plain'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/4261.html/feed" rel="alternate" title="酷 壳 - CoolShell » JavaMail使用评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/4261" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=4261" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4261.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F4261.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-4261 post type-post status-publish format-standard hentry category-javadev category-webdev tag-java tag-javamail" id="post-4261">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     JavaMail使用
+    </span>
+    <h1 class="entry-title">
+     JavaMail使用
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/4261.html" rel="bookmark" title="23:05">
+       <time class="entry-date" datetime="2011-04-06T23:05:39+08:00" pubdate="">
+        2011年04月06日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/jjzhx_1211" rel="author" title="View all posts by jjzhx_1211">
+         jjzhx_1211
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/4261.html#comments">
+       6 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      14,507 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     （
+     <strong>
+      本文由网友jjzhx_1211投递，感谢!
+     </strong>
+     ）
+    </p>
+    <p>
+     使用JavaMail需要两个包：activation-1.1.jar和mail-1.4.2.jar（当然现在最新的版本已经不止了），也可以直接包含Java SE 6的j2ee.jar，自带了前面的两个包。我把邮件功能写成了一个服务，发送邮件的数据都通过Map&lt;String, String&gt;类型的参数封装了起来。
+     <strong>
+      代码见文章最后
+     </strong>
+     。
+    </p>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#Session" title="Session">
+         Session
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#Message" title="Message">
+         Message
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-3" href="#Address" title="Address">
+         Address
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-4" href="#Authenticator" title="Authenticator">
+         Authenticator
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-5" href="#Transport" title="Transport">
+         Transport
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#Store_and_Folder" title="Store and Folder">
+         Store and Folder
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-7" href="#%E4%BB%A3%E7%A0%81" title="代码">
+         代码
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="Session">
+     </span>
+     Session
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Session 定义了一个基本的邮件会话，任何工作都是基于这个Session的。Session 对象需要一个 java.util.Properties 对象来得到类似 邮件服务器，用户名，密码这样的信息。Session 的构造函数是私有的，可以通过 getDefaultInstance() 方法来取得一个单一的可以被共享的默认session 如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Properties props = new Properties();
+Session session = Session.getDefaultInstance(props,null);</pre>
+    <p>
+     或者，可以使用 getInstance() 方法来创建一个唯一的 session如：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Properties props = new Properties();
+Session session = Session.getInstance(props,null);</pre>
+    <p>
+     在这两种方法中 其中的 null 参数是一个 Authenticator 对象，在这里没有被使用的，所以就是null。在大多数案例中，使用一个共享session 已经做够了。
+    </p>
+    <p>
+     <span id="more-4261">
+     </span>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Message">
+     </span>
+     Message
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     一旦你创建了Session对象，那么下面要做的就是创建message来发送。Message是一个抽象类，在大部分应用中你可以使用它的子类javax.mail.internet.MimeMessage 。MimeMessage 是一个理解在不同RFCs中定义的MIME类型以及headers的e-mail message。Message headers 必须使用 US-ASCII 字符集。可以用如下的方法创建一个Message
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      MimeMessage message = new MimeMessage(session);
+     </code>
+    </p>
+    <p>
+     我们注意到，这里需要用session对象作为构造函数的参数。当然，还有其它的构造函数，比如从用RFC822格式化过的输入流来创建message。
+    </p>
+    <p>
+     一旦你得到了 message ,你就可以来设置它的各个部分（parts）。设置内容（content）的基本的机制是使用setContent() 方法。
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      message.setContent("Email Content. ","text/plain");
+     </code>
+    </p>
+    <p>
+     如果，你能够明确你的使用MimeMessage来创建message 并且只是使用普通的文本（plain text） 那么你也可以使用 setText() 方法，setTest()方法只需要设置具体的内容，它默认的MIME类型是 text/plain
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      message.setText("Email Content. ");
+     </code>
+    </p>
+    <p>
+     对于普通文本类型的邮件，有一种机制是首选（ message.setText(“Email Content. “)）的设置内容的方法。如果要创建其它类型的message ，比如　HTML类型的message   那么还是需要使用前者　（　message.setContent(“Email Content. “,”text/html”);　）
+     <br/>
+     设置主题（subject ），使用setSubject() 方法
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      message.setSubject(" Subject ");
+     </code>
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Address">
+     </span>
+     Address
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     当你已经创建Session 以及 Message，并且已经为message 填充了内容，那么接下来要做的就是给你的邮件添加一个地址（Address）。　就像Message一样，Address也是一个抽象类，我们可以使用它的一个子
+    </p>
+    <p>
+     javax.mail.internet.InternetAddress
+    </p>
+    <p>
+     创建一个地址非常简单
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      Address address = new InternetAddress("&lt;a href="mailto:su
+      <a class="__cf_email__" data-cfemail="b0d9c8d9def0d1c3d9d1d9ded6df9ed3dfdd" href="/cdn-cgi/l/email-protection">
+       [email protected]
+      </a>
+      "&gt;
+      <a class="__cf_email__" data-cfemail="3241475b4a5b5c7253415b535b5c545d1c515d5f" href="/cdn-cgi/l/email-protection">
+       [email protected]
+      </a>
+      &lt;/a&gt;");
+     </code>
+    </p>
+    <p>
+     如果，你希望在出现邮件地址的地方出现一个名称，那么你只需要再多传递一个参数。
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      Address address = new InternetAddress("&lt;a href="mailto:
+      <a class="__cf_email__" data-cfemail="2350564a5b4a4d6342504a424a4d454c0d404c4e" href="/cdn-cgi/l/email-protection">
+       [email protected]
+      </a>
+      &amp;quot;,&amp;quot;Steve"&gt;
+      <a class="__cf_email__" data-cfemail="c7b4b2aebfaea987a6b4aea6aea9a1a8e9a4a8aa" href="/cdn-cgi/l/email-protection">
+       [email protected]
+      </a>
+      ","Steve&lt;/a&gt;");
+     </code>
+    </p>
+    <p>
+     你需要为 message 的from以及 to 字段创建address对象。为了识别发送者，你需要使用setFrom() 和 setReplyTo() 方法。
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      messge.setFrom(address);
+     </code>
+    </p>
+    <p>
+     如果你的message 需要显示多个 from 地址，可以使用 addFrom() 方法
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Address address[] = {....};
+message.addFrom(address);</pre>
+    <p>
+     为了辨识message 的收件人，你需要使用 setRecipient() 方法。这个方法除了address参数之外，还需要一
+    </p>
+    <p>
+     Message.RecipientType 。
+     <br/>
+     message.addRecipient(type,address);
+     <br/>
+     Message.RecipientType有几个预先定义好的类型
+     <br/>
+     Message.RecipientType.TO　　收件人
+     <br/>
+     Message.RecipientType.CC　　抄送
+     <br/>
+     Message.RecipientType.BCC　 暗送
+    </p>
+    <p>
+     如果你的一封邮件，需要发送给你的老师，并还要给你的几个同学，那么你可以这样
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Address toAddress = new InternetAddress("&lt;a href="mailto:<a class="__cf_email__" data-cfemail="40342521232825320071777278786e232f2d" href="/cdn-cgi/l/email-protection">[email protected]</a>"&gt;<a class="__cf_email__" data-cfemail="a5d1c0c4c6cdc0d7e59492979d9d8bc6cac8" href="/cdn-cgi/l/email-protection">[email protected]</a>&lt;/a&gt;");
+Address[] ccAddress = {new InternetAddress("&lt;a href="mailto:<a class="__cf_email__" data-cfemail="fb889893949497969a8f9ecabbcaccc9c3c3d5989496" href="/cdn-cgi/l/email-protection">[email protected]</a>&amp;quot;),new"&gt;<a class="__cf_email__" data-cfemail="2c5f4f44434340414d58491d6c1d1b1e1414024f4341" href="/cdn-cgi/l/email-protection">[email protected]</a>"),new&lt;/a&gt; InternetAddress("&lt;a href="mailto:<a class="__cf_email__" data-cfemail="7605151e19191a1b17021344364741444e4e5815191b" href="/cdn-cgi/l/email-protection">[email protected]</a>"&gt;<a class="__cf_email__" data-cfemail="5b283833343437363a2f3e691b6a6c69636375383436" href="/cdn-cgi/l/email-protection">[email protected]</a>&lt;/a&gt;")};
+message.addRecipient(Message.RecipientType.To, toAddress);
+message.addRecipient(Message.RecipientType.CC, ccAddress);</pre>
+    <p>
+     JavaMail 没有提供电子邮件地址有效性的检测。这些超越了JavaMail API的范围。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="Authenticator">
+     </span>
+     Authenticator
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     通过Authenticator设置用户名、密码，来访问受保护的资源，这里的资源一般指的是邮件服务器。
+    </p>
+    <p>
+     Authenticator也是一个抽象类，你需要自己编写子类已备应用。你需要实现getPasswordAuthentication()方法，并返回一个PasswordAuthentication实例。你必须在 session被创建时， 注册你的 Authenticator。这样，当需要进行认证是，你的Authenticator就可以被得到。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Properties props = new Properties();
+//设置属性
+Authenticator auth = new YourAuthenticator();
+Session session = Session.getDefaultInstance(props, auth);</pre>
+    <h4>
+     <span class="ez-toc-section" id="Transport">
+     </span>
+     Transport
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     发送消息最后的一步就是使用Transport类，你可以通过两种方法来进行发送。
+     <br/>
+     Transport 是一个抽象类，你可以调用它静态的send() 方法来发送
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="java">
+      Transport.send(message);
+     </code>
+    </p>
+    <p>
+     或者，你可以为你使用的协议从session中取得一个指定的实例，
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Transport transport = session.getTransport("smtp");
+transport.sendMessage(message, message.getAllRecipients());
+transport.close();</pre>
+    <h4>
+     <span class="ez-toc-section" id="Store_and_Folder">
+     </span>
+     Store and Folder
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     这两个类重要用于取得信息。在创建了Session之后，需要连接到一个 Store ，你需要告诉Store你使用的是什么协议。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">// Store store = session.getStore("imap");
+Store store = session.getStore("pop3");
+store.connect(host, username, password);</pre>
+    <p>
+     在连接到一个 Store 后，你可以得到一个 Folder，当然，这个Floder必须是打开的。
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">Folder folder = store.getFolder("INBOX");
+folder.open(Folder.READ_ONLY);
+Message message[] = folder.getMessages();</pre>
+    <p>
+     如果使用POP3那么，INDEX是唯一可用的文件夹。如果使用的是IMAP，你就可以使用其它的文件夹。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E4%BB%A3%E7%A0%81">
+     </span>
+     代码
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <pre class="EnlighterJSRAW" data-enlighter-language="java">public boolean sendEmail(Map&lt;String, String&gt; data) {
+    // 创建Properties 对象
+    Properties props = System.getProperties();
+    props.put("mail.smtp.host", Constants.HOST); // 全局变量
+    props.put("mail.smtp.auth", "true");
+
+    // 创建邮件会话
+    Session session = Session.getDefaultInstance(props,
+    new Authenticator() { // 验账账户
+        @Override
+        public PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(Constants.USERNAME,
+                                              Constants.PASSWORD);
+        }
+    });
+
+    try {
+        // 定义邮件信息
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(Constants.FROM));
+        message.addRecipient(
+            Message.RecipientType.TO,
+            new InternetAddress(
+                // 这里可以添加多个目的用户
+                data.get(Constants.EMAIL_TO)
+            )
+        );
+        // 添加邮件发送时间（不知道体现在哪儿）
+        message.setSentDate(new Date());
+        // 要编码，否则中文会出乱码，貌似这个方法是对数据进行了
+        //("=?GB2312?B?"+enc.encode(subject.getBytes())+"?=")形势的包装
+        message.setSubject(MimeUtility.encodeText(data.get(Constants.EMAIL_SUBJECT), "gbk", "B"));
+
+        MimeMultipart mmp = new MimeMultipart();
+        MimeBodyPart mbp_text = new MimeBodyPart();
+        // "text/plain"是文本型，没有样式，
+        //"text/html"是html样式，可以解析html标签
+        mbp_text.setContent(data.get(Constants.EMAIL_TEXT),
+                            "text/html;charset=gbk");
+        mmp.addBodyPart(mbp_text); // 加入邮件正文
+
+        // 处理附件，可以添加多个附件
+        if (data.get(Constants.EMAIL_ATTACHMENT) != null) {
+            String[] files = data.get(Constants.EMAIL_ATTACHMENT).split(",");
+            if (files.length != 0) {
+                for (String file : files) {
+                    MimeBodyPart mbp_file = new MimeBodyPart();
+                    FileDataSource fds = new FileDataSource(file);
+                    mbp_file.setDataHandler(new DataHandler(fds));
+                    mbp_file.setFileName(MimeUtility.encodeText(fds.getName(), "gbk", "B"));
+                    mmp.addBodyPart(mbp_file);
+                }
+            }
+        }
+        message.setContent(mmp);
+        // message.setText(data.get(Constants.EMAIL_TEXT));
+
+        // 发送消息
+        // session.getTransport("smtp").send(message); //也可以这样创建Transport对象
+        Transport.send(message);
+        return true;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+</pre>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/20845.html">
+         <img alt="Rust语言的编程范式" height="150" src="https://coolshell.cn/wp-content/uploads/2020/03/rust-social-wide-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/20845.html">
+         Rust语言的编程范式
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18360.html">
+         <img alt="程序员练级攻略（2018)  与我的专栏" height="150" src="https://coolshell.cn/wp-content/uploads/2018/05/300x262-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/18360.html">
+         程序员练级攻略（2018) 与我的专栏
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11541.html">
+         <img alt="面向GC的Java编程" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/24.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11541.html">
+         面向GC的Java编程
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11454.html">
+         <img alt="从LongAdder看更高效的无锁实现" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/17.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11454.html">
+         从LongAdder看更高效的无锁实现
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/11175.html">
+         <img alt="Java中的CopyOnWrite容器" height="150" src="https://coolshell.cn/wp-content/uploads/2014/03/cow-copy-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/11175.html">
+         Java中的CopyOnWrite容器
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9703.html">
+         <img alt="无锁HashMap的原理与实现" height="150" src="https://coolshell.cn/wp-content/uploads/2013/05/图1-3-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/9703.html">
+         无锁HashMap的原理与实现
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="f8fa9fa525" id="post-ratings-4261" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_4261_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2.6, 3, 0);" onmouseover="current_rating(4261, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_4261_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2.6, 3, 0);" onmouseover="current_rating(4261, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_4261_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2.6, 3, 0);" onmouseover="current_rating(4261, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_4261_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2.6, 3, 0);" onmouseover="current_rating(4261, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_4261_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(2.6, 3, 0);" onmouseover="current_rating(4261, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      9
+     </strong>
+     人打了分，平均分：
+     <strong>
+      2.56
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_4261_text">
+     </span>
+     <meta content="JavaMail使用" itemprop="name"/>
+     <meta content="JavaMail使用" itemprop="headline"/>
+     <meta content="（本文由网友jjzhx_1211投递，感谢!）
+
+使用JavaMail需要两个包：activation-1.1.jar和mail-1.4.2.jar（当然现在最新的版本已经不止了），也可以直接包含Java SE 6的j2ee.jar，自带了前面的两个包。我把邮件功能写成了一个服务，发送邮件的数据都通过Map&lt;String, String&gt;类型的参数封装了起来。代码见文章最后。
+Session..." itemprop="description"/>
+     <meta content="2011-04-06T23:05:39+08:00" itemprop="datePublished"/>
+     <meta content="2011-04-10T21:57:38+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/4261.html" itemprop="url"/>
+     <meta content="jjzhx_1211" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/4261.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="2.56" itemprop="ratingValue"/>
+      <meta content="9" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-4261-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/proglanguage/javadev" rel="category tag">
+        Java语言
+       </a>
+       ,
+       <a href="https://coolshell.cn/category/proglanguage/webdev" rel="category tag">
+        Web开发
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/java" rel="tag">
+        Java
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/javamail" rel="tag">
+        JavaMail
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>

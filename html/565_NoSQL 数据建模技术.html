@@ -1,0 +1,1649 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://coolshell.cn/xmlrpc.php" rel="pingback"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <link href="https://coolshell.cn/articles/7270.html" rel="canonical">
+   <meta content="All in One SEO (AIOSEO) 4.3.6.1 " name="generator"/>
+   <meta content="zh_CN" property="og:locale"/>
+   <meta content="酷 壳 - CoolShell" property="og:site_name"/>
+   <meta content="article" property="og:type"/>
+   <meta content="NoSQL 数据建模技术 | 酷 壳 - CoolShell" property="og:title"/>
+   <meta content="https://coolshell.cn/articles/7270.html" property="og:url"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2012/05/overview2.png?w=594&amp;h=699" property="og:image"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2012/05/overview2.png?w=594&amp;h=699" property="og:image:secure_url"/>
+   <meta content="2012-05-15T00:22:13+00:00" property="article:published_time"/>
+   <meta content="2012-05-15T06:28:11+00:00" property="article:modified_time"/>
+   <meta content="summary" name="twitter:card"/>
+   <meta content="NoSQL 数据建模技术 | 酷 壳 - CoolShell" name="twitter:title"/>
+   <meta content="https://coolshell.cn/wp-content/uploads/2012/05/overview2.png?w=594&amp;h=699" name="twitter:image"/>
+   <script class="aioseo-schema" type="application/ld+json">
+    {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/coolshell.cn\/articles\/7270.html#article","name":"NoSQL \u6570\u636e\u5efa\u6a21\u6280\u672f | \u9177 \u58f3 - CoolShell","headline":"NoSQL \u6570\u636e\u5efa\u6a21\u6280\u672f","author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"publisher":{"@id":"https:\/\/coolshell.cn\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2012\/05\/overview2.png?w=594&amp;h=699","@id":"https:\/\/coolshell.cn\/#articleImage"},"datePublished":"2012-05-15T00:22:13+08:00","dateModified":"2012-05-15T06:28:11+08:00","inLanguage":"zh-CN","commentCount":52,"mainEntityOfPage":{"@id":"https:\/\/coolshell.cn\/articles\/7270.html#webpage"},"isPartOf":{"@id":"https:\/\/coolshell.cn\/articles\/7270.html#webpage"},"articleSection":"\u6570\u636e\u5e93, Database, NoSQL, SQL"},{"@type":"BreadcrumbList","@id":"https:\/\/coolshell.cn\/articles\/7270.html#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/coolshell.cn\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/","name":"\u4e3b\u9801","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 \u2013 https:\/\/coolshell.cn","url":"https:\/\/coolshell.cn\/"}}]},{"@type":"Organization","@id":"https:\/\/coolshell.cn\/#organization","name":"\u9177\u58f3-CoolShell","url":"https:\/\/coolshell.cn\/","logo":{"@type":"ImageObject","url":"https:\/\/coolshell.cn\/wp-content\/uploads\/2020\/04\/mini.logo_.png","@id":"https:\/\/coolshell.cn\/#organizationLogo","width":306,"height":306},"image":{"@id":"https:\/\/coolshell.cn\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author","url":"https:\/\/coolshell.cn\/articles\/author\/haoel","name":"\u9648\u7693","image":{"@type":"ImageObject","@id":"https:\/\/coolshell.cn\/articles\/7270.html#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/af2fbb7372dd5826e44d87e6ceccea40?s=96&d=mm&r=g","width":96,"height":96,"caption":"\u9648\u7693"}},{"@type":"WebPage","@id":"https:\/\/coolshell.cn\/articles\/7270.html#webpage","url":"https:\/\/coolshell.cn\/articles\/7270.html","name":"NoSQL \u6570\u636e\u5efa\u6a21\u6280\u672f | \u9177 \u58f3 - CoolShell","inLanguage":"zh-CN","isPartOf":{"@id":"https:\/\/coolshell.cn\/#website"},"breadcrumb":{"@id":"https:\/\/coolshell.cn\/articles\/7270.html#breadcrumblist"},"author":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"creator":{"@id":"https:\/\/coolshell.cn\/articles\/author\/haoel#author"},"datePublished":"2012-05-15T00:22:13+08:00","dateModified":"2012-05-15T06:28:11+08:00"},{"@type":"WebSite","@id":"https:\/\/coolshell.cn\/#website","url":"https:\/\/coolshell.cn\/","name":"\u9177 \u58f3 - CoolShell","description":"\u4eab\u53d7\u7f16\u7a0b\u548c\u6280\u672f\u6240\u5e26\u6765\u7684\u5feb\u4e50 - Coding Your Ambition","inLanguage":"zh-CN","publisher":{"@id":"https:\/\/coolshell.cn\/#organization"}}]}
+   </script>
+   <script type="text/javascript">
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', "UA-7486123-1", { 'cookieDomain': 'coolshell.cn' } );
+			ga('send', 'pageview');
+   </script>
+   <script async="" src="https://www.google-analytics.com/analytics.js">
+   </script>
+   <script type="text/javascript">
+    window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/coolshell.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+   </script>
+   <script id="jquery-core-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" type="text/javascript">
+   </script>
+   <script id="jquery-migrate-js" src="https://coolshell.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" type="text/javascript">
+   </script>
+   <script id="series-js" src="https://coolshell.cn/wp-content/plugins/simple-post-series/autohide.js?ver=2.4" type="text/javascript">
+   </script>
+   <script id="ez-toc-scroll-scriptjs-js-after" type="text/javascript">
+    jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+   </script>
+   <!--[if lt IE 9]>
+<script type='text/javascript' src='https://coolshell.cn/wp-content/themes/MyNisarg/js/html5shiv.js?ver=3.7.3' id='html5shiv-js'></script>
+<![endif]-->
+   <meta content="WordPress 6.2" name="generator"/>
+   <script type="text/javascript">
+    window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://coolshell.cn/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '7270';
+	window._wp_rp_num_rel_posts = '6';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'NoSQL+%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF';
+	window._wp_rp_post_tags = ['sql', 'database', 'nosql', '%E6%95%B0%E6%8D%AE%E5%BA%93', 'data', 'nosql', 'io', 'atom', 'kyoto', 'databas', 'engin', 'mongodb', 'oracl', 'model', 'redi', 'store', 'gener', 'apach', 'alt'];
+	window._wp_rp_promoted_content = true;
+   </script>
+  </link>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://coolshell.cn/feed" rel="alternate" title="酷 壳 - CoolShell » Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/comments/feed" rel="alternate" title="酷 壳 - CoolShell » 评论Feed" type="application/rss+xml"/>
+  <link href="https://coolshell.cn/articles/7270.html/feed" rel="alternate" title="酷 壳 - CoolShell » NoSQL 数据建模技术评论Feed" type="application/rss+xml"/>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/simple-post-series/inc/icomoon/style.css?ver=2.4" id="series_font-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/gutenberg/build/block-library/style.css?ver=15.7.0" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-includes/css/classic-themes.min.css?ver=6.2" id="classic-theme-styles-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="global-styles-inline-css" type="text/css">
+   body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.90.1" id="wp-postratings-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.48" id="ez-toc-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="ez-toc-inline-css" type="text/css">
+   div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container nav ul ul li ul li {font-size: %!important;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item;}.ez-toc-counter nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item;}.ez-toc-widget-container nav ul li a::before {content: counters(item, ".", decimal) ". ";display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left;}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/css/bootstrap.css?ver=6.2" id="bootstrap-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/style.css?ver=6.2" id="nisarg-style-css" media="all" rel="stylesheet" type="text/css"/>
+  <style id="nisarg-style-inline-css" type="text/css">
+   /* Color Scheme */
+
+	/* Accent Color */
+
+	a:active,
+	a:hover,
+	a:focus {
+	    color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+		color: #009688;
+	}
+
+	
+	.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		color: #009688;			
+	}
+
+	@media (min-width: 768px){
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			border-top: 4px solid #009688;
+		}		
+	}
+
+	.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {	    
+	    background-color: #009688;
+	}
+
+
+	.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+		color: #009688;
+	}
+
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: #009688;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		background-color: #fff;
+		color: #009688;
+	}
+
+	@media (max-width: 767px) {
+		.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+			background-color: #009688;
+			color: #fff;
+		}
+	}
+
+	.sticky-post{
+	    background: #009688;
+	    color:white;
+	}
+	
+	.entry-title a:hover,
+	.entry-title a:focus{
+	    color: #009688;
+	}
+
+	.entry-header .entry-meta::after{
+	    background: #009688;
+	}
+
+	.fa {
+		color: #009688;
+	}
+
+	.btn-default{
+		border-bottom: 1px solid #009688;
+	}
+
+	.btn-default:hover, .btn-default:focus{
+	    border-bottom: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.nav-previous:hover, .nav-next:hover{
+	    border: 1px solid #009688;
+	    background-color: #009688;
+	}
+
+	.next-post a:hover,.prev-post a:hover{
+	    color: #009688;
+	}
+
+	.posts-navigation .next-post a:hover .fa, .posts-navigation .prev-post a:hover .fa{
+	    color: #009688;
+	}
+
+
+	#secondary .widget-title::after{
+		background-color: #009688;
+	    content: "";
+	    position: absolute;
+	    width: 75px;
+	    display: block;
+	    height: 4px;    
+	    bottom: -15px;
+	}
+
+	#secondary .widget a:hover,
+	#secondary .widget a:focus{
+		color: #009688;
+	}
+
+	#secondary .widget_calendar tbody a {
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+
+	#secondary .widget_calendar tbody a:hover{
+	    background-color: #009688;
+	    color: #fff;
+	    padding: 0.2em;
+	}
+  </style>
+  <link href="https://coolshell.cn/wp-content/themes/MyNisarg/font-awesome/css/font-awesome.min.css?ver=6.2" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:400,300italic,700|Source+Sans+Pro:400,400italic" id="nisarggooglefonts-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=0cuVQBPCj0viGB0" id="enlighterjs-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://coolshell.cn/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://coolshell.cn/wp-json/wp/v2/posts/7270" rel="alternate" type="application/json"/>
+  <link href="https://coolshell.cn/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://coolshell.cn/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://coolshell.cn/?p=7270" rel="shortlink"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F7270.html" rel="alternate" type="application/json+oembed"/>
+  <link href="https://coolshell.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcoolshell.cn%2Farticles%2F7270.html&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <link href="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical-m.css?version=3.6.4" rel="stylesheet"/>
+  <style type="text/css">
+   .site-header { background: #1d2b2d; }
+  </style>
+ </head>
+ <body>
+  <article class="post-content post-7270 post type-post status-publish format-standard hentry category-datebase tag-database tag-nosql tag-sql" id="post-7270">
+   <header class="entry-header">
+    <span class="screen-reader-text">
+     NoSQL 数据建模技术
+    </span>
+    <h1 class="entry-title">
+     NoSQL 数据建模技术
+    </h1>
+    <div class="entry-meta">
+     <h5 class="entry-date">
+      <i class="fa fa-calendar-o">
+      </i>
+      <a href="https://coolshell.cn/articles/7270.html" rel="bookmark" title="08:22">
+       <time class="entry-date" datetime="2012-05-15T08:22:13+08:00" pubdate="">
+        2012年05月15日
+       </time>
+      </a>
+      <span class="byline">
+       <span class="sep">
+       </span>
+       <i class="fa fa-user">
+       </i>
+       <span class="author vcard">
+        <a class="url fn n" href="https://coolshell.cn/articles/author/haoel" rel="author" title="View all posts by 陈皓">
+         陈皓
+        </a>
+       </span>
+      </span>
+      <i class="fa fa-comments-o">
+      </i>
+      <span class="screen-reader-text">
+       评论
+      </span>
+      <a class="comments-link" href="https://coolshell.cn/articles/7270.html#comments">
+       52 条评论
+      </a>
+      <i class="fa fa-users" style="margin-left:10px;">
+      </i>
+      69,745 人阅读
+     </h5>
+    </div>
+   </header>
+   <div class="entry-content">
+    <p>
+     <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415450859608158">
+     </script>
+     全文译自墙外文章“
+     <a href="http://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/" target="_blank">
+      NoSQL Data Modeling Techniques
+     </a>
+     ”，译得不好，还请见谅。这篇文章看完之后，你可能会对NoSQL的数据结构会有些感觉。我的感觉是，关系型数据库想把一致性，完整性，索引，CRUD都干好，NoSQL只干某一种事，但是牺牲了很多别的东西。总体来说，我觉得NoSQL更适合做Cache。下面是正文——
+    </p>
+    <p>
+     NoSQL 数据库经常被用作很多非功能性的地方，如，扩展性，性能和一致性的地方。这些NoSQL的特性在理论和实践中都正在被大众广泛地研究着，研究的热点正是那些和性能分布式相关的非功能性的东西，我们都知道
+     <a href="https://en.wikipedia.org/wiki/CAP_theorem">
+      CAP 理论
+     </a>
+     被很好地应用于了 NoSQL 系统中（陈皓注：CAP即，一致性(Consistency)， 可用性(Availability)， 分区容忍性(Partition tolerance)，在分布式系统中，这三个要素最多只能同时实现两个，而NoSQL一般放弃的是一致性）。但在另一方面，NoSQL的数据建模技术却因为缺乏像关系型数据库那样的基础理论没有被世人很好地研究。这篇文章从数据建模方面对NoSQL家族进行了比较，并讨论几个常见的数据建模技术。
+    </p>
+    <p>
+     要开始讨论数据建模技术，我们不得不或多或少地先系统地看一下NoSQL数据模型的成长的趋势，以此我们可以了解一些他们内在的联系。下图是NoSQL家族的进化图，我们可以看到这样的进化：Key-Value时代，BigTable时代，Document时代，全文搜索时代，和Graph数据库时代：（陈皓注：注意图中SQL说的那句话，NoSQL再这样发展下去就是SQL了，哈哈。）
+    </p>
+    <div id="attachment_310">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/overview2.png">
+       <img alt="" decoding="async" height="699" src="https://coolshell.cn/wp-content/uploads/2012/05/overview2.png?w=594&amp;h=699" title="overview" width="594"/>
+       <br/>
+      </a>
+      NoSQL Data Models
+     </p>
+    </div>
+    <p>
+     首先，我们需要注意的是SQL和关系型数据模型已存在了很长的时间，这种面向用户的自然性意味着：
+    </p>
+    <p>
+     <span id="more-7270">
+     </span>
+    </p>
+    <ul>
+     <li>
+      最终用户一般更感兴趣于数据的聚合显示，而不是分离的数据，这主要通过SQL来完成。
+     </li>
+     <li>
+      我们无法通过人手工控制数据的并发性，完整性，一致性，或是数据类型校验这些东西的。这就是为什么SQL需要在事务，二维表结构（schema）和外表联合上做很多事。
+     </li>
+    </ul>
+    <p>
+     另一方面，SQL可以让软件应用程序在很多情况下不需要关心数据库的数据聚合，和数据完整性和有效性进行控制。而如果我们去除了数据一致性，完整性这些东西，会对性能和分布存储有着重的帮助。正因为如此，我们才有数据模型的进化：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       Key-Value 键值对存储
+      </strong>
+      是非常简单而强大的。下面的很多技术基本上都是基于这个技术开始发展的。但是，Key-Value有一个非常致命的问题，那就是如果我们需要查找一段范围内的key。（陈皓注：学过hash-table数据结构的人都应该知道，hash-table是非序列容器，其并不像数组，链接，队列这些有序容器，我们可以控制数据存储的顺序）。于是，有序键值 （Ordered Key-Value） 数据模型被设计出来解决这一限制，来从根本上提高数据集的问题。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       Ordered Key-Value 有序键值
+      </strong>
+      模型也非常强大，但是，其也没有对Value提供某种数据模型。通常来说，Value的模型可以由应用负责解析和存取。这种很不方便，于是出现了 BigTable类型的数据库，这个数据模型其实就是map里有map，map里再套map，一层一层套下去，也就是层层嵌套的key-value（value里又是一个key-value），这种数据库的Value主要通过“列族”（column families），列，和时间戳来控制版本。（陈皓注：关于时间戳来对数据的版本控制主要是解决数据存储并发问题，也就是所谓的乐观锁，详见《
+      <a href="https://coolshell.cn/articles/6790.html" target="_blank" title="多版本并发控制(MVCC)在分布式系统中的应用">
+       多版本并发控制(MVCC)在分布式系统中的应用
+      </a>
+      》）
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       Document databases 文档数据库
+      </strong>
+      改进了 BigTable 模型，并提供了两个有意义的改善。第一个是允许Value中有主观的模式（scheme），而不是map套map。第二个是索引。
+      <strong>
+       Full Text Search Engines 全文搜索引擎
+      </strong>
+      可以被看作是文档数据库的一个变种，他们可以提供灵活的可变的数据模式（scheme）以及自动索引。他们之间的不同点主要是，文档数据库用字段名做索引，而全文搜索引擎用字段值做索引。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       Graph data models 图式数据库
+      </strong>
+      可以被认为是这个进化过程中从 Ordered Key-Value 数据库发展过来的一个分支。图式数据库允许构建议图结构的数据模型。它和文档数据库有关系的原因是，它的很多实现允许value可以是一个map或是一个document。
+     </li>
+    </ul>
+    <div class="ez-toc-v2_0_48 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container">
+     <div class="ez-toc-title-container">
+      <p class="ez-toc-title">
+       目录
+      </p>
+      <span class="ez-toc-title-toggle">
+      </span>
+     </div>
+     <nav>
+      <ul class="ez-toc-list ez-toc-list-level-1">
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-1" href="#_NoSQL_%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E6%91%98%E8%A6%81" title=" NoSQL 数据模型摘要">
+         NoSQL 数据模型摘要
+        </a>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-2" href="#%E6%A6%82%E5%BF%B5%E6%8A%80%E6%9C%AF_Conceptual_Techniques" title="概念技术 Conceptual Techniques">
+         概念技术 Conceptual Techniques
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-3" href="#1_%E5%8F%8D%E8%A7%84%E6%A0%BC%E5%8C%96_Denormalization" title="(1) 反规格化 Denormalization">
+           (1) 反规格化 Denormalization
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-4" href="#2_%E8%81%9A%E5%90%88_Aggregates" title="(2) 聚合 Aggregates">
+           (2) 聚合 Aggregates
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-5" href="#3_%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E7%BB%93_Application_Side_Joins" title="(3) 应用层联结 Application Side Joins">
+           (3) 应用层联结 Application Side Joins
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-6" href="#%E9%80%9A%E7%94%A8%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF_General_Modeling_Techniques" title="通用建模技术 General Modeling Techniques">
+         通用建模技术 General Modeling Techniques
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-7" href="#4_%E5%8E%9F%E5%AD%90%E8%81%9A%E5%90%88_Atomic_Aggregates" title="(4) 原子聚合 Atomic Aggregates">
+           (4) 原子聚合 Atomic Aggregates
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-8" href="#5_%E5%8F%AF%E6%9E%9A%E4%B8%BE%E9%94%AE_Enumerable_Keys" title="(5) 可枚举键 Enumerable Keys">
+           (5) 可枚举键 Enumerable Keys
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-9" href="#6_%E9%99%8D%E7%BB%B4_Dimensionality_Reduction" title="(6) 降维 Dimensionality Reduction">
+           (6) 降维 Dimensionality Reduction
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-10" href="#7_%E7%B4%A2%E5%BC%95%E8%A1%A8_Index_Table" title="(7) 索引表 Index Table">
+           (7) 索引表 Index Table
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-11" href="#8_%E9%94%AE%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95_Composite_Key_Index" title="(8) 键组合索引 Composite Key Index">
+           (8) 键组合索引 Composite Key Index
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-12" href="#9_%E9%94%AE%E7%BB%84%E5%90%88%E8%81%9A%E5%90%88_Aggregation_with_Composite_Keys" title="(9) 键组合聚合 Aggregation with Composite Keys">
+           (9) 键组合聚合 Aggregation with Composite Keys
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-13" href="#10_%E5%8F%8D%E8%BD%AC%E6%90%9C%E7%B4%A2_Inverted_Search_%E2%80%93_%E7%9B%B4%E6%8E%A5%E8%81%9A%E5%90%88_Direct_Aggregation" title="(10) 反转搜索 Inverted Search – 直接聚合 Direct Aggregation">
+           (10) 反转搜索 Inverted Search – 直接聚合 Direct Aggregation
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-14" href="#%E5%B1%82%E7%BA%A7%E5%BC%8F%E6%A8%A1%E5%9E%8B_Hierarchy_Modeling_Techniques" title="层级式模型 Hierarchy Modeling Techniques">
+         层级式模型 Hierarchy Modeling Techniques
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-15" href="#11_%E6%A0%91%E5%BD%A2%E8%81%9A%E5%90%88Tree_Aggregation" title="(11) 树形聚合Tree Aggregation">
+           (11) 树形聚合Tree Aggregation
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-16" href="#12_%E9%82%BB%E6%8E%A5%E5%88%97%E8%A1%A8_Adjacency_Lists" title="(12) 邻接列表 Adjacency Lists">
+           (12) 邻接列表 Adjacency Lists
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-17" href="#13_Materialized_Paths" title="(13) Materialized Paths">
+           (13) Materialized Paths
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-18" href="#14_%E5%B5%8C%E5%A5%97%E9%9B%86_Nested_Sets" title="(14) 嵌套集 Nested Sets">
+           (14) 嵌套集 Nested Sets
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-19" href="#15_%E5%B5%8C%E5%A5%97%E6%96%87%E6%A1%A3%E6%89%81%E5%B9%B3%E5%8C%96%EF%BC%9A%E6%9C%89%E9%99%90%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D_Nested_Documents_Flattening_Numbered_Field_Names" title="(15) 嵌套文档扁平化：有限的字段名 Nested Documents Flattening: Numbered Field Names">
+         (15) 嵌套文档扁平化：有限的字段名 Nested Documents Flattening: Numbered Field Names
+        </a>
+        <ul class="ez-toc-list-level-5">
+         <li class="ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-20" href="#16%E5%B5%8C%E5%A5%97%E6%96%87%E6%A1%A3%E6%89%81%E5%B9%B3%E5%8C%96%EF%BC%9A%E9%82%BB%E8%BF%91%E6%9F%A5%E8%AF%A2_Nested_Documents_Flattening_Proximity_Queries" title="(16)嵌套文档扁平化：邻近查询 Nested Documents Flattening: Proximity Queries">
+           (16)嵌套文档扁平化：邻近查询 Nested Documents Flattening: Proximity Queries
+          </a>
+         </li>
+         <li class="ez-toc-page-1 ez-toc-heading-level-5">
+          <a class="ez-toc-link ez-toc-heading-21" href="#17_%E5%9B%BE%E7%BB%93%E6%9E%84%E6%89%B9%E5%A4%84%E7%90%86_Batch_Graph_Processing" title="(17) 图结构批处理 Batch Graph Processing">
+           (17) 图结构批处理 Batch Graph Processing
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="ez-toc-page-1 ez-toc-heading-level-4">
+        <a class="ez-toc-link ez-toc-heading-22" href="#%E5%8F%82%E8%80%83" title="参考">
+         参考
+        </a>
+       </li>
+      </ul>
+     </nav>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="_NoSQL_%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E6%91%98%E8%A6%81">
+     </span>
+     NoSQL 数据模型摘要
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     本文剩下的章节将向你介绍数据建模的技术实现和相关模式。但是，在介绍这些技术之前，先来一段序言：
+    </p>
+    <ul>
+     <li>
+      NoSQL 数据模型设计一般从业务应用的具体数据查询入手，而不是数据间的关系：
+     </li>
+     <ul>
+      <li>
+       关系型的数据模型基本上是分析数据间的结构和关系。其设计理念是： ”
+       <strong>
+        What answers do I have?”
+       </strong>
+       <em>
+       </em>
+      </li>
+      <li>
+       NoSQL 数据模型基本上是从应用对数据的存取方式入手，如：我需要支持某种数据查询。其设计理念是
+       <strong>
+        ”What questions do I have?”
+       </strong>
+      </li>
+     </ul>
+    </ul>
+    <ul>
+     <li>
+      NoSQL 数据模型设计比关系型数据库需要对数据结构和算法的更深的了解。在这篇文章中我会和大家说那些尽人皆知的数据结构，这些数据结构并不只是被NoSQL使用，但是对于NoSQL的数据模型却非常有帮助。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      数据冗余和反规格化是一等公民。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      关系型数据库对于处理层级数据和图式数据非常的不方便。NoSQL用来解决图式数据明显是一个非常好的解决方案，几乎所有的NoSQL数据库可以很强地解决此类问题。这就是为什么这篇文章专门拿出一章来说明层级数据模型。
+     </li>
+    </ul>
+    <div>
+     下面是NoSQL的分类表，也是我用来写这篇文章时做实践的产品：
+    </div>
+    <div>
+     <ul>
+      <li>
+       Key-Value 存储: Oracle Coherence, Redis, Kyoto Cabinet
+      </li>
+      <li>
+       类BigTable存储: Apache HBase, Apache Cassandra
+      </li>
+      <li>
+       文档数据库: MongoDB, CouchDB
+      </li>
+      <li>
+       全文索引: Apache Lucene, Apache Solr
+      </li>
+      <li>
+       图数据库: neo4j, FlockDB
+      </li>
+     </ul>
+    </div>
+    <h4>
+     <span class="ez-toc-section" id="%E6%A6%82%E5%BF%B5%E6%8A%80%E6%9C%AF_Conceptual_Techniques">
+     </span>
+     概念技术 Conceptual Techniques
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     这一节主要介绍NoSQL数据模型的基本原则。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="1_%E5%8F%8D%E8%A7%84%E6%A0%BC%E5%8C%96_Denormalization">
+     </span>
+     (1) 反规格化 Denormalization
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     反规格化 Denormalization 可以被认为是把相同的数据拷贝到不同的文档或是表中，这样就可以简化和优化查询，或是正好适合用户的某中特别的数据模型。这篇文章中所说的绝大多数技术都或多或少地导向了这一技术。
+    </p>
+    <p>
+     总体来说，反规格化需要权衡下面这些东西：
+    </p>
+    <ul>
+     <li>
+      <strong>
+       <em>
+        查询数据量 /查询IO
+       </em>
+      </strong>
+      VS
+      <strong>
+       <em>
+        总数据量
+       </em>
+      </strong>
+      。使用反规格化，一方面可以把一条查询语句所需要的所有数据组合起来放到一个地方存储。这意味着，其它不同不同查询所需要的相同的数据，需要放在别不同的地方。因此，这产生了很多冗余的数据，从而导致了数据量的增大。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <strong>
+       <em>
+        处理复杂度
+       </em>
+      </strong>
+      VS
+      <strong>
+       <em>
+        总数据量
+       </em>
+      </strong>
+      . 在符合范式的数据模式上进行表连接的查询，很显然会增加了查询处理的复杂度，尤其对于分布式系统来说更是。反规格化的数据模型允许我们以方便查询的方式来存构造数据结构以简化查询复杂度。
+     </li>
+    </ul>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value Store 键值对数据库， Document Databases文档数据库， BigTable风格的数据库。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="2_%E8%81%9A%E5%90%88_Aggregates">
+     </span>
+     (2) 聚合 Aggregates
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     所有类型的NoSQL数据库都会提供灵活的Schema（数据结构，对数据格式的限制）：
+    </p>
+    <ul>
+     <li>
+      Key-Value Stores 和 Graph Databases 基本上来说不会Value的形式，所以Value可以是任意格式。这样一来，这使得我们可以任意组合一个业务实体的keys。比如，我们有一个用户帐号的业务实体，其可以被如下这些key组合起来：
+      <em>
+       UserID_name, UserID_email, UserID_messages
+      </em>
+      等等。如果一个用户没有email或message，那么相应也不会有这样的记录。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      BigTable 模型通过列集合来支持灵活的Schema，我们称之为列族（
+      <em>
+       column family
+      </em>
+      ）。BigTable还可以在同一记录上出现不同的版本（通过时间戳）。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      Document databases 文档数据库是一种层级式的“去Schema”的存储，虽然有些这样的数据库允许检验需要保存的数据是否满足某种Schema。
+     </li>
+    </ul>
+    <p>
+     灵活的Schema允许你可以用一种嵌套式的内部数据方式来存储一组有关联的业务实体（陈皓注：类似于JSON这样的数据封装格式）。这样可以为我们带来两个好处。
+    </p>
+    <ul>
+     <li>
+      最小化“一对多”关系——可以通过嵌套式的方式来存储实体，这样可以少一些表联结。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      可以让内部技术上的数据存储更接近于业务实体，特别是那种混合式的业务实体。可能存于一个文档集或是一张表中。
+     </li>
+    </ul>
+    <div>
+     下图示意了这两种好处。图中描给了电子商务中的商品模型（陈皓注：我记得我在“
+     <a href="https://coolshell.cn/articles/7048.html" target="_blank" title="挑战无处不在">
+      挑战无处不在
+     </a>
+     ”一文中说到过电商中产品分类数据库设计的挑战）
+    </div>
+    <div>
+     <ul>
+      <li>
+       首先，所有的商品Product都会有一个ID，Price 和 Description。
+      </li>
+     </ul>
+     <ul>
+      <li>
+       然后，我们可以知道不同的类型的商品会有不同的属性。比如，作者是书的属性，长度是牛仔裤的属性。其些属性可能是“一对多”或是“多对多”的关系，如：唱片中的曲目。
+      </li>
+     </ul>
+     <ul>
+      <li>
+       接下来，我们知道，某些业务实体不可能使用固定的类型。如：牛仔裤的属性并不是所有的牌子都有的，而且，有些名牌还会搞非常特别的属性。
+      </li>
+     </ul>
+     <p>
+      对于关系型数据库来说，要设计这样的数据模型并不简单，而且设计出来的绝对离优雅很远很远。而我们NoSQL中灵活的Schema允许你使用一个聚合 Aggregate (product) 可以建出所有不同种类的商品和他们的不同的属性：
+     </p>
+    </div>
+    <div>
+     <div id="attachment_404">
+      <p>
+       <a href="https://coolshell.cn/wp-content/uploads/2012/05/soft-schema2.png">
+        <img alt="" class="aligncenter" decoding="async" height="439" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/05/soft-schema2.png?w=594&amp;h=439" title="soft-schema" width="594"/>
+       </a>
+      </p>
+      <p style="text-align: center;">
+       Entity Aggregation
+      </p>
+     </div>
+    </div>
+    <div>
+     <p>
+      上图中我们可以比较关系型数据库和NoSQL的差别。
+      <strong>
+       但是我们可以看到在数据更新上，非规格化的数据存储在性能和一致性上会有很大的影响，这就是我们需要重点注意和不得不牺牲的地方
+      </strong>
+      。
+     </p>
+    </div>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value Store 键值对数据库， Document Databases文档数据库， BigTable风格的数据库。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="3_%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E7%BB%93_Application_Side_Joins">
+     </span>
+     (3) 应用层联结 Application Side Joins
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     表联结基本上不被NoSQL支持。正如我们前面所说的，NoSQL是“面向问题”而不是“面向答案”的，不支持表联结就是“面向问题”的后果。表的联结是在设计时被构造出来的，而不是在执行时建造出来的。所以，表联结在运行时是有很大开销的（陈皓注：搞过SQL表联结的都知道笛卡尔积是什么东西，大可以在参看以前酷壳的“
+     <a href="https://coolshell.cn/articles/3463.html" target="_blank" title="图解SQL的Join">
+      图解数据库表Joins
+     </a>
+     ”），但是在使用了 Denormalization 和 Aggregates 技术后，我们基本不用进行表联结，如：你们使用嵌套式的数据实体。当然，如果你需要联结数据，你需要在应用层完成这个事。下面是几个主要的Use Case：
+    </p>
+    <ul>
+     <li>
+      多对多的数据实体关系——经常需要被连接或联结。
+     </li>
+    </ul>
+    <ul>
+     <li>
+      聚合 Aggregates 并不适用于数据字段经常被改变的情况。对此，我们需要把那些经常被改变的字段分到另外的表中，而在查询时我们需要联结数据。例如，我们有个Message系统可以有一个User实体，其包括了一个内嵌的Message实体。但是，如果用户不断在附加 message，那么，最好把message拆分到另一个独立的实体，但在查询时联结这User和Message这两个实体。如下图：
+     </li>
+    </ul>
+    <p>
+     <a href="https://coolshell.cn/wp-content/uploads/2012/05/aggregates-joins.png">
+      <img alt="" class="aligncenter" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/aggregates-joins.png?w=594" title="aggregates-joins"/>
+     </a>
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value Store 键值对数据库， Document Databases文档数据库， BigTable风格的数据库， Graph Databases 图数据库。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E9%80%9A%E7%94%A8%E5%BB%BA%E6%A8%A1%E6%8A%80%E6%9C%AF_General_Modeling_Techniques">
+     </span>
+     通用建模技术 General Modeling Techniques
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     在本书中，我们将讨论NoSQL中各种不同的通用的数据建模技术。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="4_%E5%8E%9F%E5%AD%90%E8%81%9A%E5%90%88_Atomic_Aggregates">
+     </span>
+     (4) 原子聚合 Atomic Aggregates
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     很多NoSQL的数据库（并不是所有）在事务处理上都是短板。在某些情况下，他们可以通过分布式锁技术或是
+     <a href="http://highlyscalable.wordpress.com/2012/01/07/mvcc-transactions-key-value/" target="_blank" title="Implementation of MVCC Transactions for Key-Value Stores">
+      应用层管理的MVCC技术
+     </a>
+     来实现其事务性（陈皓注：可参看本站的“
+     <a href="https://coolshell.cn/articles/6790.html" title="多版本并发控制(MVCC)在分布式系统中的应用">
+      多版本并发控制(MVCC)在分布式系统中的应用
+     </a>
+     ”）但是，通常来说只能使用聚合Aggregates技术来保证一些ACID原则。
+    </p>
+    <p>
+     这就是为什么我们的关系型数据库需要有强大的事务处理机制——因为关系型数据库的数据是被规格化存放在了不同的地方。所以，Aggregates聚合允许我们把一个业务实体存成一个文档、存成一行，存成一个key-value，这样就可以原子式的更新了：
+    </p>
+    <div id="attachment_409">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/atomic-aggregate1.png">
+       <img alt="" class="aligncenter" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/atomic-aggregate1.png?w=594" title="atomic-aggregate"/>
+       <br/>
+      </a>
+      Atomic Aggregates
+     </p>
+    </div>
+    <p>
+     当然，原子聚合 Atomic Aggregates 这种数据模型并不能实现完全意义上的事务处理，但是如果支持原子性，锁，或 test-and-set 指令，那么， Atomic Aggregates 是可以适用的。
+    </p>
+    <p>
+     <strong>
+      <strong>
+       适用性
+      </strong>
+      :
+     </strong>
+     Key-Value Store 键值对数据库， Document Databases文档数据库， BigTable风格的数据库。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="5_%E5%8F%AF%E6%9E%9A%E4%B8%BE%E9%94%AE_Enumerable_Keys">
+     </span>
+     (5) 可枚举键 Enumerable Keys
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     也许，对于无顺序的Key-Value最大的好处是业务实体可以被容易地hash以分区在多个服务器上。而排序了的key会把事情搞复杂，但是有些时候，一个应用能从排序key中获得很多好处，就算是数据库本身不提供这个功能。让我们来思考下email消息的数据模型：
+    </p>
+    <ol>
+     <li>
+      一些NoSQL的数据库提供原子计数器以允许生一些连续的ID。在这种情况下，我们可以使用
+      <em>
+       userID_messageID
+      </em>
+      来做为一个组合key。如果我们知道最新的message ID，就可以知道前一个message，也可能知道再前面和后面的Message。
+     </li>
+     <li>
+      Messages可以被打包。比如，每天的邮件包。这样，我们就可以对邮件按指定的时间段来遍历。
+     </li>
+    </ol>
+    <p>
+     <strong>
+      <strong>
+       <strong>
+        适用性
+       </strong>
+       :
+      </strong>
+     </strong>
+     Key-Value Store 键值对数据库
+     <strong>
+      。
+     </strong>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="6_%E9%99%8D%E7%BB%B4_Dimensionality_Reduction">
+     </span>
+     (6) 降维 Dimensionality Reduction
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Dimensionality Reduction 降维是一种技术可以允许把一个多维的数据映射成一个Key-Value或是其它非多给的数据模型。
+    </p>
+    <p>
+     传统的地理位置信息系统使用一些如“四分树
+     <a href="https://en.wikipedia.org/wiki/Quadtree" target="_blank">
+      QuadTree
+     </a>
+     ” 或 “
+     <a href="https://en.wikipedia.org/wiki/R-tree" target="_blank">
+      R-Tree
+     </a>
+     ” 来做地理位置索引。这些数据结构的内容需要被在适当的位置更新，并且，如果数据量很大的话，操作成本会很高。另一个方法是我们可以遍历一个二维的数据结构并把其扁平化成一个列表。一个众所周知的例子是
+     <a href="https://en.wikipedia.org/wiki/Geohash" target="_blank">
+      Geohash
+     </a>
+     （地理哈希）。一个Geohash使用“之字形”的路线扫描一个2维的空间，而且遍历中的移动可以被简单地用0和1来表示其方向，然后在移动的过程中产生0/1串。下图展示了这一算法：（陈皓注：先把地图分成四份，经度为第一位，纬度为第二位，于是左边的经度是0，右边的是1，纬度也一样，上面是为1，下面的为0，这样，经纬度就可以组合成01，11，00，10这四个值，其标识了四块区域，我们可以如此不断的递归地对每个区域进行四分，然后可以得到一串1和0组成的字串，然后使用0-9，b-z 去掉（去掉a, i, l, o）这32个字母进行base32编码得到一个8个长度的编码，这就是Geohash的算法）
+    </p>
+    <div id="attachment_398">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/geohash-traversal1.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/geohash-traversal1.png?w=594" title="geohash-traversal"/>
+       <br/>
+      </a>
+      Geohash Index
+     </p>
+    </div>
+    <p>
+     Geohash的最强大的功能是使用简单的位操作就可以知道两个区域间的距离，就像图中所示（陈皓：proximity框着的那两个，这个很像IP地址了）。Geohash把一个二维的坐标生生地变成了一个一维的数据模型，这就是降维技术。BigTable的降维技术参看到文章后面的 [6.1]。更多的关于Geohash和其它技术可以参看 [6.2] 和 [6.3]。
+    </p>
+    <p>
+     <strong>
+      <strong>
+       <strong>
+        适用性
+       </strong>
+       :
+      </strong>
+     </strong>
+     Key-Value Store 键值对数据库， Document Databases文档数据库， BigTable风格的数据库。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="7_%E7%B4%A2%E5%BC%95%E8%A1%A8_Index_Table">
+     </span>
+     (7) 索引表 Index Table
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Index Table 索引表是一个非常直白的技术，其可以你在不支持索引的数据库中得到索引的好处。BigTable是这类最重要的数据库。这需要我们维护一个有相应存取模式的特别表。例如，我们有一个主表存着用户帐号，其可以被UserID存取。某查询需要查出某个城市里所有的用户，于是我们可以加入一张表，这张表用城市做主键，所有和这个城市相关的UserID是其Value，如下所示：
+    </p>
+    <div id="attachment_399">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/index-table.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/index-table.png?w=594" title="index-table"/>
+       <br/>
+      </a>
+      Index Table Example
+     </p>
+    </div>
+    <p>
+     可见，城市索引表的需要和对主表用户表保持一致性，因此，主表的每一个更新可能需要对索引表进行更新，不然就是一个批处理更新。无论哪个方式，这都会损伤一些性能，因为需要保持一致性。
+    </p>
+    <p>
+     Index Table 索引表可以被认为是关系型数据库中的视图的等价物。
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : BigTable 数据库。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="8_%E9%94%AE%E7%BB%84%E5%90%88%E7%B4%A2%E5%BC%95_Composite_Key_Index">
+     </span>
+     (8) 键组合索引 Composite Key Index
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Composite key 键组合是一个很常用的技术，对此，当我们的数据库支持键排序时能得到极大的好处。Composite key组合键的拼接成为第二排序字段可以让你构建出一种多维索引，这很像我们之前说过的 Dimensionality Reduction 降维技术。例如，我们需要存取用户统计。如果我们需要根据不同的地区来统计用户的分布情况，我们可以把Key设计成这样的格式
+     <em>
+      (State:City:UserID)
+     </em>
+     ，这样一来，就使得我们可以通过State到City来按组遍历用户，特别是我们的NoSQL数据库支持在key上按区查询（如：BigTable类的系统）：
+    </p>
+    <pre class="EnlighterJSRAW" data-enlighter-language="sql">SELECT Values WHERE state="CA:*"
+SELECT Values WHERE city="CA:San Francisco*"</pre>
+    <div id="attachment_477">
+     <p style="text-align: center;">
+      <a href="http://highlyscalable.files.wordpress.com/2012/03/composite-key-index.png">
+       <img alt="" decoding="async" src="http://highlyscalable.files.wordpress.com/2012/03/composite-key-index.png?w=594" title="composite-key-index"/>
+       <br/>
+      </a>
+      Composite Key Index
+     </p>
+    </div>
+    <p>
+     <strong>
+      <strong>
+       适用性
+      </strong>
+      :
+     </strong>
+     BigTable 数据库。
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="9_%E9%94%AE%E7%BB%84%E5%90%88%E8%81%9A%E5%90%88_Aggregation_with_Composite_Keys">
+     </span>
+     (9) 键组合聚合 Aggregation with Composite Keys
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Composite keys  键组合技术并不仅仅可以用来做索引，同样可以用来区分不用的类型的数据以支持数据分组。考虑一个例子，我们有一个海量的日志数组，这个日志记录了互联网上的用户的访问来源。我们需要计算从某一网站过来的独立访客的数量，在关系型数据库中，我们可能需要下面这样的SQL查询语句：
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="sql">
+      SELECT count(distinct(user_id)) FROM clicks GROUP BY site
+     </code>
+    </p>
+    <p>
+     我们可以在NoSQL中建立如下的数据模型：
+    </p>
+    <div id="attachment_383">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/composite-key-collating1.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/composite-key-collating1.png?w=594" title="composite-key-collating"/>
+       <br/>
+      </a>
+      Counting Unique Users using Composite Keys
+     </p>
+    </div>
+    <p>
+     这样，我们就可以把数据按UserID来排序，我们就可以很容易把同一个用户的数据（一个用户并不会产生太多的event）进行处理，去掉那些重复的站点（使用hash table或是别的什么）。另一个可选的技术是，我们可以对每一个用户建立一个数据实体，然后把其站点来源追加到这个数据实体中，当然，这样一来，数据的更新在性能相比之下会有一定损失。
+    </p>
+    <p>
+     <strong>
+      <strong>
+       适用性
+      </strong>
+      :
+     </strong>
+     Ordered Key-Value Store 排序键值对数据库， BigTable风格的数据库。
+    </p>
+    <p>
+     <strong>
+      <br/>
+     </strong>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="10_%E5%8F%8D%E8%BD%AC%E6%90%9C%E7%B4%A2_Inverted_Search_%E2%80%93_%E7%9B%B4%E6%8E%A5%E8%81%9A%E5%90%88_Direct_Aggregation">
+     </span>
+     (10) 反转搜索 Inverted Search – 直接聚合 Direct Aggregation
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     这个技术更多的是数据处理技术，而不是数据建模技术。尽管如此，这个技术还是会影响数据模型。这个技术最主要的想法是使用一个索引来找到满足某条件的数据，但是把数据聚合起需要使用全文搜索。还是让我们来说一个示例。还是用上面那个例子，我们有很多的日志，其中包括互联网用户和他们的访问来源。让我们假定每条记录都有一个UserID，还有用户的种类 (Men, Women, Bloggers, 等)，以及用户所在的城市，和访问过的站点。我们要干的事是，为每个用户种类找到满足某些条件（访问源，所在城市，等）的的独立用户。
+    </p>
+    <p>
+     很明显，我们需要搜索那些满足条件的用户，如果我们使用反转搜索，这会让我们把这事干得很容易，如：
+     <em>
+      {Category -&gt; [user IDs]}
+     </em>
+     或
+     <em>
+      {Site -&gt; [user IDs]}
+     </em>
+     。使用这样的索引， 我们可以取两个或多个UserID要的交集或并集（这个事很容易干，而且可以干得很快，如果这些UserID是排好序的）。但是，我们要按用户种类来生成报表会变得有点麻烦，因为我们用语句可能会像下面这样
+    </p>
+    <p>
+     <code class="EnlighterJSRAW" data-enlighter-language="sql">
+      SELECT count(distinct(user_id)) ... GROUP BY category
+     </code>
+    </p>
+    <p>
+     但这样的SQL很没有效率，因为category数据太多了。为了应对这个问题，我们可以建立一个直接索引
+     <em>
+      {UserID -&gt; [Categories]}
+     </em>
+     然后我们用它来生成报表：
+    </p>
+    <div id="attachment_388">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/invert-direct1.png">
+       <img alt="" decoding="async" height="438" loading="lazy" src="https://coolshell.cn/wp-content/uploads/2012/05/invert-direct1.png?w=594&amp;h=438" title="invert-direct" width="594"/>
+       <br/>
+      </a>
+      Counting Unique Users using Inverse and Direct Indexes
+     </p>
+    </div>
+    <p>
+     最后，我们需要明白，对每个UserID的随机查询是很没有效率的。我们可以通过批查询处理来解决这个问题。这意味着，对于一些用户集，我们可以进行预处理（不同的查询条件）。
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value Store 键值对数据库， Document Databases文档数据库， BigTable风格的数据库。
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%B1%82%E7%BA%A7%E5%BC%8F%E6%A8%A1%E5%9E%8B_Hierarchy_Modeling_Techniques">
+     </span>
+     层级式模型 Hierarchy Modeling Techniques
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <h5>
+     <span class="ez-toc-section" id="11_%E6%A0%91%E5%BD%A2%E8%81%9A%E5%90%88Tree_Aggregation">
+     </span>
+     (11) 树形聚合Tree Aggregation
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     树形或是任意的图（需反规格化）可以被直接打成一条记录或文档存放。
+    </p>
+    <ul>
+     <li>
+      当树形结构被一次性取出时这会非常有效率（如：我们需要展示一个blog的树形评论）
+     </li>
+     <li>
+      搜索和任何存取这个实体都会存在问题。
+     </li>
+     <li>
+      对于大多数NoSQL的实现来说，更新数据都是很不经济的（相比起独立结点来说）
+     </li>
+    </ul>
+    <div id="attachment_381">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/tree-aggregation.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/tree-aggregation.png?w=594" title="tree-aggregation"/>
+       <br/>
+      </a>
+      Tree Aggregation
+     </p>
+    </div>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value 键值对数据库, Document Databases 文档数据库
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="12_%E9%82%BB%E6%8E%A5%E5%88%97%E8%A1%A8_Adjacency_Lists">
+     </span>
+     (12) 邻接列表 Adjacency Lists
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Adjacency Lists 邻接列表是一种图 – 每一个结点都是一个独立的记录，其包含了 所有的父结点或子结点。这样，我们就可以通过给定的父或子结点来进行搜索。当然，我们需要通过hop查询遍历图。这个技术在广度和深度查询，以及得到某个结点的子树上没有效率。
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value 键值对数据库, Document Databases 文档数据库
+    </p>
+    <p>
+     <strong>
+      <br/>
+     </strong>
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="13_Materialized_Paths">
+     </span>
+     (13) Materialized Paths
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Materialized Paths 可以帮助避免递归遍历（如：树形结构）。这个技术也可以被认为是反规格化的一种变种。其想法是为每个结点加上父结点或子结点的标识属性，这样就可以不需要遍历就知道所有的后裔结点和祖先结点了：
+    </p>
+    <div id="attachment_372">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/materialized-paths2.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/materialized-paths2.png?w=594" title="materialized-paths"/>
+       <br/>
+      </a>
+      Materialized Paths for eShop Category Hierarchy
+     </p>
+    </div>
+    <p>
+     这个技术对于全文搜索引擎来说非常有帮助，因为其可以允许把一个层级结构转成一个文档。上面的示图中我们可以看到所有的商品或
+     <em>
+      Men’s Shoes
+     </em>
+     下的子分类可以被一条很短的查询语句处理——只需要给定个分类名。
+    </p>
+    <p>
+     Materialized Paths 可以存储一个ID的集合，或是一堆ID拼出的字符串。后者允许你通过一个正则表达式来搜索一个特定的分支路径。下图展示了这个技术（分支的路径包括了结点本身）：
+    </p>
+    <div id="attachment_377">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/materialized-paths-2.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/materialized-paths-2.png?w=594" title="materialized-paths-2"/>
+       <br/>
+      </a>
+      Query Materialized Paths using RegExp
+     </p>
+    </div>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value 键值对数据库, Document Databases 文档数据, Search Engines 搜索引擎
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="14_%E5%B5%8C%E5%A5%97%E9%9B%86_Nested_Sets">
+     </span>
+     (14) 嵌套集 Nested Sets
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     <a href="https://en.wikipedia.org/wiki/Nested_set_model">
+      Nested sets
+     </a>
+     嵌套集是树形结构的标准技术。它被广泛地用在了关系性数据库中，它完全地适用于 Key-Value 键值对数据库 和 Document Databases 文档数据库。这个技术的想法是把叶子结点存储成一个数组，并通过使用索引的开始和结束来映射每一个非叶子结点到一个叶子结点集，就如下图所示一样：
+    </p>
+    <div id="attachment_360">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/nested-sets.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/nested-sets.png?w=594" title="nested-sets"/>
+       <br/>
+      </a>
+      Modeling of eCommerce Catalog using Nested Sets
+     </p>
+    </div>
+    <p>
+     这样的数据结构对于immutable data不变的数据 有非常不错的效率，因为其点内存空间小，并且可以很快地找出所有的叶子结点而不需要树的遍历。尽管如此，在插入和更新上需要很高的性能成本，因为新的叶子结点需要大规模地更新索引。
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Key-Value Stores 键值数据库, Document Databases 文档数据库
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="15_%E5%B5%8C%E5%A5%97%E6%96%87%E6%A1%A3%E6%89%81%E5%B9%B3%E5%8C%96%EF%BC%9A%E6%9C%89%E9%99%90%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D_Nested_Documents_Flattening_Numbered_Field_Names">
+     </span>
+     (15) 嵌套文档扁平化：有限的字段名 Nested Documents Flattening: Numbered Field Names
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     搜索引擎基本上来说和扁平文档一同工作，如：每一个文档是一个扁平的字段和值的例表。这种数据模型的用来把业务实体映射到一个文本文档上，如果你的业务实体有很复杂的内部结构，这可能会变得很有挑战。一个典型的挑战是把一个有层级的文档映映射出来。例如，文档中嵌套另一个文档。让我们看看下面的示例：
+    </p>
+    <div id="attachment_363">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/nested-documents-1.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/nested-documents-1.png?w=594" title="nested-documents-1"/>
+       <br/>
+      </a>
+      Nested Documents Problem
+     </p>
+    </div>
+    <p>
+     上面的每一个业务实体代码一种简历。其包括了人名和一个技能列表。我把这个层级文档映射成一个文本文档，一种方法是创建
+     <em>
+      Skill
+     </em>
+     和
+     <em>
+      Level
+     </em>
+     字段。这个模型可以通过技术或是等级来搜索一个人，而上图标注的那样的组合查询则会失败。（陈皓注：因为分不清Excellent是否是Math还是Poetry上的）
+    </p>
+    <p>
+     在引用中的 [4.6] 给出了一种解决方案。其为每个字段都标上数字
+     <em>
+      Skill_i
+     </em>
+     和
+     <em>
+      Level_i
+     </em>
+     ，这样就可以分开搜索每一个对（下图中使用了OR来遍历查找所有可能的字段）:
+    </p>
+    <div id="attachment_365">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/nested-documents-3.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/nested-documents-3.png?w=594" title="nested-documents-3"/>
+       <br/>
+      </a>
+      Nested Document Modeling using Numbered Field Names
+     </p>
+    </div>
+    <p>
+     这样的方式根本没有扩展性，对于一些复杂的问题来说只会让代码复杂度和维护工作变大。
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Search Engines 全文搜索
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="16%E5%B5%8C%E5%A5%97%E6%96%87%E6%A1%A3%E6%89%81%E5%B9%B3%E5%8C%96%EF%BC%9A%E9%82%BB%E8%BF%91%E6%9F%A5%E8%AF%A2_Nested_Documents_Flattening_Proximity_Queries">
+     </span>
+     (16)嵌套文档扁平化：邻近查询 Nested Documents Flattening: Proximity Queries
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     在附录 [4.6]中给出了这个技术用来解决扁平层次文档。它用邻近的查询来限制可被查询的单词的范围。下图中，所有的技能和等级被放在一个字段中，叫 SkillAndLevel，查询中出现的 “Excellent” 和 “Poetry” 必需一个紧跟另一个：
+    </p>
+    <div id="attachment_364">
+     <p style="text-align: center;">
+      <a href="https://coolshell.cn/wp-content/uploads/2012/05/nested-documents-2.png">
+       <img alt="" decoding="async" src="https://coolshell.cn/wp-content/uploads/2012/05/nested-documents-2.png?w=594" title="nested-documents-2"/>
+       <br/>
+      </a>
+      Nested Document Modeling using Proximity Queries
+     </p>
+    </div>
+    <p>
+     附录 [4.3] 中讲述了这个技术被用在Solr中的一个成功案例。
+    </p>
+    <p>
+     <strong>
+      适用性
+     </strong>
+     : Search Engines 全文搜索
+    </p>
+    <h5>
+     <span class="ez-toc-section" id="17_%E5%9B%BE%E7%BB%93%E6%9E%84%E6%89%B9%E5%A4%84%E7%90%86_Batch_Graph_Processing">
+     </span>
+     (17) 图结构批处理 Batch Graph Processing
+     <span class="ez-toc-section-end">
+     </span>
+    </h5>
+    <p>
+     Graph databases 图数据库，如 neo4j 是一个出众的图数据库，尤其是使用一个结点来探索邻居结点，或是探索两个或少量结点前的关系。但是处理大量的图数据是很没有效率的，因为图数据库的性能和扩展性并不是其目的。分布式的图数据处理可以被 MapReduce 和 Message Passing pattern 来处理。如：
+     <a href="http://highlyscalable.wordpress.com/2012/02/01/mapreduce-patterns/" title="MapReduce Patterns, Algorithms, and Use Cases">
+      在我前一篇的文章中的那个示例
+     </a>
+     。这个方法可以让 Key-Value stores, Document databases, 和 BigTable-style databases 适合于处理大图。
+    </p>
+    <p>
+     <strong>
+      Applicability
+     </strong>
+     : Key-Value Stores, Document Databases, BigTable-style Databases
+    </p>
+    <h4>
+     <span class="ez-toc-section" id="%E5%8F%82%E8%80%83">
+     </span>
+     参考
+     <span class="ez-toc-section-end">
+     </span>
+    </h4>
+    <p>
+     Finally, I provide a list of useful links related to NoSQL data modeling:
+    </p>
+    <ol>
+     <li>
+      Key-Value Stores:
+      <ol>
+       <li>
+        <a href="http://www.devshed.com/c/a/MySQL/Database-Design-Using-KeyValue-Tables/">
+         http://www.devshed.com/c/a/MySQL/Database-Design-Using-KeyValue-Tables/
+        </a>
+       </li>
+       <li>
+        <a href="http://antirez.com/post/Sorting-in-key-value-data-model.html">
+         http://antirez.com/post/Sorting-in-key-value-data-model.htm
+        </a>
+        l
+       </li>
+       <li>
+        <a href="http://stackoverflow.com/questions/3554169/difference-between-document-based-and-key-value-based-databases">
+         http://stackoverflow.com/questions/3554169/difference-between-document-based-and-key-value-based-databases
+        </a>
+       </li>
+       <li>
+        <a href="https://dbmsmusings.blogspot.com/2010/03/distinguishing-two-major-types-of_29.html">
+         http://dbmsmusings.blogspot.com/2010/03/distinguishing-two-major-types-of_29.html
+        </a>
+       </li>
+      </ol>
+     </li>
+     <li>
+      BigTable-style Databases:
+      <ol>
+       <li>
+        <a href="http://www.slideshare.net/ebenhewitt/cassandra-datamodel-4985524">
+         http://www.slideshare.net/ebenhewitt/cassandra-datamodel-4985524
+        </a>
+       </li>
+       <li>
+        <a href="http://www.slideshare.net/mattdennis/cassandra-data-modeling">
+         http://www.slideshare.net/mattdennis/cassandra-data-modeling
+        </a>
+       </li>
+       <li>
+        <a href="http://nosql.mypopescu.com/post/17419074362/cassandra-data-modeling-examples-with-matthew-f-dennis">
+         http://nosql.mypopescu.com/post/17419074362/cassandra-data-modeling-examples-with-matthew-f-dennis
+        </a>
+       </li>
+       <li>
+        <a href="http://s-expressions.com/2009/03/08/hbase-on-designing-schemas-for-column-oriented-data-stores/">
+         http://s-expressions.com/2009/03/08/hbase-on-designing-schemas-for-column-oriented-data-stores/
+        </a>
+       </li>
+       <li>
+        <a href="http://jimbojw.com/wiki/index.php?title=Understanding_Hbase_and_BigTable">
+         http://jimbojw.com/wiki/index.php?title=Understanding_Hbase_and_BigTable
+        </a>
+       </li>
+      </ol>
+     </li>
+     <li>
+      Document Databases:
+      <ol>
+       <li>
+        <a href="http://www.slideshare.net/mongodb/mongodb-schema-design-richard-kreuters-mongo-berlin-preso">
+         http://www.slideshare.net/mongodb/mongodb-schema-design-richard-kreuters-mongo-berlin-preso
+        </a>
+       </li>
+       <li>
+        <a href="http://www.michaelhamrah.com/blog/2011/08/data-modeling-at-scale-mongodb-mongoid-callbacks-and-denormalizing-data-for-efficiency/">
+         http://www.michaelhamrah.com/blog/2011/08/data-modeling-at-scale-mongodb-mongoid-callbacks-and-denormalizing-data-for-efficiency/
+        </a>
+       </li>
+       <li>
+        <a href="http://seancribbs.com/tech/2009/09/28/modeling-a-tree-in-a-document-database/">
+         http://seancribbs.com/tech/2009/09/28/modeling-a-tree-in-a-document-database/
+        </a>
+       </li>
+       <li>
+        <a href="http://www.mongodb.org/display/DOCS/Schema+Design">
+         http://www.mongodb.org/display/DOCS/Schema+Design
+        </a>
+       </li>
+       <li>
+        <a href="http://www.mongodb.org/display/DOCS/Trees+in+MongoDB">
+         http://www.mongodb.org/display/DOCS/Trees+in+MongoDB
+        </a>
+       </li>
+       <li>
+        <a href="http://blog.fiesta.cc/post/11319522700/walkthrough-mongodb-data-modeling">
+         http://blog.fiesta.cc/post/11319522700/walkthrough-mongodb-data-modeling
+        </a>
+       </li>
+      </ol>
+     </li>
+     <li>
+      Full Text Search Engines:
+      <ol>
+       <li>
+        <a href="http://www.searchworkings.org/blog/-/blogs/query-time-joining-in-lucene">
+         http://www.searchworkings.org/blog/-/blogs/query-time-joining-in-lucene
+        </a>
+       </li>
+       <li>
+        <a href="http://www.lucidimagination.com/devzone/technical-articles/solr-and-rdbms-basics-designing-your-application-best-both">
+         http://www.lucidimagination.com/devzone/technical-articles/solr-and-rdbms-basics-designing-your-application-best-both
+        </a>
+       </li>
+       <li>
+        <a href="http://blog.griddynamics.com/2011/07/solr-experience-search-parent-child.html">
+         http://blog.griddynamics.com/2011/07/solr-experience-search-parent-child.html
+        </a>
+       </li>
+       <li>
+        <a href="http://www.lucidimagination.com/blog/2009/07/18/the-spanquery/">
+         http://www.lucidimagination.com/blog/2009/07/18/the-spanquery/
+        </a>
+       </li>
+       <li>
+        <a href="http://blog.mgm-tp.com/2011/03/non-standard-ways-of-using-lucene/">
+         http://blog.mgm-tp.com/2011/03/non-standard-ways-of-using-lucene/
+        </a>
+       </li>
+       <li>
+        <a href="http://www.slideshare.net/MarkHarwood/proposal-for-nested-document-support-in-lucene">
+         http://www.slideshare.net/MarkHarwood/proposal-for-nested-document-support-in-lucene
+        </a>
+       </li>
+       <li>
+        <a href="http://mysolr.com/tips/denormalized-data-structure/">
+         http://mysolr.com/tips/denormalized-data-structure/
+        </a>
+       </li>
+       <li>
+        <a href="https://sujitpal.blogspot.com/2010/10/denormalizing-maps-with-lucene-payloads.html">
+         http://sujitpal.blogspot.com/2010/10/denormalizing-maps-with-lucene-payloads.html
+        </a>
+       </li>
+       <li>
+        <a href="http://java.dzone.com/articles/hibernate-search-mapping-entit">
+         http://java.dzone.com/articles/hibernate-search-mapping-entit
+        </a>
+       </li>
+      </ol>
+     </li>
+     <li>
+      Graph Databases:
+      <ol>
+       <li>
+        <a href="http://docs.neo4j.org/chunked/stable/tutorial-comparing-models.html">
+         http://docs.neo4j.org/chunked/stable/tutorial-comparing-models.html
+        </a>
+       </li>
+       <li>
+        <a href="http://blog.neo4j.org/2010/03/modeling-categories-in-graph-database.html">
+         http://blog.neo4j.org/2010/03/modeling-categories-in-graph-database.html
+        </a>
+       </li>
+       <li>
+        <a href="http://skillsmatter.com/podcast/nosql/graph-modelling">
+         http://skillsmatter.com/podcast/nosql/graph-modelling
+        </a>
+       </li>
+       <li>
+        <a href="http://www.umiacs.umd.edu/%7Ejimmylin/publications/Lin_Schatz_MLG2010.pdf">
+         http://www.umiacs.umd.edu/~jimmylin/publications/Lin_Schatz_MLG2010.pdf
+        </a>
+       </li>
+      </ol>
+     </li>
+     <li>
+      Demensionality Reduction:
+      <ol>
+       <li>
+        <a href="http://www.slideshare.net/mmalone/scaling-gis-data-in-nonrelational-data-stores">
+         http://www.slideshare.net/mmalone/scaling-gis-data-in-nonrelational-data-stores
+        </a>
+       </li>
+       <li>
+        <a href="http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves">
+         http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves
+        </a>
+       </li>
+       <li>
+        <a href="http://www.trisis.co.uk/blog/?p=1287">
+         http://www.trisis.co.uk/blog/?p=1287
+        </a>
+       </li>
+      </ol>
+     </li>
+    </ol>
+    <p>
+     （全文完）
+    </p>
+    <div style="margin-top: 15px; font-size: 16px;color: #cc0000;">
+     <p align="center">
+      <strong>
+       （转载本站文章请注明作者和出处
+       <a href="https://coolshell.cn/">
+        酷 壳 – CoolShell
+       </a>
+       ，请勿用于任何商业用途）
+      </strong>
+     </p>
+    </div>
+    <div class="wp_rp_wrap wp_rp_vertical_m" id="wp_rp_first">
+     <div class="wp_rp_content">
+      <h3 class="related_post_title">
+       相关文章
+      </h3>
+      <ul class="related_post wp_rp">
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/1889.html">
+         <img alt="SQL的Where语句" height="150" src="https://coolshell.cn/wp-content/uploads/2009/12/sql.where_.clause-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/1889.html">
+         SQL的Where语句
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/8711.html">
+         <img alt="程序员疫苗：代码注入" height="150" src="https://coolshell.cn/wp-content/uploads/2012/12/200906020837401710-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/8711.html">
+         程序员疫苗：代码注入
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/7490.html">
+         <img alt="性能调优攻略" height="150" src="https://coolshell.cn/wp-content/uploads/2012/06/f1-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/7490.html">
+         性能调优攻略
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/6639.html">
+         <img alt="千万别惹程序员 " height="150" src="https://coolshell.cn/wp-content/uploads/2012/02/programming-language-150x150.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/6639.html">
+         千万别惹程序员
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5826.html">
+         <img alt="千万别用MongoDB？真的吗？！" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/26.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/5826.html">
+         千万别用MongoDB？真的吗？！
+        </a>
+       </li>
+       <li>
+        <a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4795.html">
+         <img alt="开源中最好的Web开发的资源" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/7.jpg" width="150"/>
+        </a>
+        <a class="wp_rp_title" href="https://coolshell.cn/articles/4795.html">
+         开源中最好的Web开发的资源
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="post-ratings" data-nonce="d2256230b1" id="post-ratings-7270" itemscope="" itemtype="https://schema.org/Article">
+     <img alt="好烂啊" id="rating_7270_1" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(7270, 1, '好烂啊');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="好烂啊"/>
+     <img alt="有点差" id="rating_7270_2" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(7270, 2, '有点差');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="有点差"/>
+     <img alt="凑合看看" id="rating_7270_3" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(7270, 3, '凑合看看');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_on.gif" style="cursor: pointer; border: 0px;" title="凑合看看"/>
+     <img alt="还不错" id="rating_7270_4" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(7270, 4, '还不错');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_half.gif" style="cursor: pointer; border: 0px;" title="还不错"/>
+     <img alt="很精彩" id="rating_7270_5" onclick="rate_post();" onkeypress="rate_post();" onmouseout="ratings_off(3.9, 4, 0);" onmouseover="current_rating(7270, 5, '很精彩');" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/stars_crystal/rating_off.gif" style="cursor: pointer; border: 0px;" title="很精彩"/>
+     (
+     <strong>
+      16
+     </strong>
+     人打了分，平均分：
+     <strong>
+      3.94
+     </strong>
+     )
+     <br/>
+     <span class="post-ratings-text" id="ratings_7270_text">
+     </span>
+     <meta content="NoSQL 数据建模技术" itemprop="name"/>
+     <meta content="NoSQL 数据建模技术" itemprop="headline"/>
+     <meta content="全文译自墙外文章“NoSQL Data Modeling Techniques”，译得不好，还请见谅。这篇文章看完之后，你可能会对NoSQL的数据结构会有些感觉。我的感觉是，关系型数据库想把一致性，完整性，索引，CRUD都干好，NoSQL只干某一种事，但是牺牲了很多别的东西。总体来说，我觉得NoSQL更适合做Cache。下面是正文——
+
+NoSQL 数据库经常被用作很多非功能性的地方，如，扩展..." itemprop="description"/>
+     <meta content="2012-05-15T08:22:13+08:00" itemprop="datePublished"/>
+     <meta content="2012-05-15T14:28:11+08:00" itemprop="dateModified"/>
+     <meta content="https://coolshell.cn/articles/7270.html" itemprop="url"/>
+     <meta content="陈皓" itemprop="author"/>
+     <meta content="https://coolshell.cn/articles/7270.html" itemprop="mainEntityOfPage"/>
+     <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+      <meta content="酷 壳 - CoolShell" itemprop="name"/>
+      <meta content="https://coolshell.cn" itemprop="url"/>
+      <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+       <meta content="" itemprop="url"/>
+      </div>
+     </div>
+     <div itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" style="display: none;">
+      <meta content="5" itemprop="bestRating"/>
+      <meta content="1" itemprop="worstRating"/>
+      <meta content="3.94" itemprop="ratingValue"/>
+      <meta content="16" itemprop="ratingCount"/>
+     </div>
+    </div>
+    <div class="post-ratings-loading" id="post-ratings-7270-loading">
+     <img class="post-ratings-image" height="16" src="https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif" width="16"/>
+     Loading...
+    </div>
+   </div>
+   <footer class="entry-footer">
+    <hr/>
+    <div class="row">
+     <div class="col-md-6 cattegories">
+      <span class="cat-links">
+       <i class="fa fa-folder-open">
+       </i>
+       <a href="https://coolshell.cn/category/datebase" rel="category tag">
+        数据库
+       </a>
+      </span>
+     </div>
+     <div class="col-md-6 tags">
+      <span class="tags-links">
+       <i class="fa fa-tags">
+       </i>
+       <a href="https://coolshell.cn/tag/database" rel="tag">
+        Database
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/nosql" rel="tag">
+        NoSQL
+       </a>
+       ,
+       <a href="https://coolshell.cn/tag/sql" rel="tag">
+        SQL
+       </a>
+      </span>
+     </div>
+    </div>
+   </footer>
+  </article>
+ </body>
+</html>
